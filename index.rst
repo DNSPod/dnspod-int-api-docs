@@ -507,10 +507,23 @@ Modify a record
 	"message": "Record modified successfully"
     }
 
-Error code
+Area code
 -------------
 
 
+Http status code
+-------------
+
+200: OK
+201: Created
+400: Bad Request
+403: Forbidden
+404: Not Found
+405: Method Not Allowed
+406: Not Acceptable
+408: Request Timeout
+409: Conflict
+500: Internal Server Error
 
 Indices and tables
 ==================
