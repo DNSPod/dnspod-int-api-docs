@@ -1,13 +1,34 @@
 DNSPod International API Documents
 ==================================
 
+Updated on 2012-05-11
 
-Notice: This is a testing version. Welcome to test it and submit proposals.
+**Notice**: This is a testing version. Welcome to test it and submit proposals.
 
-- Read the docs on github
+### About
+
+This is the public api documentation for the DNSPod International (https://www.dnspod.com). 
+
+### Documentation
+
+- Generating by yourself
   
+    You can clone this repo and generate it by yourself using sphinx.
+    
+- Read it on github
+
     https://github.com/DNSPod/dnspod-int-api-docs/blob/master/index.rst
 
-- Read the docs on ReadtheDocs
+- Read it on ReadtheDocs
 
-    Please visit http://tinyurl.com/dnspodint or http://readthedocs.org/docs/dnspod-international-api-document/en/latest/
+
+    http://tinyurl.com/dnspodint or http://readthedocs.org/docs/dnspod-international-api-document/en/latest/
+
+- Downloads
+
+    All : http://readthedocs.org/projects/dnspod-international-api-document/downloads/
+    
+    PDF : http://media.readthedocs.org/pdf/dnspod-international-api-document/latest/dnspod-international-api-document.pdf
+    
+    HTML zip : http://media.readthedocs.org/htmlzip/dnspod-international-api-document/latest/dnspod-international-api-document.zip
+    
