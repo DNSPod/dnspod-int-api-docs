@@ -1,9 +1,17 @@
 DNSPod International API Documents
 ==================================
 
-Updated on 2012-05-11
+**Notice**: 
+- This is a testing version (v1.0a1). Welcome to test it and submit proposals.
 
-**Notice**: This is a testing version (v1.0a1). Welcome to test it and submit proposals.
+- You should specify the content-type to "application/json" when use it.
+
+### Changelog
+
+- 2012-05-13 README.md changed
+   
+- 2012-05-11  version 1.0a1 released
+
 
 ### About
 
