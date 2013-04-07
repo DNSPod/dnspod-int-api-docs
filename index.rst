@@ -129,7 +129,7 @@ Enable/Disable a domain
 + Format
     JSON
 + Method
-    GET
+    PUT
 + Request parameters
 
 +-----------+----------+-----------------------+
@@ -477,7 +477,7 @@ Modify a record
 + Format
     JSON
 + Method
-    POST
+    PUT
 + Request parameters
 
 +-------------+----------+-------------+
