@@ -428,14 +428,14 @@ Add a record
 
 ::
 
-    {
+    [{
 	"area": "0", 
 	"record_id": 85, 
 	"record_type": "A", 
 	"sub_domain": "test", 
 	"ttl": "600", 
 	"value": "1.22.22.1"
-    }
+    }]
 
 
 Enable/Disable a record
