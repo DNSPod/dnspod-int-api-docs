@@ -8,8 +8,8 @@ API Address：
     * https://dnsapi.com/User.Detail
 HTTP Request Type：
     * POST
-Request Parmas：
-    * Globals
+Request Parameters：
+    * Global Parameters
 Response Code：
     * Common Response
 
@@ -53,7 +53,7 @@ API Address：
 HTTP Request Type：
     * POST
 Request Parameters：
-    * Globals
+    * Global parameters
     * real_name Your real name for personal accounts,and company name for company accounts.
     * nick Your nickname that make it easier to contact to the users.
     * telephone The users' phone number.
