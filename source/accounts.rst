@@ -1,23 +1,23 @@
-帐户相关
+Accounts
 ========
 
 
-获取帐户信息
+Get Account Information
 ------------
-接口地址：
-    * https://dnsapi.cn/User.Detail
-HTTP请求方式：
+API Address：
+    * https://dnsapi.com/User.Detail
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-响应代码：
-    * 共通返回
+Request Parmas：
+    * Globals
+Response Code：
+    * Common Response
 
-示例::
+Example::
     
-    curl -X POST https://dnsapi.cn/User.Detail -d 'login_email=api@dnspod.com&login_password=password&format=json'
+    curl -X POST https://dnsapi.com/User.Detail -d 'login_email=api@dnspod.com&login_password=password&format=json'
 
-返回参考：
+Response Example：
 
     * JSON::
         
@@ -46,28 +46,28 @@ HTTP请求方式：
             }
         }
 
-修改资料
+Update Information
 --------
-接口地址：
-    * https://dnsapi.cn/User.Modify
-HTTP请求方式：
+API Address：
+    * https://dnsapi.com/User.Modify
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * real_name 真实姓名，如果用户类型是企业，则为公司名称
-    * nick 用户称呼，用于与用户联系时称呼用户
-    * telephone 用户手机号码
-    * im 用户qq
-响应代码：
-    * 共通返回
-    * 8 手机号码不正确
-    * 9 用户qq不正确
+Request Parameters：
+    * Globals
+    * real_name Your real name for personal accounts,and company name for company accounts.
+    * nick Your nickname that make it easier to contact to the users.
+    * telephone The users' phone number.
+    * im Your Instant Messaging account.
+Response Code：
+    * Common response
+    * 8 Invalid phone number.
+    * 9 Invalid im account.
 
-示例::
+Example::
     
-    curl -X POST https://dnsapi.cn/User.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&im=10000000'
+    curl -X POST https://dnsapi.com/User.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&im=10000000'
 
-返回参考：
+Response：
 
     * JSON::
 
@@ -79,26 +79,26 @@ HTTP请求方式：
             }
         }
 
-修改密码
+Change Password
 ---------
-接口地址：
-    * https://dnsapi.cn/Userpasswd.Modify
-HTTP请求方式：
+API Address：
+    * https://dnsapi.com/Userpasswd.Modify
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * old_password 旧密码
-    * new_password 新密码
-响应代码：
-    * 共通返回
-    * 8 旧密码错误
-    * 9 新密码错误
+Request Parameters：
+    * Global Parameters
+    * old_password The old password.
+    * new_password The new password.
+Response Code：
+    * Common Response Code
+    * 8 Wrong old password.
+    * 9 Invalid new password.
 
-示例::
+Example::
     
-    curl -X POST https://dnsapi.cn/Userpassword.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&old_password=old_password&new_password=new_password'
+    curl -X POST https://dnsapi.com/Userpassword.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&old_password=old_password&new_password=new_password'
 
-返回参考：
+Response：
 
     * JSON::
 
@@ -110,28 +110,28 @@ HTTP请求方式：
             }
         }
 
-修改邮箱
+Update Email Address
 ---------
-接口地址：
-    * https://dnsapi.cn/Useremail.Modify
-HTTP请求方式：
+API Address：
+    * https://dnsapi.com/Useremail.Modify
+HTTP Resquest Type：
     * POST
-请求参数：
-    * 公共参数
-    * old_email 旧邮箱
-    * new_email 新邮箱
-    * password 当前密码
-响应代码：
-    * 共通返回
-    * 8 旧邮箱错误
-    * 9 新邮箱错误
-    * 10 当前密码错误
+Request Parameters：
+    * Global Parameters
+    * old_email Old email address.
+    * new_email New email address.
+    * password Your current password for verify.
+Response Code：
+    * Common Response Code.
+    * 8 Old email address not correct.
+    * 9 New email address is invalid.
+    * 10 Wrong password.
 
-示例:: 
+Example:: 
 
-    curl -X POST https://dnsapi.cn/Useremail.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&old_email=api1@dnspod.com&new_email=api@dnspod.com&password=password'   
+    curl -X POST https://dnsapi.com/Useremail.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&old_email=api1@dnspod.com&new_email=api@dnspod.com&password=password'   
 
-返回参考：
+Response：
 
     * JSON::
         
@@ -144,25 +144,25 @@ HTTP请求方式：
         }
 
         
-获取手机验证码
+Get Telephone Verify Code
 ---------------
-接口地址：
-    * https://dnsapi.cn/Telephoneverify.Code
-HTTP请求方式：
+API Address：
+    * https://dnsapi.com/Telephoneverify.Code
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * telephone 用户手机号码
-响应代码：
-    * 共通参数
-    * 4 用户已经通过手机验证
-    * 5 手机号码非法
+Request Parameters :
+    * Global Parameters.
+    * telephone The telephone number.
+Response Code：
+    * Common Response
+    * 4 You already did this.
+    * 5 Invalid telephone number.
 
-示例::
+Example::
     
-    curl -X POST https://dnsapi.cn/Telephoneverify.Code -d 'login_email=api@dnspod.com&login_password=password&format=json&telephone=18600000000'
+    curl -X POST https://dnsapi.com/Telephoneverify.Code -d 'login_email=api@dnspod.com&login_password=password&format=json&telephone=18600000000'
 
-返回参考：
+Response：
 
     * JSON::
         
@@ -186,22 +186,22 @@ HTTP请求方式：
             }
         }
 
-获取用户日志
+Get The Account's Operate Log
 -------------
-接口地址：
-    * https://dnsapi.cn/User.Log
-HTTP请求方式：
+API Address：
+    * https://dnsapi.com/User.Log
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-响应代码：
-    * 共通返回
+Request Parameters：
+    * Global Parameters
+Response Code：
+    * Common response code.
 
-示例::
+Example::
 
-    curl -X POST https://dnsapi.cn/User.Log -d 'login_email=api@dnspod.com&login_password=password&format=json'
+    curl -X POST https://dnsapi.com/User.Log -d 'login_email=api@dnspod.com&login_password=password&format=json'
 
-返回参考：
+Response：
 
     * JSON::
         
