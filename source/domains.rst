@@ -1,30 +1,30 @@
-域名相关
+Domains
 ========
 
-添加新域名
+Add New Domain
 -----------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domain.Create
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain 域名, 没有 www, 如 dnspod.com
-    * group_id 域名分组ID，可选参数
-    * is_mark {yes|no} 是否星标域名，可选参数
-响应代码：
-    * 共通返回
-    * 6 域名无效
-    * 7 域名已存在
-    * 11 域名已经存在并且是其它域名的别名
-    * 12 域名已经存在并且您没有权限管理
-    * 41 网站内容不符合DNSPod解析服务条款，域名添加失败
+Request Parameters：
+    * Global Parameters
+    * domain The domain to add.No prefix.Example:dnspod.com
+    * group_id The domain group ID.Optional parameter.
+    * is_mark {yes|no} Whether to mark it or not.Optional parameter.
+Response Code：
+    * Common Response Code
+    * 6 Invalid domain.
+    * 7 Domain already exists.
+    * 11 Domain already exists as an alias of another domain.
+    * 12 Domain already exists on which you have no permit to operate.
+    * 41 The website falls short of the term of service of DNSPod.
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Domain.Create -d 'login_email=api@dnspod.com&login_password=password&domain=api2.com&format=json'
 
-返回参考：
+Response：
 
     * JSON::
         
@@ -42,39 +42,39 @@ HTTP请求方式：
         }
 
 
-获取域名列表
+Get The Domain List
 -------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domain.List
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * type 域名权限种类，可选参数，默认为'all'。包含以下类型：
-        * all：所有域名
-        * mine：我的域名
-        * share：共享给我的域名
-        * ismark：星标域名
-        * pause：暂停域名
-        * vip：VIP域名
-        * recent：最近操作过的域名
-        * share_out：我共享出去的域名
-    * offset 记录开始的偏移，第一条记录为 0，依次类推，可选参数
-    * length 共要获取的记录的数量，比如获取20条，则为20，可选参数
-    * group_id 分组ID，获取指定分组的域名，可选参数
-注意事项：
-    * 如果账户中的域名数量超过了3000，将会强制分页并且只返回前3000条，这时需要通过 offset 和 length 参数去获取其它域名。
-响应代码：
-    * 共通返回
-    * 6 记录开始的偏移无效
-    * 7 共要获取的记录的数量无效
-    * 9 没有任何域名
+Request Parameters：
+    * Global Parameters
+    * type The domain type.Optional parameter.Default value:'all'.Here are all the choseable values：
+        * all：All the domains
+        * mine：Only mine.
+        * share：Domains that shared with me.
+        * ismark：Marked domains.
+        * pause：Paused domains.
+        * vip：VIP domains.
+        * recent：Domains operated recentily.
+        * share_out：Domains that I shared out.
+    * offset The offset of the response.Optional parameter.The first domain is numbered as 0.
+    * length The number of domains you want to get on this request.Optional parameter.
+    * group_id The group ID.Only in this group can the domain be in the results if this parameter is seted.Optional parameter.
+Attention：
+    * If there are more than 3000 domains in your account,only the first 3000 domains will responsed for split page.You may need to set the parameter "offset" and "length" to get all your domains with multi requests.
+Response Code：
+    * Common Response Code
+    * 6 Invalid offset.
+    * 7 Invalid length.
+    * 9 Empty result.
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domain.List -d 'login_email=api@dnspod.com&login_password=password&format=json'
 
-返回参考：
+Response：
 
    * JSON::
 
@@ -120,28 +120,28 @@ HTTP请求方式：
             ]
         }    
 
-删除域名
+Delete Domain
 ---------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domain.Remove
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 或 domain，分别对应域名ID和域名，提交其中一个即可
-响应代码：
-    * 共通返回
-    * -15 域名已被封禁
-    * 6 域名ID错误
-    * 7 域名已锁定
-    * 8 VIP域名不可以删除
-    * 9 非域名所有者
+Request Parameters：
+    * Global Parameters
+    * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+Response Code：
+    * Common Response Code
+    * -15 Domain got prohibited.
+    * 6 Invalid domain id.
+    * 7 Domain got locked.
+    * 8 VIP domains is not allowed to delete.
+    * 9 You have no permit to do this.
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Domain.Remove -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=1992403'
     
-返回参考：
+Response：
 
     * JSON::
         
@@ -153,30 +153,30 @@ HTTP请求方式：
             }
         }
 
-设置域名状态
+Set Domain Status
 -------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domain.Status
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 或 domain，分别对应域名ID和域名，提交其中一个即可
-    * status {enable, disable} 域名状态
-响应代码：
-    * 共通返回
-    * -15 域名已被封禁
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
-    * 7 域名被锁定
-    * 8 非域名所有者
+Request Parameters：
+    * Global Parameters
+    * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * status {enable, disable} The domain status.
+Response Code：
+    * Common Response Code
+    * -15 Domain got prohibited.
+    * -7 The company account need a upgrade before doing this.
+    * -8 You need a upgrade for the domains you are acting for.
+    * 6 Invalid domain id.
+    * 7 Domain got locked.
+    * 8 You have no permit to do this.
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Domain.Status -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2058967&status=disable'
 
-返回参考：
+Response：
 
     * JSON::
             
@@ -188,27 +188,27 @@ HTTP请求方式：
             }
         }
 
-获取域名信息
+Get The Domain Information
 -------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domain.Info
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 或 domain，分别对应域名ID和域名，提交其中一个即可
-响应代码：
-    * 共通返回
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
-    * 8 非域名所有者
+Request Parameters：
+    * Global Parameters
+    * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+Response Code：
+    * Common Response Code
+    * -7 The company account need a upgrade before doing this.
+    * -8 You need a upgrade for the domains you are acting for.
+    * 6 Invalid domain id.
+    * 8 You have no permit to do this.
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Domain.Info  -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
 
-返回参考：
+Response：
 
     * JSON::
         
@@ -242,27 +242,27 @@ HTTP请求方式：
         } 
 
 
-获取域名日志
+Get the Operate Logs of A Domain
 -------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domain.Log
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 或 domain，分别对应域名ID和域名，提交其中一个即可
-响应代码：
-    * 共通返回
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
-    * 8 非域名所有者
+Request Parameters：
+    * Global Parameters
+    * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+Response Code：
+    * Common Response Code
+    * -7 The company account need a upgrade before doing this.
+    * -8 You need a upgrade for the domains you are acting for.
+    * 6 Invalid domain id.
+    * 8 You have no permit to do this.
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domain.Log  -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
 
-返回参考：
+Response：
 
     * JSON::
         
@@ -289,30 +289,30 @@ HTTP请求方式：
             ]
         } 
 
-设置搜索引擎推送
+Push Domain to Search Engine
 ---------------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domain.Searchenginepush
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 或 domain，分别对应域名ID和域名，提交其中一个即可
-    * status {yes,no} 是否推送
-响应代码：
-    * 共通返回
-    * -15 域名已被封禁
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
-    * 7 域名被锁定
-    * 8 非域名所有者
+Request Parameters：
+    * Global Parameters
+    * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * status {yes,no} Whether to push it.
+Response Code：
+    * Common Response Code
+    * -15 Domain got prohibited.
+    * -7 The company account need a upgrade before doing this.
+    * -8 You need a upgrade for the domains you are acting for.
+    * 6 Invalid domain id.
+    * 7 Domain got locked.
+    * 8 You have no permit to do this.
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Domain.Searchenginepush -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&status=yes'
     
-返回参考：
+Response：
 
     * JSON::
         
@@ -325,35 +325,35 @@ HTTP请求方式：
         }
 
 
-添加域名共享
+Share A Domain
 -------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domainshare.Create
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 或 domain，分别对应域名ID和域名，提交其中一个即可
-    * email 要共享到的邮箱
-    * mode {r,rw}共享模式，r (只读)　或 rw (读取、修改)，默认为 r
-    * sub_domain 子域名共享，如：www、bbs等。如果要共享整个域名，则无需提交此参数
+Request Parameters：
+    * Global Parameters
+    * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * email The email address with who you want to share.
+    * mode {r,rw} The share mode."r" stands for "read only",and "rw" stands for "read and write".The default value is "r".
+    * sub_domain The subsidiary domain you want to share,like "www" or "bbs".Don't set this parameter if you want to share the whole domain.
 
-响应代码：
-    * 共通返回
-    * -15 域名已被封禁
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
-    * 7 要共享到的邮箱错误
-    * 8 要共享到的邮箱不存在
-    * 9 共享已经存在
-    * 10 共享数量已经到达上限
+Response Code：
+    * Common Response Code
+    * -15 Domain got prohibited.
+    * -7 The company account need a upgrade before doing this.
+    * -8 You need a upgrade for the domains you are acting for.
+    * 6 Invalid domain id.
+    * 7 Invalid target email address.
+    * 8 The target email address not exists.
+    * 9 The share already exists.
+    * 10 Your shared number is up to limit.
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Domainshare.Create -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=otheruser@dnspod.com&mode=rw'
     
-返回参考：
+Response：
 
     * JSON::
         
@@ -365,33 +365,27 @@ HTTP请求方式：
             }
         }
     
-域名共享列表
+Get Domain Share List
 -------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domainshare.List
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 或 domain，分别对应域名ID和域名，提交其中一个即可
-响应代码：
-    * 共通返回
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
-    * 7 没有共享记录
-响应代码：
-    * 共通返回
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
-    * 7 没有共享记录
+Request Parameters：
+    * Global Parameters
+    * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+Response Code：
+    * Common Response Code
+    * -7 The company account need a upgrade before doing this.
+    * -8 You need a upgrade for the domains you are acting for.
+    * 6 Invalid domain id.
+    * 7 No share records.
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domainshare.List -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
 
-返回参考：
+Response：
 
     * JSON::
         
@@ -411,30 +405,30 @@ HTTP请求方式：
             "owner": "api@dnspod.com"
         }
 
-修改域名共享
+Update the Domain Share
 -------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domainshare.Modify
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 或 domain，分别对应域名ID和域名，提交其中一个即可
-    * email 被共享者的邮箱，原来是什么就提交什么，不能修改
-    * mode {r,rw}共享模式，r (只读)　或 rw (读取、修改)，默认为 r
+Request Parameters：
+    * Global Parameters
+    * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * email The original target email address.Don's change it.
+    * mode {r,rw} Share mode."r" stands for "read only",and "rw" stands for "read and write".The default value is "r".
     * old_sub_domain 已经成功共享的子域名，如果只修改主域名共享，则无需提交此参数
     * new_sub_domain 要修改到的共享子域名
-响应代码：
-    * 共通返回
-    * -15 域名已被封禁
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
+Response Code：
+    * Common Response Code
+    * -15 Domain got prohibited.
+    * -7 The company account need a upgrade before doing this.
+    * -8 You need a upgrade for the domains you are acting for.
+    * 6 Invalid domain id.
     * 7 要共享到的邮箱错误
     * 8 要共享到的邮箱不存在
     * 9 此邮箱的共享不存在
 
-示例
+Example
 
 1. 修改主域名共享状态，从 rw 修改为 r::
         
@@ -456,7 +450,7 @@ HTTP请求方式：
 
     curl -X POST https://dnsapi.cn/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=rw&old_sub_domain=www&new_sub_domain=bbs'
     
-返回参考：
+Response：
 
    * JSON::
         
@@ -470,29 +464,29 @@ HTTP请求方式：
 
 删除域名共享
 -------------
-接口地址：
+API Address：
     *  https://dnsapi.cn/Domainshare.Remove
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 或 domain，分别对应域名ID和域名，提交其中一个即可
+Request Parameters：
+    * Global Parameters
+    * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
     * email 被共享者的邮箱，原来是什么就提交什么，不能修改
-响应代码：
-    * 共通返回
-    * -15 域名已被封禁
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
+Response Code：
+    * Common Response Code
+    * -15 Domain got prohibited.
+    * -7 The company account need a upgrade before doing this.
+    * -8 You need a upgrade for the domains you are acting for.
+    * 6 Invalid domain id.
     * 7 要共享到的邮箱错误
     * 8 要共享到的邮箱不存在
     * 9 此邮箱的共享不存在
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domainshare.Remove -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com'
 
-返回参考：
+Response：
 
     * JSON::    
     
@@ -506,31 +500,31 @@ HTTP请求方式：
 
 域名过户
 ---------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domain.Transfer
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 或 domain，分别对应域名ID和域名，提交其中一个即可
+Request Parameters：
+    * Global Parameters
+    * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
     * email 被共享者的邮箱，原来是什么就提交什么，不能修改
-响应代码：
-    * 共通返回
-    * -15 域名已被封禁
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
+Response Code：
+    * Common Response Code
+    * -15 Domain got prohibited.
+    * -7 The company account need a upgrade before doing this.
+    * -8 You need a upgrade for the domains you are acting for.
+    * 6 Invalid domain id.
     * 7 要过户到的账号邮箱错误
     * 8 要过户到的账号邮箱不存在
     * 9 不能过户给自己
     * 10 个人用户域名不能过户给企业账号
     * 11 企业用户域名不能过户给个人账号
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domainshare.Transfer -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com'
     
-返回参考：
+Response：
 
     * JSON::    
     
@@ -544,30 +538,30 @@ HTTP请求方式：
 
 锁定域名
 ---------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domain.Lock
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
+Request Parameters：
+    * Global Parameters
     * domain_id 域名ID
     * days 要锁定的天数
-响应代码：
-    * 共通返回
-    * -15 域名已被封禁
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
+Response Code：
+    * Common Response Code
+    * -15 Domain got prohibited.
+    * -7 The company account need a upgrade before doing this.
+    * -8 You need a upgrade for the domains you are acting for.
+    * 6 Invalid domain id.
     * 7 不是域名所有者或者没有权限
     * 8 锁定天数错误
     * 9 锁定天数超出限制
     * 21 域名已经被锁定
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domain.Lock -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&days=3'
 
-返回参考：
+Response：
 
     * JSON::
         
@@ -586,26 +580,26 @@ HTTP请求方式：
 
 锁定状态
 ---------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domain.Lockstatus
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 或 domain，分别对应域名ID和域名，提交其中一个即可
-响应代码：
-    * 共通返回
-    * -15 域名已被封禁
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
+Request Parameters：
+    * Global Parameters
+    * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+Response Code：
+    * Common Response Code
+    * -15 Domain got prohibited.
+    * -7 The company account need a upgrade before doing this.
+    * -8 You need a upgrade for the domains you are acting for.
+    * 6 Invalid domain id.
     * 7 域名没有锁定
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domain.Lockstatus -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
     
-返回参考：
+Response：
 
     * JSON::
         
@@ -624,29 +618,29 @@ HTTP请求方式：
 
 锁定解锁
 ---------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domain.Unlock
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 或 domain，分别对应域名ID和域名，提交其中一个即可
+Request Parameters：
+    * Global Parameters
+    * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
     * lock_code 域名解锁码，锁定的时候会返回
-响应代码：
-    * 共通返回
-    * -15 域名已被封禁
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
+Response Code：
+    * Common Response Code
+    * -15 Domain got prohibited.
+    * -7 The company account need a upgrade before doing this.
+    * -8 You need a upgrade for the domains you are acting for.
+    * 6 Invalid domain id.
     * 7 不是域名所有者或者没有权限
     * 8 域名没有锁定
     * 9 解锁码错误
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domain.Unlock -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&lock_code=fdd638'
 
-返回参考：
+Response：
 
     * JSON::
         
@@ -665,25 +659,25 @@ HTTP请求方式：
 
 域名绑定列表
 -------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domainalias.List
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 或 domain，分别对应域名ID和域名，提交其中一个即可
-响应代码：
-    * 共通返回
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
+Request Parameters：
+    * Global Parameters
+    * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+Response Code：
+    * Common Response Code
+    * -7 The company account need a upgrade before doing this.
+    * -8 You need a upgrade for the domains you are acting for.
+    * 6 Invalid domain id.
     * 7 没有绑定记录
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domainalias.List -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
 
-返回参考：
+Response：
 
    * JSON::
 
@@ -704,30 +698,30 @@ HTTP请求方式：
 
 添加域名绑定
 -------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domainalias.Create
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
+Request Parameters：
+    * Global Parameters
     * domain_id ，域名ID
     * domain 要绑定的域名，不带www.
-响应代码：
-    * 共通返回
-    * -15 域名已被封禁
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
+Response Code：
+    * Common Response Code
+    * -15 Domain got prohibited.
+    * -7 The company account need a upgrade before doing this.
+    * -8 You need a upgrade for the domains you are acting for.
+    * 6 Invalid domain id.
     * 7 要绑定的域名错误
     * 8 要绑定的域名已经被添加
     * 9 要绑定的域名已经被绑定
     * 10 绑定数量已经到达上限
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domainalias.Create -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&domain=dnspodapi.com'
 
-返回参考：
+Response：
 
     * JSON::
         
@@ -745,27 +739,27 @@ HTTP请求方式：
 
 删除域名绑定
 -------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domainalias.Remove
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 或 domain，分别对应域名ID和域名，提交其中一个即可
+Request Parameters：
+    * Global Parameters
+    * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
     * alias_id 绑定ID，绑定域名的时候会返回
-响应代码：
-    * 共通返回
-    * -15 域名已被封禁
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
+Response Code：
+    * Common Response Code
+    * -15 Domain got prohibited.
+    * -7 The company account need a upgrade before doing this.
+    * -8 You need a upgrade for the domains you are acting for.
+    * 6 Invalid domain id.
     * 7 绑定ID错误
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domainalias.Remove -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&alias_id=18737'
 
-返回参考：
+Response：
 
     * JSON::
         
@@ -779,20 +773,20 @@ HTTP请求方式：
 
 获取域名分组
 -------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domaingroup.List
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-响应代码：
-    * 共通返回
+Request Parameters：
+    * Global Parameters
+Response Code：
+    * Common Response Code
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domaingroup.List -d 'login_email=api@dnspod.com&login_password=password&format=json'
     
-返回参考：
+Response：
 
     * JSON::
         
@@ -859,24 +853,24 @@ HTTP请求方式：
     
 添加域名分组
 -------------
-接口地址：
+API Address：
     https://dnsapi.cn/Domaingroup.Create
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
+Request Parameters：
+    * Global Parameters
     * group_name 分组名称
-响应代码：
-    * 共通返回
+Response Code：
+    * Common Response Code
     * 7 分组名称错误
     * 8 分组名称已经存在
     * 9 分组数量超出限制
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domaingroup.List -d 'login_email=api@dnspod.com&login_password=password&format=json&group_name=dnspod'
 
-返回参考：
+Response：
 
     * JSON::
         
@@ -896,26 +890,26 @@ HTTP请求方式：
 
 修改域名分组
 -------------
-接口地址：
+API Address：
     https://dnsapi.cn/Domaingroup.Modify
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
+Request Parameters：
+    * Global Parameters
     * group_id 分组ID
     * group_name 分组名称
-响应代码：
-    * 共通返回
+Response Code：
+    * Common Response Code
     * 6 分组ID错误
     * 7 分组名称错误
     * 8 分组名称已经存在
     * 9 分组数量超出限制
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domaingroup.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&group_id=1985&group_name=dnspodgroup'
 
-返回参考：
+Response：
 
     * JSON::
 
@@ -929,22 +923,22 @@ HTTP请求方式：
     
 删除域名分组
 -------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domaingroup.Remove
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
+Request Parameters：
+    * Global Parameters
     * group_id 分组ID
-响应代码：
-    * 共通返回
+Response Code：
+    * Common Response Code
     * 6 分组ID错误
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domaingroup.Remove -d 'login_email=api@dnspod.com&login_password=password&format=json&group_id=1985'
 
-返回参考：
+Response：
 
     * JSON::
         
@@ -958,24 +952,24 @@ HTTP请求方式：
     
 设置域名分组
 ------------------------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domain.Changegroup
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 或 domain，分别对应域名ID和域名，提交其中一个即可
+Request Parameters：
+    * Global Parameters
+    * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
     * group_id 分组ID
-响应代码：
-    * 共通返回
-    * 6 域名ID错误
+Response Code：
+    * Common Response Code
+    * 6 Invalid domain id.
     * 7 分组ID错误
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domain.Changegroup -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&group_id=1985'
     
-返回参考：
+Response：
 
    * JSON::
     
@@ -994,23 +988,23 @@ HTTP请求方式：
 
 设置域名星标
 -------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domain.Ismark
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 或 domain，分别对应域名ID和域名，提交其中一个即可
+Request Parameters：
+    * Global Parameters
+    * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
     * is_mark {yes | no}, 是否星标域名
-响应代码：
-    * 共通返回
-    * 6 域名ID错误
+Response Code：
+    * Common Response Code
+    * 6 Invalid domain id.
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domain.Ismark -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&is_mark=yes'
 
-返回参考：
+Response：
 
     * JSON::
         
@@ -1024,23 +1018,23 @@ HTTP请求方式：
 
 设置域名备注
 -------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domain.Remark
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 或 domain，分别对应域名ID和域名，提交其中一个即可
+Request Parameters：
+    * Global Parameters
+    * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
     * remark 域名备注，删除备注请提交空内容
-响应代码：
-    * 共通返回
-    * 6 域名ID错误
+Response Code：
+    * Common Response Code
+    * 6 Invalid domain id.
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domain.Remark -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&remark=这个域名需要备注一下'
     
-返回参考：
+Response：
 
     * JSON::
         
@@ -1054,22 +1048,22 @@ HTTP请求方式：
 
 获取域名权限
 -------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domain.Purview
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 或 domain，分别对应域名ID和域名，提交其中一个即可
-响应代码：
-    * 共通返回
+Request Parameters：
+    * Global Parameters
+    * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+Response Code：
+    * Common Response Code
     * 6 域名ID不正确
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domain.Purview -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
     
-返回参考：
+Response：
 
     * JSON::
         
@@ -1148,31 +1142,31 @@ HTTP请求方式：
 
 域名取回获取邮箱列表
 ---------------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domain.Acquire
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
+Request Parameters：
+    * Global Parameters
     * domain 要取回的域名
-响应代码：
-    * 共通返回
+Response Code：
+    * Common Response Code
     * 6 域名不正确
     * 7 不支持中文域名
     * 8  域名不正确
     * 9 不支持免费.tk域名
     * 10 域名不存在
-    * 11 域名已被封禁，不能取回
+    * 11 Domain got prohibited.，不能取回
     * 12 锁定的域名不能取回
     * 13 个人用户不能取回企业用户域名
     * 14 企业用户不能取回个人用户域名
     * 15 获取不到邮箱，可能是网络错误或域名不支持
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domain.Acquire -d 'login_email=api@dnspod.com&login_password=password&format=json&domain=api4.com'
     
-返回参考：
+Response：
 
     * JSON::
         
@@ -1190,33 +1184,33 @@ HTTP请求方式：
 
 域名取回发送验证码
 --------------------
-接口地址：
+API Address：
     *  https://dnsapi.cn/Domain.Acquiresend
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
+Request Parameters：
+    * Global Parameters
     * domain 要取回的域名
     * email 域名取回邮箱列表中的一个邮箱
-响应代码：
-    * 共通返回
+Response Code：
+    * Common Response Code
     * 6 域名不正确
     * 7 不支持中文域名
     * 8  域名不正确
     * 9 不支持免费.tk域名
     * 10 域名不存在
-    * 11 域名已被封禁，不能取回
+    * 11 Domain got prohibited.，不能取回
     * 12 锁定的域名不能取回
     * 13 个人用户不能取回企业用户域名
     * 14 企业用户不能取回个人用户域名
     * 15 获取不到邮箱，可能是网络错误或域名不支持
     * 16 邮箱参数错误
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domain.Acquiresend -d 'login_email=api@dnspod.com&login_password=password&format=json&domain=api4.com&email=support@namecheap.com'
     
-返回参考：
+Response：
     * JSON::
         
         {
@@ -1229,33 +1223,33 @@ HTTP请求方式：
 
 验证域名取回的验证码
 ---------------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Domain.Acquirevalidate
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
+Request Parameters：
+    * Global Parameters
     * domain 要取回的域名
     * code  发送到邮箱的验证码
-响应代码：
-    * 共通返回
+Response Code：
+    * Common Response Code
     * 6 域名不正确
     * 7 不支持中文域名
     * 8  域名不正确
     * 9 不支持免费.tk域名
     * 10 域名不存在
-    * 11 域名已被封禁，不能取回
+    * 11 Domain got prohibited.，不能取回
     * 12 锁定的域名不能取回
     * 13 个人用户不能取回企业用户域名
     * 14 企业用户不能取回个人用户域名
     * 15 验证码不正确
     * 16 邮箱参数错误
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Domain.Acquirevalidate -d 'login_email=api@dnspod.com&login_password=password&format=json&domain=api4.com&code=111000'
     
-返回参考：
+Response：
 
     * JSON::
             
@@ -1269,23 +1263,23 @@ HTTP请求方式：
 
 获取等级允许的记录类型
 ----------------------------
-接口地址：
+API Address：
     *  https://dnsapi.cn/Record.Type
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
+Request Parameters：
+    * Global Parameters
     * domain_grade 域名等级，分别为：D_Free, D_Plus, D_Extra, D_Expert, D_Ultra，分别对应免费套餐、个人豪华、企业1、企业2、企业3
                         新套餐：DP_Free DP_Plus DP_Extra DP_Expert DP_Ultra, 分别对应新免费、个人专业版、企业创业版、企业标准版、企业旗舰版
-响应代码：
-    * 共通返回
+Response Code：
+    * Common Response Code
     * 6 等级代码不正确
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Record.Type -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_grade=D_Free'
 
-返回参考：
+Response：
 
     * JSON::
         
@@ -1309,24 +1303,24 @@ HTTP请求方式：
 
 获取等级允许的线路线路
 -----------------------
-接口地址：
+API Address：
     *  https://dnsapi.cn/Record.Line
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
+Request Parameters：
+    * Global Parameters
     * domain_grade 域名等级，分别为：D_Free, D_Plus, D_Extra, D_Expert, D_Ultra，分别对应免费套餐、个人豪华、企业1、企业2、企业3。
                     新套餐：DP_Free, DP_Plus, DP_Extra, DP_Expert, DP_Ultra, 分别对应新免费、个人专业版、企业创业版、企业标准版、企业旗舰版
-    * domain_id 或 domain，分别对应域名ID和域名，提交其中一个即可
-响应代码：
-    * 共通返回
+    * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+Response Code：
+    * Common Response Code
     * 6 等级代码不正确
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Record.Line -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_grade=D_Free&domain_id=2059079'
 
-返回参考：
+Response：
 
     * JSON::
         
