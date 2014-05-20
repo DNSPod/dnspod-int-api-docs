@@ -1140,7 +1140,7 @@ Response：
 Directions:
     * Store it when you get it instead of get this with API everytime you need it.This is something rarely change.
 
-域名取回获取邮箱列表
+Get the Email Address Needed to Get Domain Back
 ---------------------
 API Address：
     * https://dnsapi.cn/Domain.Acquire
@@ -1148,19 +1148,19 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * domain 要取回的域名
+    * domain The domain you want to get back.
 Response Code：
     * Common Response Code
-    * 6 域名不正确
-    * 7 不支持中文域名
-    * 8  域名不正确
-    * 9 不支持免费.tk域名
-    * 10 域名不存在
-    * 11 Domain got prohibited.，不能取回
-    * 12 锁定的域名不能取回
-    * 13 个人用户不能取回企业用户域名
-    * 14 企业用户不能取回个人用户域名
-    * 15 获取不到邮箱，可能是网络错误或域名不支持
+    * 6 Invalid domain
+    * 7 No Chinese character allowed in the domain.
+    * 8 Invalid domain.
+    * 9 Domains that end with ".tk" are not supported.No offence.
+    * 10 Domain not exists.
+    * 11 Domain got prohibited.
+    * 12 Domain got locked.
+    * 13 You can't get a domain back from a company account to a persional account.
+    * 14 You can't get a domain back from a persional account to a company account.
+    * 15 Fail to get email address.Maybe there's something wrong with the network or the domain doesn't support.
 
 Example::
     
@@ -1182,7 +1182,7 @@ Response：
             ]
         }
 
-域名取回发送验证码
+Send Verify Code for Getting Domain Back
 --------------------
 API Address：
     *  https://dnsapi.cn/Domain.Acquiresend
@@ -1190,21 +1190,21 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * domain 要取回的域名
-    * email 域名取回邮箱列表中的一个邮箱
+    * domain The domain you want to get back.
+    * email One email address in the get-domain-back email list.
 Response Code：
     * Common Response Code
-    * 6 域名不正确
-    * 7 不支持中文域名
-    * 8  域名不正确
-    * 9 不支持免费.tk域名
-    * 10 域名不存在
-    * 11 Domain got prohibited.，不能取回
-    * 12 锁定的域名不能取回
-    * 13 个人用户不能取回企业用户域名
-    * 14 企业用户不能取回个人用户域名
-    * 15 获取不到邮箱，可能是网络错误或域名不支持
-    * 16 邮箱参数错误
+    * 6 Invalid domain.
+    * 7 No Chinese characters supported in the domain.
+    * 8 Invalid domain.
+    * 9 Domains end with ".tk" are not supported.No offence.
+    * 10 Domain not exists.
+    * 11 Domain got prohibited.
+    * 12 Domain got locked.
+    * 13 You can't get a domain back from a company account to a persional account.
+    * 14 You can't get a domain back from a persional account to a company account.
+    * 15 Fail to get email address.Maybe there's something wrong with the network or the domain doesn't support.
+    * 16 Invalid email address.
 
 Example::
     
@@ -1221,7 +1221,7 @@ Response：
             }
         }
 
-验证域名取回的验证码
+Verify the Verify Code
 ---------------------
 API Address：
     * https://dnsapi.cn/Domain.Acquirevalidate
@@ -1229,21 +1229,21 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * domain 要取回的域名
-    * code  发送到邮箱的验证码
+    * domain The domain you want to get back.
+    * code  The code that you get from your email.
 Response Code：
     * Common Response Code
-    * 6 域名不正确
-    * 7 不支持中文域名
-    * 8  域名不正确
-    * 9 不支持免费.tk域名
-    * 10 域名不存在
-    * 11 Domain got prohibited.，不能取回
-    * 12 锁定的域名不能取回
-    * 13 个人用户不能取回企业用户域名
-    * 14 企业用户不能取回个人用户域名
-    * 15 验证码不正确
-    * 16 邮箱参数错误
+    * 6 Invalid domain.
+    * 7 No Chinnese characters allowed.
+    * 8 Invalid domain.
+    * 9 Domains end with ".tk" are not supported.No offence.
+    * 10 Domain not exists.
+    * 11 Domain got prohibited.
+    * 12 Domain got locked.
+    * 13 You can't get a domain back from a company account to a persional account.
+    * 14 You can't get a domain back from a persional account to a company account.
+    * 15 Wrong code.
+    * 16 Invalid email address.
 
 Example::
     
@@ -1261,7 +1261,7 @@ Response：
             }
         }
 
-获取等级允许的记录类型
+Get All the Record Types for A Domain Grade
 ----------------------------
 API Address：
     *  https://dnsapi.cn/Record.Type
@@ -1269,11 +1269,12 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * domain_grade 域名等级，分别为：D_Free, D_Plus, D_Extra, D_Expert, D_Ultra，分别对应免费套餐、个人豪华、企业1、企业2、企业3
-                        新套餐：DP_Free DP_Plus DP_Extra DP_Expert DP_Ultra, 分别对应新免费、个人专业版、企业创业版、企业标准版、企业旗舰版
+    * domain_grade The domain grade.It's legal values:
+        * Old packages:"D_Free", "D_Plus", "D_Extra", "D_Expert", "D_Ultra" stand for "Free edition","Persion plus","Company Extra","Company expert","Company ultra"
+        * New packages:"DP_Free", "DP_Plus", "DP_Extra", "DP_Expert", "DP_Ultra" stand for the same thing above.
 Response Code：
     * Common Response Code
-    * 6 等级代码不正确
+    * 6 Invalid domain grade.
 
 Example::
     
@@ -1301,7 +1302,7 @@ Response：
             ]
         }    
 
-获取等级允许的线路线路
+Get ALL the Lines Allowed for A Domain Grade
 -----------------------
 API Address：
     *  https://dnsapi.cn/Record.Line
@@ -1309,12 +1310,13 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * domain_grade 域名等级，分别为：D_Free, D_Plus, D_Extra, D_Expert, D_Ultra，分别对应免费套餐、个人豪华、企业1、企业2、企业3。
-                    新套餐：DP_Free, DP_Plus, DP_Extra, DP_Expert, DP_Ultra, 分别对应新免费、个人专业版、企业创业版、企业标准版、企业旗舰版
+    * domain_grade The domain grade.It's legal values:
+        * Old packages:"D_Free", "D_Plus", "D_Extra", "D_Expert", "D_Ultra" stand for "Free edition","Persion plus","Company Extra","Company expert","Company ultra"
+        * New packages:"DP_Free", "DP_Plus", "DP_Extra", "DP_Expert", "DP_Ultra" stand for the same thing above.
     * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
 Response Code：
     * Common Response Code
-    * 6 等级代码不正确
+    * 6 Invalid domain grade.
 
 Example::
     
