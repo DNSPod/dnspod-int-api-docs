@@ -1,47 +1,47 @@
-记录相关
+Records
 ========
 
-添加记录
+Add A Record
 ---------
-接口地址：
+API Address：
     * https://dnsapi.cn/Record.Create
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id  域名ID, 必选
-    * sub_domain  主机记录, 如 www, 默认@，可选
-    * record_type  记录类型，通过API记录类型获得，大写英文，比如：A, 必选
-    * record_line  记录线路，通过API记录线路获得，中文，比如：默认, 必选
-    * value  记录值, 如 IP:200.200.200.200, CNAME: cname.dnspod.com., MX: mail.dnspod.com., 必选
-    * mx {1-20}  MX优先级, 当记录类型是 MX 时有效，范围1-20, MX记录必选
-    * ttl {1-604800}  TTL，范围1-604800，不同等级域名最小值不同, 可选
-响应代码：
-    * 共通返回
-    * -15 域名已被封禁
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 缺少参数或者参数错误
-    * 7 不是域名所有者或者没有权限
-    * 21 域名被锁定
-    * 22 子域名不合法
-    * 23 子域名级数超出限制
-    * 24 泛解析子域名错误
-    * 25 轮循记录数量超出限制
-    * 26 记录线路错误
-    * 27 记录类型错误
-    * 30 MX 值错误，1-20
-    * 31 URL记录数超出限制
-    * 32 NS 记录数超出限制
-    * 33 AAAA 记录数超出限制
-    * 34 记录值非法
-    * 36 @主机的NS纪录只能添加默认线路
+Request Parameters：
+    * Global parameters
+    * domain_id The domain id.Essential parameter.
+    * sub_domain The record name like "www".The default value is "@".Optional parameter.
+    * record_type The record type.You can get the list of all allowed types from the API.Capital letters like "A" or "CNAME".Essential parameter.
+    * record_line The record line.You can get the list of all allowed lines from the API.Essential parameter.
+    * value The record value.For example: IP:200.200.200.200, CNAME: cname.dnspod.com., MX: mail.dnspod.com.Essential parameter.
+    * mx {1-20} This only need to and must be seted when record_type is "MX".Range from 1 to 20.
+    * ttl {1-604800}  TTL，range from 1 to 604800.Every grade has its own min value.Optional parameter.
+Response Code：
+    * Common response code.
+    * -15 Domain got prohibited.
+    * -7 A upgrade for the company account is needed before this.
+    * -8 You need a upgrae for the domain you are acting for.
+    * 6 Lack of parameters or something wrong with it.
+    * 7 You don't have the permission.
+    * 21 Domain got locked.
+    * 22 Invalid sub_domain.
+    * 23 Sub domain level is up to limie.
+    * 24 Invalid sub domain for general analysis.
+    * 25 The number of poll is up to limit.
+    * 26 Invalid line.
+    * 27 Invalid record type.
+    * 30 Invalid MX value.
+    * 31 The number of URL record is up to limit.
+    * 32 The number of NS record is up to limit.
+    * 33 The number of AAAA record is up to limit.
+    * 34 Invalid record value.
+    * 36 When the sub_domain is "@" and the record_type is "NS",the record_line can only be "default".
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Record.Create -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&sub_domain=@&record_type=A&record_line=默认&value=1.1.1.1'
     
-返回参考：
+Response：
 
     * JSON::
 
@@ -58,36 +58,36 @@ HTTP请求方式：
             }
         }
 
-记录列表
+Get Record List
 ---------
-接口地址：
+API Address：
     * https://dnsapi.cn/Record.List
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 域名ID，必选
-    * offset 记录开始的偏移，第一条记录为 0，依次类推，可选
-    * length 共要获取的记录的数量，比如获取20条，则为20，可选
-    * sub_domain 子域名，如果指定则只返回此子域名的记录，可选
-响应代码：
-    * 共通返回
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
-    * 7 记录开始的偏移无效
-    * 8 共要获取的记录的数量无效
-    * 9 不是域名所有者
-    * 10 没有记录
+Request Parameters：
+    * Global parameters
+    * domain_id The domain id.Essential parameter.
+    * offset The offset of the response.The first one is numbered as 0.Optional parameter.
+    * length The number of response result.Optional parameter.
+    * sub_domain If the subsidiary domain is set,only the information about it will be responsed.
+Response Code：
+    * Common response code.
+    * -7 A domain of a company account need a upgrade first.
+    * -8 You need a upgrade for the domain you are acting for.
+    * 6 Invalid domain id.
+    * 7 Invalid offset.
+    * 8 Invalid length.
+    * 9 You don't have the permission.
+    * 10 Empty result.
 
-注意事项：
-    * 如果域名的记录数量超过了3000，将会强制分页并且只返回前3000条，这时需要通过 offset 和 length 参数去获取其它记录。
+Attention：
+    * If there are more than 3000 records,only the first 3000 will be responsed.You may need to set "offset" and "length" to get all the records with requests.
 
-示例::
+Example::
 
      curl -X POST https://dnsapi.cn/Record.List -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346'
     
-返回参考：
+Response：
 
     * JSON::
 
@@ -156,51 +156,51 @@ HTTP请求方式：
             ]
         }
 
-修改记录
+Update A Record
 ---------
-接口地址：
+API Address：
     *  https://dnsapi.cn/Record.Modify
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 域名ID，必选
-    * record_id 记录ID，必选
-    * sub_domain 主机记录，默认@，如 www，可选
-    * record_type 记录类型，通过API记录类型获得，大写英文，比如：A，必选
-    * record_line 记录线路，通过API记录线路获得，中文，比如：默认，必选
-    * value 记录值, 如 IP:200.200.200.200, CNAME: cname.dnspod.com., MX: mail.dnspod.com.，必选
-    * mx {1-20} MX优先级, 当记录类型是 MX 时有效，范围1-20, mx记录必选
-    * ttl {1-604800} TTL，范围1-604800，不同等级域名最小值不同，可选
-响应代码：
-    * 共通返回
-    * -15 域名已被封禁
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
-    * 7 不是域名所有者或没有权限
-    * 8 记录ID错误
-    * 21 域名被锁定
-    * 22 子域名不合法
-    * 23 子域名级数超出限制
-    * 24 泛解析子域名错误
-    * 25 轮循记录数量超出限制
-    * 26 记录线路错误
-    * 27 记录类型错误
-    * 29 TTL 值太小
-    * 30 MX 值错误，1-20
-    * 31 URL记录数超出限制
-    * 32 NS 记录数超出限制
-    * 33 AAAA 记录数超出限制
-    * 34 记录值非法
-    * 35 添加的IP不允许
-    * 36 @主机的NS纪录只能添加默认线路
+Request Parameters：
+    * Global parameters
+    * domain_id The domain id.Essential parameter.
+    * record_id The record id.Essential parameter.
+    * sub_domain The record name like "www".The default value is "@".Optional parameter.
+    * record_type The record type.You can get the list from the API.All capital letters like "A".Essential parameter.
+    * record_line The record line.You can get the list from the API.The default value is "default".Essential parameter.
+    * value The record value.For example: IP:200.200.200.200, CNAME: cname.dnspod.com., MX: mail.dnspod.com.Essential parameter.
+    * mx {1-20} This only need to and must be seted when record_type is "MX".Range from 1 to 20.
+    * ttl {1-604800} TTL，range from 1 to 604800.Every grade has its own min value.Optional parameter.
+Response Code：
+    * Common response code.
+    * -15 Domain got prohibited.
+    * -7 A domain of a company account need a upgrade first.
+    * -8 You need a upgrade for the domain you are acting for.
+    * 6 Invalid domain id.
+    * 7 You don't have the permission.
+    * 8 Invalid record id.
+    * 21 Domain got locked.
+    * 22 Invalid sub domain.
+    * 23 The number of the record level is up to limit.
+    * 24 Invalid sub domain for general analysis.
+    * 25 The number of poll is up to limit.
+    * 26 Invalid record line.
+    * 27 Invalid record type.
+    * 29 TTL is too small.
+    * 30 Invalid MX value.
+    * 31 The number of URL records is up to limit.
+    * 32 The number of NS records is up to limit.
+    * 33 The number of AAAA records is up to limit.
+    * 34 Invalid record value.
+    * 35 The IP is not allowd.
+    * 36 When the sub_domain is "@" and the record_type is "NS",the record_line can only be "default".
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Record.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439&sub_domain=www&value=3.2.2.2&record_type=A&record_line=默认'
    
-返回参考：
+Response：
 
     * JSON::
 
@@ -217,31 +217,31 @@ HTTP请求方式：
             }
         }
 
-删除记录
+Remove A Record
 ---------
-接口地址：
+API Address：
     *  https://dnsapi.cn/Record.Remove
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 域名ID，必选
-    * record_id 记录ID，必选
-响应代码：
-    * 共通返回
-    * -15 域名已被封禁
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
-    * 7 不是域名所有者或没有权限
-    * 8 记录ID错误
-    * 21 域名被锁定
+Request Parameters：
+    * Global parameters
+    * domain_id The domain id.Essential parameter.
+    * record_id The record id.Essential parameter.
+Response Code：
+    * Common response code.
+    * -15 Domain got prohibited.
+    * -7 A domain of a company account need a upgrade first.
+    * -8 You need a upgrade for the domain you are acting for.
+    * 6 Invalid domain id.
+    * 7 You don't have the permission.
+    * 8 Invalid record id.
+    * 21 Domain got locked.
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Record.Remove -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439'
     
-返回参考：
+Response：
 
     * JSON::
 
@@ -253,39 +253,39 @@ HTTP请求方式：
             }
         }
 
-更新动态DNS记录
+Update the Dynamic DNS Record
 ----------------
-接口地址：
+API Address：
     *  https://dnsapi.cn/Record.Ddns
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 域名ID，必选
-    * record_id 记录ID，必选
-    * sub_domain 主机记录，如 www
-    * record_line 记录线路，通过API记录线路获得，中文，比如：默认，必选
-    * value IP地址，例如：6.6.6.6，可选
-响应代码：
-    * 共通返回
-    * -15 域名已被封禁
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
-    * 7 不是域名所有者或没有权限
-    * 8 记录ID错误
-    * 21 域名被锁定
-    * 22 子域名不合法
-    * 23 子域名级数超出限制，比如免费套餐域名不支持三级域名
-    * 24 泛解析子域名错误，比如免费套餐载名不支持 a*
-    * 25 轮循记录数量超出限制，比如免费套餐域名只能存在两条轮循记录
-    * 26 记录线路错误，比如免费套餐域名不支持移动、国外
+Request Parameters：
+    * Global parameters
+    * domain_id The domain id.Essential parameter.
+    * record_id The record id.Essential parameter.
+    * sub_domain The record name like "www".
+    * record_line The record line.You can get the list from the API.The default value is "default".Essential parameter.
+    * value The IP address like "6.6.6.6".Optional parameter.
+Response Code：
+    * Common response code.
+    * -15 Domain got prohibited.
+    * -7 A domain of a company account need a upgrade first.
+    * -8 You need a upgrade for the domain you are acting for.
+    * 6 Invalid domain id.
+    * 7 You don't have the permission.
+    * 8 Invalid record id.
+    * 21 Domain got locked.
+    * 22 Invalid sub domain.
+    * 23 The number of the record level is up to limit.
+    * 24 Invalid sub domain for general analysis.
+    * 25 The number of poll is up to limit.
+    * 26 Invalid record line.
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Record.Ddns -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439&record_line=默认&sub_domain=www'
     
-返回参考：
+Response：
 
     * JSON::
 
@@ -302,27 +302,27 @@ HTTP请求方式：
             }
         }
 
-设置记录备注
+Remark A Record
 -------------
-接口地址：
+API Address：
     *  https://dnsapi.cn/Record.Remark
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 域名ID，必选
-    * record_id 记录ID，必选
-    * remark 域名备注，删除备注请提交空内容，必选
-响应代码：
-    * 共通返回
-    * 6 域名ID错误
-    * 8 记录 ID 错误
+Request Parameters：
+    * Global parameters
+    * domain_id The domain id.Essential parameter.
+    * record_id The record id.Essential parameter.
+    * remark The remark information.Set it a empty string if you want to remove it.Essential parameter.
+Response Code：
+    * Common response code.
+    * 6 Invalid domain id.
+    * 8 Invalid record id.
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Record.Remark -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439&remark=test'
     
-返回参考：
+Response：
 
     * JSON::
 
@@ -335,30 +335,30 @@ HTTP请求方式：
         }
 
 
-获取记录信息
+Get the Record Informtion
 -------------
-接口地址：
+API Address：
     *  https://dnsapi.cn/Record.Info
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 域名ID，必选
-    * record_id 记录ID，必选
-响应代码：
-    * 共通返回
-    * -15 域名已被封禁
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
-    * 7 不是域名所有者或没有权限
-    * 8 记录ID错误
+Request Parameters：
+    * Global parameters
+    * domain_id The domain id.Essential parameter.
+    * record_id The record id.Essential parameter.
+Response Code：
+    * Common response code.
+    * -15 Domain got prohibited.
+    * -7 A domain of a company account need a upgrade first.
+    * -8 You need a upgrade for the domain you are acting for.
+    * 6 Invalid domain id.
+    * 7 You don't have the permission.
+    * 8 Invalid record id.
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Record.Info -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439'
     
-返回参考：
+Response：
 
     * JSON::
 
@@ -390,32 +390,31 @@ HTTP请求方式：
         }
 
 
-设置记录状态
+Set the Record Status
 -------------
-接口地址：
+API Address：
     *  https://dnsapi.cn/Record.Status
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 域名ID，必选
-    * record_id 记录ID，必选
-    * status {enable|disable} 新的状态，必选
-响应代码：
-    * 共通返回
-    * -15 域名已被封禁
-    * -7 企业账号的域名需要升级才能设置
-    * -8 代理名下用户的域名需要升级才能设置
-    * 6 域名ID错误
-    * 7 不是域名所有者或没有权限
-    * 8 记录ID错误
-    * 21 域名被锁定
+Request Parameters：
+    * Global parameters
+    * domain_id The domain id.Essential parameter.
+    * record_id The record id.Essential parameter.
+    * status {enable|disable} The new status.Essential parameter.
+Response Code：
+    * Common response code.
+    * -15 Domain got prohibited.
+    * -7 A domain of a company account need a upgrade first.
+    * -8 You need a upgrade for the domain you are acting for.
+    * 6 Invalid domain id.
+    * 7 You don't have the permission.
+    * 8 Invalid record id.
+    * 21 Domain got locked.
 
-示例::
-
+Example:: 
     curl -X POST https://dnsapi.cn/Record.Status -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439&status=disable'
     
-返回参考：
+Response：
 
     * JSON::
 
