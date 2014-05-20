@@ -416,37 +416,37 @@ Request Parameters：
     * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
     * email The original target email address.Don's change it.
     * mode {r,rw} Share mode."r" stands for "read only",and "rw" stands for "read and write".The default value is "r".
-    * old_sub_domain 已经成功共享的子域名，如果只修改主域名共享，则无需提交此参数
-    * new_sub_domain 要修改到的共享子域名
+    * old_sub_domain The old subsidiary domain that already shared.This parameter shouldn't be seted if you want to update the domain name.
+    * new_sub_domain The new subsidiary domain.
 Response Code：
     * Common Response Code
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
     * 6 Invalid domain id.
-    * 7 要共享到的邮箱错误
-    * 8 要共享到的邮箱不存在
-    * 9 此邮箱的共享不存在
+    * 7 Invalid email address.
+    * 8 The email address not exists.
+    * 9 There's no share for this email address.
 
 Example
 
-1. 修改主域名共享状态，从 rw 修改为 r::
+1. Change a domain's share mode from "rw" to "r"::
         
     curl -X POST https://dnsapi.cn/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=r'
     
-2. 修改子域名的共享状态，从rw 修改为 r::
+2. Change a domain's share mode from "rw" to "r"::
             
     curl -X POST https://dnsapi.cn/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=r&old_sub_domain=www&new_sub_domain=www'
     
-3. 将主域名共享修改为子域名共享::
+3. Change a domain's share type from the whole domain to subsidiary domain.::
 
     curl -X POST https://dnsapi.cn/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=rw&new_sub_domain=www'
     
-4. 将子域名共享修改为主域名共享::
+4. Change a domain's share type from subsidiary domain to the whole domain.::
 
     curl -X POST https://dnsapi.cn/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=rw&old_sub_domain=www'
     
-5. 将www的子域名共享修改为bbs的子主域名共享::
+5. Change the subsidiary domain from "www" to "bbs"::
 
     curl -X POST https://dnsapi.cn/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=rw&old_sub_domain=www&new_sub_domain=bbs'
     
@@ -462,7 +462,7 @@ Response：
             }
         } 
 
-删除域名共享
+Delete A Domain Share
 -------------
 API Address：
     *  https://dnsapi.cn/Domainshare.Remove
@@ -471,16 +471,16 @@ HTTP Request Type：
 Request Parameters：
     * Global Parameters
     * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
-    * email 被共享者的邮箱，原来是什么就提交什么，不能修改
+    * email The original email address.
 Response Code：
     * Common Response Code
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
     * 6 Invalid domain id.
-    * 7 要共享到的邮箱错误
-    * 8 要共享到的邮箱不存在
-    * 9 此邮箱的共享不存在
+    * 7 Invalid email address.
+    * 8 The email address not exists.
+    * 9 There's no share for this email address.
 
 Example::
     
@@ -498,7 +498,7 @@ Response：
             }
         }
 
-域名过户
+Transfer A Domain to Another Account
 ---------
 API Address：
     * https://dnsapi.cn/Domain.Transfer
@@ -507,18 +507,18 @@ HTTP Request Type：
 Request Parameters：
     * Global Parameters
     * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
-    * email 被共享者的邮箱，原来是什么就提交什么，不能修改
+    * email The original email address.
 Response Code：
     * Common Response Code
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
     * 6 Invalid domain id.
-    * 7 要过户到的账号邮箱错误
-    * 8 要过户到的账号邮箱不存在
-    * 9 不能过户给自己
-    * 10 个人用户域名不能过户给企业账号
-    * 11 企业用户域名不能过户给个人账号
+    * 7 Invalid email address.
+    * 8 Email address not exists.
+    * 9 You cannt transfer it to yourself.
+    * 10 You can't transfer a domain from a persional account to a company account.
+    * 11 You can't transfer a domain from a company account to a persional account.
 
 Example::
     
@@ -536,7 +536,7 @@ Response：
             }
         }
 
-锁定域名
+Lock A Domain
 ---------
 API Address：
     * https://dnsapi.cn/Domain.Lock
@@ -544,18 +544,18 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * domain_id 域名ID
-    * days 要锁定的天数
+    * domain_id The domain ID
+    * days For how many days.
 Response Code：
     * Common Response Code
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
     * 6 Invalid domain id.
-    * 7 不是域名所有者或者没有权限
-    * 8 锁定天数错误
-    * 9 锁定天数超出限制
-    * 21 域名已经被锁定
+    * 7 You don't have the permission.
+    * 8 Wrong parameter "days".
+    * 9 The parameter "days" is too big.
+    * 21 Domain is already locked.
 
 Example::
     
@@ -578,7 +578,7 @@ Response：
             }
         }
 
-锁定状态
+Lock Status
 ---------
 API Address：
     * https://dnsapi.cn/Domain.Lockstatus
@@ -593,7 +593,7 @@ Response Code：
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
     * 6 Invalid domain id.
-    * 7 域名没有锁定
+    * 7 The domain is not locked.
 
 Example::
     
@@ -613,10 +613,11 @@ Response：
                 "lock_status": "yes",
                 "start_at": "2012-09-18",
                 "end_at": "2012-09-21"
+
             }
         }
 
-锁定解锁
+Domain Unlock
 ---------
 API Address：
     * https://dnsapi.cn/Domain.Unlock
@@ -625,16 +626,16 @@ HTTP Request Type：
 Request Parameters：
     * Global Parameters
     * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
-    * lock_code 域名解锁码，锁定的时候会返回
+    * lock_code The code that you will get when you lock the domain.
 Response Code：
     * Common Response Code
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
     * 6 Invalid domain id.
-    * 7 不是域名所有者或者没有权限
-    * 8 域名没有锁定
-    * 9 解锁码错误
+    * 7 You don't have the permission.
+    * 8 The domain is not locked.
+    * 9 Invalid lock code.
 
 Example::
     
@@ -657,7 +658,7 @@ Response：
             }
         }
 
-域名绑定列表
+Get Domain Alias List
 -------------
 API Address：
     * https://dnsapi.cn/Domainalias.List
@@ -671,7 +672,7 @@ Response Code：
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
     * 6 Invalid domain id.
-    * 7 没有绑定记录
+    * 7 Empty result.
 
 Example::
     
@@ -696,7 +697,7 @@ Response：
         } 
 
 
-添加域名绑定
+Add A Domain Alias
 -------------
 API Address：
     * https://dnsapi.cn/Domainalias.Create
@@ -704,18 +705,18 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * domain_id ，域名ID
-    * domain 要绑定的域名，不带www.
+    * domain_id The domain ID.
+    * domain The domain to bind.Without "www".
 Response Code：
     * Common Response Code
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
     * 6 Invalid domain id.
-    * 7 要绑定的域名错误
-    * 8 要绑定的域名已经被添加
-    * 9 要绑定的域名已经被绑定
-    * 10 绑定数量已经到达上限
+    * 7 Invalid domain.
+    * 8 The domain is already added.
+    * 9 The domain already exists.
+    * 10 The number of domains is up to limit.
 
 Example::
     
@@ -737,7 +738,7 @@ Response：
             }
         }
 
-删除域名绑定
+Remove A Domain Alias
 -------------
 API Address：
     * https://dnsapi.cn/Domainalias.Remove
@@ -746,14 +747,14 @@ HTTP Request Type：
 Request Parameters：
     * Global Parameters
     * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
-    * alias_id 绑定ID，绑定域名的时候会返回
+    * alias_id The alias id that you will get when you create it.
 Response Code：
     * Common Response Code
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
     * 6 Invalid domain id.
-    * 7 绑定ID错误
+    * 7 Invalid alias id.
 
 Example::
     
@@ -771,7 +772,7 @@ Response：
             }
         }
 
-获取域名分组
+Get The Domain Group List
 -------------
 API Address：
     * https://dnsapi.cn/Domaingroup.List
@@ -848,10 +849,10 @@ Response：
             ]
         }
 
-说明：
-    * 该接口只对VIP帐户有效，免费用户无法获取域名分组，免费用户会返回错误提示。
+Attention：
+    * This API only works for VIP accounts while free users will get an error.
     
-添加域名分组
+Add A New Domain Group
 -------------
 API Address：
     https://dnsapi.cn/Domaingroup.Create
@@ -859,12 +860,12 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * group_name 分组名称
+    * group_name I think you know what this stands for.
 Response Code：
     * Common Response Code
-    * 7 分组名称错误
-    * 8 分组名称已经存在
-    * 9 分组数量超出限制
+    * 7 Invalid group name.
+    * 8 The group name already exists.
+    * 9 The number of groups is up to limit.
 
 Example::
     
@@ -885,10 +886,10 @@ Response：
             }
         }
 
-说明：
-    * 该接口只对VIP帐户有效，免费用户无法获取域名分组，免费用户会返回错误提示。
+Attention：
+    * This API only works for VIP accounts while free accounts will get an error.
 
-修改域名分组
+Update A Domain Group
 -------------
 API Address：
     https://dnsapi.cn/Domaingroup.Modify
@@ -896,14 +897,14 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * group_id 分组ID
-    * group_name 分组名称
+    * group_id 
+    * group_name 
 Response Code：
     * Common Response Code
-    * 6 分组ID错误
-    * 7 分组名称错误
-    * 8 分组名称已经存在
-    * 9 分组数量超出限制
+    * 6 Invalid group id.
+    * 7 Invalid group name.
+    * 8 The group name already exists.
+    * 9 The number of groups is up to limit.
 
 Example::
     
@@ -921,7 +922,7 @@ Response：
             }
         }
     
-删除域名分组
+Remove A Domain Group
 -------------
 API Address：
     * https://dnsapi.cn/Domaingroup.Remove
@@ -929,10 +930,10 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * group_id 分组ID
+    * group_id
 Response Code：
     * Common Response Code
-    * 6 分组ID错误
+    * 6 Invalid group id.
 
 Example::
     
@@ -950,7 +951,7 @@ Response：
             }
         }
     
-设置域名分组
+Change A Domain's Group
 ------------------------------
 API Address：
     * https://dnsapi.cn/Domain.Changegroup
@@ -959,11 +960,11 @@ HTTP Request Type：
 Request Parameters：
     * Global Parameters
     * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
-    * group_id 分组ID
+    * group_id 
 Response Code：
     * Common Response Code
     * 6 Invalid domain id.
-    * 7 分组ID错误
+    * 7 Invalid group id.
 
 Example::
     
@@ -981,12 +982,11 @@ Response：
             }
         } 
 
-说明：
+Directions：
+    * All the domains that shared by others,whose group is unchangeable,are always put into the group named "Shared With Me".
+    * Only the owner of the domain has the permission to change the domain's group.
 
-    * 其它用户共享过来的域名全在“与我共享”系统分组下，不能更改
-    * 只有域名所有者可以更改域名的分组，被共享者不能更改
-
-设置域名星标
+Mark A Domain
 -------------
 API Address：
     * https://dnsapi.cn/Domain.Ismark
@@ -995,7 +995,7 @@ HTTP Request Type：
 Request Parameters：
     * Global Parameters
     * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
-    * is_mark {yes | no}, 是否星标域名
+    * is_mark {yes | no} Whether to mark this domain.
 Response Code：
     * Common Response Code
     * 6 Invalid domain id.
@@ -1016,7 +1016,7 @@ Response：
             }
         }
 
-设置域名备注
+Remark A Domain
 -------------
 API Address：
     * https://dnsapi.cn/Domain.Remark
@@ -1025,7 +1025,7 @@ HTTP Request Type：
 Request Parameters：
     * Global Parameters
     * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
-    * remark 域名备注，删除备注请提交空内容
+    * remark The remark information,or empty for deleting.
 Response Code：
     * Common Response Code
     * 6 Invalid domain id.
@@ -1046,7 +1046,7 @@ Response：
             }
         }
 
-获取域名权限
+Get The Domain's Purview
 -------------
 API Address：
     * https://dnsapi.cn/Domain.Purview
@@ -1057,7 +1057,7 @@ Request Parameters：
     * domain_id OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
 Response Code：
     * Common Response Code
-    * 6 域名ID不正确
+    * 6 Invalid domain id
 
 Example::
     
@@ -1137,8 +1137,8 @@ Response：
             ]
         }
 
-说明：
-    * 获取成功后要在本地保存一份，不要操作一次获取一次
+Directions:
+    * Store it when you get it instead of get this with API everytime you need it.This is something rarely change.
 
 域名取回获取邮箱列表
 ---------------------
