@@ -1,107 +1,108 @@
-API说明
+API Explanation
 =======
 
-1. DNSPod 用户 API 仅限于个人用户使用，使用户能更方便、更灵活的管理自己的域名和记录。
-2. 域名注册商等代理用户请使用代理 API，申请成为代理用户请点击：https://www.dnspod.cn/Service#/account/agent 。
-3. 不允许任何第三方使用本 API 获取、操作用户数据，如有类似需求，欢迎联系合作：https://www.dnspod.cn/About/Aboutus 。
+1. DNSPod Users' API,aim to help the users to manage their domains conveniently,are limited to persional users to use.
+2. Domain name registers can only use our agent api.To become our agent,please visit: https://www.dnspod.cn/Service#/account/agent .
+3. No third-party applications or users are allowed to use this API.If you have needs,please let us know: https://www.dnspod.cn/About/Aboutus .
 
 
-API开发规范
+API Development Norm
 ------------    
 
-1. 关于滥用：
-    包括但不限于以下情形都被视为滥用：
-        * 短时间内大量添加、删除、修改、刷新域名或者记录，或者设置记录状态。
-        * 记录内容没有任何改变的刷新，比如动态DNS中IP没变也请求修改记录。
-        * 程序逻辑不严谨、程序死循环等等，可能造成大量无效、重复的请求。
-        * 其它没有提到的，但会给系统带来压力的请求行为。
+1. Misuse：
+    This will be looked as API misuse.Including but not limit to:
+        * Do a lot of inserts,deletes,updates or refreshes within a short time.
+        * Request a lot without changing anything.What are you thinking!
+        * Too many useless or repeated requests caused by wrong logic or endless loops.
+        * Other requests that may give us a lot of pressure.
 
-    为了保障您和广大开发者的利益，请您合理使用API，对于任何滥用API的行为，DNSPod有权对此进行封禁，并保留最终解释权。
+    In order to ensure you and other developers' benifits,please use our APIs legitimately.DNSPod will punish the behaviors like API misuse by prohibit the accounts and reserve all the rights to arbitate.`
 
-2. 禁止登录：
-    如果帐号尝试登录错误次数在5分钟内超过30次则会被禁止登录一个小时，写程序的时候特别是动态客户端的时候必须判断是否登录成功，如果不成功必须马上停止尝试。如果使用动态客户端，在网页上修改了密码后务必到客户端修改，否则将不可用。
+2. Login Disable：
+    If there are more than 30 login failures within 5 minutes,the account will be disabled to login again for an hour.Please check the login status when you develop your own applications,and stop trying if fails.
 
-3. 关于封禁：
-    由于滥用API将会导致帐号在API中封禁，但并不影响在官方网站上的使用，封禁一定的时间后会自动解除，一般需要一个小时后才会解封，所以请小心操作，不要拿API进行大量测试。
+3. Prohibition：
+    Even got prohibited,you can still use it on the official website.The prohibition will be relieved an hour later.Please be careful and never use it for large tests.
 
-4. 关于请求：
-    * 请求的地址为 https://dnsapi.cn/ 开头的地址，基于SSL安全传输。为了安全必须用https开头的地址，否则将有可能被封禁。
-    * 只支持POST方法请求数据，用其它方法会提示错误。
-    * 请用UTF-8编码进行数据传输，返回的数据也是UTF-8编码的。
+4. Requests：
+    * The request url starts with "https://dnsapi.cn/",which based on SSL.You must use "https" instead of "http".
+    * POST method accepted only.
+    * Please use UTF-8 encoding for data transfer.The responses are also UTF-8 encoded.
 
-5. 关于UserAgent：
-    * 请求的时候必须设置UserAgent，如果不设置或者设置为不合法的（比如设置为浏览器的）也会导致帐号被封禁API。
-    * UserAgent的格式必须为：程序英文名称/版本(联系邮箱)，比如：MJJ DDNS Client/1.0.0 (shallwedance@126.com)。
+5. UserAgent：
+    * The UserAgent must be seted.Prohibition may caused by wrong UserAgent or none.
+    * UserAgent Format:Application Name/Version(email).For example:"MJJ DDNS Client/1.0.0 (shallwedance@126.com)".
 
-6. 关于安全：
-    用户需要输入用户邮箱和密码才能进行下一步的操作，如果需要在客户端上或数据库中保存用户的信息，必须加密后保存，不得明文保存在文件中。
+6. Security：
+    Almost every step needs the email address and the password.So if you have to storage the user's informations,please encrypt the password first.Never storage the password directly.
 
-7. 技术支持：
-    * 帮助中心：https://support.dnspod.cn/
-    * DNSPod开发者讨论群：176455159
-
-
+7. Support：
+    * Support center: https://support.dnspod.cn/
+    * DNSPod developers QQ group:176455159
 
 
 
-公共参数
+
+
+Global Parameters
 ---------
-所有的接口都需要这些参数，在此统一说明，下面的接口将不再列出。这些参数必须和接口参数一起提交。
-    * login_email 用户帐号，必选
-    * login_password 用户密码，必选
-    * format {json,xml} 返回的数据格式，可选，默认为xml，建议用json
-    * lang {en,cn} 返回的错误语言，可选，默认为en，建议用cn
-    * error_on_empty {yes,no} 没有数据时是否返回错误，可选，默认为yes，建议用no
-    * user_id 用户的ID，可选，仅代理接口需要， 用户接口不需要提交此参数
+All the APIs need this parameters.
+    * login_email The login email.Essential parameter.
+    * login_password The login password.Essential parameter.
+    * format {json,xml} The format of response.Default "xml"."json" is highly recommended.Optional parameter.
+    * lang {en,cn} The language of messages you get from the response when you get an error.Default "en".
+    * error_on_empty {yes,no} Whether to response an error when there's no results.
+    * user_id The user's ID.A must for agent users,and a waste for regular users.
 
-共通返回
+Common Response Code
 ---------
-这些返回在所有的接口都有可能返回，它们是所有接口共通的，在此统一说明，下面的接口将不再列出。另外，文档中的参考返回只列出JSON格式的，XML格式类似，就不再列出了。
-    * -1 登陆失败
-    * -2 API使用超出限制
-    * -3 不是合法代理 (仅用于代理接口)
-    * -4 不在代理名下 (仅用于代理接口)
-    * -7 无权使用此接口
-    * -8 登录失败次数过多，帐号被暂时封禁
-    * 85 帐号异地登录，请求被拒绝
-    * -99 此功能暂停开放，请稍候重试
-    * 1 操作成功
-    * 2 只允许POST方法
-    * 3 未知错误
-    * 6 用户ID错误 (仅用于代理接口)
-    * 7 用户不在您名下 (仅用于代理接口)
+Those responses codes could be in any API beacuse they are the common responses.
+    * -1 Login fails.
+    * -2 API used too frequently.
+    * -3 Invalid agent.(only works for agent users)
+    * -4 Not in this agent.(only works for agent users)
+    * -7 No permission to use this API.
+    * -8 Account got prohibited.
+    * 85 Account logined in another place and your request got rejected.
+    * -99 This API is not ready to be used.No rush.
+    * 1 Action completed successfully.
+    * 2 POST method only.
+    * 3 Unknown errors.
+    * 6 Invalid user_id.(only works for agent users)
+    * 7 User is not under this agent.(only works for agent users)
 
-D令牌验证相关
+D-Token
 --------------
-对于已经开启D令牌的用户，在请求API时需要增加如下两个参数：
-    * login_code D令牌生成的随机验证码，必选
-    * login_remember {yes,no} 是否记住验证码，可选，默认为yes
+Users that already turned the D-Token on need this parameters in the request:
+    * login_code The code that generated by the D-Token.Essential parameter.
+    * login_remember {yes,no} Whether to remember the D-Token code.Default "yes".
 
-说明：由于D令牌的随机码每30秒变换一次，所以建议用户在第一次请求API的时候选择记住验证码。选择记住验证码后，除了返回所请求的数据以外，还会发一个名为't' + user_id 的cookie，形如：t123456，该cookie的有效期为1个月，以后再请求API可以带上这个cookie，而无须再提交login_code和login_remember参数。
+Attention:
+    Since the D-Token code changes every 30 seconds,it is highly recommended that you set the "login_remember" to "yes".If so,you will get an extra response with the format of "t + user_id" like "t123456",whose life last for a month.With this cookie,you don't need to submit the "login_code" and "login_remember".
 
-对于开启了D令牌的用户，某些重要操作可能会返回以下错误码，在此统一说明，下面的接口将不再列出。
-    * 50 您开启了D令牌，需要验证码
-    * 51 没有开启D令牌
-    * 52 验证码不正确
-    * 53 您已经开启了D令牌
-    * 54 域名所有者开启了D令牌，您也需要开启D令牌才能管理该域名
+If you are using D-Token,this error codes might be responsed.
+    * 50 You already turned the D-Token on,and we need you D-Token code.
+    * 51 You hasn't turned the D-Token on.
+    * 52 Invalid login code.
+    * 53 You already turned the D-Token on.
+    * 54 The owner has turned the D-Token on,and so should you.
 
-获取API版本号
+Get the Version of API
 --------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Info.Version
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数 
-响应代码：
-    * 共通返回
+Request Parameters：
+    * Global parameters.
+Response Code：
+    * Common response
 
-示例::
+Example::
     
     curl -X POST https://dnsapi.cn/Info.Version -d 'login_email=api@dnspod.com&login_password=password&format=json'
 
-返回参考：
+Response：
 
     * JSON::
 
