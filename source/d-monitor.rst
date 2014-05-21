@@ -1,26 +1,26 @@
-D监控相关
+D-Monitor
 =========
 
-列出包含A记录的子域名
+List All the Sub-domains Whose Type Is "A"
 -----------------------
-接口地址：
+API Address：
     *  https://dnsapi.cn/Monitor.Listsubdomain
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain或domain_id, 必选
-响应代码：
-    * 共通返回
-    * 6 域名不存在
-    * 7 域名编号错误
-    * 8 此域名没有任何记录
+Request Parameters：
+    * Global parameters
+    * domain OR domain_id Stand for the domain name and the domain id.You only need to and must choose one of them.
+Response Code：
+    * Common response code.
+    * 6 Domain not exists.
+    * 7 Invalid domain id.
+    * 8 No records under this domain.
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Monitor.Listsubdomain -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346'
     
-返回参考：
+Response：
 
     * JSON::
 
@@ -42,26 +42,26 @@ HTTP请求方式：
             ]
         }
 
-列出子域名的A记录
+List All the "A" Records for A Sub-domain
 ------------------
-接口地址：
+API Address：
     *  https://dnsapi.cn/Monitor.Listsubvalue
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain或domain_id, 必选
-    * subdomain 子域名，必选
-响应代码：
-    * 共通返回
-    * 6 域名不存在
-    * 7 域名编号错误
+Request Parameters：
+    * Global parameters
+    * domain OR domain_id Stand for the domain name and the domain id.You only need to and must choose one of them.
+    * subdomain The sub-domain.Essential parameter.
+Response Code：
+    * Common response code.
+    * 6 Domain not exists.
+    * 7 Invalid domain id.
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Monitor.Listsubvalue -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&subdomain=@'
     
-返回参考：
+Response：
 
     * JSON::
 
@@ -94,22 +94,22 @@ HTTP请求方式：
             ]
         }
 
-监控列表
+Get the Monitor List
 ---------
-接口地址：
+API Address：
     *  https://dnsapi.cn/Monitor.List
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-响应代码：
-    * 共通返回
+Request Parameters：
+    * Global parameters
+Response Code：
+    * Common response code.
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Monitor.List -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346'
     
-返回参考：
+Response：
 
     * JSON::
 
@@ -156,60 +156,60 @@ HTTP请求方式：
             ]
         }
 
-监控添加
+Add A Monitor
 ---------
-接口地址：
+API Address：
     *  https://dnsapi.cn/Monitor.Create
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * domain_id 域名编号，必选
-    * record_id 记录编号，必选
-    * port 监控端口，比如80，必选
-    * monitor_interval 监控间隔，支持{60|180|360|}，必选
-    * host 监控主机头，比如 www.dnspod.cn，必选
-    * monitor_type 监控类型，支持{http|https}，必选
-    * monitor_path 监控路径，比如/，必选
-    * points 监控节点，用,分隔多个，只能选择列表中的节点，并且有数量限制，必选
-    * bak_ip 宕机备用，必选，支持任选以下选项中的一个：
-        #. pass 只监控，不切换
-        #. pause 老版智能暂停功能，详见https://support.dnspod.cn/Kb/showarticle/tsid/179
-        #. pause2 智能暂停v2, 发现ip宕机后直接暂停该记录，无其它规则
-        #. auto 智能切换
-        #. 用逗号分隔的IP 设置备用IP
+Request Parameters：
+    * Global parameters
+    * domain_id The domain id.Essential parameter.
+    * record_id The record id.Essential parameter.
+    * port The port number to monitor like 80.Essential parameter.
+    * monitor_interval Monitoring spacing.Ranged {60|180|360|}.Essential parameter.
+    * host The host from the http header like "www.dnspod.com".Essential parameter.
+    * monitor_type {http|https} The monitor type.Essential parameter.
+    * monitor_path The request path from the http header like "/".Essential parameter.
+    * points The points to use.Split by ",".You can choose it from the list of your own grade.Essential parameter.
+    * bak_ip Backup IP address.Choose one kind from the list blow:
+        #. pass Just monitoring,no switching.
+        #. pause The old type of pause.For more details,please visit: https://support.dnspod.cn/Kb/showarticle/tsid/179
+        #. pause2 The intelligent pause who pause the record immediately when the IP is down.
+        #. auto Switch intelligent.
+        #. IP addresses split by ",".
 
-    * keep_ttl 宕机不修改ttl，可选
-    * sms_notice 短信通知，me域名所有者，share共享用户，用,分隔多选择，比如me,share, 可选
-    * email_notice 邮件通知，me域名所有者，share共享用户，用,分隔多选择，比如me,share，可选
-    * less_notice {yes|no}是否一个小时内只发一次通知，可选
-    * callback_url  可选，回调URL，宕机了会将相关的参数提交到此设置的URL，具体参考回调URL说明，可选
-    * callback_key 可选，回调密钥，如果设置了回调URL请设置此参数以保证安全，可选
-响应代码：
-    * 共通返回
-    * 6 域名编号错误
-    * 7 记录编号错误
-    * 8 监控主机头错误
-    * 9 监控端口错误，端口只能是正整数1~65535
-    * 10 监控类型不正确
-    * 11 监控路径不正确
-    * 12  监控间隔不正确
-    * 13 监控节点不正确
-    * 14 监控节点数量超出限制
-    * 15 备用IP不正确
-    * 16 备用url不正确
-    * 17 备用IP不正确
-    * 18 短信设置不正确
-    * 19 邮件设置不正确
-    * 20 此记录已经存在监控
-    * 21 监控数量超出限制
-    * 22 回调URL不正确
+    * keep_ttl TTL won't be changed if this is seted up.Essential parameter.
+    * sms_notice "me" for the owner,and "share" for the shared users.Split by "," if there are more than one like "me,share".Essential parameter.
+    * email_notice Same as the sms_notice.
+    * less_notice {yes|no} Whether to just send one notice withen one hour.Essential parameter.
+    * callback_url The callback URL.All the data will be sent to this URL when the IP is down.For more details,please see the directions.Optional parameter.
+    * callback_key The callback key.If "callback_url" is set up,you shoul set this up too for sucurety.
+Response Code：
+    * Common response code.
+    * 6 Invalid domain id.
+    * 7 Invalid record id.
+    * 8 Invalid host.
+    * 9 Invalid monitor port number that range from 1 to 65535.
+    * 10 Invalid monitor type.
+    * 11 Invalid monitor path.
+    * 12  Invalid monitor interval.
+    * 13 Invalid monitor points.
+    * 14 Too many points.
+    * 15 Invalid backup IP.
+    * 16 Invalid bakcup url.
+    * 17 Invalid backup IP.
+    * 18 Invalid sms notice.
+    * 19 Invalid email notice.
+    * 20 There is already been one monitor on this record.
+    * 21 The number of you monitors is up to limit.
+    * 22 Invalid callback URL.
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Monitor.Create -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16909160&port=80&monitor_type=http&monitor_path=/&monitor_interval=360&points=ctc,cuc,cmc&bak_ip=pass&host=testapi.com'
 
-返回参考：
+Response：
 
     * JSON::
 
@@ -225,56 +225,56 @@ HTTP请求方式：
             }
         }
 
-监控修改
+Modify A Monitor
 ---------
-接口地址：
+API Address：
     *  https://dnsapi.cn/Monitor.Modify
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * monitor_id 监控编号，必选
-    * port 监控端口，比如80，必选
-    * monitor_interval 监控间隔，支持{60|180|360|}，必选
-    * monitor_type 监控类型，支持{http|https}，必选
-    * monitor_path 监控路径，比如/，必选
-    * points 监控节点，用,分隔多个，只能选择列表中的节点，并且有数量限制，必选
-    * bak_ip 宕机备用，必选，支持任选以下选项中的一个：
-        #. pass 只监控，不切换
-        #. pause 老版智能暂停功能，详见https://support.dnspod.cn/Kb/showarticle/tsid/179
-        #. pause2 智能暂停v2, 发现ip宕机后直接暂停该记录，无其它规则
-        #. auto 智能切换
-        #. 用逗号分隔的IP 设置备用IP
+Request Parameters：
+    * Global parameters
+    * monitor_id Monitor id.Essential parameter.
+    * port The port number to minitor like 80.Essential parameter.
+    * monitor_interval {60|180|360|} The monitor interval.Essential parameter.
+    * monitor_type {http|https} The monitor type.Essential parameter.
+    * monitor_path The path in the http header like "/".Essential parameter.
+    * points The points to use.Split by ",".You can choose it from the list of your own grade.Essential parameter.
+    * bak_ip Backup IP address.Choose one kind from the list blow:
+        #. pass Just monitoring,no switching.
+        #. pause The old type of pause.For more details,please visit: https://support.dnspod.cn/Kb/showarticle/tsid/179
+        #. pause2 The intelligent pause who pause the record immediately when the IP is down.
+        #. auto Switch intellgently.
+        #. IP addresses split by ",".
 
-    * host 监控主机头，比如 www.dnspod.cn，可选
-    * keep_ttl 宕机不修改ttl，可选
-    * sms_notice 短信通知，me域名所有者，share共享用户，用,分隔多选择，比如me,share, 可选
-    * email_notice 邮件通知，me域名所有者，share共享用户，用,分隔多选择，比如me,share，可选
-    * less_notice {yes|no}是否一个小时内只发一次通知，可选
-    * callback_url  可选，回调URL，宕机了会将相关的参数提交到此设置的URL，具体参考回调URL说明，可选
-    * callback_key 可选，回调密钥，如果设置了回调URL请设置此参数以保证安全，可选
-响应代码：
-    * 共通返回
-    * 7 监控编号错误
-    * 8 监控主机头错误
-    * 9 监控端口错误，端口只能是正整数1~65535
-    * 10 监控类型不正确
-    * 11 监控路径不正确
-    * 12  监控间隔不正确
-    * 13 监控节点不正确
-    * 14 监控节点数量超出限制
-    * 15 备用IP不正确
-    * 16 备用url不正确
-    * 17 备用IP不正确
-    * 18 短信设置不正确
-    * 19 邮件设置不正确
-    * 22 回调URL不正确
+    * host The host from the http header like "www.dnspod.com".Essential parameter.
+    * keep_ttl TTL won't be changed if this is seted up.Essential parameter.
+    * sms_notice "me" for the owner,and "share" for the shared users.Split by "," if there are more than one like "me,share".Essential parameter.
+    * email_notice Same as the sms_notice.
+    * less_notice {yes|no} Whether to just send one notice withen one hour.Essential parameter.
+    * callback_url  The callback URL.All the data will be sent to this URL when the IP is down.For more details,please see the directions.Optional parameter.
+    * callback_key The callback key.If "callback_url" is set up,you shoul set this up too for sucurety.
+Response Code：
+    * Common response code.
+    * 7 Invalid monitor id.
+    * 8 Invalid host.
+    * 9 Invalid monitor port number that range from 1 to 65535.
+    * 10 Invalid monitor type.
+    * 11 Invalid monitor path.
+    * 12  Invalid monitor interval.
+    * 13 Invalid monitor points.
+    * 14 Too many points.
+    * 15 Invalid backup IP.
+    * 16 Invalid bakcup url.
+    * 17 Invalid backup IP.
+    * 18 Invalid sms notice.
+    * 19 Invalid email notice.
+    * 22 Invalid callback URL.
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Monitor.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&monitor_id=51fc9a20-363c-11e2-bab7-0819a6248970&port=80&monitor_type=http&monitor_path=/&monitor_interval=360&points=ctc,cuc,cmc&bak_ip=pass'
 
-返回参考：
+Response：
 
     * JSON::
 
@@ -286,24 +286,24 @@ HTTP请求方式：
             }
         }
 
-监控删除
+Remove A Monitor
 ---------
-接口地址：
+API Address：
     *  https://dnsapi.cn/Monitor.Remove
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * monitor_id 监控编号
-响应代码：
-    * 共通返回
-    * 6 监控编号错误
+Request Parameters：
+    * Global parameters
+    * monitor_id I think we all know this is the monitor's id.
+Response Code：
+    * Common response code.
+    * 6 Invalid monitor id.
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Monitor.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&monitor_id=51fc9a20-363c-11e2-bab7-0819a6248970'
     
-返回参考：
+Response：
 
     * JSON::
 
@@ -316,24 +316,24 @@ HTTP请求方式：
         }
 
 
-获取监控信息
+Get the Monitor Information
 -------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Monitor.Info
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * monitor_id 监控编号
-响应代码：
-    * 共通返回
-    * 7 监控编号错误
+Request Parameters：
+    * Global parameters
+    * monitor_id The monitor's id.
+Response Code：
+    * Common response code.
+    * 7 Invalid monitor id.
 
-示例::
+Example::
         
     curl -X POST https://dnsapi.cn/Monitor.Info -d 'login_email=api@dnspod.com&login_password=password&format=json&monitor_id=e91997aa-3641-11e2-bab7-0819a6248970'
     
-返回参考：
+Response：
 
     * JSON::
 
@@ -374,31 +374,31 @@ HTTP请求方式：
             }
         }
 
-设置监控状态
+Set A Monitor's Status
 -------------
-接口地址：
+API Address：
     *  https://dnsapi.cn/Monitor.Setstatus
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * monitor_id 监控编号，必选
-    * status {enabled|disabled} 新的状态，必选
-响应代码：
-    * 共通返回
-    * 6 监控编号错误
-    * 7 新状态代码错误
-    * 8 请先启用域名
-    * 9 请先启用记录
-响应代码：
-    * 共通返回
-    * 6 监控编号错误
+Request Parameters：
+    * Global parameters
+    * monitor_id Monitor id.Essential parameter.
+    * status {enabled|disabled} The new status.Essential status.
+Response Code：
+    * Common response code.
+    * 6 Invalid monitor id.
+    * 7 Invalid new status.
+    * 8 Please turn the domain on first.
+    * 9 Please turn the record on first.
+Response Code：
+    * Common response code.
+    * 6 Invalid monitor id.
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Monitor.Setstatus -d 'login_email=api@dnspod.com&login_password=password&format=json&monitor_id=03e3b268-3643-11e2-bab7-0819a6248970&status=disable'
     
-返回参考：
+Response：
 
     * JSON::
 
@@ -410,25 +410,25 @@ HTTP请求方式：
             }
         }
 
-获取监控历史
+Get A Monitor's History
 -------------
-接口地址：
+API Address：
     *  https://dnsapi.cn/Monitor.Gethistory
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * monitor_id 监控编号，必选
-    * hours 获取最近多少个小时的记录，可选
-响应代码：
-    * 共通返回
-    * 6 监控编号错误
+Request Parameters：
+    * Global parameters
+    * monitor_id Monitor id.Essential parameter.
+    * hours Within how many hours do you want to get the history.
+Response Code：
+    * Common response code.
+    * 6 Invalid monitor id.
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Monitor.Setstatus -d 'login_email=api@dnspod.com&login_password=password&format=json&monitor_id=03e3b268-3643-11e2-bab7-0819a6248970&hours=1'
     
-返回参考：
+Response：
 
     * JSON::
 
@@ -551,22 +551,22 @@ HTTP请求方式：
             ]
         }
 
-获取监控概况
+Get A Monitor's Description
 -------------
-接口地址：
+API Address：
     * https://dnsapi.cn/Monitor.Userdesc
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-响应代码：
-    * 共通返回
+Request Parameters：
+    * Global parameters
+Response Code：
+    * Common response code.
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Monitor.Userdesc -d 'login_email=api@dnspod.com&login_password=password&format=json'
     
-返回参考：
+Response：
 
     * JSON::
 
@@ -588,24 +588,24 @@ HTTP请求方式：
         }
 
 
-获取监控警告
+Get A Monitor's Wornings
 -------------
-接口地址：
+API Address：
     *  https://dnsapi.cn/Monitor.Getdowns
-HTTP请求方式：
+HTTP Request Type：
     * POST
-请求参数：
-    * 公共参数
-    * offset 记录开始的偏移，第一条记录为 0，依次类推，可选
-    * length 共要获取的记录的数量，比如获取20条，则为20，可选
-响应代码：
-    * 共通返回
+Request Parameters：
+    * Global parameters
+    * offset The offset of the response.The first is numbered 0.Optional parameter.
+    * length The number of results you want get.Optional parameter.
+Response Code：
+    * Common response code.
 
-示例::
+Example::
 
     curl -X POST https://dnsapi.cn/Monitor.Getdowns -d 'login_email=api@dnspod.com&login_password=password&format=json&offset=0&length=10'
     
-返回参考：
+Response：
 
     * JSON::
 
