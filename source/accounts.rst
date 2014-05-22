@@ -70,7 +70,7 @@ Example::
 Response：
 
     * JSON::
-```json
+```javascript
         {
             "status": {
                 "code":"1",
