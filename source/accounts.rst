@@ -65,12 +65,12 @@ Response Code：
 
 Example::
     
-    `curl -X POST https://dnsapi.cn/User.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&im=10000000'`
+    curl -X POST https://dnsapi.cn/User.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&im=10000000'
 
 Response：
 
     * JSON::
-```javascript
+
         {
             "status": {
                 "code":"1",
@@ -78,7 +78,7 @@ Response：
                 "created_at":"2012-08-24 13:34:56"
             }
         }
-```
+
 Change Password
 ---------
 API Address：
