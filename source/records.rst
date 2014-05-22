@@ -412,6 +412,7 @@ Response Code：
     * 21 Domain got locked.
 
 Example:: 
+
     curl -X POST https://dnsapi.cn/Record.Status -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439&status=disable'
     
 Response：

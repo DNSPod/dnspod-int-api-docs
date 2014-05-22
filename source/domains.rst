@@ -128,7 +128,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_id** OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
 Response Code：
     * Common Response Code
     * -15 Domain got prohibited.
@@ -161,7 +161,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_id** OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **status** {enable, disable} The domain status.
 Response Code：
     * Common Response Code
@@ -196,7 +196,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_id** OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
 Response Code：
     * Common Response Code
     * -7 The company account need a upgrade before doing this.
@@ -250,7 +250,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_id** OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
 Response Code：
     * Common Response Code
     * -7 The company account need a upgrade before doing this.
@@ -297,7 +297,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_id** OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **status** {yes,no} Whether to push it.
 Response Code：
     * Common Response Code
@@ -333,7 +333,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_id** OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **email** The email address with who you want to share.
     * **mode** {r,rw} The share mode."r" stands for "read only",and "rw" stands for "read and write".The default value is "r".
     * **sub_domain** The subsidiary domain you want to share,like "www" or "bbs".Don't set this parameter if you want to share the whole domain.
@@ -373,7 +373,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_id** OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
 Response Code：
     * Common Response Code
     * -7 The company account need a upgrade before doing this.
@@ -413,7 +413,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_id** OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **email** The original target email address.Don's change it.
     * **mode** {r,rw} Share mode."r" stands for "read only",and "rw" stands for "read and write".The default value is "r".
     * **old_sub_domain** The old subsidiary domain that already shared.This parameter shouldn't be seted if you want to update the domain name.
@@ -470,7 +470,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_id** OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **email** The original email address.
 Response Code：
     * Common Response Code
@@ -506,7 +506,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_id** OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **email** The original email address.
 Response Code：
     * Common Response Code
@@ -586,7 +586,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_id** OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
 Response Code：
     * Common Response Code
     * -15 Domain got prohibited.
@@ -625,7 +625,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_id** OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **lock_code** The code that you will get when you lock the domain.
 Response Code：
     * Common Response Code
@@ -666,7 +666,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_id** OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
 Response Code：
     * Common Response Code
     * -7 The company account need a upgrade before doing this.
@@ -746,7 +746,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_id** OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **alias_id** The alias id that you will get when you create it.
 Response Code：
     * Common Response Code
@@ -1313,7 +1313,7 @@ Request Parameters：
     * **domain_grade** The domain grade.It's legal values :
         * Old packages:"D_Free", "D_Plus", "D_Extra", "D_Expert", "D_Ultra" stand for "Free edition","Persion plus","Company Extra","Company expert","Company ultra"
         * New packages:"DP_Free", "DP_Plus", "DP_Extra", "DP_Expert", "DP_Ultra" stand for the same thing above.
-    * **domain_id** OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
 Response Code：
     * Common Response Code
     * 6 Invalid domain grade.
