@@ -50,7 +50,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **type** The domain type.Optional parameter.Default value:'all'.Here are all the choseable values：
+    * **type** The domain type.Optional parameter.Default value:'all'.Here are all the choseable values :
         * all：All the domains
         * mine：Only mine.
         * share：Domains that shared with me.
@@ -959,7 +959,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_id** OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **group_id** 
 Response Code：
     * Common Response Code
@@ -994,7 +994,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_id** OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **is_mark** {yes | no} Whether to mark this domain.
 Response Code：
     * Common Response Code
@@ -1024,7 +1024,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_id** OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **remark** The remark information,or empty for deleting.
 Response Code：
     * Common Response Code
@@ -1054,7 +1054,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_id** OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
+    * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
 Response Code：
     * Common Response Code
     * 6 Invalid domain id
@@ -1269,7 +1269,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_grade** The domain grade.It's legal values:
+    * **domain_grade** The domain grade.It's legal values :
         * Old packages:"D_Free", "D_Plus", "D_Extra", "D_Expert", "D_Ultra" stand for "Free edition","Persion plus","Company Extra","Company expert","Company ultra"
         * New packages:"DP_Free", "DP_Plus", "DP_Extra", "DP_Expert", "DP_Ultra" stand for the same thing above.
 Response Code：
@@ -1310,7 +1310,7 @@ HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_grade** The domain grade.It's legal values:
+    * **domain_grade** The domain grade.It's legal values :
         * Old packages:"D_Free", "D_Plus", "D_Extra", "D_Expert", "D_Ultra" stand for "Free edition","Persion plus","Company Extra","Company expert","Company ultra"
         * New packages:"DP_Free", "DP_Plus", "DP_Extra", "DP_Expert", "DP_Ultra" stand for the same thing above.
     * **domain_id** OR domain Stand for the id and the name of the domain.You only need to and must set one of them.
