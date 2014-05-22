@@ -118,9 +118,9 @@ HTTP Resquest Type：
     * POST
 Request Parameters：
     * Global Parameters
-    * old_email Old email address.
-    * new_email New email address.
-    * password Your current password for verifying.
+    * **old_email** Old email address.
+    * **new_email** New email address.
+    * **password** Your current password for verifying.
 Response Code：
     * Common Response Code.
     * 8 Old email address is not correct.
@@ -152,7 +152,7 @@ HTTP Request Type：
     * POST
 Request Parameters :
     * Global Parameters.
-    * telephone The telephone number.
+    * **telephone** The telephone number.
 Response Code：
     * Common Response
     * 4 You already did this.
