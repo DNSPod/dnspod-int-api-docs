@@ -3,7 +3,7 @@ Accounts
 
 
 Get Account Information
-------------
+-----------------------
 API Address：
     * https://dnsapi.cn/User.Detail
 HTTP Request Type：
@@ -47,7 +47,7 @@ Response Example：
         }
 
 Update Information
---------
+------------------
 API Address：
     * https://dnsapi.cn/User.Modify
 HTTP Request Type：
@@ -80,7 +80,7 @@ Response：
         }
 
 Change Password
----------
+---------------
 API Address：
     * https://dnsapi.cn/Userpasswd.Modify
 HTTP Request Type：
@@ -111,7 +111,7 @@ Response：
         }
 
 Update Email Address
----------
+--------------------
 API Address：
     * https://dnsapi.cn/Useremail.Modify
 HTTP Resquest Type：
@@ -145,7 +145,7 @@ Response：
 
         
 Get Telephone Verify Code
----------------
+-------------------------
 API Address：
     * https://dnsapi.cn/Telephoneverify.Code
 HTTP Request Type：
@@ -187,7 +187,7 @@ Response：
         }
 
 Get The Account's Operate Log
--------------
+-----------------------------
 API Address：
     * https://dnsapi.cn/User.Log
 HTTP Request Type：

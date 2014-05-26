@@ -1,8 +1,8 @@
 Records
-========
+=======
 
 Add A Record
----------
+------------
 API Address：
     * https://dnsapi.cn/Record.Create
 HTTP Request Type：
@@ -59,7 +59,7 @@ Response：
         }
 
 Get Record List
----------
+---------------
 API Address：
     * https://dnsapi.cn/Record.List
 HTTP Request Type：
@@ -157,7 +157,7 @@ Response：
         }
 
 Update A Record
----------
+---------------
 API Address：
     *  https://dnsapi.cn/Record.Modify
 HTTP Request Type：
@@ -218,7 +218,7 @@ Response：
         }
 
 Remove A Record
----------
+---------------
 API Address：
     *  https://dnsapi.cn/Record.Remove
 HTTP Request Type：
@@ -254,7 +254,7 @@ Response：
         }
 
 Update the Dynamic DNS Record
-----------------
+-----------------------------
 API Address：
     *  https://dnsapi.cn/Record.Ddns
 HTTP Request Type：
@@ -303,7 +303,7 @@ Response：
         }
 
 Remark A Record
--------------
+---------------
 API Address：
     *  https://dnsapi.cn/Record.Remark
 HTTP Request Type：
@@ -336,7 +336,7 @@ Response：
 
 
 Get the Record Informtion
--------------
+-------------------------
 API Address：
     *  https://dnsapi.cn/Record.Info
 HTTP Request Type：
@@ -391,7 +391,7 @@ Response：
 
 
 Set the Record Status
--------------
+---------------------
 API Address：
     *  https://dnsapi.cn/Record.Status
 HTTP Request Type：

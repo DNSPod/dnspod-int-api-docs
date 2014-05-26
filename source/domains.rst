@@ -1,8 +1,8 @@
 Domains
-========
+=======
 
 Add New Domain
------------
+--------------
 API Address：
     * https://dnsapi.cn/Domain.Create
 HTTP Request Type：
@@ -43,7 +43,7 @@ Response：
 
 
 Get The Domain List
--------------
+-------------------
 API Address：
     * https://dnsapi.cn/Domain.List
 HTTP Request Type：
@@ -121,7 +121,7 @@ Response：
         }    
 
 Delete Domain
----------
+-------------
 API Address：
     * https://dnsapi.cn/Domain.Remove
 HTTP Request Type：
@@ -154,7 +154,7 @@ Response：
         }
 
 Set Domain Status
--------------
+-----------------
 API Address：
     * https://dnsapi.cn/Domain.Status
 HTTP Request Type：
@@ -189,7 +189,7 @@ Response：
         }
 
 Get The Domain Information
--------------
+--------------------------
 API Address：
     * https://dnsapi.cn/Domain.Info
 HTTP Request Type：
@@ -243,7 +243,7 @@ Response：
 
 
 Get the Operate Logs of A Domain
--------------
+--------------------------------
 API Address：
     * https://dnsapi.cn/Domain.Log
 HTTP Request Type：
@@ -290,7 +290,7 @@ Response：
         } 
 
 Push Domain to Search Engine
----------------------
+----------------------------
 API Address：
     * https://dnsapi.cn/Domain.Searchenginepush
 HTTP Request Type：
@@ -326,7 +326,7 @@ Response：
 
 
 Share A Domain
--------------
+--------------
 API Address：
     * https://dnsapi.cn/Domainshare.Create
 HTTP Request Type：
@@ -366,7 +366,7 @@ Response：
         }
     
 Get Domain Share List
--------------
+---------------------
 API Address：
     * https://dnsapi.cn/Domainshare.List
 HTTP Request Type：
@@ -406,7 +406,7 @@ Response：
         }
 
 Update the Domain Share
--------------
+-----------------------
 API Address：
     * https://dnsapi.cn/Domainshare.Modify
 HTTP Request Type：
@@ -463,7 +463,7 @@ Response：
         } 
 
 Delete A Domain Share
--------------
+---------------------
 API Address：
     *  https://dnsapi.cn/Domainshare.Remove
 HTTP Request Type：
@@ -499,7 +499,7 @@ Response：
         }
 
 Transfer A Domain to Another Account
----------
+------------------------------------
 API Address：
     * https://dnsapi.cn/Domain.Transfer
 HTTP Request Type：
@@ -537,7 +537,7 @@ Response：
         }
 
 Lock A Domain
----------
+-------------
 API Address：
     * https://dnsapi.cn/Domain.Lock
 HTTP Request Type：
@@ -579,7 +579,7 @@ Response：
         }
 
 Lock Status
----------
+-----------
 API Address：
     * https://dnsapi.cn/Domain.Lockstatus
 HTTP Request Type：
@@ -618,7 +618,7 @@ Response：
         }
 
 Domain Unlock
----------
+-------------
 API Address：
     * https://dnsapi.cn/Domain.Unlock
 HTTP Request Type：
@@ -659,7 +659,7 @@ Response：
         }
 
 Get Domain Alias List
--------------
+---------------------
 API Address：
     * https://dnsapi.cn/Domainalias.List
 HTTP Request Type：
@@ -698,7 +698,7 @@ Response：
 
 
 Add A Domain Alias
--------------
+------------------
 API Address：
     * https://dnsapi.cn/Domainalias.Create
 HTTP Request Type：
@@ -739,7 +739,7 @@ Response：
         }
 
 Remove A Domain Alias
--------------
+---------------------
 API Address：
     * https://dnsapi.cn/Domainalias.Remove
 HTTP Request Type：
@@ -773,7 +773,7 @@ Response：
         }
 
 Get The Domain Group List
--------------
+-------------------------
 API Address：
     * https://dnsapi.cn/Domaingroup.List
 HTTP Request Type：
@@ -853,7 +853,7 @@ Attention：
     * This API only works for VIP accounts while free users will get an error.
     
 Add A New Domain Group
--------------
+----------------------
 API Address：
     https://dnsapi.cn/Domaingroup.Create
 HTTP Request Type：
@@ -890,7 +890,7 @@ Attention：
     * This API only works for VIP accounts while free accounts will get an error.
 
 Update A Domain Group
--------------
+---------------------
 API Address：
     https://dnsapi.cn/Domaingroup.Modify
 HTTP Request Type：
@@ -923,7 +923,7 @@ Response：
         }
     
 Remove A Domain Group
--------------
+---------------------
 API Address：
     * https://dnsapi.cn/Domaingroup.Remove
 HTTP Request Type：
@@ -952,7 +952,7 @@ Response：
         }
     
 Change A Domain's Group
-------------------------------
+-----------------------
 API Address：
     * https://dnsapi.cn/Domain.Changegroup
 HTTP Request Type：
@@ -983,7 +983,7 @@ Response：
         } 
 
 Directions：
-    * All the domains that shared by others,whose group is unchangeable,are always put into the group named "Shared With Me".
+    * All the domains shared by others are always put into the group named "Shared With Me" because their group is unchangeable.
     * Only the owner of the domain has the permission to change the domain's group.
 
 Mark A Domain
@@ -995,7 +995,7 @@ HTTP Request Type：
 Request Parameters：
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
-    * **is_mark** {yes | no} Whether to mark this domain.
+    * **is_mark** {yes|no} Whether to mark this domain.
 Response Code：
     * Common Response Code
     * 6 Invalid domain id.
@@ -1017,7 +1017,7 @@ Response：
         }
 
 Remark A Domain
--------------
+---------------
 API Address：
     * https://dnsapi.cn/Domain.Remark
 HTTP Request Type：
@@ -1047,7 +1047,7 @@ Response：
         }
 
 Get The Domain's Purview
--------------
+------------------------
 API Address：
     * https://dnsapi.cn/Domain.Purview
 HTTP Request Type：
@@ -1141,7 +1141,7 @@ Directions:
     * Store it when you get it instead of get this with API everytime you need it.This is something rarely change.
 
 Get the Email Address Needed to Get Domain Back
----------------------
+-----------------------------------------------
 API Address：
     * https://dnsapi.cn/Domain.Acquire
 HTTP Request Type：
@@ -1183,7 +1183,7 @@ Response：
         }
 
 Send Verify Code for Getting Domain Back
---------------------
+----------------------------------------
 API Address：
     *  https://dnsapi.cn/Domain.Acquiresend
 HTTP Request Type：
@@ -1222,7 +1222,7 @@ Response：
         }
 
 Verify the Verify Code
----------------------
+----------------------
 API Address：
     * https://dnsapi.cn/Domain.Acquirevalidate
 HTTP Request Type：
@@ -1262,7 +1262,7 @@ Response：
         }
 
 Get All the Record Types for A Domain Grade
-----------------------------
+-------------------------------------------
 API Address：
     *  https://dnsapi.cn/Record.Type
 HTTP Request Type：
@@ -1303,7 +1303,7 @@ Response：
         }    
 
 Get ALL the Lines Allowed for A Domain Grade
------------------------
+--------------------------------------------
 API Address：
     *  https://dnsapi.cn/Record.Line
 HTTP Request Type：
