@@ -4,9 +4,9 @@ Accounts
 
 Get Account Information
 -----------------------
-API Address：
-    * https://dnsapi.cn/User.Detail
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/User.Detail
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -15,7 +15,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/User.Detail -d 'login_email=api@dnspod.com&login_password=password&format=json'
+    curl -X POST https://api.dnspod.com/User.Detail -d 'login_email=api@dnspod.com&login_password=password&format=json'
 
 Response Example：
 
@@ -48,9 +48,9 @@ Response Example：
 
 Update Information
 ------------------
-API Address：
-    * https://dnsapi.cn/User.Modify
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/User.Modify
+Method：
     * POST
 Request Parameters：
     * Global parameters
@@ -65,7 +65,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/User.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&im=10000000'
+    curl -X POST https://api.dnspod.com/User.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&im=10000000'
 
 Response：
 
@@ -81,9 +81,9 @@ Response：
 
 Change Password
 ---------------
-API Address：
-    * https://dnsapi.cn/Userpasswd.Modify
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Userpasswd.Modify
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -96,7 +96,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Userpassword.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&old_password=old_password&new_password=new_password'
+    curl -X POST https://api.dnspod.com/Userpassword.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&old_password=old_password&new_password=new_password'
 
 Response：
 
@@ -112,8 +112,8 @@ Response：
 
 Update Email Address
 --------------------
-API Address：
-    * https://dnsapi.cn/Useremail.Modify
+URL：
+    * https://api.dnspod.com/Useremail.Modify
 HTTP Resquest Type：
     * POST
 Request Parameters：
@@ -129,7 +129,7 @@ Response Code：
 
 Example:: 
 
-    curl -X POST https://dnsapi.cn/Useremail.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&old_email=api1@dnspod.com&new_email=api@dnspod.com&password=password'   
+    curl -X POST https://api.dnspod.com/Useremail.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&old_email=api1@dnspod.com&new_email=api@dnspod.com&password=password'   
 
 Response：
 
@@ -146,9 +146,9 @@ Response：
         
 Get Telephone Verify Code
 -------------------------
-API Address：
-    * https://dnsapi.cn/Telephoneverify.Code
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Telephoneverify.Code
+Method：
     * POST
 Request Parameters :
     * Global Parameters.
@@ -160,7 +160,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Telephoneverify.Code -d 'login_email=api@dnspod.com&login_password=password&format=json&telephone=18600000000'
+    curl -X POST https://api.dnspod.com/Telephoneverify.Code -d 'login_email=api@dnspod.com&login_password=password&format=json&telephone=18600000000'
 
 Response：
 
@@ -188,9 +188,9 @@ Response：
 
 Get The Account's Operate Log
 -----------------------------
-API Address：
-    * https://dnsapi.cn/User.Log
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/User.Log
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -199,7 +199,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/User.Log -d 'login_email=api@dnspod.com&login_password=password&format=json'
+    curl -X POST https://api.dnspod.com/User.Log -d 'login_email=api@dnspod.com&login_password=password&format=json'
 
 Response：
 

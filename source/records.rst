@@ -1,11 +1,11 @@
 Records
 =======
 
-Add A Record
+Add a Record
 ------------
-API Address：
-    * https://dnsapi.cn/Record.Create
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Record.Create
+Method：
     * POST
 Request Parameters：
     * Global parameters
@@ -39,7 +39,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Record.Create -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&sub_domain=@&record_type=A&record_line=默认&value=1.1.1.1'
+    curl -X POST https://api.dnspod.com/Record.Create -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&sub_domain=@&record_type=A&record_line=默认&value=1.1.1.1'
     
 Response：
 
@@ -60,9 +60,9 @@ Response：
 
 Get Record List
 ---------------
-API Address：
-    * https://dnsapi.cn/Record.List
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Record.List
+Method：
     * POST
 Request Parameters：
     * Global parameters
@@ -85,7 +85,7 @@ Attention：
 
 Example::
 
-     curl -X POST https://dnsapi.cn/Record.List -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346'
+     curl -X POST https://api.dnspod.com/Record.List -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346'
     
 Response：
 
@@ -156,11 +156,11 @@ Response：
             ]
         }
 
-Update A Record
+Update a Record
 ---------------
-API Address：
-    *  https://dnsapi.cn/Record.Modify
-HTTP Request Type：
+URL：
+    *  https://api.dnspod.com/Record.Modify
+Method：
     * POST
 Request Parameters：
     * Global parameters
@@ -198,7 +198,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Record.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439&sub_domain=www&value=3.2.2.2&record_type=A&record_line=默认'
+    curl -X POST https://api.dnspod.com/Record.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439&sub_domain=www&value=3.2.2.2&record_type=A&record_line=默认'
    
 Response：
 
@@ -217,11 +217,11 @@ Response：
             }
         }
 
-Remove A Record
+Remove a Record
 ---------------
-API Address：
-    *  https://dnsapi.cn/Record.Remove
-HTTP Request Type：
+URL：
+    *  https://api.dnspod.com/Record.Remove
+Method：
     * POST
 Request Parameters：
     * Global parameters
@@ -239,7 +239,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Record.Remove -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439'
+    curl -X POST https://api.dnspod.com/Record.Remove -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439'
     
 Response：
 
@@ -255,9 +255,9 @@ Response：
 
 Update the Dynamic DNS Record
 -----------------------------
-API Address：
-    *  https://dnsapi.cn/Record.Ddns
-HTTP Request Type：
+URL：
+    *  https://api.dnspod.com/Record.Ddns
+Method：
     * POST
 Request Parameters：
     * Global parameters
@@ -283,7 +283,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Record.Ddns -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439&record_line=默认&sub_domain=www'
+    curl -X POST https://api.dnspod.com/Record.Ddns -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439&record_line=默认&sub_domain=www'
     
 Response：
 
@@ -302,11 +302,11 @@ Response：
             }
         }
 
-Remark A Record
+Remark a Record
 ---------------
-API Address：
-    *  https://dnsapi.cn/Record.Remark
-HTTP Request Type：
+URL：
+    *  https://api.dnspod.com/Record.Remark
+Method：
     * POST
 Request Parameters：
     * Global parameters
@@ -320,7 +320,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Record.Remark -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439&remark=test'
+    curl -X POST https://api.dnspod.com/Record.Remark -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439&remark=test'
     
 Response：
 
@@ -337,9 +337,9 @@ Response：
 
 Get the Record Informtion
 -------------------------
-API Address：
-    *  https://dnsapi.cn/Record.Info
-HTTP Request Type：
+URL：
+    *  https://api.dnspod.com/Record.Info
+Method：
     * POST
 Request Parameters：
     * Global parameters
@@ -356,7 +356,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Record.Info -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439'
+    curl -X POST https://api.dnspod.com/Record.Info -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439'
     
 Response：
 
@@ -392,9 +392,9 @@ Response：
 
 Set the Record Status
 ---------------------
-API Address：
-    *  https://dnsapi.cn/Record.Status
-HTTP Request Type：
+URL：
+    *  https://api.dnspod.com/Record.Status
+Method：
     * POST
 Request Parameters：
     * Global parameters
@@ -413,7 +413,7 @@ Response Code：
 
 Example:: 
 
-    curl -X POST https://dnsapi.cn/Record.Status -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439&status=disable'
+    curl -X POST https://api.dnspod.com/Record.Status -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439&status=disable'
     
 Response：
 

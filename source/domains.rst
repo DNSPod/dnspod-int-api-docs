@@ -3,9 +3,9 @@ Domains
 
 Add New Domain
 --------------
-API Address：
-    * https://dnsapi.cn/Domain.Create
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domain.Create
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -22,7 +22,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Domain.Create -d 'login_email=api@dnspod.com&login_password=password&domain=api2.com&format=json'
+    curl -X POST https://api.dnspod.com/Domain.Create -d 'login_email=api@dnspod.com&login_password=password&domain=api2.com&format=json'
 
 Response：
 
@@ -44,9 +44,9 @@ Response：
 
 Get The Domain List
 -------------------
-API Address：
-    * https://dnsapi.cn/Domain.List
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domain.List
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -72,7 +72,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domain.List -d 'login_email=api@dnspod.com&login_password=password&format=json'
+    curl -X POST https://api.dnspod.com/Domain.List -d 'login_email=api@dnspod.com&login_password=password&format=json'
 
 Response：
 
@@ -122,9 +122,9 @@ Response：
 
 Delete Domain
 -------------
-API Address：
-    * https://dnsapi.cn/Domain.Remove
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domain.Remove
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -139,7 +139,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Domain.Remove -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=1992403'
+    curl -X POST https://api.dnspod.com/Domain.Remove -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=1992403'
     
 Response：
 
@@ -155,9 +155,9 @@ Response：
 
 Set Domain Status
 -----------------
-API Address：
-    * https://dnsapi.cn/Domain.Status
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domain.Status
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -174,7 +174,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Domain.Status -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2058967&status=disable'
+    curl -X POST https://api.dnspod.com/Domain.Status -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2058967&status=disable'
 
 Response：
 
@@ -190,9 +190,9 @@ Response：
 
 Get The Domain Information
 --------------------------
-API Address：
-    * https://dnsapi.cn/Domain.Info
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domain.Info
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -206,7 +206,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Domain.Info  -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
+    curl -X POST https://api.dnspod.com/Domain.Info  -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
 
 Response：
 
@@ -242,11 +242,11 @@ Response：
         } 
 
 
-Get the Operate Logs of A Domain
+Get the Operate Logs of a Domain
 --------------------------------
-API Address：
-    * https://dnsapi.cn/Domain.Log
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domain.Log
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -260,7 +260,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domain.Log  -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
+    curl -X POST https://api.dnspod.com/Domain.Log  -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
 
 Response：
 
@@ -291,9 +291,9 @@ Response：
 
 Push Domain to Search Engine
 ----------------------------
-API Address：
-    * https://dnsapi.cn/Domain.Searchenginepush
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domain.Searchenginepush
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -310,7 +310,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Domain.Searchenginepush -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&status=yes'
+    curl -X POST https://api.dnspod.com/Domain.Searchenginepush -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&status=yes'
     
 Response：
 
@@ -325,11 +325,11 @@ Response：
         }
 
 
-Share A Domain
+Share a Domain
 --------------
-API Address：
-    * https://dnsapi.cn/Domainshare.Create
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domainshare.Create
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -351,7 +351,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Domainshare.Create -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=otheruser@dnspod.com&mode=rw'
+    curl -X POST https://api.dnspod.com/Domainshare.Create -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=otheruser@dnspod.com&mode=rw'
     
 Response：
 
@@ -367,9 +367,9 @@ Response：
     
 Get Domain Share List
 ---------------------
-API Address：
-    * https://dnsapi.cn/Domainshare.List
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domainshare.List
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -383,7 +383,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domainshare.List -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
+    curl -X POST https://api.dnspod.com/Domainshare.List -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
 
 Response：
 
@@ -407,9 +407,9 @@ Response：
 
 Update the Domain Share
 -----------------------
-API Address：
-    * https://dnsapi.cn/Domainshare.Modify
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domainshare.Modify
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -432,23 +432,23 @@ Example
 
 1. Change a domain's share mode from "rw" to "r"::
         
-    curl -X POST https://dnsapi.cn/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=r'
+    curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=r'
     
 2. Change a domain's share mode from "rw" to "r"::
             
-    curl -X POST https://dnsapi.cn/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=r&old_sub_domain=www&new_sub_domain=www'
+    curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=r&old_sub_domain=www&new_sub_domain=www'
     
 3. Change a domain's share type from the whole domain to subsidiary domain.::
 
-    curl -X POST https://dnsapi.cn/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=rw&new_sub_domain=www'
+    curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=rw&new_sub_domain=www'
     
 4. Change a domain's share type from subsidiary domain to the whole domain.::
 
-    curl -X POST https://dnsapi.cn/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=rw&old_sub_domain=www'
+    curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=rw&old_sub_domain=www'
     
 5. Change the subsidiary domain from "www" to "bbs"::
 
-    curl -X POST https://dnsapi.cn/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=rw&old_sub_domain=www&new_sub_domain=bbs'
+    curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=rw&old_sub_domain=www&new_sub_domain=bbs'
     
 Response：
 
@@ -462,11 +462,11 @@ Response：
             }
         } 
 
-Delete A Domain Share
+Delete a Domain Share
 ---------------------
-API Address：
-    *  https://dnsapi.cn/Domainshare.Remove
-HTTP Request Type：
+URL：
+    *  https://api.dnspod.com/Domainshare.Remove
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -484,7 +484,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domainshare.Remove -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com'
+    curl -X POST https://api.dnspod.com/Domainshare.Remove -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com'
 
 Response：
 
@@ -498,11 +498,11 @@ Response：
             }
         }
 
-Transfer A Domain to Another Account
+Transfer a Domain to Another Account
 ------------------------------------
-API Address：
-    * https://dnsapi.cn/Domain.Transfer
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domain.Transfer
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -522,7 +522,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domainshare.Transfer -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com'
+    curl -X POST https://api.dnspod.com/Domainshare.Transfer -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com'
     
 Response：
 
@@ -536,11 +536,11 @@ Response：
             }
         }
 
-Lock A Domain
+Lock a Domain
 -------------
-API Address：
-    * https://dnsapi.cn/Domain.Lock
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domain.Lock
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -559,7 +559,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domain.Lock -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&days=3'
+    curl -X POST https://api.dnspod.com/Domain.Lock -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&days=3'
 
 Response：
 
@@ -580,9 +580,9 @@ Response：
 
 Lock Status
 -----------
-API Address：
-    * https://dnsapi.cn/Domain.Lockstatus
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domain.Lockstatus
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -597,7 +597,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domain.Lockstatus -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
+    curl -X POST https://api.dnspod.com/Domain.Lockstatus -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
     
 Response：
 
@@ -619,9 +619,9 @@ Response：
 
 Domain Unlock
 -------------
-API Address：
-    * https://dnsapi.cn/Domain.Unlock
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domain.Unlock
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -639,7 +639,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domain.Unlock -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&lock_code=fdd638'
+    curl -X POST https://api.dnspod.com/Domain.Unlock -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&lock_code=fdd638'
 
 Response：
 
@@ -660,9 +660,9 @@ Response：
 
 Get Domain Alias List
 ---------------------
-API Address：
-    * https://dnsapi.cn/Domainalias.List
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domainalias.List
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -676,7 +676,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domainalias.List -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
+    curl -X POST https://api.dnspod.com/Domainalias.List -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
 
 Response：
 
@@ -697,11 +697,11 @@ Response：
         } 
 
 
-Add A Domain Alias
+Add a Domain Alias
 ------------------
-API Address：
-    * https://dnsapi.cn/Domainalias.Create
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domainalias.Create
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -720,7 +720,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domainalias.Create -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&domain=dnspodapi.com'
+    curl -X POST https://api.dnspod.com/Domainalias.Create -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&domain=dnspodapi.com'
 
 Response：
 
@@ -738,11 +738,11 @@ Response：
             }
         }
 
-Remove A Domain Alias
+Remove a Domain Alias
 ---------------------
-API Address：
-    * https://dnsapi.cn/Domainalias.Remove
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domainalias.Remove
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -758,7 +758,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domainalias.Remove -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&alias_id=18737'
+    curl -X POST https://api.dnspod.com/Domainalias.Remove -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&alias_id=18737'
 
 Response：
 
@@ -774,9 +774,9 @@ Response：
 
 Get The Domain Group List
 -------------------------
-API Address：
-    * https://dnsapi.cn/Domaingroup.List
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domaingroup.List
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -785,7 +785,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domaingroup.List -d 'login_email=api@dnspod.com&login_password=password&format=json'
+    curl -X POST https://api.dnspod.com/Domaingroup.List -d 'login_email=api@dnspod.com&login_password=password&format=json'
     
 Response：
 
@@ -852,11 +852,11 @@ Response：
 Attention：
     * This API only works for VIP accounts while free users will get an error.
     
-Add A New Domain Group
+Add a New Domain Group
 ----------------------
-API Address：
-    https://dnsapi.cn/Domaingroup.Create
-HTTP Request Type：
+URL：
+    https://api.dnspod.com/Domaingroup.Create
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -869,7 +869,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domaingroup.List -d 'login_email=api@dnspod.com&login_password=password&format=json&group_name=dnspod'
+    curl -X POST https://api.dnspod.com/Domaingroup.List -d 'login_email=api@dnspod.com&login_password=password&format=json&group_name=dnspod'
 
 Response：
 
@@ -889,11 +889,11 @@ Response：
 Attention：
     * This API only works for VIP accounts while free accounts will get an error.
 
-Update A Domain Group
+Update a Domain Group
 ---------------------
-API Address：
-    https://dnsapi.cn/Domaingroup.Modify
-HTTP Request Type：
+URL：
+    https://api.dnspod.com/Domaingroup.Modify
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -908,7 +908,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domaingroup.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&group_id=1985&group_name=dnspodgroup'
+    curl -X POST https://api.dnspod.com/Domaingroup.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&group_id=1985&group_name=dnspodgroup'
 
 Response：
 
@@ -922,11 +922,11 @@ Response：
             }
         }
     
-Remove A Domain Group
+Remove a Domain Group
 ---------------------
-API Address：
-    * https://dnsapi.cn/Domaingroup.Remove
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domaingroup.Remove
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -937,7 +937,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domaingroup.Remove -d 'login_email=api@dnspod.com&login_password=password&format=json&group_id=1985'
+    curl -X POST https://api.dnspod.com/Domaingroup.Remove -d 'login_email=api@dnspod.com&login_password=password&format=json&group_id=1985'
 
 Response：
 
@@ -951,11 +951,11 @@ Response：
             }
         }
     
-Change A Domain's Group
+Change a Domain's Group
 -----------------------
-API Address：
-    * https://dnsapi.cn/Domain.Changegroup
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domain.Changegroup
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -968,7 +968,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domain.Changegroup -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&group_id=1985'
+    curl -X POST https://api.dnspod.com/Domain.Changegroup -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&group_id=1985'
     
 Response：
 
@@ -986,11 +986,11 @@ Directions：
     * All the domains shared by others are always put into the group named "Shared With Me" because their group is unchangeable.
     * Only the owner of the domain has the permission to change the domain's group.
 
-Mark A Domain
+Mark a Domain
 -------------
-API Address：
-    * https://dnsapi.cn/Domain.Ismark
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domain.Ismark
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -1002,7 +1002,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domain.Ismark -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&is_mark=yes'
+    curl -X POST https://api.dnspod.com/Domain.Ismark -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&is_mark=yes'
 
 Response：
 
@@ -1016,11 +1016,11 @@ Response：
             }
         }
 
-Remark A Domain
+Remark a Domain
 ---------------
-API Address：
-    * https://dnsapi.cn/Domain.Remark
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domain.Remark
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -1032,7 +1032,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domain.Remark -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&remark=这个域名需要备注一下'
+    curl -X POST https://api.dnspod.com/Domain.Remark -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&remark=这个域名需要备注一下'
     
 Response：
 
@@ -1048,9 +1048,9 @@ Response：
 
 Get The Domain's Purview
 ------------------------
-API Address：
-    * https://dnsapi.cn/Domain.Purview
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domain.Purview
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -1061,7 +1061,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domain.Purview -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
+    curl -X POST https://api.dnspod.com/Domain.Purview -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
     
 Response：
 
@@ -1142,9 +1142,9 @@ Directions:
 
 Get the Email Address Needed to Get Domain Back
 -----------------------------------------------
-API Address：
-    * https://dnsapi.cn/Domain.Acquire
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domain.Acquire
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -1164,7 +1164,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domain.Acquire -d 'login_email=api@dnspod.com&login_password=password&format=json&domain=api4.com'
+    curl -X POST https://api.dnspod.com/Domain.Acquire -d 'login_email=api@dnspod.com&login_password=password&format=json&domain=api4.com'
     
 Response：
 
@@ -1184,9 +1184,9 @@ Response：
 
 Send Verify Code for Getting Domain Back
 ----------------------------------------
-API Address：
-    *  https://dnsapi.cn/Domain.Acquiresend
-HTTP Request Type：
+URL：
+    *  https://api.dnspod.com/Domain.Acquiresend
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -1208,7 +1208,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domain.Acquiresend -d 'login_email=api@dnspod.com&login_password=password&format=json&domain=api4.com&email=support@namecheap.com'
+    curl -X POST https://api.dnspod.com/Domain.Acquiresend -d 'login_email=api@dnspod.com&login_password=password&format=json&domain=api4.com&email=support@namecheap.com'
     
 Response：
     * JSON::
@@ -1223,9 +1223,9 @@ Response：
 
 Verify the Verify Code
 ----------------------
-API Address：
-    * https://dnsapi.cn/Domain.Acquirevalidate
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Domain.Acquirevalidate
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -1247,7 +1247,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Domain.Acquirevalidate -d 'login_email=api@dnspod.com&login_password=password&format=json&domain=api4.com&code=111000'
+    curl -X POST https://api.dnspod.com/Domain.Acquirevalidate -d 'login_email=api@dnspod.com&login_password=password&format=json&domain=api4.com&code=111000'
     
 Response：
 
@@ -1261,11 +1261,11 @@ Response：
             }
         }
 
-Get All the Record Types for A Domain Grade
+Get All the Record Types for a Domain Grade
 -------------------------------------------
-API Address：
-    *  https://dnsapi.cn/Record.Type
-HTTP Request Type：
+URL：
+    *  https://api.dnspod.com/Record.Type
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -1278,7 +1278,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Record.Type -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_grade=D_Free'
+    curl -X POST https://api.dnspod.com/Record.Type -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_grade=D_Free'
 
 Response：
 
@@ -1302,11 +1302,11 @@ Response：
             ]
         }    
 
-Get ALL the Lines Allowed for A Domain Grade
+Get All the Lines Allowed for a Domain Grade
 --------------------------------------------
-API Address：
-    *  https://dnsapi.cn/Record.Line
-HTTP Request Type：
+URL：
+    *  https://api.dnspod.com/Record.Line
+Method：
     * POST
 Request Parameters：
     * Global Parameters
@@ -1320,7 +1320,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Record.Line -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_grade=D_Free&domain_id=2059079'
+    curl -X POST https://api.dnspod.com/Record.Line -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_grade=D_Free&domain_id=2059079'
 
 Response：
 

@@ -3,9 +3,9 @@ D-Monitor
 
 List All the Sub-domains Whose Type Is "A"
 ------------------------------------------
-API Address：
-    *  https://dnsapi.cn/Monitor.Listsubdomain
-HTTP Request Type：
+URL：
+    *  https://api.dnspod.com/Monitor.Listsubdomain
+Method：
     * POST
 Request Parameters：
     * Global parameters
@@ -18,7 +18,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Monitor.Listsubdomain -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346'
+    curl -X POST https://api.dnspod.com/Monitor.Listsubdomain -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346'
     
 Response：
 
@@ -42,11 +42,11 @@ Response：
             ]
         }
 
-List All the "A" Records for A Sub-domain
+List All the "A" Records for a Sub-domain
 -----------------------------------------
-API Address：
-    *  https://dnsapi.cn/Monitor.Listsubvalue
-HTTP Request Type：
+URL：
+    *  https://api.dnspod.com/Monitor.Listsubvalue
+Method：
     * POST
 Request Parameters：
     * Global parameters
@@ -59,7 +59,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Monitor.Listsubvalue -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&subdomain=@'
+    curl -X POST https://api.dnspod.com/Monitor.Listsubvalue -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&subdomain=@'
     
 Response：
 
@@ -96,9 +96,9 @@ Response：
 
 Get the Monitor List
 --------------------
-API Address：
-    *  https://dnsapi.cn/Monitor.List
-HTTP Request Type：
+URL：
+    *  https://api.dnspod.com/Monitor.List
+Method：
     * POST
 Request Parameters：
     * Global parameters
@@ -107,7 +107,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Monitor.List -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346'
+    curl -X POST https://api.dnspod.com/Monitor.List -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346'
     
 Response：
 
@@ -156,11 +156,11 @@ Response：
             ]
         }
 
-Add A Monitor
+Add a Monitor
 -------------
-API Address：
-    *  https://dnsapi.cn/Monitor.Create
-HTTP Request Type：
+URL：
+    *  https://api.dnspod.com/Monitor.Create
+Method：
     * POST
 Request Parameters：
     * Global parameters
@@ -207,7 +207,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Monitor.Create -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16909160&port=80&monitor_type=http&monitor_path=/&monitor_interval=360&points=ctc,cuc,cmc&bak_ip=pass&host=testapi.com'
+    curl -X POST https://api.dnspod.com/Monitor.Create -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16909160&port=80&monitor_type=http&monitor_path=/&monitor_interval=360&points=ctc,cuc,cmc&bak_ip=pass&host=testapi.com'
 
 Response：
 
@@ -225,11 +225,11 @@ Response：
             }
         }
 
-Modify A Monitor
+Modify a Monitor
 ----------------
-API Address：
-    *  https://dnsapi.cn/Monitor.Modify
-HTTP Request Type：
+URL：
+    *  https://api.dnspod.com/Monitor.Modify
+Method：
     * POST
 Request Parameters：
     * Global parameters
@@ -272,7 +272,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Monitor.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&monitor_id=51fc9a20-363c-11e2-bab7-0819a6248970&port=80&monitor_type=http&monitor_path=/&monitor_interval=360&points=ctc,cuc,cmc&bak_ip=pass'
+    curl -X POST https://api.dnspod.com/Monitor.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&monitor_id=51fc9a20-363c-11e2-bab7-0819a6248970&port=80&monitor_type=http&monitor_path=/&monitor_interval=360&points=ctc,cuc,cmc&bak_ip=pass'
 
 Response：
 
@@ -286,11 +286,11 @@ Response：
             }
         }
 
-Remove A Monitor
+Remove a Monitor
 ----------------
-API Address：
-    *  https://dnsapi.cn/Monitor.Remove
-HTTP Request Type：
+URL：
+    *  https://api.dnspod.com/Monitor.Remove
+Method：
     * POST
 Request Parameters：
     * Global parameters
@@ -301,7 +301,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Monitor.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&monitor_id=51fc9a20-363c-11e2-bab7-0819a6248970'
+    curl -X POST https://api.dnspod.com/Monitor.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&monitor_id=51fc9a20-363c-11e2-bab7-0819a6248970'
     
 Response：
 
@@ -318,9 +318,9 @@ Response：
 
 Get the Monitor Information
 ---------------------------
-API Address：
-    * https://dnsapi.cn/Monitor.Info
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Monitor.Info
+Method：
     * POST
 Request Parameters：
     * Global parameters
@@ -331,7 +331,7 @@ Response Code：
 
 Example::
         
-    curl -X POST https://dnsapi.cn/Monitor.Info -d 'login_email=api@dnspod.com&login_password=password&format=json&monitor_id=e91997aa-3641-11e2-bab7-0819a6248970'
+    curl -X POST https://api.dnspod.com/Monitor.Info -d 'login_email=api@dnspod.com&login_password=password&format=json&monitor_id=e91997aa-3641-11e2-bab7-0819a6248970'
     
 Response：
 
@@ -374,11 +374,11 @@ Response：
             }
         }
 
-Set A Monitor's Status
+Set a Monitor's Status
 ----------------------
-API Address：
-    *  https://dnsapi.cn/Monitor.Setstatus
-HTTP Request Type：
+URL：
+    *  https://api.dnspod.com/Monitor.Setstatus
+Method：
     * POST
 Request Parameters：
     * Global parameters
@@ -396,7 +396,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Monitor.Setstatus -d 'login_email=api@dnspod.com&login_password=password&format=json&monitor_id=03e3b268-3643-11e2-bab7-0819a6248970&status=disable'
+    curl -X POST https://api.dnspod.com/Monitor.Setstatus -d 'login_email=api@dnspod.com&login_password=password&format=json&monitor_id=03e3b268-3643-11e2-bab7-0819a6248970&status=disable'
     
 Response：
 
@@ -410,11 +410,11 @@ Response：
             }
         }
 
-Get A Monitor's History
+Get a Monitor's History
 -----------------------
-API Address：
-    *  https://dnsapi.cn/Monitor.Gethistory
-HTTP Request Type：
+URL：
+    *  https://api.dnspod.com/Monitor.Gethistory
+Method：
     * POST
 Request Parameters：
     * Global parameters
@@ -426,7 +426,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Monitor.Setstatus -d 'login_email=api@dnspod.com&login_password=password&format=json&monitor_id=03e3b268-3643-11e2-bab7-0819a6248970&hours=1'
+    curl -X POST https://api.dnspod.com/Monitor.Setstatus -d 'login_email=api@dnspod.com&login_password=password&format=json&monitor_id=03e3b268-3643-11e2-bab7-0819a6248970&hours=1'
     
 Response：
 
@@ -551,11 +551,11 @@ Response：
             ]
         }
 
-Get A Monitor's Description
+Get a Monitor's Description
 ---------------------------
-API Address：
-    * https://dnsapi.cn/Monitor.Userdesc
-HTTP Request Type：
+URL：
+    * https://api.dnspod.com/Monitor.Userdesc
+Method：
     * POST
 Request Parameters：
     * Global parameters
@@ -564,7 +564,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Monitor.Userdesc -d 'login_email=api@dnspod.com&login_password=password&format=json'
+    curl -X POST https://api.dnspod.com/Monitor.Userdesc -d 'login_email=api@dnspod.com&login_password=password&format=json'
     
 Response：
 
@@ -588,11 +588,11 @@ Response：
         }
 
 
-Get A Monitor's Wornings
+Get a Monitor's Warnings
 ------------------------
-API Address：
-    *  https://dnsapi.cn/Monitor.Getdowns
-HTTP Request Type：
+URL：
+    *  https://api.dnspod.com/Monitor.Getdowns
+Method：
     * POST
 Request Parameters：
     * Global parameters
@@ -603,7 +603,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://dnsapi.cn/Monitor.Getdowns -d 'login_email=api@dnspod.com&login_password=password&format=json&offset=0&length=10'
+    curl -X POST https://api.dnspod.com/Monitor.Getdowns -d 'login_email=api@dnspod.com&login_password=password&format=json&offset=0&length=10'
     
 Response：
 
