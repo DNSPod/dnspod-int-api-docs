@@ -39,7 +39,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Record.Create -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&sub_domain=@&record_type=A&record_line=默认&value=1.1.1.1'
+    curl -X POST https://api.dnspod.com/Record.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&sub_domain=@&record_type=A&record_line=默认&value=1.1.1.1'
     
 Response：
 
@@ -81,80 +81,110 @@ Response Code：
     * 10 Empty result.
 
 Attention：
-    * If there are more than 3000 records,only the first 3000 will be responsed.You may need to set "offset" and "length" to get all the records with requests.
+    * If there are more than 500 records,only the first 500 will be responsed.You may need to set "offset" and "length" to get all the records with requests.
 
 Example::
 
-     curl -X POST https://api.dnspod.com/Record.List -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346'
+     curl -X POST https://api.dnspod.com/Record.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346'
     
 Response：
 
     * JSON::
 
-        {
+       {
             "status": {
-                "code":"1",
-                "message":"Action completed successful",
-                "created_at":"2012-11-23 22:20:59"
+                "code": "1",
+                "message": "Action completed successful",
+                "created_at": "2014-06-05 09:58:40"
             },
             "domain": {
-                "id":2317346,
-                "name":"testapi.com",
-                "punycode":"testapi.com",
-                "grade":"D_Plus",
-                "owner":"api@dnspod.com"
+                "id": "9",
+                "name": "dnspod.com",
+                "punycode": "dnspod.com",
+                "grade": "DP_Free",
+                "owner": "yizerowu@dnspod.com"
             },
             "info": {
-                "sub_domains":"3",
-                "record_total":"3"
+                "sub_domains": "5",
+                "record_total": "5"
             },
             "records": [
                 {
-                    "id":"16894439",
-                    "name":"@",
-                    "line":"\u9ed8\u8ba4",
-                    "type":"A",
-                    "ttl":"600",
-                    "value":"1.1.1.1",
-                    "mx":"0",
-                    "enabled":"1",
-                    "status":"enabled",
-                    "monitor_status":"",
-                    "remark":"",
-                    "updated_on":"2012-11-23 22:17:47"
+                    "id": "50",
+                    "name": "@",
+                    "line": "Default",
+                    "type": "A",
+                    "ttl": "600",
+                    "value": "96.126.115.73",
+                    "mx": "0",
+                    "enabled": "1",
+                    "status": "enabled",
+                    "monitor_status": "",
+                    "remark": "",
+                    "updated_on": "2014-06-05 09:47:59"
                 },
                 {
-                    "id":"16662141",
-                    "name":"@",
-                    "line":"\u9ed8\u8ba4",
-                    "type":"NS",
-                    "ttl":"600",
-                    "value":"ns1.dnsv2.com.",
-                    "mx":"0",
-                    "enabled":"1",
-                    "status":"enabled",
-                    "monitor_status":"",
-                    "remark":"",
-                    "updated_on":"2012-11-16 15:52:56",
-                    "hold":"hold"
+                    "id": "49",
+                    "name": "@",
+                    "line": "Default",
+                    "type": "MX",
+                    "ttl": "600",
+                    "value": "cloudmx.qq.com.",
+                    "mx": "5",
+                    "enabled": "1",
+                    "status": "enabled",
+                    "monitor_status": "",
+                    "remark": "",
+                    "updated_on": "2014-06-05 09:47:59"
                 },
                 {
-                    "id":"16662142",
-                    "name":"@",
-                    "line":"\u9ed8\u8ba4",
-                    "type":"NS",
-                    "ttl":"600",
-                    "value":"ns2.dnsv2.com.",
-                    "mx":"0",
-                    "enabled":"1",
-                    "status":"enabled",
-                    "monitor_status":"",
-                    "remark":"",
-                    "updated_on":"2012-11-16 15:52:56",
-                    "hold":"hold"
+                    "id": "46",
+                    "name": "@",
+                    "line": "Default",
+                    "type": "NS",
+                    "ttl": "600",
+                    "value": "a.dnspod.com.",
+                    "mx": "0",
+                    "enabled": "1",
+                    "status": "enabled",
+                    "monitor_status": "",
+                    "remark": "",
+                    "updated_on": "2014-06-05 09:47:40",
+                    "hold": "hold"
+                },
+                {
+                    "id": "47",
+                    "name": "@",
+                    "line": "Default",
+                    "type": "NS",
+                    "ttl": "600",
+                    "value": "b.dnspod.com.",
+                    "mx": "0",
+                    "enabled": "1",
+                    "status": "enabled",
+                    "monitor_status": "",
+                    "remark": "",
+                    "updated_on": "2014-06-05 09:47:40",
+                    "hold": "hold"
+                },
+                {
+                    "id": "48",
+                    "name": "@",
+                    "line": "Default",
+                    "type": "NS",
+                    "ttl": "600",
+                    "value": "c.dnspod.com.",
+                    "mx": "0",
+                    "enabled": "1",
+                    "status": "enabled",
+                    "monitor_status": "",
+                    "remark": "",
+                    "updated_on": "2014-06-05 09:47:40",
+                    "hold": "hold"
                 }
             ]
-        }
+        } 
+
 
 Update a Record
 ---------------
@@ -198,7 +228,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Record.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439&sub_domain=www&value=3.2.2.2&record_type=A&record_line=默认'
+    curl -X POST https://api.dnspod.com/Record.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439&sub_domain=www&value=3.2.2.2&record_type=A&record_line=默认'
    
 Response：
 
@@ -239,7 +269,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Record.Remove -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439'
+    curl -X POST https://api.dnspod.com/Record.Remove -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439'
     
 Response：
 
@@ -283,7 +313,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Record.Ddns -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439&record_line=默认&sub_domain=www'
+    curl -X POST https://api.dnspod.com/Record.Ddns -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439&record_line=默认&sub_domain=www'
     
 Response：
 
@@ -320,7 +350,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Record.Remark -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439&remark=test'
+    curl -X POST https://api.dnspod.com/Record.Remark -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439&remark=test'
     
 Response：
 
@@ -356,7 +386,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Record.Info -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439'
+    curl -X POST https://api.dnspod.com/Record.Info -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439'
     
 Response：
 
@@ -364,28 +394,28 @@ Response：
 
         {
             "status": {
-                "code": "1", 
-                "message": "Action completed successful", 
-                "created_at": "2012-11-24 17:36:10"
-            }, 
+                "code": "1",
+                "message": "Action completed successful",
+                "created_at": "2014-06-05 10:07:05"
+            },
             "domain": {
-                "id": 2317346, 
-                "domain": "testapi.com", 
-                "domain_grade": "D_Plus"
-            }, 
+                "id": "9",
+                "domain": "dnspod.com",
+                "domain_grade": "DP_Free"
+            },
             "record": {
-                "id": "16909160", 
-                "sub_domain": "@", 
-                "record_type": "A", 
-                "record_line": "默认", 
-                "value": "111.111.111.111", 
-                "mx": "0", 
-                "ttl": "10", 
-                "enabled": "1", 
-                "monitor_status": "", 
-                "remark": "test", 
-                "updated_on": "2012-11-24 17:23:58", 
-                "domain_id": "2317346"
+                "id": "50",
+                "sub_domain": "@",
+                "record_type": "A",
+                "record_line": "Default",
+                "value": "96.126.115.73",
+                "mx": "0",
+                "ttl": "600",
+                "enabled": "1",
+                "monitor_status": "",
+                "remark": "",
+                "updated_on": "2014-06-05 09:47:59",
+                "domain_id": "9"
             }
         }
 
@@ -413,7 +443,7 @@ Response Code：
 
 Example:: 
 
-    curl -X POST https://api.dnspod.com/Record.Status -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16894439&status=disable'
+    curl -X POST https://api.dnspod.com/Record.Status -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439&status=disable'
     
 Response：
 

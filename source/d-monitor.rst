@@ -18,7 +18,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Monitor.Listsubdomain -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346'
+    curl -X POST https://api.dnspod.com/Monitor.Listsubdomain -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346'
     
 Response：
 
@@ -26,21 +26,22 @@ Response：
 
         {
             "status": {
-                "code": "1", 
-                "message": "Action completed successful", 
-                "created_at": "2012-11-24 20:14:31"
-            }, 
+                "code": "1",
+                "message": "Action completed successful",
+                "created_at": "2014-06-05 10:12:24"
+            },
             "domain": {
-                "id": 2317346, 
-                "name": "testapi.com", 
-                "punycode": "testapi.com", 
-                "grade": "D_Plus", 
-                "owner": "api@dnspod.com"
-            }, 
+                "id": "9",
+                "name": "dnspod.com",
+                "punycode": "dnspod.com",
+                "grade": "DP_Free",
+                "owner": "yizerowu@dnspod.com"
+            },
             "subdomain": [
                 "@"
             ]
         }
+
 
 List All the "A" Records for a Sub-domain
 -----------------------------------------
@@ -59,7 +60,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Monitor.Listsubvalue -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&subdomain=@'
+    curl -X POST https://api.dnspod.com/Monitor.Listsubvalue -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&subdomain=@'
     
 Response：
 
@@ -67,32 +68,36 @@ Response：
 
         {
             "status": {
-                "code": "1", 
-                "message": "Action completed successful", 
-                "created_at": "2012-11-24 20:19:05"
-            }, 
+                "code": "1",
+                "message": "Action completed successful",
+                "created_at": "2014-06-05 10:14:17"
+            },
             "domain": {
-                "id": 2317346, 
-                "name": "testapi.com", 
-                "punycode": "testapi.com", 
-                "grade": "D_Plus"
-            }, 
+                "id": "9",
+                "name": "dnspod.com",
+                "punycode": "dnspod.com",
+                "grade": "DP_Free"
+            },
             "points": {
-                "max": 999, 
+                "max": 3,
                 "list": {
-                    "ctc": "电信", 
-                    "cuc": "联通", 
-                    "cmc": "移动"
+                    "ctc-4": "Hangzhou, Telecom, CN",
+                    "usa-1": "HE, CA, US",
+                    "hk-1": "PCCW, HK"
                 }
-            }, 
+            },
+            "balance": 8,
             "records": [
                 {
-                    "id": "16909160", 
-                    "area": "默认", 
-                    "value": "119.180.24.194"
+                    "id": "50",
+                    "area": "Default",
+                    "value": "96.126.115.73",
+                    "record_type": "A",
+                    "sub_domain": "@"
                 }
             ]
         }
+
 
 Get the Monitor List
 --------------------
@@ -107,54 +112,59 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Monitor.List -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346'
+    curl -X POST https://api.dnspod.com/Monitor.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346'
     
 Response：
 
     * JSON::
 
-        {
+       {
             "status": {
-                "code": "1", 
-                "message": "Action completed successful", 
-                "created_at": "2012-11-24 20:48:02"
-            }, 
+                "code": "1",
+                "message": "Action completed successful",
+                "created_at": "2014-06-05 10:21:00"
+            },
             "info": {
-                "total_count": 1, 
+                "total_count": 1,
                 "down_count": 0
-            }, 
+            },
             "monitors": [
                 {
-                    "monitor_id": "281ecb9e-3635-11e2-bab7-0819a6248970", 
-                    "domain": "testapi.com", 
-                    "domain_id": "2317346", 
-                    "domain_grade": "D_Plus", 
-                    "record_id": "16909160", 
-                    "sub_domain": "@", 
-                    "record_line": "默认", 
-                    "ip": "119.180.24.194", 
-                    "now_ip": "119.180.24.194", 
-                    "host": "testapi.com", 
-                    "port": "80", 
-                    "monitor_type": "http", 
-                    "monitor_path": "/", 
-                    "monitor_interval": "360", 
-                    "points": "ctc,cuc,cmc", 
-                    "bak_ip": "auto", 
-                    "status": "Ok", 
-                    "status_code": "200", 
-                    "sms_notice": "me", 
-                    "email_notice": "me", 
-                    "less_notice": "yes", 
-                    "callback_url": "", 
-                    "callback_key": "", 
-                    "monitor_status": "enabled", 
-                    "created_on": "2012-11-24 20:47:51", 
-                    "updated_on": "2012-11-24 20:47:51", 
-                    "bak_ip_status": [ ]
+                    "monitor_id": "792626",
+                    "domain": "usertest.com",
+                    "domain_id": "15132",
+                    "domain_grade": "DP_Free",
+                    "record_id": "283118",
+                    "sub_domain": "eeee",
+                    "record_line": "Default",
+                    "ip": "4.4.4.4",
+                    "now_ip": "4.4.4.4",
+                    "host": "eeee.usertest.com",
+                    "port": "80",
+                    "monitor_type": "http",
+                    "monitor_path": "/",
+                    "monitor_interval": "180",
+                    "points": "hk-1,usa-1,ctc-4",
+                    "bak_ip": "auto",
+                    "status": "Ok",
+                    "status_code": "200",
+                    "sms_notice": "me",
+                    "email_notice": "me",
+                    "weixin_notice": "",
+                    "less_notice": "yes",
+                    "callback_url": "",
+                    "callback_key": "",
+                    "monitor_status": "enabled",
+                    "created_on": "2014-06-05 10:20:41",
+                    "updated_on": "2014-06-05 10:20:41",
+                    "bak_ip_status": [],
+                    "delay_notify": "60",
+                    "warnasdown": "",
+                    "sms2voice": ""
                 }
             ]
-        }
+        } 
+
 
 Add a Monitor
 -------------
@@ -207,7 +217,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Monitor.Create -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&record_id=16909160&port=80&monitor_type=http&monitor_path=/&monitor_interval=360&points=ctc,cuc,cmc&bak_ip=pass&host=testapi.com'
+    curl -X POST https://api.dnspod.com/Monitor.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16909160&port=80&monitor_type=http&monitor_path=/&monitor_interval=360&points=ctc,cuc,cmc&bak_ip=pass&host=testapi.com'
 
 Response：
 
@@ -272,7 +282,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Monitor.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2317346&monitor_id=51fc9a20-363c-11e2-bab7-0819a6248970&port=80&monitor_type=http&monitor_path=/&monitor_interval=360&points=ctc,cuc,cmc&bak_ip=pass'
+    curl -X POST https://api.dnspod.com/Monitor.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&monitor_id=51fc9a20-363c-11e2-bab7-0819a6248970&port=80&monitor_type=http&monitor_path=/&monitor_interval=360&points=ctc,cuc,cmc&bak_ip=pass'
 
 Response：
 
@@ -301,7 +311,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Monitor.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&monitor_id=51fc9a20-363c-11e2-bab7-0819a6248970'
+    curl -X POST https://api.dnspod.com/Monitor.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&monitor_id=51fc9a20-363c-11e2-bab7-0819a6248970'
     
 Response：
 
@@ -331,7 +341,7 @@ Response Code：
 
 Example::
         
-    curl -X POST https://api.dnspod.com/Monitor.Info -d 'login_email=api@dnspod.com&login_password=password&format=json&monitor_id=e91997aa-3641-11e2-bab7-0819a6248970'
+    curl -X POST https://api.dnspod.com/Monitor.Info -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&monitor_id=e91997aa-3641-11e2-bab7-0819a6248970'
     
 Response：
 
@@ -339,40 +349,41 @@ Response：
 
         {
             "status": {
-                "code": "1", 
-                "message": "Action completed successful", 
-                "created_at": "2012-11-24 22:19:58"
-            }, 
+                "code": "1",
+                "message": "Action completed successful",
+                "created_at": "2014-06-05 10:23:16"
+            },
             "info": {
-                "monitor_id": "e91997aa-3641-11e2-bab7-0819a6248970", 
-                "domain": "testapi.com", 
-                "domain_id": "2317346", 
-                "domain_grade": "D_Plus", 
-                "record_id": "16909160", 
-                "sub_domain": "@", 
-                "record_line": "默认", 
-                "ip": "119.180.24.194", 
-                "now_ip": "119.180.24.194", 
-                "host": "testapi.com", 
-                "port": "80", 
-                "monitor_type": "http", 
-                "monitor_path": "/", 
-                "monitor_interval": "180", 
-                "points": "ctc,cuc,cmc", 
-                "bak_ip": "pass", 
-                "status": "Ok", 
-                "status_code": "200", 
-                "sms_notice": "me", 
-                "email_notice": "me", 
-                "less_notice": "no", 
-                "callback_url": "", 
-                "callback_key": "", 
-                "monitor_status": "enabled", 
-                "created_on": "2012-11-24 22:19:09", 
-                "updated_on": "2012-11-24 22:19:09", 
-                "bak_ip_status": [ ]
+                "monitor_id": "792626",
+                "domain": "usertest.com",
+                "domain_id": "15132",
+                "domain_grade": "DP_Free",
+                "record_id": "283118",
+                "sub_domain": "eeee",
+                "record_line": "Default",
+                "ip": "4.4.4.4",
+                "now_ip": "4.4.4.4",
+                "host": "eeee.usertest.com",
+                "port": "80",
+                "monitor_type": "http",
+                "monitor_path": "/",
+                "monitor_interval": "180",
+                "points": "hk-1,usa-1,ctc-4",
+                "bak_ip": "auto",
+                "status": "Ok",
+                "status_code": "200",
+                "sms_notice": "me",
+                "email_notice": "me",
+                "less_notice": "yes",
+                "callback_url": "",
+                "callback_key": "",
+                "monitor_status": "enabled",
+                "created_on": "2014-06-05 10:20:41",
+                "updated_on": "2014-06-05 10:20:41",
+                "bak_ip_status": []
             }
         }
+
 
 Set a Monitor's Status
 ----------------------
@@ -396,7 +407,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Monitor.Setstatus -d 'login_email=api@dnspod.com&login_password=password&format=json&monitor_id=03e3b268-3643-11e2-bab7-0819a6248970&status=disable'
+    curl -X POST https://api.dnspod.com/Monitor.Setstatus -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&monitor_id=03e3b268-3643-11e2-bab7-0819a6248970&status=disable'
     
 Response：
 
@@ -426,7 +437,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Monitor.Setstatus -d 'login_email=api@dnspod.com&login_password=password&format=json&monitor_id=03e3b268-3643-11e2-bab7-0819a6248970&hours=1'
+    curl -X POST https://api.dnspod.com/Monitor.Setstatus -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&monitor_id=03e3b268-3643-11e2-bab7-0819a6248970&hours=1'
     
 Response：
 
@@ -564,7 +575,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Monitor.Userdesc -d 'login_email=api@dnspod.com&login_password=password&format=json'
+    curl -X POST https://api.dnspod.com/Monitor.Userdesc -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json'
     
 Response：
 
@@ -603,7 +614,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Monitor.Getdowns -d 'login_email=api@dnspod.com&login_password=password&format=json&offset=0&length=10'
+    curl -X POST https://api.dnspod.com/Monitor.Getdowns -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&offset=0&length=10'
     
 Response：
 
@@ -611,22 +622,25 @@ Response：
 
         {
             "status": {
-                "code": "1", 
-                "message": "Action completed successful", 
-                "created_at": "2012-11-24 22:54:03"
-            }, 
+                "code": "1",
+                "message": "Action completed successful",
+                "created_at": "2014-06-05 10:25:04"
+            },
             "info": {
                 "total_count": "1"
-            }, 
+            },
             "monitor_downs": [
                 {
-                    "monitor_id": "03e3b268-3643-11e2-bab7-0819a6248970", 
-                    "host": "testapi.com", 
-                    "record_line": "默认", 
-                    "ip": "119.180.24.194", 
-                    "warn_reason": "连接超时|访问您主机时连接超时，并且重试了5次后依然超时，建议您检查下你的服务器是否有网络不稳定的情况移动:timed out网通:timed out电信:timed out", 
-                    "switch_log": [ ], 
-                    "created_on": "2012-11-24 22:30:06", 
+                    "down_id": "15132",
+                    "monitor_id": "792626",
+                    "host": "eeee.usertest.com",
+                    "record_line": "Default",
+                    "ip": "4.4.4.4",
+                    "warn_reason": "Connection timed out",
+                    "switch_log": [
+                        "2014-06-05 10:24:28 No available spare server to switch to"
+                    ],
+                    "created_on": "2014-06-05 10:23:14",
                     "updated_on": "0000-00-00 00:00:00"
                 }
             ]

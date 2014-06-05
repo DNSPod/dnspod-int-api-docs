@@ -9,9 +9,9 @@ Method：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain** The domain to add.No prefix.Example:dnspod.com
-    * **group_id** The domain group ID.Optional parameter.
-    * **is_mark** {yes|no} Whether to mark it or not.Optional parameter.
+    * **domain** The domain to add. No prefix.Example:dnspod.com
+    * **group_id** The domain group ID. Optional parameter.
+    * **is_mark** {yes|no} Whether to mark it or not. Optional parameter.
 Response Code：
     * Common Response Code
     * 6 Invalid domain.
@@ -22,7 +22,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Domain.Create -d 'login_email=api@dnspod.com&login_password=password&domain=api2.com&format=json'
+    curl -X POST https://api.dnspod.com/Domain.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&domain=api2.com&format=json'
 
 Response：
 
@@ -63,7 +63,7 @@ Request Parameters：
     * **length** The number of domains you want to get on this request.Optional parameter.
     * **group_id** The group ID.Only in this group can the domain be in the results if this parameter is seted.Optional parameter.
 Attention：
-    * If there are more than 3000 domains in your account,only the first 3000 domains will responsed for split page.You may need to set the parameter "offset" and "length" to get all your domains with multi requests.
+    * If there are more than 500 domains in your account,only the first 500 domains will responsed for split page.You may need to set the parameter "offset" and "length" to get all your domains with multi requests.
 Response Code：
     * Common Response Code
     * 6 Invalid offset.
@@ -72,7 +72,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domain.List -d 'login_email=api@dnspod.com&login_password=password&format=json'
+    curl -X POST https://api.dnspod.com/Domain.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json'
 
 Response：
 
@@ -82,7 +82,7 @@ Response：
             "status": {
                 "code": "1",
                 "message": "Action completed successful",
-                "created_at": "2012-09-10 11:51:31"
+                "created_at": "2014-06-04 21:22:08"
             },
             "info": {
                 "domain_total": 1,
@@ -95,30 +95,32 @@ Response：
                 "error_total": 1,
                 "lock_total": 0,
                 "spam_total": 0,
+                "vip_expire": 0,
                 "share_out_total": 0
             },
             "domains": [
                 {
-                    "id": 1992403,
-                    "name": "api2.com",
-                    "grade": "D_Free",
-                    "grade_title": "免费套餐",
+                    "id": 6,
+                    "name": "dnspod.com",
+                    "grade": "DP_Free",
+                    "grade_title": "Free",
                     "status": "enable",
-                    "ext_status": "dnserror",
-                    "records": "2",
+                    "ext_status": "notexist",
+                    "records": "3",
                     "group_id": "1",
                     "is_mark": "no",
                     "remark": "",
                     "is_vip": "no",
                     "searchengine_push": "yes",
                     "beian": "no",
-                    "created_on": "2012-08-29 22:12:35",
-                    "updated_on": "2012-08-29 22:12:35",
+                    "created_on": "2014-06-04 16:19:31",
+                    "updated_on": "2014-06-04 16:20:05",
                     "ttl": "600",
-                    "owner": "api@dnspod.com"
+                    "owner": "yizero@qq.com"
                 }
             ]
-        }    
+        }
+
 
 Delete Domain
 -------------
@@ -139,7 +141,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Domain.Remove -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=1992403'
+    curl -X POST https://api.dnspod.com/Domain.Remove -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=1992403'
     
 Response：
 
@@ -174,7 +176,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Domain.Status -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2058967&status=disable'
+    curl -X POST https://api.dnspod.com/Domain.Status -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2058967&status=disable'
 
 Response：
 
@@ -206,40 +208,40 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Domain.Info  -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
+    curl -X POST https://api.dnspod.com/Domain.Info  -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079'
 
 Response：
 
     * JSON::
-        
+
         {
             "status": {
                 "code": "1",
                 "message": "Action completed successful",
-                "created_at": "2012-09-12 12:10:16"
+                "created_at": "2014-06-04 21:25:21"
             },
             "domain": {
-                "id": "2059079",
-                "name": "api4.com",
-                "punycode": "api4.com",
-                "grade": "D_Free",
-                "grade_title": "免费套餐",
-                "status": "pause",
-                "ext_status": "dnserror",
-                "records": "9",
+                "id": "6",
+                "name": "dnspod.com",
+                "punycode": "dnspod.com",
+                "grade": "DP_Free",
+                "grade_title": "Free",
+                "status": "enable",
+                "ext_status": "notexist",
+                "records": "3",
                 "group_id": "1",
                 "is_mark": "no",
-                "remark": "",
+                "remark": false,
                 "is_vip": "no",
                 "searchengine_push": "yes",
                 "beian": "no",
-                "user_id": "625033",
-                "created_on": "2012-09-12 12:05:46",
-                "updated_on": "2012-09-12 12:06:12",
+                "user_id": "730060",
+                "created_on": "2014-06-04 16:19:31",
+                "updated_on": "2014-06-04 16:20:05",
                 "ttl": "600",
-                "owner": "api@dnspod.com"
+                "owner": "yizero@qq.com"
             }
-        } 
+        }
 
 
 Get the Operate Logs of a Domain
@@ -260,34 +262,27 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domain.Log  -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
+    curl -X POST https://api.dnspod.com/Domain.Log  -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079'
 
 Response：
 
     * JSON::
-        
+
         {
             "status": {
                 "code": "1",
                 "message": "Action completed successful",
-                "created_at": "2012-09-18 17:24:23"
+                "created_at": "2014-06-04 21:31:00"
             },
             "log": [
-                "2012-09-12 12:07:05: (111.111.111.111) 启用解析 NS 记录 默认 线路 @ 值 f1g1ns1.dnspod.net.",
-                "2012-09-12 12:07:04: (111.111.111.111) 启用解析 NS 记录 默认 线路 @ 值 f1g1ns2.dnspod.net. ",
-                "2012-09-12 12:07:02: (111.111.111.111) 暂停解析 NS 记录 默认 线路 @ 值 f1g1ns2.dnspod.net. ",
-                "2012-09-12 12:06:57: (111.111.111.111) 暂停解析 NS 记录 默认 线路 @ 值 f1g1ns1.dnspod.net. ",
-                "2012-09-12 12:06:33(API): (111.111.111.111) 暂停 域名解析",
-                "2012-09-12 12:06:12: (111.111.111.111) 添加 CNAME 记录 默认 线路 pop 值 mail.api4.com. ",
-                "2012-09-12 12:06:12: (111.111.111.111) 添加 A 记录 默认 线路 shop 值 64.144.7.55 ",
-                "2012-09-12 12:06:12: (111.111.111.111) 添加 CNAME 记录 默认 线路 smtp 值 mail.api4.com. ",
-                "2012-09-12 12:06:12: (111.111.111.111) 添加 CNAME 记录 默认 线路 webmail 值 webmail.secureserver.net. ",
-                "2012-09-12 12:06:11: (111.111.111.111) 添加 A 记录 默认 线路 www 值 64.144.7.51 ",
-                "2012-09-12 12:06:11: (111.111.111.111) 添加 A 记录 默认 线路 ftp 值 64.144.7.51 ",
-                "2012-09-12 12:06:11: (111.111.111.111) 添加 CNAME 记录 默认 线路 e 值 email.secureserver.net. ",
-                "2012-09-12 12:05:46: (111.111.111.111) 添加新域名 api4.com api@dnspod.com(625033)"
-            ]
+                "There is no domain logs at the moment."
+            ],
+            "info": {
+                "count": 0,
+                "page_size": 500
+            }
         } 
+
 
 Push Domain to Search Engine
 ----------------------------
@@ -310,7 +305,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Domain.Searchenginepush -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&status=yes'
+    curl -X POST https://api.dnspod.com/Domain.Searchenginepush -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&status=yes'
     
 Response：
 
@@ -351,7 +346,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Domainshare.Create -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=otheruser@dnspod.com&mode=rw'
+    curl -X POST https://api.dnspod.com/Domainshare.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&email=otheruser@dnspod.com&mode=rw'
     
 Response：
 
@@ -383,7 +378,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domainshare.List -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
+    curl -X POST https://api.dnspod.com/Domainshare.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079'
 
 Response：
 
@@ -432,23 +427,23 @@ Example
 
 1. Change a domain's share mode from "rw" to "r"::
         
-    curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=r'
+    curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=r'
     
 2. Change a domain's share mode from "rw" to "r"::
             
-    curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=r&old_sub_domain=www&new_sub_domain=www'
+    curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=r&old_sub_domain=www&new_sub_domain=www'
     
 3. Change a domain's share type from the whole domain to subsidiary domain.::
 
-    curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=rw&new_sub_domain=www'
+    curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=rw&new_sub_domain=www'
     
 4. Change a domain's share type from subsidiary domain to the whole domain.::
 
-    curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=rw&old_sub_domain=www'
+    curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=rw&old_sub_domain=www'
     
 5. Change the subsidiary domain from "www" to "bbs"::
 
-    curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=rw&old_sub_domain=www&new_sub_domain=bbs'
+    curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=rw&old_sub_domain=www&new_sub_domain=bbs'
     
 Response：
 
@@ -484,7 +479,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domainshare.Remove -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com'
+    curl -X POST https://api.dnspod.com/Domainshare.Remove -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&email=yizerowu@dnspod.com'
 
 Response：
 
@@ -522,7 +517,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domainshare.Transfer -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&email=yizerowu@dnspod.com'
+    curl -X POST https://api.dnspod.com/Domainshare.Transfer -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&email=yizerowu@dnspod.com'
     
 Response：
 
@@ -559,7 +554,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domain.Lock -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&days=3'
+    curl -X POST https://api.dnspod.com/Domain.Lock -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&days=3'
 
 Response：
 
@@ -597,7 +592,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domain.Lockstatus -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
+    curl -X POST https://api.dnspod.com/Domain.Lockstatus -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079'
     
 Response：
 
@@ -639,7 +634,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domain.Unlock -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&lock_code=fdd638'
+    curl -X POST https://api.dnspod.com/Domain.Unlock -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&lock_code=fdd638'
 
 Response：
 
@@ -676,7 +671,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domainalias.List -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
+    curl -X POST https://api.dnspod.com/Domainalias.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079'
 
 Response：
 
@@ -720,7 +715,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domainalias.Create -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&domain=dnspodapi.com'
+    curl -X POST https://api.dnspod.com/Domainalias.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&domain=dnspodapi.com'
 
 Response：
 
@@ -758,7 +753,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domainalias.Remove -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&alias_id=18737'
+    curl -X POST https://api.dnspod.com/Domainalias.Remove -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&alias_id=18737'
 
 Response：
 
@@ -785,72 +780,70 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domaingroup.List -d 'login_email=api@dnspod.com&login_password=password&format=json'
+    curl -X POST https://api.dnspod.com/Domaingroup.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json'
     
 Response：
 
     * JSON::
         
-        {
+       {
             "status": {
                 "code": "1",
                 "message": "Action completed successful",
-                "created_at": "2012-09-18 21:33:33"
+                "created_at": "2014-06-04 21:50:38"
             },
             "groups": [
                 {
                     "group_id": 1,
-                    "group_name": "默认分组",
+                    "group_name": "Default Group",
                     "group_type": "system",
                     "size": 1
                 },
                 {
                     "group_id": 2,
-                    "group_name": "经常修改",
+                    "group_name": "Often Change",
                     "group_type": "system",
-                    "size": null
+                    "size": 0
                 },
                 {
                     "group_id": 3,
-                    "group_name": "很少修改",
+                    "group_name": "Few Change",
                     "group_type": "system",
-                    "size": null
+                    "size": 0
                 },
                 {
                     "group_id": 4,
-                    "group_name": "即将到期",
+                    "group_name": "Expiring",
                     "group_type": "system",
-                    "size": null
+                    "size": 0
                 },
                 {
                     "group_id": 5,
-                    "group_name": "私人域名",
+                    "group_name": "Personal Domain",
                     "group_type": "system",
-                    "size": null
+                    "size": 0
                 },
                 {
                     "group_id": 6,
-                    "group_name": "公司域名",
+                    "group_name": "Company Domain",
                     "group_type": "system",
-                    "size": null
+                    "size": 0
                 },
                 {
                     "group_id": 7,
-                    "group_name": "客户域名",
+                    "group_name": "Customer Domain",
                     "group_type": "system",
-                    "size": null
+                    "size": 0
                 },
                 {
                     "group_id": 8,
-                    "group_name": "与我共享",
+                    "group_name": "Shared To Me",
                     "group_type": "system",
-                    "size": null
+                    "size": 0
                 }
             ]
-        }
+        } 
 
-Attention：
-    * This API only works for VIP accounts while free users will get an error.
     
 Add a New Domain Group
 ----------------------
@@ -869,7 +862,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domaingroup.List -d 'login_email=api@dnspod.com&login_password=password&format=json&group_name=dnspod'
+    curl -X POST https://api.dnspod.com/Domaingroup.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&group_name=dnspod'
 
 Response：
 
@@ -908,7 +901,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domaingroup.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&group_id=1985&group_name=dnspodgroup'
+    curl -X POST https://api.dnspod.com/Domaingroup.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&group_id=1985&group_name=dnspodgroup'
 
 Response：
 
@@ -937,7 +930,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domaingroup.Remove -d 'login_email=api@dnspod.com&login_password=password&format=json&group_id=1985'
+    curl -X POST https://api.dnspod.com/Domaingroup.Remove -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&group_id=1985'
 
 Response：
 
@@ -968,7 +961,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domain.Changegroup -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&group_id=1985'
+    curl -X POST https://api.dnspod.com/Domain.Changegroup -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&group_id=1985'
     
 Response：
 
@@ -1002,7 +995,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domain.Ismark -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&is_mark=yes'
+    curl -X POST https://api.dnspod.com/Domain.Ismark -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&is_mark=yes'
 
 Response：
 
@@ -1032,7 +1025,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domain.Remark -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079&remark=这个域名需要备注一下'
+    curl -X POST https://api.dnspod.com/Domain.Remark -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&remark=这个域名需要备注一下'
     
 Response：
 
@@ -1046,99 +1039,6 @@ Response：
             }
         }
 
-Get The Domain's Purview
-------------------------
-URL：
-    * https://api.dnspod.com/Domain.Purview
-Method：
-    * POST
-Request Parameters：
-    * Global Parameters
-    * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
-Response Code：
-    * Common Response Code
-    * 6 Invalid domain id
-
-Example::
-    
-    curl -X POST https://api.dnspod.com/Domain.Purview -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_id=2059079'
-    
-Response：
-
-    * JSON::
-        
-        {
-            "status": {
-                "code": "1",
-                "message": "Action completed successful",
-                "created_at": "2012-09-23 17:51:25"
-            },
-            "purview": [
-                {
-                    "name": "URL转发条数",
-                    "value": 10
-                },
-                {
-                    "name": "NS记录条数",
-                    "value": 99999
-                },
-                {
-                    "name": "AAAA记录条数",
-                    "value": 99999
-                },
-                {
-                    "name": "SRV记录条数",
-                    "value": 10
-                },
-                {
-                    "name": "域名别名绑定个数",
-                    "value": 3
-                },
-                {
-                    "name": "域名锁定天数",
-                    "value": 30
-                },
-                {
-                    "name": "域名共享个数",
-                    "value": 2
-                },
-                {
-                    "name": "子域名级数",
-                    "value": 3
-                },
-                {
-                    "name": "泛解析级数",
-                    "value": 2
-                },
-                {
-                    "name": "负载均衡数量",
-                    "value": 4
-                },
-                {
-                    "name": "记录TTL最低",
-                    "value": 120
-                },
-                {
-                    "name": "混合泛解析支持",
-                    "value": "no"
-                },
-                {
-                    "name": "增强线路类型",
-                    "value": "yes"
-                },
-                {
-                    "name": "分省线路类型",
-                    "value": "no"
-                },
-                {
-                    "name": "分大洲线路类型",
-                    "value": "no"
-                }
-            ]
-        }
-
-Directions:
-    * Store it when you get it instead of get this with API everytime you need it.This is something rarely change.
 
 Get the Email Address Needed to Get Domain Back
 -----------------------------------------------
@@ -1164,7 +1064,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domain.Acquire -d 'login_email=api@dnspod.com&login_password=password&format=json&domain=api4.com'
+    curl -X POST https://api.dnspod.com/Domain.Acquire -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain=api4.com'
     
 Response：
 
@@ -1208,7 +1108,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domain.Acquiresend -d 'login_email=api@dnspod.com&login_password=password&format=json&domain=api4.com&email=support@namecheap.com'
+    curl -X POST https://api.dnspod.com/Domain.Acquiresend -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain=api4.com&email=support@namecheap.com'
     
 Response：
     * JSON::
@@ -1247,7 +1147,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Domain.Acquirevalidate -d 'login_email=api@dnspod.com&login_password=password&format=json&domain=api4.com&code=111000'
+    curl -X POST https://api.dnspod.com/Domain.Acquirevalidate -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain=api4.com&code=111000'
     
 Response：
 
@@ -1269,16 +1169,14 @@ Method：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_grade** The domain grade.It's legal values :
-        * Old packages:"D_Free", "D_Plus", "D_Extra", "D_Expert", "D_Ultra" stand for "Free edition","Persion plus","Company Extra","Company expert","Company ultra"
-        * New packages:"DP_Free", "DP_Plus", "DP_Extra", "DP_Expert", "DP_Ultra" stand for the same thing above.
+    * **domain_grade** The domain grade. only 'DP_Free' for now. 
 Response Code：
     * Common Response Code
     * 6 Invalid domain grade.
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Record.Type -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_grade=D_Free'
+    curl -X POST https://api.dnspod.com/Record.Type -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_grade=DP_Free'
 
 Response：
 
@@ -1288,7 +1186,7 @@ Response：
             "status": {
                 "code": "1",
                 "message": "Action completed successful",
-                "created_at": "2012-09-23 18:23:40"
+                "created_at": "2014-06-04 22:02:52"
             },
             "types": [
                 "A",
@@ -1298,9 +1196,22 @@ Response：
                 "NS",
                 "AAAA",
                 "SRV",
-                "URL"
-            ]
-        }    
+                "Dominant URL",
+                "Recessive URL"
+            ],
+            "raw_types": {
+                "A": "A",
+                "CNAME": "CNAME",
+                "MX": "MX",
+                "TXT": "TXT",
+                "NS": "NS",
+                "AAAA": "AAAA",
+                "SRV": "SRV",
+                "URL": "Dominant URL",
+                "URL1": "Recessive URL"
+            }
+        }
+
 
 Get All the Lines Allowed for a Domain Grade
 --------------------------------------------
@@ -1310,9 +1221,7 @@ Method：
     * POST
 Request Parameters：
     * Global Parameters
-    * **domain_grade** The domain grade.It's legal values :
-        * Old packages:"D_Free", "D_Plus", "D_Extra", "D_Expert", "D_Ultra" stand for "Free edition","Persion plus","Company Extra","Company expert","Company ultra"
-        * New packages:"DP_Free", "DP_Plus", "DP_Extra", "DP_Expert", "DP_Ultra" stand for the same thing above.
+    * **domain_grade** The domain grade. only 'DP_Free' for now. 
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
 Response Code：
     * Common Response Code
@@ -1320,35 +1229,54 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Record.Line -d 'login_email=api@dnspod.com&login_password=password&format=json&domain_grade=D_Free&domain_id=2059079'
+    curl -X POST https://api.dnspod.com/Record.Line -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_grade=DP_Free&domain=dnspod.com'
 
 Response：
 
     * JSON::
         
-            {
+        {
             "status": {
                 "code": "1",
                 "message": "Action completed successful",
-                "created_at": "2012-09-23 18:29:58"
+                "created_at": "2014-06-05 09:19:50"
             },
-            "lines": [
-                "默认",
-                "电信",
-                "联通",
-                "教育网",
-                "移动",
-                "铁通",
-                "国内",
-                "国外",
-                "搜索引擎",
-                "百度",
-                "Google",
-                "有道",
-                "必应",
-                "搜搜",
-                "搜狗",
-                "360搜索"
-            ]
-            }
+            "lines": {
+                "default": "Default",
+                "africa": "Africa",
+                "DZ": "Algeria",
+                "AO": "Angola",
+                "BJ": "Benin",
+                "BW": "Botswana",
+                "BF": "Burkina Faso",
+                "BI": "Burundi",
+                "CM": "Cameroon",
+                "CV": "Cape Verde",
+                "CF": "Central Africa",
+                "KI": "Kiribati",
+                "MP": "Northern Mariana Islands",
+                "PW": "Palau",
+                "PG": "Papua New Guinea",
+                "PN": "Pitcairn",
+                "WS": "Samoa",
+                "SB": "Solomon Islands",
+                "TK": "Tokelau",
+                "TO": "Tonga",
 
+                ....
+
+                "TV": "Tuvalu",
+                "VU": "Vanuatu",
+                "WF": "Wallis And Futuna Islands",
+                "south_america": "South American",
+                "AR": "Argentina",
+                "BO": "Bolivia",
+                "BR": "Brazil",
+                "PY": "Paraguay",
+                "PE": "Peru",
+                "SR": "Suriname",
+                "UY": "Uruguay",
+                "VE": "Venezuela",
+                "search_engine": "Search Engine"
+            }
+        }

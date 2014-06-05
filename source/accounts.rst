@@ -15,36 +15,38 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/User.Detail -d 'login_email=api@dnspod.com&login_password=password&format=json'
+    curl -X POST https://api.dnspod.com/User.Detail -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json'
 
 Response Example：
 
     * JSON::
-        
+
         {
             "status": {
                 "code": "1",
                 "message": "Action completed successful",
-                "created_at": "2012-09-10 11:22:26"
+                "created_at": "2014-06-04 20:58:37"
             },
             "info": {
                 "user": {
-                    "id": "625033",
-                    "email": "api@dnspod.com",
-                    "status": "enabled",
-                    "email_verified": "no",
-                    "telephone_verified": "yes",
-                    "agent_pending": false,
                     "real_name": "",
                     "user_type": "personal",
-                    "telephone": "15012345678",
-                    "im": "10000000",
-                    "nick": "DNSPod 先生",
-                    "balance": "0",
-                    "smsbalance": "4"
+                    "telephone": null,
+                    "im": null,
+                    "nick": "Yizero Mr",
+                    "id": "730060",
+                    "email": "yizero@qq.com",
+                    "status": "enabled",
+                    "email_verified": "no",
+                    "telephone_verified": "no",
+                    "weixin_binded": "no",
+                    "agent_pending": false,
+                    "balance": 0,
+                    "smsbalance": 0
                 }
             }
-        }
+        }     
+
 
 Update Information
 ------------------
@@ -65,7 +67,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/User.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&im=10000000'
+    curl -X POST https://api.dnspod.com/User.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&im=10000000'
 
 Response：
 
@@ -96,7 +98,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://api.dnspod.com/Userpassword.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&old_password=old_password&new_password=new_password'
+    curl -X POST https://api.dnspod.com/Userpassword.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&old_password=old_password&new_password=new_password'
 
 Response：
 
@@ -129,7 +131,7 @@ Response Code：
 
 Example:: 
 
-    curl -X POST https://api.dnspod.com/Useremail.Modify -d 'login_email=api@dnspod.com&login_password=password&format=json&old_email=api1@dnspod.com&new_email=api@dnspod.com&password=password'   
+    curl -X POST https://api.dnspod.com/Useremail.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&old_email=api1@dnspod.com&new_email=api@dnspod.com&password=password'   
 
 Response：
 
@@ -144,47 +146,6 @@ Response：
         }
 
         
-Get Telephone Verify Code
--------------------------
-URL：
-    * https://api.dnspod.com/Telephoneverify.Code
-Method：
-    * POST
-Request Parameters :
-    * Global Parameters.
-    * **telephone** The telephone number.
-Response Code：
-    * Common Response
-    * 4 You already did this.
-    * 5 Invalid telephone number.
-
-Example::
-    
-    curl -X POST https://api.dnspod.com/Telephoneverify.Code -d 'login_email=api@dnspod.com&login_password=password&format=json&telephone=18600000000'
-
-Response：
-
-    * JSON::
-        
-        {
-            "status": {
-                "code":"4",
-                "message":"Telephone is verified",
-                "created_at":"2012-08-24 15:57:21"
-            }
-        }
-
-        {
-            "status": {
-                "code":"1",
-                "message":"Action completed successful",
-                "created_at":"2012-11-23 16:01:52"
-            }, 
-            "user": {
-                "verify_code":"676479",
-                "verify_desc":"\u8bf7\u4f7f\u7528 18600000000 \u7f16\u8f91\u77ed\u4fe1\uff0c\u5c06 676479 \u53d1\u9001\u81f3\u53f7\u7801  159 6183 3568\u3002"
-            }
-        }
 
 Get The Account's Operate Log
 -----------------------------
@@ -199,27 +160,19 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/User.Log -d 'login_email=api@dnspod.com&login_password=password&format=json'
+    curl -X POST https://api.dnspod.com/User.Log -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json'
 
 Response：
 
     * JSON::
-        
+
         {
             "status": {
                 "code": "1",
                 "message": "Action completed successful",
-                "created_at": "2012-09-10 11:29:36"
+                "created_at": "2014-06-04 21:09:50"
             },
-            "log": 
-            [
-                "2012-09-04 13:56:24: 111.111.111.111 登陆 成功",
-                "2012-08-30 17:01:47: 111.111.111.111 登陆 成功",
-                "2012-08-29 22:12:35(API): (111.111.111.111) 添加域名 api2.com",
-                "2012-08-29 21:59:55: (111.111.111.111) 添加域名 api1.com",
-                "2012-08-29 21:59:45: (111.111.111.111) 添加域名 apiapi.com",
-                "2012-08-29 21:59:30: 111.111.111.111 登陆 成功",
-                "2012-08-24 15:49:53: 111.111.111.111 登陆 成功",
+            "log": [
+                "There is no user logs at the moment."
             ]
         }
-

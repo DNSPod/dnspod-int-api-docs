@@ -2,45 +2,41 @@ API Explanation
 ===============
 
 1. DNSPod Users' API,aim to help the users to manage their domains conveniently,are limited to persional users to use.
-2. Domain name registers can only use our agent api.To become our agent,please visit: https://www.dnspod.cn/Service#/account/agent .
-3. No third-party applications or users are allowed to use this API.If you have needs,please let us know: https://www.dnspod.cn/About/Aboutus .
+3. No third-party applications or users are allowed to use this API. If you have needs,please let us know: https://www.dnspod.com/About/Aboutus .
 
 
 API Development Norm
 --------------------    
 
 1. Misuse：
-    This will be looked as API misuse.Including but not limit to:
+    This will be looked as API misuse. Including but not limit to:
         * Do a lot of inserts,deletes,updates or refreshes within a short time.
-        * Request a lot without changing anything.What are you thinking!
+        * Request a lot without changing anything. What are you thinking!
         * Too many useless or repeated requests caused by wrong logic or endless loops.
         * Other requests that may give us a lot of pressure.
 
-    In order to ensure you and other developers' benifits,please use our APIs legitimately.DNSPod will punish the behaviors like API misuse by prohibit the accounts and reserve all the rights to arbitate.`
+    In order to ensure you and other developers' benifits,please use our APIs legitimately. DNSPod will punish the behaviors like API misuse by prohibit the accounts and reserve all the rights to arbitate.`
 
 2. Login Disable：
-    If there are more than 30 login failures within 5 minutes,the account will be disabled to login again for an hour.Please check the login status when you develop your own applications,and stop trying if fails.
+    If there are more than 30 login failures within 5 minutes,the account will be disabled to login again for an hour. Please check the login status when you develop your own applications,and stop trying if fails.
 
 3. Prohibition：
-    Even got prohibited,you can still use it on the official website.The prohibition will be relieved an hour later.Please be careful and never use it for large tests.
+    Even got prohibited,you can still use it on the official website. The prohibition will be relieved an hour later.Please be careful and never use it for large tests. 
 
 4. Requests：
-    * The request url starts with "https://dnsapi.cn/",which based on SSL.You must use "https" instead of "http".
+    * The request url starts with "https://dnsapi.cn/",which based on SSL. You must use "https" instead of "http".
     * POST method accepted only.
-    * Please use UTF-8 encoding for data transfer.The responses are also UTF-8 encoded.
+    * Please use UTF-8 encoding for data transfer. The responses are also UTF-8 encoded.
 
 5. UserAgent：
-    * The UserAgent must be seted.Prohibition may caused by wrong UserAgent or none.
-    * UserAgent Format:Application Name/Version(email).For example:"MJJ DDNS Client/1.0.0 (shallwedance@126.com)".
+    * The UserAgent must be seted. Prohibition may caused by wrong UserAgent or none.
+    * UserAgent Format:Application Name/Version(email). For example:"MJJ DDNS Client/1.0.0 (shallwedance@dnspod.com)".
 
 6. Security：
-    Almost every step needs the email address and the password.So if you have to storage the user's informations,please encrypt the password first.Never storage the password directly.
+    Almost every step needs the email address and the password. So if you have to storage the user's informations,please encrypt the password first. Never storage the password directly.
 
 7. Support：
-    * Support center: https://support.dnspod.cn/
-    * DNSPod developers QQ group:176455159
-
-
+    * Support center: https://www.dnspod.com/Support
 
 
 
@@ -49,10 +45,9 @@ Global Parameters
 All the APIs need this parameters.
     * login_email The login email.Essential parameter.
     * login_password The login password.Essential parameter.
-    * format {json,xml} The format of response.Default "xml"."json" is highly recommended.Optional parameter.
-    * lang {en,cn} The language of messages you get from the response when you get an error.Default "en".
+    * format {json,xml} The format of response.Default "xml". "json" is highly recommended.Optional parameter.
     * error_on_empty {yes,no} Whether to response an error when there's no results.
-    * user_id The user's ID.A must for agent users,and a waste for regular users.
+    * user_id The user's ID. A must for agent users, and a waste for regular users.
 
 Common Response Code
 --------------------
@@ -71,6 +66,37 @@ Those responses codes could be in any API beacuse they are the common responses.
     * 6 Invalid user_id.(only works for agent users)
     * 7 User is not under this agent.(only works for agent users)
 
+Get the user token
+------------------
+Before you use the APIs, you need get a user-token first by this one.
+
+API Address：
+    * https://api.dnspod.com/Auth
+HTTP Request Type：
+    * POST
+Request Parameters：
+    * Global parameters.
+Response Code：
+    * Common response
+
+Example::
+    
+    curl -X POST https://api.dnspod.com/Auth -d 'login_email=api@dnspod.com&login_password=password&format=json'
+
+Response：
+
+    * JSON::
+
+        {
+            "status": {
+                "code": "1",
+                "message": "Action completed successful",
+                "created_at": "2014-06-04 20:37:31"
+            },
+            "user_token": "730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d"
+        }
+
+
 D-Token
 -------
 Users that already turned the D-Token on need this parameters in the request:
@@ -87,10 +113,12 @@ If you are using D-Token,this error codes might be responsed.
     * 53 You already turned the D-Token on.
     * 54 The owner has turned the D-Token on,and so should you.
 
+
+
 Get the Version of API
 ----------------------
 API Address：
-    * https://dnsapi.cn/Info.Version
+    * https://api.dnspod.com/Info.Version
 HTTP Request Type：
     * POST
 Request Parameters：
@@ -100,7 +128,7 @@ Response Code：
 
 Example::
     
-    curl -X POST https://dnsapi.cn/Info.Version -d 'login_email=api@dnspod.com&login_password=password&format=json'
+    curl -X POST https://api.dnspod.com/Info.Version -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json'
 
 Response：
 
@@ -110,6 +138,6 @@ Response：
             "status": {
                 "code": "1",
                 "message": "4.6",
-                "created_at": "2012-09-10 11:20:39"
+                "created_at": "2014-06-04 20:40:37"
             }
         }
