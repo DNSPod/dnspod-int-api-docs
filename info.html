@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>API Explanation &mdash; DNSPod API Doc 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="DNSPod API Doc 1.0.0 documentation" href="index.html" />
+    <link rel="next" title="Accounts" href="accounts.html" />
+    <link rel="prev" title="DNSPod User API Document" href="index.html" /> 
+  </head>
+  <body>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="api-explanation">
+<h1>API Explanation<a class="headerlink" href="#api-explanation" title="Permalink to this headline">¶</a></h1>
+<p>1. DNSPod Users&#8217; API,aim to help the users to manage their domains conveniently,are limited to persional users to use.
+3. No third-party applications or users are allowed to use this API. If you have needs,please let us know: <a class="reference external" href="https://www.dnspod.com/About/Aboutus">https://www.dnspod.com/About/Aboutus</a> .</p>
+<div class="section" id="api-development-norm">
+<h2>API Development Norm<a class="headerlink" href="#api-development-norm" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>Misuse：</dt>
+<dd><dl class="first docutils">
+<dt>This will be looked as API misuse. Including but not limit to:</dt>
+<dd><ul class="first last simple">
+<li>Do a lot of inserts,deletes,updates or refreshes within a short time.</li>
+<li>Request a lot without changing anything. What are you thinking!</li>
+<li>Too many useless or repeated requests caused by wrong logic or endless loops.</li>
+<li>Other requests that may give us a lot of pressure.</li>
+</ul>
+</dd>
+</dl>
+<p class="last">In order to ensure you and other developers&#8217; benifits,please use our APIs legitimately. DNSPod will punish the behaviors like API misuse by prohibit the accounts and reserve all the rights to arbitate.`</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Login Disable：</dt>
+<dd><p class="first last">If there are more than 30 login failures within 5 minutes,the account will be disabled to login again for an hour. Please check the login status when you develop your own applications,and stop trying if fails.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Prohibition：</dt>
+<dd><p class="first last">Even got prohibited,you can still use it on the official website. The prohibition will be relieved an hour later.Please be careful and never use it for large tests.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Requests：</dt>
+<dd><ul class="first last simple">
+<li>The request url starts with &#8220;<a class="reference external" href="https://dnsapi.cn/">https://dnsapi.cn/</a>&#8221;,which based on SSL. You must use &#8220;https&#8221; instead of &#8220;http&#8221;.</li>
+<li>POST method accepted only.</li>
+<li>Please use UTF-8 encoding for data transfer. The responses are also UTF-8 encoded.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>UserAgent：</dt>
+<dd><ul class="first last simple">
+<li>The UserAgent must be seted. Prohibition may caused by wrong UserAgent or none.</li>
+<li>UserAgent Format:Application Name/Version(email). For example:&#8221;MJJ DDNS Client/1.0.0 (shallwedance&#64;dnspod.com)&#8221;.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Security：</dt>
+<dd><p class="first last">Almost every step needs the email address and the password. So if you have to storage the user&#8217;s informations,please encrypt the password first. Never storage the password directly.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Support：</dt>
+<dd><ul class="first last simple">
+<li>Support center: <a class="reference external" href="https://www.dnspod.com/Support">https://www.dnspod.com/Support</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="section" id="global-parameters">
+<h2>Global Parameters<a class="headerlink" href="#global-parameters" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>All the APIs need this parameters.</dt>
+<dd><ul class="first last simple">
+<li>login_email The login email.Essential parameter.</li>
+<li>login_password The login password.Essential parameter.</li>
+<li>format {json,xml} The format of response.Default &#8220;xml&#8221;. &#8220;json&#8221; is highly recommended.Optional parameter.</li>
+<li>error_on_empty {yes,no} Whether to response an error when there&#8217;s no results.</li>
+<li>user_id The user&#8217;s ID. A must for agent users, and a waste for regular users.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="common-response-code">
+<h2>Common Response Code<a class="headerlink" href="#common-response-code" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Those responses codes could be in any API beacuse they are the common responses.</dt>
+<dd><ul class="first last simple">
+<li>-1 Login fails.</li>
+<li>-2 API used too frequently.</li>
+<li>-3 Invalid agent.(only works for agent users)</li>
+<li>-4 Not in this agent.(only works for agent users)</li>
+<li>-7 No permission to use this API.</li>
+<li>-8 Account got prohibited.</li>
+<li>85 Account logined in another place and your request got rejected.</li>
+<li>-99 This API is not ready to be used.No rush.</li>
+<li>1 Action completed successfully.</li>
+<li>2 POST method only.</li>
+<li>3 Unknown errors.</li>
+<li>6 Invalid user_id.(only works for agent users)</li>
+<li>7 User is not under this agent.(only works for agent users)</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="get-the-user-token">
+<h2>Get the user token<a class="headerlink" href="#get-the-user-token" title="Permalink to this headline">¶</a></h2>
+<p>Before you use the APIs, you need get a user-token first by this one.</p>
+<dl class="docutils">
+<dt>API Address：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Auth">https://api.dnspod.com/Auth</a></li>
+</ul>
+</dd>
+<dt>HTTP Request Type：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global parameters.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Auth -d &#39;login_email=api@dnspod.com&amp;login_password=password&amp;format=json&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-04 20:37:31&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;user_token&quot;</span><span class="p">:</span> <span class="s">&quot;730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="d-token">
+<h2>D-Token<a class="headerlink" href="#d-token" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Users that already turned the D-Token on need this parameters in the request:</dt>
+<dd><ul class="first last simple">
+<li>login_code The code that generated by the D-Token.Essential parameter.</li>
+<li>login_remember {yes,no} Whether to remember the D-Token code.Default &#8220;yes&#8221;.</li>
+</ul>
+</dd>
+<dt>Attention:</dt>
+<dd>Since the D-Token code changes every 30 seconds,it is highly recommended that you set the &#8220;login_remember&#8221; to &#8220;yes&#8221;.If so,you will get an extra response with the format of &#8220;t + user_id&#8221; like &#8220;t123456&#8221;,whose life last for a month.With this cookie,you don&#8217;t need to submit the &#8220;login_code&#8221; and &#8220;login_remember&#8221;.</dd>
+<dt>If you are using D-Token,this error codes might be responsed.</dt>
+<dd><ul class="first last simple">
+<li>50 You already turned the D-Token on,and we need you D-Token code.</li>
+<li>51 You hasn&#8217;t turned the D-Token on.</li>
+<li>52 Invalid login code.</li>
+<li>53 You already turned the D-Token on.</li>
+<li>54 The owner has turned the D-Token on,and so should you.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="get-the-version-of-api">
+<h2>Get the Version of API<a class="headerlink" href="#get-the-version-of-api" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>API Address：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Info.Version">https://api.dnspod.com/Info.Version</a></li>
+</ul>
+</dd>
+<dt>HTTP Request Type：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global parameters.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Info.Version -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;4.6&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-04 20:40:37&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">API Explanation</a><ul>
+<li><a class="reference internal" href="#api-development-norm">API Development Norm</a></li>
+<li><a class="reference internal" href="#global-parameters">Global Parameters</a></li>
+<li><a class="reference internal" href="#common-response-code">Common Response Code</a></li>
+<li><a class="reference internal" href="#get-the-user-token">Get the user token</a></li>
+<li><a class="reference internal" href="#d-token">D-Token</a></li>
+<li><a class="reference internal" href="#get-the-version-of-api">Get the Version of API</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">DNSPod User API Document</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="accounts.html"
+                        title="next chapter">Accounts</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/info.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+        &copy; Copyright DNSPod Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

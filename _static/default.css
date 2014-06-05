@@ -4,7 +4,7 @@
  *
  * Sphinx stylesheet -- default theme.
  *
- * :copyright: Copyright 2007-2011 by the Sphinx team, see AUTHORS.
+ * :copyright: Copyright 2007-2013 by the Sphinx team, see AUTHORS.
  * :license: BSD, see LICENSE for details.
  *
  */
@@ -14,16 +14,28 @@
 /* -- page layout ----------------------------------------------------------- */
 
 body {
-    font-family: sans-serif;
+    font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", Arial, sans-serif;
     font-size: 100%;
-    background-color: #11303d;
+    background-color: #1c8bd9;
     color: #000;
     margin: 0;
     padding: 0;
 }
 
+ul li {
+    margin:2px 0 2px 0;
+}
+
+dd {
+    margin-left:0px;
+}
+dd ul, dd table {
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
+
 div.document {
-    background-color: #1c4e63;
+    background-color: #1c8bd9;
 }
 
 div.documentwrapper {
@@ -55,9 +67,10 @@ div.footer a {
 }
 
 div.related {
-    background-color: #133f52;
-    line-height: 30px;
+    background-color: #1c8bd9;
+    line-height: 40px;
     color: #ffffff;
+    height: 45px;
 }
 
 div.related a {
@@ -65,6 +78,12 @@ div.related a {
 }
 
 div.sphinxsidebar {
+    top: 0px;
+    bottom: 0;
+    margin: 0;
+    position: fixed;
+    overflow: auto;
+    height: auto;
 }
 
 div.sphinxsidebar h3 {
@@ -104,15 +123,22 @@ div.sphinxsidebar ul {
 }
 
 div.sphinxsidebar a {
-    color: #98dbcc;
+    color: #ffffff;
 }
 
 div.sphinxsidebar input {
-    border: 1px solid #98dbcc;
+    border: 1px solid #ffffff;
     font-family: sans-serif;
     font-size: 1em;
 }
 
+div.sphinxsidebar .logo img {
+    padding-left: 15px;
+}
+
+div.sphinxsidebarwrapper {
+    padding: 0px 5px 0 8px;
+}
 
 
 /* -- hyperlink styles ------------------------------------------------------ */
@@ -142,9 +168,9 @@ div.body h4,
 div.body h5,
 div.body h6 {
     font-family: 'Trebuchet MS', sans-serif;
-    background-color: #f2f2f2;
+    background-color: #e2e2e2;
     font-weight: normal;
-    color: #20435c;
+    color: #1c8bd9;
     border-bottom: 1px solid #ccc;
     margin: 20px -20px 10px -20px;
     padding: 3px 0 3px 10px;
@@ -158,14 +184,14 @@ div.body h5 { font-size: 110%; }
 div.body h6 { font-size: 100%; }
 
 a.headerlink {
-    color: #c60f0f;
+    color: #1c8bd9;
     font-size: 0.8em;
     padding: 0 4px 0 4px;
     text-decoration: none;
 }
 
 a.headerlink:hover {
-    background-color: #c60f0f;
+    background-color: #1c8bd9;
     color: white;
 }
 
@@ -253,4 +279,13 @@ div.viewcode-block:target {
     background-color: #f4debf;
     border-top: 1px solid #ac9;
     border-bottom: 1px solid #ac9;
+}
+.toctree-l1 {
+    margin: 5px 0 5px 0;
+}
+.toctree-l1 ul{
+    padding-left: 15px;
+}
+.section ul li {
+    margin-left:15px;
 }

@@ -1,0 +1,703 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Records &mdash; DNSPod API Doc 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="DNSPod API Doc 1.0.0 documentation" href="index.html" />
+    <link rel="next" title="D-Monitor" href="d-monitor.html" />
+    <link rel="prev" title="Domains" href="domains.html" /> 
+  </head>
+  <body>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="records">
+<h1>Records<a class="headerlink" href="#records" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="add-a-record">
+<h2>Add a Record<a class="headerlink" href="#add-a-record" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Record.Create">https://api.dnspod.com/Record.Create</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global parameters</li>
+<li><strong>domain_id</strong> The domain id.Essential parameter.</li>
+<li><strong>sub_domain</strong> The record name like &#8220;www&#8221;.The default value is &#8220;&#64;&#8221;.Optional parameter.</li>
+<li><strong>record_type</strong> The record type.You can get the list of all allowed types from the API.Capital letters like &#8220;A&#8221; or &#8220;CNAME&#8221;.Essential parameter.</li>
+<li><strong>record_line</strong> The record line.You can get the list of all allowed lines from the API.Essential parameter.</li>
+<li><strong>value</strong> The record value.For example: IP:200.200.200.200, CNAME: cname.dnspod.com., MX: mail.dnspod.com.Essential parameter.</li>
+<li><strong>mx</strong> {1-20} This only need to and must be seted when record_type is &#8220;MX&#8221;.Range from 1 to 20.</li>
+<li><strong>ttl</strong> {1-604800}  TTL，range from 1 to 604800.Every grade has its own min value.Optional parameter.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+<li>-15 Domain got prohibited.</li>
+<li>-7 A upgrade for the company account is needed before this.</li>
+<li>-8 You need a upgrae for the domain you are acting for.</li>
+<li>6 Lack of parameters or something wrong with it.</li>
+<li>7 You don&#8217;t have the permission.</li>
+<li>21 Domain got locked.</li>
+<li>22 Invalid sub_domain.</li>
+<li>23 Sub domain level is up to limie.</li>
+<li>24 Invalid sub domain for general analysis.</li>
+<li>25 The number of poll is up to limit.</li>
+<li>26 Invalid line.</li>
+<li>27 Invalid record type.</li>
+<li>30 Invalid MX value.</li>
+<li>31 The number of URL record is up to limit.</li>
+<li>32 The number of NS record is up to limit.</li>
+<li>33 The number of AAAA record is up to limit.</li>
+<li>34 Invalid record value.</li>
+<li>36 When the sub_domain is &#8220;&#64;&#8221; and the record_type is &#8220;NS&#8221;,the record_line can only be &#8220;default&#8221;.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Record.Create -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;sub_domain=@&amp;record_type=A&amp;record_line=默认&amp;value=1.1.1.1&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span><span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span><span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span><span class="s">&quot;2012-11-23 22:17:47&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;record&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span><span class="s">&quot;16894439&quot;</span><span class="p">,</span>
+        <span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;@&quot;</span><span class="p">,</span>
+        <span class="s">&quot;status&quot;</span><span class="p">:</span><span class="s">&quot;enable&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get-record-list">
+<h2>Get Record List<a class="headerlink" href="#get-record-list" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Record.List">https://api.dnspod.com/Record.List</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global parameters</li>
+<li><strong>domain_id</strong> The domain id.Essential parameter.</li>
+<li><strong>offset</strong> The offset of the response.The first one is numbered as 0.Optional parameter.</li>
+<li><strong>length</strong> The number of response result.Optional parameter.</li>
+<li><strong>sub_domain</strong> If the subsidiary domain is set,only the information about it will be responsed.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+<li>-7 A domain of a company account need a upgrade first.</li>
+<li>-8 You need a upgrade for the domain you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>7 Invalid offset.</li>
+<li>8 Invalid length.</li>
+<li>9 You don&#8217;t have the permission.</li>
+<li>10 Empty result.</li>
+</ul>
+</dd>
+<dt>Attention：</dt>
+<dd><ul class="first last simple">
+<li>If there are more than 500 records,only the first 500 will be responsed.You may need to set &#8220;offset&#8221; and &#8220;length&#8221; to get all the records with requests.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Record.List -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+     <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+         <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+         <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-05 09:58:40&quot;</span>
+     <span class="p">},</span>
+     <span class="s">&quot;domain&quot;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;9&quot;</span><span class="p">,</span>
+         <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;dnspod.com&quot;</span><span class="p">,</span>
+         <span class="s">&quot;punycode&quot;</span><span class="p">:</span> <span class="s">&quot;dnspod.com&quot;</span><span class="p">,</span>
+         <span class="s">&quot;grade&quot;</span><span class="p">:</span> <span class="s">&quot;DP_Free&quot;</span><span class="p">,</span>
+         <span class="s">&quot;owner&quot;</span><span class="p">:</span> <span class="s">&quot;yizerowu@dnspod.com&quot;</span>
+     <span class="p">},</span>
+     <span class="s">&quot;info&quot;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="s">&quot;sub_domains&quot;</span><span class="p">:</span> <span class="s">&quot;5&quot;</span><span class="p">,</span>
+         <span class="s">&quot;record_total&quot;</span><span class="p">:</span> <span class="s">&quot;5&quot;</span>
+     <span class="p">},</span>
+     <span class="s">&quot;records&quot;</span><span class="p">:</span> <span class="p">[</span>
+         <span class="p">{</span>
+             <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;50&quot;</span><span class="p">,</span>
+             <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;@&quot;</span><span class="p">,</span>
+             <span class="s">&quot;line&quot;</span><span class="p">:</span> <span class="s">&quot;Default&quot;</span><span class="p">,</span>
+             <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;A&quot;</span><span class="p">,</span>
+             <span class="s">&quot;ttl&quot;</span><span class="p">:</span> <span class="s">&quot;600&quot;</span><span class="p">,</span>
+             <span class="s">&quot;value&quot;</span><span class="p">:</span> <span class="s">&quot;96.126.115.73&quot;</span><span class="p">,</span>
+             <span class="s">&quot;mx&quot;</span><span class="p">:</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
+             <span class="s">&quot;enabled&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+             <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;enabled&quot;</span><span class="p">,</span>
+             <span class="s">&quot;monitor_status&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+             <span class="s">&quot;remark&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+             <span class="s">&quot;updated_on&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-05 09:47:59&quot;</span>
+         <span class="p">},</span>
+         <span class="p">{</span>
+             <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;49&quot;</span><span class="p">,</span>
+             <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;@&quot;</span><span class="p">,</span>
+             <span class="s">&quot;line&quot;</span><span class="p">:</span> <span class="s">&quot;Default&quot;</span><span class="p">,</span>
+             <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;MX&quot;</span><span class="p">,</span>
+             <span class="s">&quot;ttl&quot;</span><span class="p">:</span> <span class="s">&quot;600&quot;</span><span class="p">,</span>
+             <span class="s">&quot;value&quot;</span><span class="p">:</span> <span class="s">&quot;cloudmx.qq.com.&quot;</span><span class="p">,</span>
+             <span class="s">&quot;mx&quot;</span><span class="p">:</span> <span class="s">&quot;5&quot;</span><span class="p">,</span>
+             <span class="s">&quot;enabled&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+             <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;enabled&quot;</span><span class="p">,</span>
+             <span class="s">&quot;monitor_status&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+             <span class="s">&quot;remark&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+             <span class="s">&quot;updated_on&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-05 09:47:59&quot;</span>
+         <span class="p">},</span>
+         <span class="p">{</span>
+             <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;46&quot;</span><span class="p">,</span>
+             <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;@&quot;</span><span class="p">,</span>
+             <span class="s">&quot;line&quot;</span><span class="p">:</span> <span class="s">&quot;Default&quot;</span><span class="p">,</span>
+             <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;NS&quot;</span><span class="p">,</span>
+             <span class="s">&quot;ttl&quot;</span><span class="p">:</span> <span class="s">&quot;600&quot;</span><span class="p">,</span>
+             <span class="s">&quot;value&quot;</span><span class="p">:</span> <span class="s">&quot;a.dnspod.com.&quot;</span><span class="p">,</span>
+             <span class="s">&quot;mx&quot;</span><span class="p">:</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
+             <span class="s">&quot;enabled&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+             <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;enabled&quot;</span><span class="p">,</span>
+             <span class="s">&quot;monitor_status&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+             <span class="s">&quot;remark&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+             <span class="s">&quot;updated_on&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-05 09:47:40&quot;</span><span class="p">,</span>
+             <span class="s">&quot;hold&quot;</span><span class="p">:</span> <span class="s">&quot;hold&quot;</span>
+         <span class="p">},</span>
+         <span class="p">{</span>
+             <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;47&quot;</span><span class="p">,</span>
+             <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;@&quot;</span><span class="p">,</span>
+             <span class="s">&quot;line&quot;</span><span class="p">:</span> <span class="s">&quot;Default&quot;</span><span class="p">,</span>
+             <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;NS&quot;</span><span class="p">,</span>
+             <span class="s">&quot;ttl&quot;</span><span class="p">:</span> <span class="s">&quot;600&quot;</span><span class="p">,</span>
+             <span class="s">&quot;value&quot;</span><span class="p">:</span> <span class="s">&quot;b.dnspod.com.&quot;</span><span class="p">,</span>
+             <span class="s">&quot;mx&quot;</span><span class="p">:</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
+             <span class="s">&quot;enabled&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+             <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;enabled&quot;</span><span class="p">,</span>
+             <span class="s">&quot;monitor_status&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+             <span class="s">&quot;remark&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+             <span class="s">&quot;updated_on&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-05 09:47:40&quot;</span><span class="p">,</span>
+             <span class="s">&quot;hold&quot;</span><span class="p">:</span> <span class="s">&quot;hold&quot;</span>
+         <span class="p">},</span>
+         <span class="p">{</span>
+             <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;48&quot;</span><span class="p">,</span>
+             <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;@&quot;</span><span class="p">,</span>
+             <span class="s">&quot;line&quot;</span><span class="p">:</span> <span class="s">&quot;Default&quot;</span><span class="p">,</span>
+             <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;NS&quot;</span><span class="p">,</span>
+             <span class="s">&quot;ttl&quot;</span><span class="p">:</span> <span class="s">&quot;600&quot;</span><span class="p">,</span>
+             <span class="s">&quot;value&quot;</span><span class="p">:</span> <span class="s">&quot;c.dnspod.com.&quot;</span><span class="p">,</span>
+             <span class="s">&quot;mx&quot;</span><span class="p">:</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
+             <span class="s">&quot;enabled&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+             <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;enabled&quot;</span><span class="p">,</span>
+             <span class="s">&quot;monitor_status&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+             <span class="s">&quot;remark&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+             <span class="s">&quot;updated_on&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-05 09:47:40&quot;</span><span class="p">,</span>
+             <span class="s">&quot;hold&quot;</span><span class="p">:</span> <span class="s">&quot;hold&quot;</span>
+         <span class="p">}</span>
+     <span class="p">]</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="update-a-record">
+<h2>Update a Record<a class="headerlink" href="#update-a-record" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Record.Modify">https://api.dnspod.com/Record.Modify</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global parameters</li>
+<li><strong>domain_id</strong> The domain id.Essential parameter.</li>
+<li><strong>record_id</strong> The record id.Essential parameter.</li>
+<li><strong>sub_domain</strong> The record name like &#8220;www&#8221;.The default value is &#8220;&#64;&#8221;.Optional parameter.</li>
+<li><strong>record_type</strong> The record type.You can get the list from the API.All capital letters like &#8220;A&#8221;.Essential parameter.</li>
+<li><strong>record_line</strong> The record line.You can get the list from the API.The default value is &#8220;default&#8221;.Essential parameter.</li>
+<li><strong>value</strong> The record value.For example: IP:200.200.200.200, CNAME: cname.dnspod.com., MX: mail.dnspod.com.Essential parameter.</li>
+<li><strong>mx</strong> {1-20} This only need to and must be seted when record_type is &#8220;MX&#8221;.Range from 1 to 20.</li>
+<li><strong>ttl</strong> {1-604800} TTL，range from 1 to 604800.Every grade has its own min value.Optional parameter.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+<li>-15 Domain got prohibited.</li>
+<li>-7 A domain of a company account need a upgrade first.</li>
+<li>-8 You need a upgrade for the domain you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>7 You don&#8217;t have the permission.</li>
+<li>8 Invalid record id.</li>
+<li>21 Domain got locked.</li>
+<li>22 Invalid sub domain.</li>
+<li>23 The number of the record level is up to limit.</li>
+<li>24 Invalid sub domain for general analysis.</li>
+<li>25 The number of poll is up to limit.</li>
+<li>26 Invalid record line.</li>
+<li>27 Invalid record type.</li>
+<li>29 TTL is too small.</li>
+<li>30 Invalid MX value.</li>
+<li>31 The number of URL records is up to limit.</li>
+<li>32 The number of NS records is up to limit.</li>
+<li>33 The number of AAAA records is up to limit.</li>
+<li>34 Invalid record value.</li>
+<li>35 The IP is not allowd.</li>
+<li>36 When the sub_domain is &#8220;&#64;&#8221; and the record_type is &#8220;NS&#8221;,the record_line can only be &#8220;default&#8221;.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Record.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;record_id=16894439&amp;sub_domain=www&amp;value=3.2.2.2&amp;record_type=A&amp;record_line=默认&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span><span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span><span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span><span class="s">&quot;2012-11-24 16:53:23&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;record&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span><span class="mi">16894439</span><span class="p">,</span>
+        <span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;@&quot;</span><span class="p">,</span>
+        <span class="s">&quot;value&quot;</span><span class="p">:</span><span class="s">&quot;3.2.2.2&quot;</span><span class="p">,</span><span class="s">&quot;status&quot;</span><span class="p">:</span><span class="s">&quot;enable&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="remove-a-record">
+<h2>Remove a Record<a class="headerlink" href="#remove-a-record" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Record.Remove">https://api.dnspod.com/Record.Remove</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global parameters</li>
+<li><strong>domain_id</strong> The domain id.Essential parameter.</li>
+<li><strong>record_id</strong> The record id.Essential parameter.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+<li>-15 Domain got prohibited.</li>
+<li>-7 A domain of a company account need a upgrade first.</li>
+<li>-8 You need a upgrade for the domain you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>7 You don&#8217;t have the permission.</li>
+<li>8 Invalid record id.</li>
+<li>21 Domain got locked.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Record.Remove -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;record_id=16894439&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span><span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span><span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span><span class="s">&quot;2012-11-24 16:58:07&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="update-the-dynamic-dns-record">
+<h2>Update the Dynamic DNS Record<a class="headerlink" href="#update-the-dynamic-dns-record" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Record.Ddns">https://api.dnspod.com/Record.Ddns</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global parameters</li>
+<li><strong>domain_id</strong> The domain id.Essential parameter.</li>
+<li><strong>record_id</strong> The record id.Essential parameter.</li>
+<li><strong>sub_domain</strong> The record name like &#8220;www&#8221;.</li>
+<li><strong>record_line</strong> The record line.You can get the list from the API.The default value is &#8220;default&#8221;.Essential parameter.</li>
+<li><strong>value</strong> The IP address like &#8220;6.6.6.6&#8221;.Optional parameter.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+<li>-15 Domain got prohibited.</li>
+<li>-7 A domain of a company account need a upgrade first.</li>
+<li>-8 You need a upgrade for the domain you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>7 You don&#8217;t have the permission.</li>
+<li>8 Invalid record id.</li>
+<li>21 Domain got locked.</li>
+<li>22 Invalid sub domain.</li>
+<li>23 The number of the record level is up to limit.</li>
+<li>24 Invalid sub domain for general analysis.</li>
+<li>25 The number of poll is up to limit.</li>
+<li>26 Invalid record line.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Record.Ddns -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;record_id=16894439&amp;record_line=默认&amp;sub_domain=www&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span><span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span><span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span><span class="s">&quot;2012-11-24 17:23:58&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;record&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span><span class="mi">16909160</span><span class="p">,</span>
+        <span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;@&quot;</span><span class="p">,</span>
+        <span class="s">&quot;value&quot;</span><span class="p">:</span><span class="s">&quot;111.111.111.111&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="remark-a-record">
+<h2>Remark a Record<a class="headerlink" href="#remark-a-record" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Record.Remark">https://api.dnspod.com/Record.Remark</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global parameters</li>
+<li><strong>domain_id</strong> The domain id.Essential parameter.</li>
+<li><strong>record_id</strong> The record id.Essential parameter.</li>
+<li><strong>remark</strong> The remark information.Set it a empty string if you want to remove it.Essential parameter.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+<li>6 Invalid domain id.</li>
+<li>8 Invalid record id.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Record.Remark -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;record_id=16894439&amp;remark=test&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-11-24 17:32:23&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get-the-record-informtion">
+<h2>Get the Record Informtion<a class="headerlink" href="#get-the-record-informtion" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Record.Info">https://api.dnspod.com/Record.Info</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global parameters</li>
+<li><strong>domain_id</strong> The domain id.Essential parameter.</li>
+<li><strong>record_id</strong> The record id.Essential parameter.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+<li>-15 Domain got prohibited.</li>
+<li>-7 A domain of a company account need a upgrade first.</li>
+<li>-8 You need a upgrade for the domain you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>7 You don&#8217;t have the permission.</li>
+<li>8 Invalid record id.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Record.Info -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;record_id=16894439&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-05 10:07:05&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;domain&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;9&quot;</span><span class="p">,</span>
+        <span class="s">&quot;domain&quot;</span><span class="p">:</span> <span class="s">&quot;dnspod.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;domain_grade&quot;</span><span class="p">:</span> <span class="s">&quot;DP_Free&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;record&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;50&quot;</span><span class="p">,</span>
+        <span class="s">&quot;sub_domain&quot;</span><span class="p">:</span> <span class="s">&quot;@&quot;</span><span class="p">,</span>
+        <span class="s">&quot;record_type&quot;</span><span class="p">:</span> <span class="s">&quot;A&quot;</span><span class="p">,</span>
+        <span class="s">&quot;record_line&quot;</span><span class="p">:</span> <span class="s">&quot;Default&quot;</span><span class="p">,</span>
+        <span class="s">&quot;value&quot;</span><span class="p">:</span> <span class="s">&quot;96.126.115.73&quot;</span><span class="p">,</span>
+        <span class="s">&quot;mx&quot;</span><span class="p">:</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s">&quot;ttl&quot;</span><span class="p">:</span> <span class="s">&quot;600&quot;</span><span class="p">,</span>
+        <span class="s">&quot;enabled&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;monitor_status&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;remark&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;updated_on&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-05 09:47:59&quot;</span><span class="p">,</span>
+        <span class="s">&quot;domain_id&quot;</span><span class="p">:</span> <span class="s">&quot;9&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="set-the-record-status">
+<h2>Set the Record Status<a class="headerlink" href="#set-the-record-status" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Record.Status">https://api.dnspod.com/Record.Status</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global parameters</li>
+<li><strong>domain_id</strong> The domain id.Essential parameter.</li>
+<li><strong>record_id</strong> The record id.Essential parameter.</li>
+<li><strong>status</strong> {enable|disable} The new status.Essential parameter.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+<li>-15 Domain got prohibited.</li>
+<li>-7 A domain of a company account need a upgrade first.</li>
+<li>-8 You need a upgrade for the domain you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>7 You don&#8217;t have the permission.</li>
+<li>8 Invalid record id.</li>
+<li>21 Domain got locked.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Record.Status -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;record_id=16894439&amp;status=disable&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-11-24 20:07:29&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;record&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">16909160</span><span class="p">,</span>
+        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;@&quot;</span><span class="p">,</span>
+        <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;disable&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Records</a><ul>
+<li><a class="reference internal" href="#add-a-record">Add a Record</a></li>
+<li><a class="reference internal" href="#get-record-list">Get Record List</a></li>
+<li><a class="reference internal" href="#update-a-record">Update a Record</a></li>
+<li><a class="reference internal" href="#remove-a-record">Remove a Record</a></li>
+<li><a class="reference internal" href="#update-the-dynamic-dns-record">Update the Dynamic DNS Record</a></li>
+<li><a class="reference internal" href="#remark-a-record">Remark a Record</a></li>
+<li><a class="reference internal" href="#get-the-record-informtion">Get the Record Informtion</a></li>
+<li><a class="reference internal" href="#set-the-record-status">Set the Record Status</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="domains.html"
+                        title="previous chapter">Domains</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="d-monitor.html"
+                        title="next chapter">D-Monitor</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/records.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+        &copy; Copyright DNSPod Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

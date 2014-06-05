@@ -1,0 +1,977 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>D-Monitor &mdash; DNSPod API Doc 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="DNSPod API Doc 1.0.0 documentation" href="index.html" />
+    <link rel="prev" title="Records" href="records.html" /> 
+  </head>
+  <body>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="d-monitor">
+<h1>D-Monitor<a class="headerlink" href="#d-monitor" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="list-all-the-sub-domains-whose-type-is-a">
+<h2>List All the Sub-domains Whose Type Is &#8220;A&#8221;<a class="headerlink" href="#list-all-the-sub-domains-whose-type-is-a" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Monitor.Listsubdomain">https://api.dnspod.com/Monitor.Listsubdomain</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global parameters</li>
+<li><strong>domain</strong> OR <strong>domain_id</strong> Stand for the domain name and the domain id.You only need to and must choose one of them.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+<li>6 Domain not exists.</li>
+<li>7 Invalid domain id.</li>
+<li>8 No records under this domain.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.Listsubdomain -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-05 10:12:24&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;domain&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;9&quot;</span><span class="p">,</span>
+        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;dnspod.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;punycode&quot;</span><span class="p">:</span> <span class="s">&quot;dnspod.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;grade&quot;</span><span class="p">:</span> <span class="s">&quot;DP_Free&quot;</span><span class="p">,</span>
+        <span class="s">&quot;owner&quot;</span><span class="p">:</span> <span class="s">&quot;yizerowu@dnspod.com&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;subdomain&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s">&quot;@&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="list-all-the-a-records-for-a-sub-domain">
+<h2>List All the &#8220;A&#8221; Records for a Sub-domain<a class="headerlink" href="#list-all-the-a-records-for-a-sub-domain" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Monitor.Listsubvalue">https://api.dnspod.com/Monitor.Listsubvalue</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global parameters</li>
+<li><strong>domain</strong> OR <strong>domain_id</strong> Stand for the domain name and the domain id.You only need to and must choose one of them.</li>
+<li><strong>subdomain</strong> The sub-domain.Essential parameter.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+<li>6 Domain not exists.</li>
+<li>7 Invalid domain id.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.Listsubvalue -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;subdomain=@&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-05 10:14:17&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;domain&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;9&quot;</span><span class="p">,</span>
+        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;dnspod.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;punycode&quot;</span><span class="p">:</span> <span class="s">&quot;dnspod.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;grade&quot;</span><span class="p">:</span> <span class="s">&quot;DP_Free&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;points&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;max&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s">&quot;list&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;ctc-4&quot;</span><span class="p">:</span> <span class="s">&quot;Hangzhou, Telecom, CN&quot;</span><span class="p">,</span>
+            <span class="s">&quot;usa-1&quot;</span><span class="p">:</span> <span class="s">&quot;HE, CA, US&quot;</span><span class="p">,</span>
+            <span class="s">&quot;hk-1&quot;</span><span class="p">:</span> <span class="s">&quot;PCCW, HK&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s">&quot;balance&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="s">&quot;records&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;50&quot;</span><span class="p">,</span>
+            <span class="s">&quot;area&quot;</span><span class="p">:</span> <span class="s">&quot;Default&quot;</span><span class="p">,</span>
+            <span class="s">&quot;value&quot;</span><span class="p">:</span> <span class="s">&quot;96.126.115.73&quot;</span><span class="p">,</span>
+            <span class="s">&quot;record_type&quot;</span><span class="p">:</span> <span class="s">&quot;A&quot;</span><span class="p">,</span>
+            <span class="s">&quot;sub_domain&quot;</span><span class="p">:</span> <span class="s">&quot;@&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get-the-monitor-list">
+<h2>Get the Monitor List<a class="headerlink" href="#get-the-monitor-list" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Monitor.List">https://api.dnspod.com/Monitor.List</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global parameters</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.List -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+     <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+         <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+         <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-05 10:21:00&quot;</span>
+     <span class="p">},</span>
+     <span class="s">&quot;info&quot;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="s">&quot;total_count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+         <span class="s">&quot;down_count&quot;</span><span class="p">:</span> <span class="mi">0</span>
+     <span class="p">},</span>
+     <span class="s">&quot;monitors&quot;</span><span class="p">:</span> <span class="p">[</span>
+         <span class="p">{</span>
+             <span class="s">&quot;monitor_id&quot;</span><span class="p">:</span> <span class="s">&quot;792626&quot;</span><span class="p">,</span>
+             <span class="s">&quot;domain&quot;</span><span class="p">:</span> <span class="s">&quot;usertest.com&quot;</span><span class="p">,</span>
+             <span class="s">&quot;domain_id&quot;</span><span class="p">:</span> <span class="s">&quot;15132&quot;</span><span class="p">,</span>
+             <span class="s">&quot;domain_grade&quot;</span><span class="p">:</span> <span class="s">&quot;DP_Free&quot;</span><span class="p">,</span>
+             <span class="s">&quot;record_id&quot;</span><span class="p">:</span> <span class="s">&quot;283118&quot;</span><span class="p">,</span>
+             <span class="s">&quot;sub_domain&quot;</span><span class="p">:</span> <span class="s">&quot;eeee&quot;</span><span class="p">,</span>
+             <span class="s">&quot;record_line&quot;</span><span class="p">:</span> <span class="s">&quot;Default&quot;</span><span class="p">,</span>
+             <span class="s">&quot;ip&quot;</span><span class="p">:</span> <span class="s">&quot;4.4.4.4&quot;</span><span class="p">,</span>
+             <span class="s">&quot;now_ip&quot;</span><span class="p">:</span> <span class="s">&quot;4.4.4.4&quot;</span><span class="p">,</span>
+             <span class="s">&quot;host&quot;</span><span class="p">:</span> <span class="s">&quot;eeee.usertest.com&quot;</span><span class="p">,</span>
+             <span class="s">&quot;port&quot;</span><span class="p">:</span> <span class="s">&quot;80&quot;</span><span class="p">,</span>
+             <span class="s">&quot;monitor_type&quot;</span><span class="p">:</span> <span class="s">&quot;http&quot;</span><span class="p">,</span>
+             <span class="s">&quot;monitor_path&quot;</span><span class="p">:</span> <span class="s">&quot;/&quot;</span><span class="p">,</span>
+             <span class="s">&quot;monitor_interval&quot;</span><span class="p">:</span> <span class="s">&quot;180&quot;</span><span class="p">,</span>
+             <span class="s">&quot;points&quot;</span><span class="p">:</span> <span class="s">&quot;hk-1,usa-1,ctc-4&quot;</span><span class="p">,</span>
+             <span class="s">&quot;bak_ip&quot;</span><span class="p">:</span> <span class="s">&quot;auto&quot;</span><span class="p">,</span>
+             <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;Ok&quot;</span><span class="p">,</span>
+             <span class="s">&quot;status_code&quot;</span><span class="p">:</span> <span class="s">&quot;200&quot;</span><span class="p">,</span>
+             <span class="s">&quot;sms_notice&quot;</span><span class="p">:</span> <span class="s">&quot;me&quot;</span><span class="p">,</span>
+             <span class="s">&quot;email_notice&quot;</span><span class="p">:</span> <span class="s">&quot;me&quot;</span><span class="p">,</span>
+             <span class="s">&quot;weixin_notice&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+             <span class="s">&quot;less_notice&quot;</span><span class="p">:</span> <span class="s">&quot;yes&quot;</span><span class="p">,</span>
+             <span class="s">&quot;callback_url&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+             <span class="s">&quot;callback_key&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+             <span class="s">&quot;monitor_status&quot;</span><span class="p">:</span> <span class="s">&quot;enabled&quot;</span><span class="p">,</span>
+             <span class="s">&quot;created_on&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-05 10:20:41&quot;</span><span class="p">,</span>
+             <span class="s">&quot;updated_on&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-05 10:20:41&quot;</span><span class="p">,</span>
+             <span class="s">&quot;bak_ip_status&quot;</span><span class="p">:</span> <span class="p">[],</span>
+             <span class="s">&quot;delay_notify&quot;</span><span class="p">:</span> <span class="s">&quot;60&quot;</span><span class="p">,</span>
+             <span class="s">&quot;warnasdown&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+             <span class="s">&quot;sms2voice&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
+         <span class="p">}</span>
+     <span class="p">]</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="add-a-monitor">
+<h2>Add a Monitor<a class="headerlink" href="#add-a-monitor" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Monitor.Create">https://api.dnspod.com/Monitor.Create</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last">
+<li><p class="first">Global parameters</p>
+</li>
+<li><p class="first"><strong>domain_id</strong> The domain id.Essential parameter.</p>
+</li>
+<li><p class="first"><strong>record_id</strong> The record id.Essential parameter.</p>
+</li>
+<li><p class="first"><strong>port</strong> The port number to monitor like 80.Essential parameter.</p>
+</li>
+<li><p class="first"><strong>monitor_interval</strong> Monitoring spacing.Ranged {60|180|360|}.Essential parameter.</p>
+</li>
+<li><p class="first"><strong>host</strong> The host from the http header like &#8220;www.dnspod.com&#8221;.Essential parameter.</p>
+</li>
+<li><p class="first"><strong>monitor_type</strong> {http|https} The monitor type.Essential parameter.</p>
+</li>
+<li><p class="first"><strong>monitor_path</strong> The request path from the http header like &#8220;/&#8221;.Essential parameter.</p>
+</li>
+<li><p class="first"><strong>points</strong> The points to use.Split by &#8221;,&#8221;.You can choose it from the list of your own grade.Essential parameter.</p>
+</li>
+<li><dl class="first docutils">
+<dt><strong>bak_ip</strong> Backup IP address.Choose one kind from the list blow:</dt>
+<dd><ol class="first last arabic simple">
+<li>pass Just monitoring,no switching.</li>
+<li>pause The old type of pause.For more details,please visit: <a class="reference external" href="https://support.dnspod.cn/Kb/showarticle/tsid/179">https://support.dnspod.cn/Kb/showarticle/tsid/179</a></li>
+<li>pause2 The intelligent pause who pause the record immediately when the IP is down.</li>
+<li>auto Switch intelligent.</li>
+<li>IP addresses split by &#8221;,&#8221;.</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p class="first"><strong>keep_ttl</strong> TTL won&#8217;t be changed if this is seted up.Essential parameter.</p>
+</li>
+<li><p class="first"><strong>sms_notice</strong> &#8220;me&#8221; for the owner,and &#8220;share&#8221; for the shared users.Split by &#8221;,&#8221; if there are more than one like &#8220;me,share&#8221;.Essential parameter.</p>
+</li>
+<li><p class="first"><strong>email_notice</strong> Same as the sms_notice.</p>
+</li>
+<li><p class="first"><strong>less_notice</strong> {yes|no} Whether to just send one notice withen one hour.Essential parameter.</p>
+</li>
+<li><p class="first"><strong>callback_url</strong> The callback URL.All the data will be sent to this URL when the IP is down.For more details,please see the directions.Optional parameter.</p>
+</li>
+<li><p class="first"><strong>callback_key</strong> The callback key.If &#8220;callback_url&#8221; is set up,you shoul set this up too for sucurety.</p>
+</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+<li>6 Invalid domain id.</li>
+<li>7 Invalid record id.</li>
+<li>8 Invalid host.</li>
+<li>9 Invalid monitor port number that range from 1 to 65535.</li>
+<li>10 Invalid monitor type.</li>
+<li>11 Invalid monitor path.</li>
+<li>12  Invalid monitor interval.</li>
+<li>13 Invalid monitor points.</li>
+<li>14 Too many points.</li>
+<li>15 Invalid backup IP.</li>
+<li>16 Invalid bakcup url.</li>
+<li>17 Invalid backup IP.</li>
+<li>18 Invalid sms notice.</li>
+<li>19 Invalid email notice.</li>
+<li>20 There is already been one monitor on this record.</li>
+<li>21 The number of you monitors is up to limit.</li>
+<li>22 Invalid callback URL.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.Create -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;record_id=16909160&amp;port=80&amp;monitor_type=http&amp;monitor_path=/&amp;monitor_interval=360&amp;points=ctc,cuc,cmc&amp;bak_ip=pass&amp;host=testapi.com&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-11-24 21:25:30&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;monitor&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;monitor_id&quot;</span><span class="p">:</span> <span class="s">&quot;6aac176e-363a-11e2-bab7-0819a6248970&quot;</span><span class="p">,</span>
+        <span class="s">&quot;record_id&quot;</span><span class="p">:</span> <span class="mi">16909160</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="modify-a-monitor">
+<h2>Modify a Monitor<a class="headerlink" href="#modify-a-monitor" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Monitor.Modify">https://api.dnspod.com/Monitor.Modify</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last">
+<li><p class="first">Global parameters</p>
+</li>
+<li><p class="first"><strong>monitor_id</strong> Monitor id.Essential parameter.</p>
+</li>
+<li><p class="first"><strong>port</strong> The port number to minitor like 80.Essential parameter.</p>
+</li>
+<li><p class="first"><strong>monitor_interval</strong> {60|180|360|} The monitor interval.Essential parameter.</p>
+</li>
+<li><p class="first"><strong>monitor_type</strong> {http|https} The monitor type.Essential parameter.</p>
+</li>
+<li><p class="first"><strong>monitor_path</strong> The path in the http header like &#8220;/&#8221;.Essential parameter.</p>
+</li>
+<li><p class="first"><strong>points</strong> The points to use.Split by &#8221;,&#8221;.You can choose it from the list of your own grade.Essential parameter.</p>
+</li>
+<li><dl class="first docutils">
+<dt><strong>bak_ip</strong> Backup IP address.Choose one kind from the list blow:</dt>
+<dd><ol class="first last arabic simple">
+<li>pass Just monitoring,no switching.</li>
+<li>pause The old type of pause.For more details,please visit: <a class="reference external" href="https://support.dnspod.cn/Kb/showarticle/tsid/179">https://support.dnspod.cn/Kb/showarticle/tsid/179</a></li>
+<li>pause2 The intelligent pause who pause the record immediately when the IP is down.</li>
+<li>auto Switch intellgently.</li>
+<li>IP addresses split by &#8221;,&#8221;.</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p class="first"><strong>host</strong> The host from the http header like &#8220;www.dnspod.com&#8221;.Essential parameter.</p>
+</li>
+<li><p class="first"><strong>keep_ttl</strong> TTL won&#8217;t be changed if this is seted up.Essential parameter.</p>
+</li>
+<li><p class="first"><strong>sms_notice</strong> &#8220;me&#8221; for the owner,and &#8220;share&#8221; for the shared users.Split by &#8221;,&#8221; if there are more than one like &#8220;me,share&#8221;.Essential parameter.</p>
+</li>
+<li><p class="first"><strong>email_notice</strong> Same as the sms_notice.</p>
+</li>
+<li><p class="first"><strong>less_notice</strong> {yes|no} Whether to just send one notice withen one hour.Essential parameter.</p>
+</li>
+<li><p class="first"><strong>callback_url</strong>  The callback URL.All the data will be sent to this URL when the IP is down.For more details,please see the directions.Optional parameter.</p>
+</li>
+<li><p class="first"><strong>callback_key</strong> The callback key.If &#8220;callback_url&#8221; is set up,you shoul set this up too for sucurety.</p>
+</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+<li>7 Invalid monitor id.</li>
+<li>8 Invalid host.</li>
+<li>9 Invalid monitor port number that range from 1 to 65535.</li>
+<li>10 Invalid monitor type.</li>
+<li>11 Invalid monitor path.</li>
+<li>12  Invalid monitor interval.</li>
+<li>13 Invalid monitor points.</li>
+<li>14 Too many points.</li>
+<li>15 Invalid backup IP.</li>
+<li>16 Invalid bakcup url.</li>
+<li>17 Invalid backup IP.</li>
+<li>18 Invalid sms notice.</li>
+<li>19 Invalid email notice.</li>
+<li>22 Invalid callback URL.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;monitor_id=51fc9a20-363c-11e2-bab7-0819a6248970&amp;port=80&amp;monitor_type=http&amp;monitor_path=/&amp;monitor_interval=360&amp;points=ctc,cuc,cmc&amp;bak_ip=pass&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-11-24 21:41:31&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="remove-a-monitor">
+<h2>Remove a Monitor<a class="headerlink" href="#remove-a-monitor" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Monitor.Remove">https://api.dnspod.com/Monitor.Remove</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global parameters</li>
+<li><strong>monitor_id</strong> I think we all know this is the monitor&#8217;s id.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+<li>6 Invalid monitor id.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;monitor_id=51fc9a20-363c-11e2-bab7-0819a6248970&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-11-24 21:51:49&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get-the-monitor-information">
+<h2>Get the Monitor Information<a class="headerlink" href="#get-the-monitor-information" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Monitor.Info">https://api.dnspod.com/Monitor.Info</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global parameters</li>
+<li><strong>monitor_id</strong> The monitor&#8217;s id.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+<li>7 Invalid monitor id.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.Info -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;monitor_id=e91997aa-3641-11e2-bab7-0819a6248970&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-05 10:23:16&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;info&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;monitor_id&quot;</span><span class="p">:</span> <span class="s">&quot;792626&quot;</span><span class="p">,</span>
+        <span class="s">&quot;domain&quot;</span><span class="p">:</span> <span class="s">&quot;usertest.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;domain_id&quot;</span><span class="p">:</span> <span class="s">&quot;15132&quot;</span><span class="p">,</span>
+        <span class="s">&quot;domain_grade&quot;</span><span class="p">:</span> <span class="s">&quot;DP_Free&quot;</span><span class="p">,</span>
+        <span class="s">&quot;record_id&quot;</span><span class="p">:</span> <span class="s">&quot;283118&quot;</span><span class="p">,</span>
+        <span class="s">&quot;sub_domain&quot;</span><span class="p">:</span> <span class="s">&quot;eeee&quot;</span><span class="p">,</span>
+        <span class="s">&quot;record_line&quot;</span><span class="p">:</span> <span class="s">&quot;Default&quot;</span><span class="p">,</span>
+        <span class="s">&quot;ip&quot;</span><span class="p">:</span> <span class="s">&quot;4.4.4.4&quot;</span><span class="p">,</span>
+        <span class="s">&quot;now_ip&quot;</span><span class="p">:</span> <span class="s">&quot;4.4.4.4&quot;</span><span class="p">,</span>
+        <span class="s">&quot;host&quot;</span><span class="p">:</span> <span class="s">&quot;eeee.usertest.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;port&quot;</span><span class="p">:</span> <span class="s">&quot;80&quot;</span><span class="p">,</span>
+        <span class="s">&quot;monitor_type&quot;</span><span class="p">:</span> <span class="s">&quot;http&quot;</span><span class="p">,</span>
+        <span class="s">&quot;monitor_path&quot;</span><span class="p">:</span> <span class="s">&quot;/&quot;</span><span class="p">,</span>
+        <span class="s">&quot;monitor_interval&quot;</span><span class="p">:</span> <span class="s">&quot;180&quot;</span><span class="p">,</span>
+        <span class="s">&quot;points&quot;</span><span class="p">:</span> <span class="s">&quot;hk-1,usa-1,ctc-4&quot;</span><span class="p">,</span>
+        <span class="s">&quot;bak_ip&quot;</span><span class="p">:</span> <span class="s">&quot;auto&quot;</span><span class="p">,</span>
+        <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;Ok&quot;</span><span class="p">,</span>
+        <span class="s">&quot;status_code&quot;</span><span class="p">:</span> <span class="s">&quot;200&quot;</span><span class="p">,</span>
+        <span class="s">&quot;sms_notice&quot;</span><span class="p">:</span> <span class="s">&quot;me&quot;</span><span class="p">,</span>
+        <span class="s">&quot;email_notice&quot;</span><span class="p">:</span> <span class="s">&quot;me&quot;</span><span class="p">,</span>
+        <span class="s">&quot;less_notice&quot;</span><span class="p">:</span> <span class="s">&quot;yes&quot;</span><span class="p">,</span>
+        <span class="s">&quot;callback_url&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;callback_key&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;monitor_status&quot;</span><span class="p">:</span> <span class="s">&quot;enabled&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_on&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-05 10:20:41&quot;</span><span class="p">,</span>
+        <span class="s">&quot;updated_on&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-05 10:20:41&quot;</span><span class="p">,</span>
+        <span class="s">&quot;bak_ip_status&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="set-a-monitor-s-status">
+<h2>Set a Monitor&#8217;s Status<a class="headerlink" href="#set-a-monitor-s-status" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Monitor.Setstatus">https://api.dnspod.com/Monitor.Setstatus</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global parameters</li>
+<li><strong>monitor_id</strong> Monitor id.Essential parameter.</li>
+<li><strong>status</strong> {enabled|disabled} The new status.Essential status.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+<li>6 Invalid monitor id.</li>
+<li>7 Invalid new status.</li>
+<li>8 Please turn the domain on first.</li>
+<li>9 Please turn the record on first.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+<li>6 Invalid monitor id.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.Setstatus -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;monitor_id=03e3b268-3643-11e2-bab7-0819a6248970&amp;status=disable&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-11-24 22:33:20&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get-a-monitor-s-history">
+<h2>Get a Monitor&#8217;s History<a class="headerlink" href="#get-a-monitor-s-history" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Monitor.Gethistory">https://api.dnspod.com/Monitor.Gethistory</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global parameters</li>
+<li><strong>monitor_id</strong> Monitor id.Essential parameter.</li>
+<li><strong>hours</strong> Within how many hours do you want to get the history.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+<li>6 Invalid monitor id.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.Setstatus -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;monitor_id=03e3b268-3643-11e2-bab7-0819a6248970&amp;hours=1&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-11-24 22:40:02&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;domain&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;2317346&quot;</span><span class="p">,</span>
+        <span class="s">&quot;domain&quot;</span><span class="p">:</span> <span class="s">&quot;testapi.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;domain_grade&quot;</span><span class="p">:</span> <span class="s">&quot;D_Plus&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;record&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;16909160&quot;</span><span class="p">,</span>
+        <span class="s">&quot;sub_domain&quot;</span><span class="p">:</span> <span class="s">&quot;@&quot;</span><span class="p">,</span>
+        <span class="s">&quot;ip&quot;</span><span class="p">:</span> <span class="s">&quot;119.180.24.194&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;monitor_history&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;ok&quot;</span><span class="p">,</span>
+                <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                <span class="s">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;Down&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;status_code&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>
+                        <span class="s">&quot;createtime&quot;</span><span class="p">:</span> <span class="s">&quot;2012-11-24 22:28:31&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;responsetime&quot;</span><span class="p">:</span> <span class="mi">0</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;Down&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;status_code&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>
+                        <span class="s">&quot;createtime&quot;</span><span class="p">:</span> <span class="s">&quot;2012-11-24 22:31:31&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;responsetime&quot;</span><span class="p">:</span> <span class="mi">0</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;Down&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;status_code&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>
+                        <span class="s">&quot;createtime&quot;</span><span class="p">:</span> <span class="s">&quot;2012-11-24 22:34:31&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;responsetime&quot;</span><span class="p">:</span> <span class="mi">999</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;Down&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;status_code&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>
+                        <span class="s">&quot;createtime&quot;</span><span class="p">:</span> <span class="s">&quot;2012-11-24 22:37:31&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;responsetime&quot;</span><span class="p">:</span> <span class="mi">1</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="s">&quot;point&quot;</span><span class="p">:</span> <span class="s">&quot;ctc&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;ok&quot;</span><span class="p">,</span>
+                <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                <span class="s">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;Down&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;status_code&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>
+                        <span class="s">&quot;createtime&quot;</span><span class="p">:</span> <span class="s">&quot;2012-11-24 22:28:52&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;responsetime&quot;</span><span class="p">:</span> <span class="mi">0</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;Down&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;status_code&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>
+                        <span class="s">&quot;createtime&quot;</span><span class="p">:</span> <span class="s">&quot;2012-11-24 22:31:52&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;responsetime&quot;</span><span class="p">:</span> <span class="mi">0</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;Down&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;status_code&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>
+                        <span class="s">&quot;createtime&quot;</span><span class="p">:</span> <span class="s">&quot;2012-11-24 22:34:52&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;responsetime&quot;</span><span class="p">:</span> <span class="mi">0</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;Down&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;status_code&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>
+                        <span class="s">&quot;createtime&quot;</span><span class="p">:</span> <span class="s">&quot;2012-11-24 22:37:52&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;responsetime&quot;</span><span class="p">:</span> <span class="mi">0</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="s">&quot;point&quot;</span><span class="p">:</span> <span class="s">&quot;cuc&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;ok&quot;</span><span class="p">,</span>
+                <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                <span class="s">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;Down&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;status_code&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>
+                        <span class="s">&quot;createtime&quot;</span><span class="p">:</span> <span class="s">&quot;2012-11-24 22:30:07&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;responsetime&quot;</span><span class="p">:</span> <span class="mi">1</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;Down&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;status_code&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>
+                        <span class="s">&quot;createtime&quot;</span><span class="p">:</span> <span class="s">&quot;2012-11-24 22:33:05&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;responsetime&quot;</span><span class="p">:</span> <span class="mi">0</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;Down&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;status_code&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>
+                        <span class="s">&quot;createtime&quot;</span><span class="p">:</span> <span class="s">&quot;2012-11-24 22:36:06&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;responsetime&quot;</span><span class="p">:</span> <span class="mi">1</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;Down&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;status_code&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>
+                        <span class="s">&quot;createtime&quot;</span><span class="p">:</span> <span class="s">&quot;2012-11-24 22:39:06&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;responsetime&quot;</span><span class="p">:</span> <span class="mi">1</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="s">&quot;point&quot;</span><span class="p">:</span> <span class="s">&quot;cmc&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get-a-monitor-s-description">
+<h2>Get a Monitor&#8217;s Description<a class="headerlink" href="#get-a-monitor-s-description" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Monitor.Userdesc">https://api.dnspod.com/Monitor.Userdesc</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global parameters</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.Userdesc -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-11-24 22:50:14&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;desc&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;unmoniting_count&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s">&quot;moniting_count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">&quot;down_count&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="s">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;max_count&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span>
+        <span class="s">&quot;use_count&quot;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get-a-monitor-s-warnings">
+<h2>Get a Monitor&#8217;s Warnings<a class="headerlink" href="#get-a-monitor-s-warnings" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Monitor.Getdowns">https://api.dnspod.com/Monitor.Getdowns</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global parameters</li>
+<li><strong>offset</strong> The offset of the response.The first is numbered 0.Optional parameter.</li>
+<li><strong>length</strong> The number of results you want get.Optional parameter.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.Getdowns -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;offset=0&amp;length=10&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-05 10:25:04&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;info&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;total_count&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;monitor_downs&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">&quot;down_id&quot;</span><span class="p">:</span> <span class="s">&quot;15132&quot;</span><span class="p">,</span>
+            <span class="s">&quot;monitor_id&quot;</span><span class="p">:</span> <span class="s">&quot;792626&quot;</span><span class="p">,</span>
+            <span class="s">&quot;host&quot;</span><span class="p">:</span> <span class="s">&quot;eeee.usertest.com&quot;</span><span class="p">,</span>
+            <span class="s">&quot;record_line&quot;</span><span class="p">:</span> <span class="s">&quot;Default&quot;</span><span class="p">,</span>
+            <span class="s">&quot;ip&quot;</span><span class="p">:</span> <span class="s">&quot;4.4.4.4&quot;</span><span class="p">,</span>
+            <span class="s">&quot;warn_reason&quot;</span><span class="p">:</span> <span class="s">&quot;Connection timed out&quot;</span><span class="p">,</span>
+            <span class="s">&quot;switch_log&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s">&quot;2014-06-05 10:24:28 No available spare server to switch to&quot;</span>
+            <span class="p">],</span>
+            <span class="s">&quot;created_on&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-05 10:23:14&quot;</span><span class="p">,</span>
+            <span class="s">&quot;updated_on&quot;</span><span class="p">:</span> <span class="s">&quot;0000-00-00 00:00:00&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">D-Monitor</a><ul>
+<li><a class="reference internal" href="#list-all-the-sub-domains-whose-type-is-a">List All the Sub-domains Whose Type Is &#8220;A&#8221;</a></li>
+<li><a class="reference internal" href="#list-all-the-a-records-for-a-sub-domain">List All the &#8220;A&#8221; Records for a Sub-domain</a></li>
+<li><a class="reference internal" href="#get-the-monitor-list">Get the Monitor List</a></li>
+<li><a class="reference internal" href="#add-a-monitor">Add a Monitor</a></li>
+<li><a class="reference internal" href="#modify-a-monitor">Modify a Monitor</a></li>
+<li><a class="reference internal" href="#remove-a-monitor">Remove a Monitor</a></li>
+<li><a class="reference internal" href="#get-the-monitor-information">Get the Monitor Information</a></li>
+<li><a class="reference internal" href="#set-a-monitor-s-status">Set a Monitor&#8217;s Status</a></li>
+<li><a class="reference internal" href="#get-a-monitor-s-history">Get a Monitor&#8217;s History</a></li>
+<li><a class="reference internal" href="#get-a-monitor-s-description">Get a Monitor&#8217;s Description</a></li>
+<li><a class="reference internal" href="#get-a-monitor-s-warnings">Get a Monitor&#8217;s Warnings</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="records.html"
+                        title="previous chapter">Records</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/d-monitor.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+        &copy; Copyright DNSPod Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

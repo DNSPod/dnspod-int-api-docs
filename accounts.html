@@ -1,0 +1,358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Accounts &mdash; DNSPod API Doc 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="DNSPod API Doc 1.0.0 documentation" href="index.html" />
+    <link rel="next" title="Domains" href="domains.html" />
+    <link rel="prev" title="API Explanation" href="info.html" /> 
+  </head>
+  <body>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="accounts">
+<h1>Accounts<a class="headerlink" href="#accounts" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="get-account-information">
+<h2>Get Account Information<a class="headerlink" href="#get-account-information" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/User.Detail">https://api.dnspod.com/User.Detail</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/User.Detail -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&#39;
+</pre></div>
+</div>
+<p>Response Example：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-04 20:58:37&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;info&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;real_name&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+            <span class="s">&quot;user_type&quot;</span><span class="p">:</span> <span class="s">&quot;personal&quot;</span><span class="p">,</span>
+            <span class="s">&quot;telephone&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s">&quot;im&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s">&quot;nick&quot;</span><span class="p">:</span> <span class="s">&quot;Yizero Mr&quot;</span><span class="p">,</span>
+            <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;730060&quot;</span><span class="p">,</span>
+            <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;yizero@qq.com&quot;</span><span class="p">,</span>
+            <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;enabled&quot;</span><span class="p">,</span>
+            <span class="s">&quot;email_verified&quot;</span><span class="p">:</span> <span class="s">&quot;no&quot;</span><span class="p">,</span>
+            <span class="s">&quot;telephone_verified&quot;</span><span class="p">:</span> <span class="s">&quot;no&quot;</span><span class="p">,</span>
+            <span class="s">&quot;weixin_binded&quot;</span><span class="p">:</span> <span class="s">&quot;no&quot;</span><span class="p">,</span>
+            <span class="s">&quot;agent_pending&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s">&quot;balance&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s">&quot;smsbalance&quot;</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="update-information">
+<h2>Update Information<a class="headerlink" href="#update-information" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/User.Modify">https://api.dnspod.com/User.Modify</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global parameters</li>
+<li><strong>real_name</strong> Your real name for personal accounts,and company name for company accounts.</li>
+<li><strong>nick</strong> Your nickname that make it easier to contact to the users.</li>
+<li><strong>telephone</strong> The users&#8217; phone number.</li>
+<li><strong>im</strong> Your Instant Messaging account.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response</li>
+<li>8 Invalid phone number.</li>
+<li>9 Invalid im account.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/User.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;im=10000000&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span><span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span><span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span><span class="s">&quot;2012-08-24 13:34:56&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="change-password">
+<h2>Change Password<a class="headerlink" href="#change-password" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Userpasswd.Modify">https://api.dnspod.com/Userpasswd.Modify</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>old_password</strong> The old password.</li>
+<li><strong>new_password</strong> The new password.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>8 Wrong old password.</li>
+<li>9 Invalid new password.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Userpassword.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;old_password=old_password&amp;new_password=new_password&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span><span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span><span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span><span class="s">&quot;2012-08-24 13:45:27&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="update-email-address">
+<h2>Update Email Address<a class="headerlink" href="#update-email-address" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Useremail.Modify">https://api.dnspod.com/Useremail.Modify</a></li>
+</ul>
+</dd>
+<dt>HTTP Resquest Type：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>old_email</strong> Old email address.</li>
+<li><strong>new_email</strong> New email address.</li>
+<li><strong>password</strong> Your current password for verifying.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code.</li>
+<li>8 Old email address is not correct.</li>
+<li>9 New email address is invalid.</li>
+<li>10 Wrong password.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Useremail.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;old_email=api1@dnspod.com&amp;new_email=api@dnspod.com&amp;password=password&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span><span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span><span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span><span class="s">&quot;2012-08-24 14:49:41&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get-the-account-s-operate-log">
+<h2>Get The Account&#8217;s Operate Log<a class="headerlink" href="#get-the-account-s-operate-log" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/User.Log">https://api.dnspod.com/User.Log</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common response code.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/User.Log -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-04 21:09:50&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;log&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s">&quot;There is no user logs at the moment.&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Accounts</a><ul>
+<li><a class="reference internal" href="#get-account-information">Get Account Information</a></li>
+<li><a class="reference internal" href="#update-information">Update Information</a></li>
+<li><a class="reference internal" href="#change-password">Change Password</a></li>
+<li><a class="reference internal" href="#update-email-address">Update Email Address</a></li>
+<li><a class="reference internal" href="#get-the-account-s-operate-log">Get The Account&#8217;s Operate Log</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="info.html"
+                        title="previous chapter">API Explanation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="domains.html"
+                        title="next chapter">Domains</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/accounts.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+        &copy; Copyright DNSPod Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

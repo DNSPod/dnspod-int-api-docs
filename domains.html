@@ -1,0 +1,1954 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Domains &mdash; DNSPod API Doc 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="DNSPod API Doc 1.0.0 documentation" href="index.html" />
+    <link rel="next" title="Records" href="records.html" />
+    <link rel="prev" title="Accounts" href="accounts.html" /> 
+  </head>
+  <body>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="domains">
+<h1>Domains<a class="headerlink" href="#domains" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="add-new-domain">
+<h2>Add New Domain<a class="headerlink" href="#add-new-domain" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domain.Create">https://api.dnspod.com/Domain.Create</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain</strong> The domain to add. No prefix.Example:dnspod.com</li>
+<li><strong>group_id</strong> The domain group ID. Optional parameter.</li>
+<li><strong>is_mark</strong> {yes|no} Whether to mark it or not. Optional parameter.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>6 Invalid domain.</li>
+<li>7 Domain already exists.</li>
+<li>11 Domain already exists as an alias of another domain.</li>
+<li>12 Domain already exists on which you have no permit to operate.</li>
+<li>41 The website falls short of the term of service of DNSPod.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Create -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;domain=api2.com&amp;format=json&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span><span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span><span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span><span class="s">&quot;2012-08-29 22:12:35&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;domain&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span><span class="s">&quot;1992403&quot;</span><span class="p">,</span>
+        <span class="s">&quot;punycode&quot;</span><span class="p">:</span><span class="s">&quot;api2.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;domain&quot;</span><span class="p">:</span><span class="s">&quot;api2.com&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get-the-domain-list">
+<h2>Get The Domain List<a class="headerlink" href="#get-the-domain-list" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domain.List">https://api.dnspod.com/Domain.List</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last">
+<li><p class="first">Global Parameters</p>
+</li>
+<li><dl class="first docutils">
+<dt><strong>type</strong> The domain type.Optional parameter.Default value:&#8217;all&#8217;.Here are all the choseable values :</dt>
+<dd><ul class="first last simple">
+<li>all：All the domains</li>
+<li>mine：Only mine.</li>
+<li>share：Domains that shared with me.</li>
+<li>ismark：Marked domains.</li>
+<li>pause：Paused domains.</li>
+<li>vip：VIP domains.</li>
+<li>recent：Domains operated recentily.</li>
+<li>share_out：Domains that I shared out.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first"><strong>offset</strong> The offset of the response.Optional parameter.The first domain is numbered as 0.</p>
+</li>
+<li><p class="first"><strong>length</strong> The number of domains you want to get on this request.Optional parameter.</p>
+</li>
+<li><p class="first"><strong>group_id</strong> The group ID.Only in this group can the domain be in the results if this parameter is seted.Optional parameter.</p>
+</li>
+</ul>
+</dd>
+<dt>Attention：</dt>
+<dd><ul class="first last simple">
+<li>If there are more than 500 domains in your account,only the first 500 domains will responsed for split page.You may need to set the parameter &#8220;offset&#8221; and &#8220;length&#8221; to get all your domains with multi requests.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>6 Invalid offset.</li>
+<li>7 Invalid length.</li>
+<li>9 Empty result.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.List -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-04 21:22:08&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;info&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;domain_total&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">&quot;all_total&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">&quot;mine_total&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">&quot;share_total&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;vip_total&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;ismark_total&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;pause_total&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;error_total&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">&quot;lock_total&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;spam_total&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;vip_expire&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;share_out_total&quot;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">},</span>
+    <span class="s">&quot;domains&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+            <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;dnspod.com&quot;</span><span class="p">,</span>
+            <span class="s">&quot;grade&quot;</span><span class="p">:</span> <span class="s">&quot;DP_Free&quot;</span><span class="p">,</span>
+            <span class="s">&quot;grade_title&quot;</span><span class="p">:</span> <span class="s">&quot;Free&quot;</span><span class="p">,</span>
+            <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;enable&quot;</span><span class="p">,</span>
+            <span class="s">&quot;ext_status&quot;</span><span class="p">:</span> <span class="s">&quot;notexist&quot;</span><span class="p">,</span>
+            <span class="s">&quot;records&quot;</span><span class="p">:</span> <span class="s">&quot;3&quot;</span><span class="p">,</span>
+            <span class="s">&quot;group_id&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+            <span class="s">&quot;is_mark&quot;</span><span class="p">:</span> <span class="s">&quot;no&quot;</span><span class="p">,</span>
+            <span class="s">&quot;remark&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+            <span class="s">&quot;is_vip&quot;</span><span class="p">:</span> <span class="s">&quot;no&quot;</span><span class="p">,</span>
+            <span class="s">&quot;searchengine_push&quot;</span><span class="p">:</span> <span class="s">&quot;yes&quot;</span><span class="p">,</span>
+            <span class="s">&quot;beian&quot;</span><span class="p">:</span> <span class="s">&quot;no&quot;</span><span class="p">,</span>
+            <span class="s">&quot;created_on&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-04 16:19:31&quot;</span><span class="p">,</span>
+            <span class="s">&quot;updated_on&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-04 16:20:05&quot;</span><span class="p">,</span>
+            <span class="s">&quot;ttl&quot;</span><span class="p">:</span> <span class="s">&quot;600&quot;</span><span class="p">,</span>
+            <span class="s">&quot;owner&quot;</span><span class="p">:</span> <span class="s">&quot;yizero@qq.com&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="delete-domain">
+<h2>Delete Domain<a class="headerlink" href="#delete-domain" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domain.Remove">https://api.dnspod.com/Domain.Remove</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>-15 Domain got prohibited.</li>
+<li>6 Invalid domain id.</li>
+<li>7 Domain got locked.</li>
+<li>8 VIP domains is not allowed to delete.</li>
+<li>9 You have no permit to do this.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Remove -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=1992403&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-12 11:09:31&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="set-domain-status">
+<h2>Set Domain Status<a class="headerlink" href="#set-domain-status" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domain.Status">https://api.dnspod.com/Domain.Status</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>status</strong> {enable, disable} The domain status.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>-15 Domain got prohibited.</li>
+<li>-7 The company account need a upgrade before doing this.</li>
+<li>-8 You need a upgrade for the domains you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>7 Domain got locked.</li>
+<li>8 You have no permit to do this.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Status -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2058967&amp;status=disable&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-12 12:02:04&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get-the-domain-information">
+<h2>Get The Domain Information<a class="headerlink" href="#get-the-domain-information" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domain.Info">https://api.dnspod.com/Domain.Info</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>-7 The company account need a upgrade before doing this.</li>
+<li>-8 You need a upgrade for the domains you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>8 You have no permit to do this.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Info  -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-04 21:25:21&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;domain&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;6&quot;</span><span class="p">,</span>
+        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;dnspod.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;punycode&quot;</span><span class="p">:</span> <span class="s">&quot;dnspod.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;grade&quot;</span><span class="p">:</span> <span class="s">&quot;DP_Free&quot;</span><span class="p">,</span>
+        <span class="s">&quot;grade_title&quot;</span><span class="p">:</span> <span class="s">&quot;Free&quot;</span><span class="p">,</span>
+        <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;enable&quot;</span><span class="p">,</span>
+        <span class="s">&quot;ext_status&quot;</span><span class="p">:</span> <span class="s">&quot;notexist&quot;</span><span class="p">,</span>
+        <span class="s">&quot;records&quot;</span><span class="p">:</span> <span class="s">&quot;3&quot;</span><span class="p">,</span>
+        <span class="s">&quot;group_id&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;is_mark&quot;</span><span class="p">:</span> <span class="s">&quot;no&quot;</span><span class="p">,</span>
+        <span class="s">&quot;remark&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s">&quot;is_vip&quot;</span><span class="p">:</span> <span class="s">&quot;no&quot;</span><span class="p">,</span>
+        <span class="s">&quot;searchengine_push&quot;</span><span class="p">:</span> <span class="s">&quot;yes&quot;</span><span class="p">,</span>
+        <span class="s">&quot;beian&quot;</span><span class="p">:</span> <span class="s">&quot;no&quot;</span><span class="p">,</span>
+        <span class="s">&quot;user_id&quot;</span><span class="p">:</span> <span class="s">&quot;730060&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_on&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-04 16:19:31&quot;</span><span class="p">,</span>
+        <span class="s">&quot;updated_on&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-04 16:20:05&quot;</span><span class="p">,</span>
+        <span class="s">&quot;ttl&quot;</span><span class="p">:</span> <span class="s">&quot;600&quot;</span><span class="p">,</span>
+        <span class="s">&quot;owner&quot;</span><span class="p">:</span> <span class="s">&quot;yizero@qq.com&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get-the-operate-logs-of-a-domain">
+<h2>Get the Operate Logs of a Domain<a class="headerlink" href="#get-the-operate-logs-of-a-domain" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domain.Log">https://api.dnspod.com/Domain.Log</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>-7 The company account need a upgrade before doing this.</li>
+<li>-8 You need a upgrade for the domains you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>8 You have no permit to do this.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Log  -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-04 21:31:00&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;log&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s">&quot;There is no domain logs at the moment.&quot;</span>
+    <span class="p">],</span>
+    <span class="s">&quot;info&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;count&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;page_size&quot;</span><span class="p">:</span> <span class="mi">500</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="push-domain-to-search-engine">
+<h2>Push Domain to Search Engine<a class="headerlink" href="#push-domain-to-search-engine" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domain.Searchenginepush">https://api.dnspod.com/Domain.Searchenginepush</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>status</strong> {yes,no} Whether to push it.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>-15 Domain got prohibited.</li>
+<li>-7 The company account need a upgrade before doing this.</li>
+<li>-8 You need a upgrade for the domains you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>7 Domain got locked.</li>
+<li>8 You have no permit to do this.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Searchenginepush -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;status=yes&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-18 17:28:44&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="share-a-domain">
+<h2>Share a Domain<a class="headerlink" href="#share-a-domain" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domainshare.Create">https://api.dnspod.com/Domainshare.Create</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>email</strong> The email address with who you want to share.</li>
+<li><strong>mode</strong> {r,rw} The share mode.&#8221;r&#8221; stands for &#8220;read only&#8221;,and &#8220;rw&#8221; stands for &#8220;read and write&#8221;.The default value is &#8220;r&#8221;.</li>
+<li><strong>sub_domain</strong> The subsidiary domain you want to share,like &#8220;www&#8221; or &#8220;bbs&#8221;.Don&#8217;t set this parameter if you want to share the whole domain.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>-15 Domain got prohibited.</li>
+<li>-7 The company account need a upgrade before doing this.</li>
+<li>-8 You need a upgrade for the domains you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>7 Invalid target email address.</li>
+<li>8 The target email address not exists.</li>
+<li>9 The share already exists.</li>
+<li>10 Your shared number is up to limit.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainshare.Create -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=otheruser@dnspod.com&amp;mode=rw&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-18 17:47:21&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get-domain-share-list">
+<h2>Get Domain Share List<a class="headerlink" href="#get-domain-share-list" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domainshare.List">https://api.dnspod.com/Domainshare.List</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>-7 The company account need a upgrade before doing this.</li>
+<li>-8 You need a upgrade for the domains you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>7 No share records.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainshare.List -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-18 17:51:50&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;share&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">&quot;share_to&quot;</span><span class="p">:</span> <span class="s">&quot;yizerowu@dnspod.com&quot;</span><span class="p">,</span>
+            <span class="s">&quot;mode&quot;</span><span class="p">:</span> <span class="s">&quot;rw&quot;</span><span class="p">,</span>
+            <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;enabled&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s">&quot;owner&quot;</span><span class="p">:</span> <span class="s">&quot;api@dnspod.com&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="update-the-domain-share">
+<h2>Update the Domain Share<a class="headerlink" href="#update-the-domain-share" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domainshare.Modify">https://api.dnspod.com/Domainshare.Modify</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>email</strong> The original target email address.Don&#8217;s change it.</li>
+<li><strong>mode</strong> {r,rw} Share mode.&#8221;r&#8221; stands for &#8220;read only&#8221;,and &#8220;rw&#8221; stands for &#8220;read and write&#8221;.The default value is &#8220;r&#8221;.</li>
+<li><strong>old_sub_domain</strong> The old subsidiary domain that already shared.This parameter shouldn&#8217;t be seted if you want to update the domain name.</li>
+<li><strong>new_sub_domain</strong> The new subsidiary domain.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>-15 Domain got prohibited.</li>
+<li>-7 The company account need a upgrade before doing this.</li>
+<li>-8 You need a upgrade for the domains you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>7 Invalid email address.</li>
+<li>8 The email address not exists.</li>
+<li>9 There&#8217;s no share for this email address.</li>
+</ul>
+</dd>
+</dl>
+<p>Example</p>
+<ol class="arabic">
+<li><p class="first">Change a domain&#8217;s share mode from &#8220;rw&#8221; to &#8220;r&#8221;:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainshare.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com&amp;mode=r&#39;
+</pre></div>
+</div>
+</li>
+<li><p class="first">Change a domain&#8217;s share mode from &#8220;rw&#8221; to &#8220;r&#8221;:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainshare.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com&amp;mode=r&amp;old_sub_domain=www&amp;new_sub_domain=www&#39;
+</pre></div>
+</div>
+</li>
+<li><p class="first">Change a domain&#8217;s share type from the whole domain to subsidiary domain.:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainshare.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com&amp;mode=rw&amp;new_sub_domain=www&#39;
+</pre></div>
+</div>
+</li>
+<li><p class="first">Change a domain&#8217;s share type from subsidiary domain to the whole domain.:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainshare.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com&amp;mode=rw&amp;old_sub_domain=www&#39;
+</pre></div>
+</div>
+</li>
+<li><p class="first">Change the subsidiary domain from &#8220;www&#8221; to &#8220;bbs&#8221;:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainshare.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com&amp;mode=rw&amp;old_sub_domain=www&amp;new_sub_domain=bbs&#39;
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-18 18:54:18&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="delete-a-domain-share">
+<h2>Delete a Domain Share<a class="headerlink" href="#delete-a-domain-share" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Domainshare.Remove">https://api.dnspod.com/Domainshare.Remove</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>email</strong> The original email address.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>-15 Domain got prohibited.</li>
+<li>-7 The company account need a upgrade before doing this.</li>
+<li>-8 You need a upgrade for the domains you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>7 Invalid email address.</li>
+<li>8 The email address not exists.</li>
+<li>9 There&#8217;s no share for this email address.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainshare.Remove -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-18 20:19:20&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="transfer-a-domain-to-another-account">
+<h2>Transfer a Domain to Another Account<a class="headerlink" href="#transfer-a-domain-to-another-account" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domain.Transfer">https://api.dnspod.com/Domain.Transfer</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>email</strong> The original email address.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>-15 Domain got prohibited.</li>
+<li>-7 The company account need a upgrade before doing this.</li>
+<li>-8 You need a upgrade for the domains you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>7 Invalid email address.</li>
+<li>8 Email address not exists.</li>
+<li>9 You cannt transfer it to yourself.</li>
+<li>10 You can&#8217;t transfer a domain from a persional account to a company account.</li>
+<li>11 You can&#8217;t transfer a domain from a company account to a persional account.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainshare.Transfer -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-18 20:21:33&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="lock-a-domain">
+<h2>Lock a Domain<a class="headerlink" href="#lock-a-domain" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domain.Lock">https://api.dnspod.com/Domain.Lock</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_id</strong> The domain ID</li>
+<li><strong>days</strong> For how many days.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>-15 Domain got prohibited.</li>
+<li>-7 The company account need a upgrade before doing this.</li>
+<li>-8 You need a upgrade for the domains you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>7 You don&#8217;t have the permission.</li>
+<li>8 Wrong parameter &#8220;days&#8221;.</li>
+<li>9 The parameter &#8220;days&#8221; is too big.</li>
+<li>21 Domain is already locked.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Lock -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;days=3&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-18 20:31:13&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;lock&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;domain_id&quot;</span><span class="p">:</span> <span class="mi">2059079</span><span class="p">,</span>
+        <span class="s">&quot;lock_code&quot;</span><span class="p">:</span> <span class="s">&quot;fdd638&quot;</span><span class="p">,</span>
+        <span class="s">&quot;lock_end&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-21&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="lock-status">
+<h2>Lock Status<a class="headerlink" href="#lock-status" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domain.Lockstatus">https://api.dnspod.com/Domain.Lockstatus</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>-15 Domain got prohibited.</li>
+<li>-7 The company account need a upgrade before doing this.</li>
+<li>-8 You need a upgrade for the domains you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>7 The domain is not locked.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Lockstatus -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-18 20:35:04&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;lock&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;lock_status&quot;</span><span class="p">:</span> <span class="s">&quot;yes&quot;</span><span class="p">,</span>
+        <span class="s">&quot;start_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-18&quot;</span><span class="p">,</span>
+        <span class="s">&quot;end_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-21&quot;</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="domain-unlock">
+<h2>Domain Unlock<a class="headerlink" href="#domain-unlock" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domain.Unlock">https://api.dnspod.com/Domain.Unlock</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>lock_code</strong> The code that you will get when you lock the domain.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>-15 Domain got prohibited.</li>
+<li>-7 The company account need a upgrade before doing this.</li>
+<li>-8 You need a upgrade for the domains you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>7 You don&#8217;t have the permission.</li>
+<li>8 The domain is not locked.</li>
+<li>9 Invalid lock code.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Unlock -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;lock_code=fdd638&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-18 20:38:58&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;lock&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;lock_status&quot;</span><span class="p">:</span> <span class="s">&quot;yes&quot;</span><span class="p">,</span>
+        <span class="s">&quot;start_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-18&quot;</span><span class="p">,</span>
+        <span class="s">&quot;end_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-21&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get-domain-alias-list">
+<h2>Get Domain Alias List<a class="headerlink" href="#get-domain-alias-list" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domainalias.List">https://api.dnspod.com/Domainalias.List</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>-7 The company account need a upgrade before doing this.</li>
+<li>-8 You need a upgrade for the domains you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>7 Empty result.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainalias.List -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-18 21:11:20&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;alias&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;18737&quot;</span><span class="p">,</span>
+            <span class="s">&quot;domain&quot;</span><span class="p">:</span> <span class="s">&quot;dnspodapi.com&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="add-a-domain-alias">
+<h2>Add a Domain Alias<a class="headerlink" href="#add-a-domain-alias" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domainalias.Create">https://api.dnspod.com/Domainalias.Create</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_id</strong> The domain ID.</li>
+<li><strong>domain</strong> The domain to bind.Without &#8220;www&#8221;.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>-15 Domain got prohibited.</li>
+<li>-7 The company account need a upgrade before doing this.</li>
+<li>-8 You need a upgrade for the domains you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>7 Invalid domain.</li>
+<li>8 The domain is already added.</li>
+<li>9 The domain already exists.</li>
+<li>10 The number of domains is up to limit.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainalias.Create -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;domain=dnspodapi.com&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-18 21:09:57&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;alias&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;18737&quot;</span><span class="p">,</span>
+        <span class="s">&quot;punycode&quot;</span><span class="p">:</span> <span class="s">&quot;dnspodapi.com&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="remove-a-domain-alias">
+<h2>Remove a Domain Alias<a class="headerlink" href="#remove-a-domain-alias" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domainalias.Remove">https://api.dnspod.com/Domainalias.Remove</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>alias_id</strong> The alias id that you will get when you create it.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>-15 Domain got prohibited.</li>
+<li>-7 The company account need a upgrade before doing this.</li>
+<li>-8 You need a upgrade for the domains you are acting for.</li>
+<li>6 Invalid domain id.</li>
+<li>7 Invalid alias id.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainalias.Remove -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;alias_id=18737&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-18 21:15:20&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get-the-domain-group-list">
+<h2>Get The Domain Group List<a class="headerlink" href="#get-the-domain-group-list" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domaingroup.List">https://api.dnspod.com/Domaingroup.List</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domaingroup.List -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+     <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+         <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+         <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-04 21:50:38&quot;</span>
+     <span class="p">},</span>
+     <span class="s">&quot;groups&quot;</span><span class="p">:</span> <span class="p">[</span>
+         <span class="p">{</span>
+             <span class="s">&quot;group_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+             <span class="s">&quot;group_name&quot;</span><span class="p">:</span> <span class="s">&quot;Default Group&quot;</span><span class="p">,</span>
+             <span class="s">&quot;group_type&quot;</span><span class="p">:</span> <span class="s">&quot;system&quot;</span><span class="p">,</span>
+             <span class="s">&quot;size&quot;</span><span class="p">:</span> <span class="mi">1</span>
+         <span class="p">},</span>
+         <span class="p">{</span>
+             <span class="s">&quot;group_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+             <span class="s">&quot;group_name&quot;</span><span class="p">:</span> <span class="s">&quot;Often Change&quot;</span><span class="p">,</span>
+             <span class="s">&quot;group_type&quot;</span><span class="p">:</span> <span class="s">&quot;system&quot;</span><span class="p">,</span>
+             <span class="s">&quot;size&quot;</span><span class="p">:</span> <span class="mi">0</span>
+         <span class="p">},</span>
+         <span class="p">{</span>
+             <span class="s">&quot;group_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+             <span class="s">&quot;group_name&quot;</span><span class="p">:</span> <span class="s">&quot;Few Change&quot;</span><span class="p">,</span>
+             <span class="s">&quot;group_type&quot;</span><span class="p">:</span> <span class="s">&quot;system&quot;</span><span class="p">,</span>
+             <span class="s">&quot;size&quot;</span><span class="p">:</span> <span class="mi">0</span>
+         <span class="p">},</span>
+         <span class="p">{</span>
+             <span class="s">&quot;group_id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+             <span class="s">&quot;group_name&quot;</span><span class="p">:</span> <span class="s">&quot;Expiring&quot;</span><span class="p">,</span>
+             <span class="s">&quot;group_type&quot;</span><span class="p">:</span> <span class="s">&quot;system&quot;</span><span class="p">,</span>
+             <span class="s">&quot;size&quot;</span><span class="p">:</span> <span class="mi">0</span>
+         <span class="p">},</span>
+         <span class="p">{</span>
+             <span class="s">&quot;group_id&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+             <span class="s">&quot;group_name&quot;</span><span class="p">:</span> <span class="s">&quot;Personal Domain&quot;</span><span class="p">,</span>
+             <span class="s">&quot;group_type&quot;</span><span class="p">:</span> <span class="s">&quot;system&quot;</span><span class="p">,</span>
+             <span class="s">&quot;size&quot;</span><span class="p">:</span> <span class="mi">0</span>
+         <span class="p">},</span>
+         <span class="p">{</span>
+             <span class="s">&quot;group_id&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+             <span class="s">&quot;group_name&quot;</span><span class="p">:</span> <span class="s">&quot;Company Domain&quot;</span><span class="p">,</span>
+             <span class="s">&quot;group_type&quot;</span><span class="p">:</span> <span class="s">&quot;system&quot;</span><span class="p">,</span>
+             <span class="s">&quot;size&quot;</span><span class="p">:</span> <span class="mi">0</span>
+         <span class="p">},</span>
+         <span class="p">{</span>
+             <span class="s">&quot;group_id&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+             <span class="s">&quot;group_name&quot;</span><span class="p">:</span> <span class="s">&quot;Customer Domain&quot;</span><span class="p">,</span>
+             <span class="s">&quot;group_type&quot;</span><span class="p">:</span> <span class="s">&quot;system&quot;</span><span class="p">,</span>
+             <span class="s">&quot;size&quot;</span><span class="p">:</span> <span class="mi">0</span>
+         <span class="p">},</span>
+         <span class="p">{</span>
+             <span class="s">&quot;group_id&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+             <span class="s">&quot;group_name&quot;</span><span class="p">:</span> <span class="s">&quot;Shared To Me&quot;</span><span class="p">,</span>
+             <span class="s">&quot;group_type&quot;</span><span class="p">:</span> <span class="s">&quot;system&quot;</span><span class="p">,</span>
+             <span class="s">&quot;size&quot;</span><span class="p">:</span> <span class="mi">0</span>
+         <span class="p">}</span>
+     <span class="p">]</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="add-a-new-domain-group">
+<h2>Add a New Domain Group<a class="headerlink" href="#add-a-new-domain-group" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><a class="reference external" href="https://api.dnspod.com/Domaingroup.Create">https://api.dnspod.com/Domaingroup.Create</a></dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>group_name</strong> I think you know what this stands for.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>7 Invalid group name.</li>
+<li>8 The group name already exists.</li>
+<li>9 The number of groups is up to limit.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domaingroup.List -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;group_name=dnspod&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-18 21:41:00&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;groups&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;1985&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+<dl class="docutils">
+<dt>Attention：</dt>
+<dd><ul class="first last simple">
+<li>This API only works for VIP accounts while free accounts will get an error.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="update-a-domain-group">
+<h2>Update a Domain Group<a class="headerlink" href="#update-a-domain-group" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><a class="reference external" href="https://api.dnspod.com/Domaingroup.Modify">https://api.dnspod.com/Domaingroup.Modify</a></dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>group_id</strong></li>
+<li><strong>group_name</strong></li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>6 Invalid group id.</li>
+<li>7 Invalid group name.</li>
+<li>8 The group name already exists.</li>
+<li>9 The number of groups is up to limit.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domaingroup.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;group_id=1985&amp;group_name=dnspodgroup&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-19 10:25:32&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="remove-a-domain-group">
+<h2>Remove a Domain Group<a class="headerlink" href="#remove-a-domain-group" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domaingroup.Remove">https://api.dnspod.com/Domaingroup.Remove</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>group_id</strong></li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>6 Invalid group id.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domaingroup.Remove -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;group_id=1985&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-19 10:45:45&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="change-a-domain-s-group">
+<h2>Change a Domain&#8217;s Group<a class="headerlink" href="#change-a-domain-s-group" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domain.Changegroup">https://api.dnspod.com/Domain.Changegroup</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>group_id</strong></li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>6 Invalid domain id.</li>
+<li>7 Invalid group id.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Changegroup -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;group_id=1985&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-23 17:33:01&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+<dl class="docutils">
+<dt>Directions：</dt>
+<dd><ul class="first last simple">
+<li>All the domains shared by others are always put into the group named &#8220;Shared With Me&#8221; because their group is unchangeable.</li>
+<li>Only the owner of the domain has the permission to change the domain&#8217;s group.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="mark-a-domain">
+<h2>Mark a Domain<a class="headerlink" href="#mark-a-domain" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domain.Ismark">https://api.dnspod.com/Domain.Ismark</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>is_mark</strong> {yes|no} Whether to mark this domain.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>6 Invalid domain id.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Ismark -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;is_mark=yes&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-23 17:42:02&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="remark-a-domain">
+<h2>Remark a Domain<a class="headerlink" href="#remark-a-domain" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domain.Remark">https://api.dnspod.com/Domain.Remark</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>remark</strong> The remark information,or empty for deleting.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>6 Invalid domain id.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Remark -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;remark=这个域名需要备注一下&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-23 17:50:37&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get-the-email-address-needed-to-get-domain-back">
+<h2>Get the Email Address Needed to Get Domain Back<a class="headerlink" href="#get-the-email-address-needed-to-get-domain-back" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domain.Acquire">https://api.dnspod.com/Domain.Acquire</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain</strong> The domain you want to get back.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>6 Invalid domain</li>
+<li>7 No Chinese character allowed in the domain.</li>
+<li>8 Invalid domain.</li>
+<li>9 Domains that end with &#8221;.tk&#8221; are not supported.No offence.</li>
+<li>10 Domain not exists.</li>
+<li>11 Domain got prohibited.</li>
+<li>12 Domain got locked.</li>
+<li>13 You can&#8217;t get a domain back from a company account to a persional account.</li>
+<li>14 You can&#8217;t get a domain back from a persional account to a company account.</li>
+<li>15 Fail to get email address.Maybe there&#8217;s something wrong with the network or the domain doesn&#8217;t support.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Acquire -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain=api4.com&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-23 18:00:05&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;emails&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s">&quot;support@namecheap.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;e31d739cb2824a5f80d7b90848a195d8.protect@whoisguard.com&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="send-verify-code-for-getting-domain-back">
+<h2>Send Verify Code for Getting Domain Back<a class="headerlink" href="#send-verify-code-for-getting-domain-back" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Domain.Acquiresend">https://api.dnspod.com/Domain.Acquiresend</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain</strong> The domain you want to get back.</li>
+<li><strong>email</strong> One email address in the get-domain-back email list.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>6 Invalid domain.</li>
+<li>7 No Chinese characters supported in the domain.</li>
+<li>8 Invalid domain.</li>
+<li>9 Domains end with &#8221;.tk&#8221; are not supported.No offence.</li>
+<li>10 Domain not exists.</li>
+<li>11 Domain got prohibited.</li>
+<li>12 Domain got locked.</li>
+<li>13 You can&#8217;t get a domain back from a company account to a persional account.</li>
+<li>14 You can&#8217;t get a domain back from a persional account to a company account.</li>
+<li>15 Fail to get email address.Maybe there&#8217;s something wrong with the network or the domain doesn&#8217;t support.</li>
+<li>16 Invalid email address.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Acquiresend -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain=api4.com&amp;email=support@namecheap.com&#39;
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Response：</dt>
+<dd><ul class="first last">
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-23 18:07:44&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="verify-the-verify-code">
+<h2>Verify the Verify Code<a class="headerlink" href="#verify-the-verify-code" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domain.Acquirevalidate">https://api.dnspod.com/Domain.Acquirevalidate</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain</strong> The domain you want to get back.</li>
+<li><strong>code</strong>  The code that you get from your email.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>6 Invalid domain.</li>
+<li>7 No Chinnese characters allowed.</li>
+<li>8 Invalid domain.</li>
+<li>9 Domains end with &#8221;.tk&#8221; are not supported.No offence.</li>
+<li>10 Domain not exists.</li>
+<li>11 Domain got prohibited.</li>
+<li>12 Domain got locked.</li>
+<li>13 You can&#8217;t get a domain back from a company account to a persional account.</li>
+<li>14 You can&#8217;t get a domain back from a persional account to a company account.</li>
+<li>15 Wrong code.</li>
+<li>16 Invalid email address.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Acquirevalidate -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain=api4.com&amp;code=111000&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2012-09-23 18:12:44&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get-all-the-record-types-for-a-domain-grade">
+<h2>Get All the Record Types for a Domain Grade<a class="headerlink" href="#get-all-the-record-types-for-a-domain-grade" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Record.Type">https://api.dnspod.com/Record.Type</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_grade</strong> The domain grade. only &#8216;DP_Free&#8217; for now.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>6 Invalid domain grade.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Record.Type -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_grade=DP_Free&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-04 22:02:52&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;types&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s">&quot;A&quot;</span><span class="p">,</span>
+        <span class="s">&quot;CNAME&quot;</span><span class="p">,</span>
+        <span class="s">&quot;MX&quot;</span><span class="p">,</span>
+        <span class="s">&quot;TXT&quot;</span><span class="p">,</span>
+        <span class="s">&quot;NS&quot;</span><span class="p">,</span>
+        <span class="s">&quot;AAAA&quot;</span><span class="p">,</span>
+        <span class="s">&quot;SRV&quot;</span><span class="p">,</span>
+        <span class="s">&quot;Dominant URL&quot;</span><span class="p">,</span>
+        <span class="s">&quot;Recessive URL&quot;</span>
+    <span class="p">],</span>
+    <span class="s">&quot;raw_types&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;A&quot;</span><span class="p">:</span> <span class="s">&quot;A&quot;</span><span class="p">,</span>
+        <span class="s">&quot;CNAME&quot;</span><span class="p">:</span> <span class="s">&quot;CNAME&quot;</span><span class="p">,</span>
+        <span class="s">&quot;MX&quot;</span><span class="p">:</span> <span class="s">&quot;MX&quot;</span><span class="p">,</span>
+        <span class="s">&quot;TXT&quot;</span><span class="p">:</span> <span class="s">&quot;TXT&quot;</span><span class="p">,</span>
+        <span class="s">&quot;NS&quot;</span><span class="p">:</span> <span class="s">&quot;NS&quot;</span><span class="p">,</span>
+        <span class="s">&quot;AAAA&quot;</span><span class="p">:</span> <span class="s">&quot;AAAA&quot;</span><span class="p">,</span>
+        <span class="s">&quot;SRV&quot;</span><span class="p">:</span> <span class="s">&quot;SRV&quot;</span><span class="p">,</span>
+        <span class="s">&quot;URL&quot;</span><span class="p">:</span> <span class="s">&quot;Dominant URL&quot;</span><span class="p">,</span>
+        <span class="s">&quot;URL1&quot;</span><span class="p">:</span> <span class="s">&quot;Recessive URL&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get-all-the-lines-allowed-for-a-domain-grade">
+<h2>Get All the Lines Allowed for a Domain Grade<a class="headerlink" href="#get-all-the-lines-allowed-for-a-domain-grade" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>URL：</dt>
+<dd><ul class="first last simple">
+<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Record.Line">https://api.dnspod.com/Record.Line</a></li>
+</ul>
+</dd>
+<dt>Method：</dt>
+<dd><ul class="first last simple">
+<li>POST</li>
+</ul>
+</dd>
+<dt>Request Parameters：</dt>
+<dd><ul class="first last simple">
+<li>Global Parameters</li>
+<li><strong>domain_grade</strong> The domain grade. only &#8216;DP_Free&#8217; for now.</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+</ul>
+</dd>
+<dt>Response Code：</dt>
+<dd><ul class="first last simple">
+<li>Common Response Code</li>
+<li>6 Invalid domain grade.</li>
+</ul>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Record.Line -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_grade=DP_Free&amp;domain=dnspod.com&#39;
+</pre></div>
+</div>
+<p>Response：</p>
+<blockquote>
+<div><ul>
+<li><p class="first">JSON:</p>
+<div class="highlight-python"><div class="highlight"><pre>{
+    &quot;status&quot;: {
+        &quot;code&quot;: &quot;1&quot;,
+        &quot;message&quot;: &quot;Action completed successful&quot;,
+        &quot;created_at&quot;: &quot;2014-06-05 09:19:50&quot;
+    },
+    &quot;lines&quot;: {
+        &quot;default&quot;: &quot;Default&quot;,
+        &quot;africa&quot;: &quot;Africa&quot;,
+        &quot;DZ&quot;: &quot;Algeria&quot;,
+        &quot;AO&quot;: &quot;Angola&quot;,
+        &quot;BJ&quot;: &quot;Benin&quot;,
+        &quot;BW&quot;: &quot;Botswana&quot;,
+        &quot;BF&quot;: &quot;Burkina Faso&quot;,
+        &quot;BI&quot;: &quot;Burundi&quot;,
+        &quot;CM&quot;: &quot;Cameroon&quot;,
+        &quot;CV&quot;: &quot;Cape Verde&quot;,
+        &quot;CF&quot;: &quot;Central Africa&quot;,
+        &quot;KI&quot;: &quot;Kiribati&quot;,
+        &quot;MP&quot;: &quot;Northern Mariana Islands&quot;,
+        &quot;PW&quot;: &quot;Palau&quot;,
+        &quot;PG&quot;: &quot;Papua New Guinea&quot;,
+        &quot;PN&quot;: &quot;Pitcairn&quot;,
+        &quot;WS&quot;: &quot;Samoa&quot;,
+        &quot;SB&quot;: &quot;Solomon Islands&quot;,
+        &quot;TK&quot;: &quot;Tokelau&quot;,
+        &quot;TO&quot;: &quot;Tonga&quot;,
+
+        ....
+
+        &quot;TV&quot;: &quot;Tuvalu&quot;,
+        &quot;VU&quot;: &quot;Vanuatu&quot;,
+        &quot;WF&quot;: &quot;Wallis And Futuna Islands&quot;,
+        &quot;south_america&quot;: &quot;South American&quot;,
+        &quot;AR&quot;: &quot;Argentina&quot;,
+        &quot;BO&quot;: &quot;Bolivia&quot;,
+        &quot;BR&quot;: &quot;Brazil&quot;,
+        &quot;PY&quot;: &quot;Paraguay&quot;,
+        &quot;PE&quot;: &quot;Peru&quot;,
+        &quot;SR&quot;: &quot;Suriname&quot;,
+        &quot;UY&quot;: &quot;Uruguay&quot;,
+        &quot;VE&quot;: &quot;Venezuela&quot;,
+        &quot;search_engine&quot;: &quot;Search Engine&quot;
+    }
+}
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Domains</a><ul>
+<li><a class="reference internal" href="#add-new-domain">Add New Domain</a></li>
+<li><a class="reference internal" href="#get-the-domain-list">Get The Domain List</a></li>
+<li><a class="reference internal" href="#delete-domain">Delete Domain</a></li>
+<li><a class="reference internal" href="#set-domain-status">Set Domain Status</a></li>
+<li><a class="reference internal" href="#get-the-domain-information">Get The Domain Information</a></li>
+<li><a class="reference internal" href="#get-the-operate-logs-of-a-domain">Get the Operate Logs of a Domain</a></li>
+<li><a class="reference internal" href="#push-domain-to-search-engine">Push Domain to Search Engine</a></li>
+<li><a class="reference internal" href="#share-a-domain">Share a Domain</a></li>
+<li><a class="reference internal" href="#get-domain-share-list">Get Domain Share List</a></li>
+<li><a class="reference internal" href="#update-the-domain-share">Update the Domain Share</a></li>
+<li><a class="reference internal" href="#delete-a-domain-share">Delete a Domain Share</a></li>
+<li><a class="reference internal" href="#transfer-a-domain-to-another-account">Transfer a Domain to Another Account</a></li>
+<li><a class="reference internal" href="#lock-a-domain">Lock a Domain</a></li>
+<li><a class="reference internal" href="#lock-status">Lock Status</a></li>
+<li><a class="reference internal" href="#domain-unlock">Domain Unlock</a></li>
+<li><a class="reference internal" href="#get-domain-alias-list">Get Domain Alias List</a></li>
+<li><a class="reference internal" href="#add-a-domain-alias">Add a Domain Alias</a></li>
+<li><a class="reference internal" href="#remove-a-domain-alias">Remove a Domain Alias</a></li>
+<li><a class="reference internal" href="#get-the-domain-group-list">Get The Domain Group List</a></li>
+<li><a class="reference internal" href="#add-a-new-domain-group">Add a New Domain Group</a></li>
+<li><a class="reference internal" href="#update-a-domain-group">Update a Domain Group</a></li>
+<li><a class="reference internal" href="#remove-a-domain-group">Remove a Domain Group</a></li>
+<li><a class="reference internal" href="#change-a-domain-s-group">Change a Domain&#8217;s Group</a></li>
+<li><a class="reference internal" href="#mark-a-domain">Mark a Domain</a></li>
+<li><a class="reference internal" href="#remark-a-domain">Remark a Domain</a></li>
+<li><a class="reference internal" href="#get-the-email-address-needed-to-get-domain-back">Get the Email Address Needed to Get Domain Back</a></li>
+<li><a class="reference internal" href="#send-verify-code-for-getting-domain-back">Send Verify Code for Getting Domain Back</a></li>
+<li><a class="reference internal" href="#verify-the-verify-code">Verify the Verify Code</a></li>
+<li><a class="reference internal" href="#get-all-the-record-types-for-a-domain-grade">Get All the Record Types for a Domain Grade</a></li>
+<li><a class="reference internal" href="#get-all-the-lines-allowed-for-a-domain-grade">Get All the Lines Allowed for a Domain Grade</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="accounts.html"
+                        title="previous chapter">Accounts</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="records.html"
+                        title="next chapter">Records</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/domains.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+        &copy; Copyright DNSPod Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
