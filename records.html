@@ -56,7 +56,7 @@
 <li><strong>domain_id</strong> The domain id.Essential parameter.</li>
 <li><strong>sub_domain</strong> The record name like &#8220;www&#8221;.The default value is &#8220;&#64;&#8221;.Optional parameter.</li>
 <li><strong>record_type</strong> The record type.You can get the list of all allowed types from the API.Capital letters like &#8220;A&#8221; or &#8220;CNAME&#8221;.Essential parameter.</li>
-<li><strong>record_line</strong> The record line.You can get the list of all allowed lines from the API.Essential parameter.</li>
+<li><strong>record_line</strong> The record line.You can get the list from the API.The default value is &#8220;default&#8221;, such as &#8220;default&#8221;, &#8220;AD&#8221;, &#8220;AE&#8221;. Essential parameter.</li>
 <li><strong>value</strong> The record value.For example: IP:200.200.200.200, CNAME: cname.dnspod.com., MX: mail.dnspod.com.Essential parameter.</li>
 <li><strong>mx</strong> {1-20} This only need to and must be seted when record_type is &#8220;MX&#8221;.Range from 1 to 20.</li>
 <li><strong>ttl</strong> {1-604800}  TTL，range from 1 to 604800.Every grade has its own min value.Optional parameter.</li>
@@ -87,7 +87,7 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Record.Create -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;sub_domain=@&amp;record_type=A&amp;record_line=默认&amp;value=1.1.1.1&#39;
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Record.Create -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;sub_domain=@&amp;record_type=A&amp;record_line=default&amp;value=1.1.1.1&#39;
 </pre></div>
 </div>
 <p>Response：</p>
@@ -279,7 +279,7 @@
 <li><strong>record_id</strong> The record id.Essential parameter.</li>
 <li><strong>sub_domain</strong> The record name like &#8220;www&#8221;.The default value is &#8220;&#64;&#8221;.Optional parameter.</li>
 <li><strong>record_type</strong> The record type.You can get the list from the API.All capital letters like &#8220;A&#8221;.Essential parameter.</li>
-<li><strong>record_line</strong> The record line.You can get the list from the API.The default value is &#8220;default&#8221;.Essential parameter.</li>
+<li><strong>record_line</strong> The record line.You can get the list from the API.The default value is &#8220;default&#8221;, such as &#8220;default&#8221;, &#8220;AD&#8221;, &#8220;AE&#8221;. Essential parameter.</li>
 <li><strong>value</strong> The record value.For example: IP:200.200.200.200, CNAME: cname.dnspod.com., MX: mail.dnspod.com.Essential parameter.</li>
 <li><strong>mx</strong> {1-20} This only need to and must be seted when record_type is &#8220;MX&#8221;.Range from 1 to 20.</li>
 <li><strong>ttl</strong> {1-604800} TTL，range from 1 to 604800.Every grade has its own min value.Optional parameter.</li>
@@ -313,7 +313,7 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Record.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;record_id=16894439&amp;sub_domain=www&amp;value=3.2.2.2&amp;record_type=A&amp;record_line=默认&#39;
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Record.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;record_id=16894439&amp;sub_domain=www&amp;value=3.2.2.2&amp;record_type=A&amp;record_line=default&#39;
 </pre></div>
 </div>
 <p>Response：</p>
@@ -411,7 +411,7 @@
 <li><strong>domain_id</strong> The domain id.Essential parameter.</li>
 <li><strong>record_id</strong> The record id.Essential parameter.</li>
 <li><strong>sub_domain</strong> The record name like &#8220;www&#8221;.</li>
-<li><strong>record_line</strong> The record line.You can get the list from the API.The default value is &#8220;default&#8221;.Essential parameter.</li>
+<li><strong>record_line</strong> The record line.You can get the list from the API.The default value is &#8220;default&#8221;, such as &#8220;default&#8221;, &#8220;AD&#8221;, &#8220;AE&#8221;. Essential parameter.</li>
 <li><strong>value</strong> The IP address like &#8220;6.6.6.6&#8221;.Optional parameter.</li>
 </ul>
 </dd>
@@ -434,7 +434,7 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Record.Ddns -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;record_id=16894439&amp;record_line=默认&amp;sub_domain=www&#39;
+<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Record.Ddns -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;record_id=16894439&amp;record_line=default&amp;sub_domain=www&#39;
 </pre></div>
 </div>
 <p>Response：</p>

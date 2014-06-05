@@ -12,7 +12,7 @@ Request Parameters：
     * **domain_id** The domain id.Essential parameter.
     * **sub_domain** The record name like "www".The default value is "@".Optional parameter.
     * **record_type** The record type.You can get the list of all allowed types from the API.Capital letters like "A" or "CNAME".Essential parameter.
-    * **record_line** The record line.You can get the list of all allowed lines from the API.Essential parameter.
+    * **record_line** The record line.You can get the list from the API.The default value is "default", such as "default", "AD", "AE". Essential parameter.
     * **value** The record value.For example: IP:200.200.200.200, CNAME: cname.dnspod.com., MX: mail.dnspod.com.Essential parameter.
     * **mx** {1-20} This only need to and must be seted when record_type is "MX".Range from 1 to 20.
     * **ttl** {1-604800}  TTL，range from 1 to 604800.Every grade has its own min value.Optional parameter.
@@ -39,7 +39,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Record.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&sub_domain=@&record_type=A&record_line=默认&value=1.1.1.1'
+    curl -X POST https://api.dnspod.com/Record.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&sub_domain=@&record_type=A&record_line=default&value=1.1.1.1'
     
 Response：
 
@@ -198,7 +198,7 @@ Request Parameters：
     * **record_id** The record id.Essential parameter.
     * **sub_domain** The record name like "www".The default value is "@".Optional parameter.
     * **record_type** The record type.You can get the list from the API.All capital letters like "A".Essential parameter.
-    * **record_line** The record line.You can get the list from the API.The default value is "default".Essential parameter.
+    * **record_line** The record line.You can get the list from the API.The default value is "default", such as "default", "AD", "AE". Essential parameter.
     * **value** The record value.For example: IP:200.200.200.200, CNAME: cname.dnspod.com., MX: mail.dnspod.com.Essential parameter.
     * **mx** {1-20} This only need to and must be seted when record_type is "MX".Range from 1 to 20.
     * **ttl** {1-604800} TTL，range from 1 to 604800.Every grade has its own min value.Optional parameter.
@@ -228,7 +228,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Record.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439&sub_domain=www&value=3.2.2.2&record_type=A&record_line=默认'
+    curl -X POST https://api.dnspod.com/Record.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439&sub_domain=www&value=3.2.2.2&record_type=A&record_line=default'
    
 Response：
 
@@ -294,7 +294,7 @@ Request Parameters：
     * **domain_id** The domain id.Essential parameter.
     * **record_id** The record id.Essential parameter.
     * **sub_domain** The record name like "www".
-    * **record_line** The record line.You can get the list from the API.The default value is "default".Essential parameter.
+    * **record_line** The record line.You can get the list from the API.The default value is "default", such as "default", "AD", "AE". Essential parameter.
     * **value** The IP address like "6.6.6.6".Optional parameter.
 Response Code：
     * Common response code.
@@ -313,7 +313,7 @@ Response Code：
 
 Example::
 
-    curl -X POST https://api.dnspod.com/Record.Ddns -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439&record_line=默认&sub_domain=www'
+    curl -X POST https://api.dnspod.com/Record.Ddns -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439&record_line=default&sub_domain=www'
     
 Response：
 
