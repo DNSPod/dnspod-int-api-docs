@@ -78,6 +78,10 @@ Request Parameters：
     * Global parameters.
 Response Code：
     * Common response
+    * 10001 User have been spamed
+    * 10003 Account email is invalid
+    * 10004 Password's length is invalid, must between 6 and 32
+    * 10005 Account is not exist
 
 Example::
     

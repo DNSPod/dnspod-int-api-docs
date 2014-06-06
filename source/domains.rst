@@ -1181,12 +1181,12 @@ Example::
 Response：
 
     * JSON::
-        
+
         {
             "status": {
                 "code": "1",
                 "message": "Action completed successful",
-                "created_at": "2014-06-04 22:02:52"
+                "created_at": "2014-06-06 10:30:26"
             },
             "types": [
                 "A",
@@ -1196,20 +1196,9 @@ Response：
                 "NS",
                 "AAAA",
                 "SRV",
-                "Dominant URL",
-                "Recessive URL"
+                "Un-Framed URL",
+                "Framed URL"
             ],
-            "raw_types": {
-                "A": "A",
-                "CNAME": "CNAME",
-                "MX": "MX",
-                "TXT": "TXT",
-                "NS": "NS",
-                "AAAA": "AAAA",
-                "SRV": "SRV",
-                "URL": "Dominant URL",
-                "URL1": "Recessive URL"
-            }
         }
 
 
