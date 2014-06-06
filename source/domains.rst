@@ -1196,7 +1196,7 @@ Response：
                 "NS",
                 "AAAA",
                 "SRV",
-                "Un-Framed URL",
+                "URL",
                 "Framed URL"
             ],
         }
