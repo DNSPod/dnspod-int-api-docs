@@ -1808,51 +1808,314 @@
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
-<div class="highlight-python"><div class="highlight"><pre>{
-    &quot;status&quot;: {
-        &quot;code&quot;: &quot;1&quot;,
-        &quot;message&quot;: &quot;Action completed successful&quot;,
-        &quot;created_at&quot;: &quot;2014-06-05 09:19:50&quot;
-    },
-    &quot;lines&quot;: {
-        &quot;default&quot;: &quot;Default&quot;,
-        &quot;africa&quot;: &quot;Africa&quot;,
-        &quot;DZ&quot;: &quot;Algeria&quot;,
-        &quot;AO&quot;: &quot;Angola&quot;,
-        &quot;BJ&quot;: &quot;Benin&quot;,
-        &quot;BW&quot;: &quot;Botswana&quot;,
-        &quot;BF&quot;: &quot;Burkina Faso&quot;,
-        &quot;BI&quot;: &quot;Burundi&quot;,
-        &quot;CM&quot;: &quot;Cameroon&quot;,
-        &quot;CV&quot;: &quot;Cape Verde&quot;,
-        &quot;CF&quot;: &quot;Central Africa&quot;,
-        &quot;KI&quot;: &quot;Kiribati&quot;,
-        &quot;MP&quot;: &quot;Northern Mariana Islands&quot;,
-        &quot;PW&quot;: &quot;Palau&quot;,
-        &quot;PG&quot;: &quot;Papua New Guinea&quot;,
-        &quot;PN&quot;: &quot;Pitcairn&quot;,
-        &quot;WS&quot;: &quot;Samoa&quot;,
-        &quot;SB&quot;: &quot;Solomon Islands&quot;,
-        &quot;TK&quot;: &quot;Tokelau&quot;,
-        &quot;TO&quot;: &quot;Tonga&quot;,
-
-        ....
-
-        &quot;TV&quot;: &quot;Tuvalu&quot;,
-        &quot;VU&quot;: &quot;Vanuatu&quot;,
-        &quot;WF&quot;: &quot;Wallis And Futuna Islands&quot;,
-        &quot;south_america&quot;: &quot;South American&quot;,
-        &quot;AR&quot;: &quot;Argentina&quot;,
-        &quot;BO&quot;: &quot;Bolivia&quot;,
-        &quot;BR&quot;: &quot;Brazil&quot;,
-        &quot;PY&quot;: &quot;Paraguay&quot;,
-        &quot;PE&quot;: &quot;Peru&quot;,
-        &quot;SR&quot;: &quot;Suriname&quot;,
-        &quot;UY&quot;: &quot;Uruguay&quot;,
-        &quot;VE&quot;: &quot;Venezuela&quot;,
-        &quot;search_engine&quot;: &quot;Search Engine&quot;
-    }
-}
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;code&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Action completed successful&quot;</span><span class="p">,</span>
+        <span class="s">&quot;created_at&quot;</span><span class="p">:</span> <span class="s">&quot;2014-06-12 15:39:05&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;lines&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Default&quot;</span><span class="p">,</span>
+            <span class="s">&quot;sub_area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;default&quot;</span><span class="p">:</span> <span class="s">&quot;Default&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s">&quot;africa&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Africa&quot;</span><span class="p">,</span>
+            <span class="s">&quot;sub_area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;DZ&quot;</span><span class="p">:</span> <span class="s">&quot;Algeria&quot;</span><span class="p">,</span>
+                <span class="s">&quot;AO&quot;</span><span class="p">:</span> <span class="s">&quot;Angola&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BJ&quot;</span><span class="p">:</span> <span class="s">&quot;Benin&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BW&quot;</span><span class="p">:</span> <span class="s">&quot;Botswana&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BF&quot;</span><span class="p">:</span> <span class="s">&quot;Burkina Faso&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BI&quot;</span><span class="p">:</span> <span class="s">&quot;Burundi&quot;</span><span class="p">,</span>
+                <span class="s">&quot;CM&quot;</span><span class="p">:</span> <span class="s">&quot;Cameroon&quot;</span><span class="p">,</span>
+                <span class="s">&quot;CV&quot;</span><span class="p">:</span> <span class="s">&quot;Cape Verde&quot;</span><span class="p">,</span>
+                <span class="s">&quot;CF&quot;</span><span class="p">:</span> <span class="s">&quot;Central Africa&quot;</span><span class="p">,</span>
+                <span class="s">&quot;TD&quot;</span><span class="p">:</span> <span class="s">&quot;Chad&quot;</span><span class="p">,</span>
+                <span class="s">&quot;KM&quot;</span><span class="p">:</span> <span class="s">&quot;Comoros&quot;</span><span class="p">,</span>
+                <span class="s">&quot;CG&quot;</span><span class="p">:</span> <span class="s">&quot;Congo - Brazzaville&quot;</span><span class="p">,</span>
+                <span class="s">&quot;CD&quot;</span><span class="p">:</span> <span class="s">&quot;Congo, The Democratic Republic Of The&quot;</span><span class="p">,</span>
+                <span class="s">&quot;CI&quot;</span><span class="p">:</span> <span class="s">&quot;Cote D&#39;Ivoire&quot;</span><span class="p">,</span>
+                <span class="s">&quot;DJ&quot;</span><span class="p">:</span> <span class="s">&quot;Djibouti&quot;</span><span class="p">,</span>
+                <span class="s">&quot;EG&quot;</span><span class="p">:</span> <span class="s">&quot;Egypt&quot;</span><span class="p">,</span>
+                <span class="s">&quot;GQ&quot;</span><span class="p">:</span> <span class="s">&quot;Equatorial Guinea&quot;</span><span class="p">,</span>
+                <span class="s">&quot;ER&quot;</span><span class="p">:</span> <span class="s">&quot;Eritrea&quot;</span><span class="p">,</span>
+                <span class="s">&quot;ET&quot;</span><span class="p">:</span> <span class="s">&quot;Ethiopia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;GA&quot;</span><span class="p">:</span> <span class="s">&quot;Gabon&quot;</span><span class="p">,</span>
+                <span class="s">&quot;GM&quot;</span><span class="p">:</span> <span class="s">&quot;Gambia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;GH&quot;</span><span class="p">:</span> <span class="s">&quot;Ghana&quot;</span><span class="p">,</span>
+                <span class="s">&quot;GN&quot;</span><span class="p">:</span> <span class="s">&quot;Guinea&quot;</span><span class="p">,</span>
+                <span class="s">&quot;GW&quot;</span><span class="p">:</span> <span class="s">&quot;Guinea-Bissau&quot;</span><span class="p">,</span>
+                <span class="s">&quot;KE&quot;</span><span class="p">:</span> <span class="s">&quot;Kenya&quot;</span><span class="p">,</span>
+                <span class="s">&quot;LS&quot;</span><span class="p">:</span> <span class="s">&quot;Lesotho&quot;</span><span class="p">,</span>
+                <span class="s">&quot;LR&quot;</span><span class="p">:</span> <span class="s">&quot;Liberia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;LY&quot;</span><span class="p">:</span> <span class="s">&quot;Libya&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MG&quot;</span><span class="p">:</span> <span class="s">&quot;Madagascar&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MW&quot;</span><span class="p">:</span> <span class="s">&quot;Malawi&quot;</span><span class="p">,</span>
+                <span class="s">&quot;ML&quot;</span><span class="p">:</span> <span class="s">&quot;Mali&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MR&quot;</span><span class="p">:</span> <span class="s">&quot;Mauritania&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MU&quot;</span><span class="p">:</span> <span class="s">&quot;Mauritius&quot;</span><span class="p">,</span>
+                <span class="s">&quot;YT&quot;</span><span class="p">:</span> <span class="s">&quot;Mayotte&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MA&quot;</span><span class="p">:</span> <span class="s">&quot;Morocco&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MZ&quot;</span><span class="p">:</span> <span class="s">&quot;Mozambique&quot;</span><span class="p">,</span>
+                <span class="s">&quot;NA&quot;</span><span class="p">:</span> <span class="s">&quot;Namibia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;NE&quot;</span><span class="p">:</span> <span class="s">&quot;Niger&quot;</span><span class="p">,</span>
+                <span class="s">&quot;NG&quot;</span><span class="p">:</span> <span class="s">&quot;Nigeria&quot;</span><span class="p">,</span>
+                <span class="s">&quot;RE&quot;</span><span class="p">:</span> <span class="s">&quot;Reunion&quot;</span><span class="p">,</span>
+                <span class="s">&quot;RW&quot;</span><span class="p">:</span> <span class="s">&quot;Rwanda&quot;</span><span class="p">,</span>
+                <span class="s">&quot;SH&quot;</span><span class="p">:</span> <span class="s">&quot;Saint Helena&quot;</span><span class="p">,</span>
+                <span class="s">&quot;ST&quot;</span><span class="p">:</span> <span class="s">&quot;Sao Tome And Principe&quot;</span><span class="p">,</span>
+                <span class="s">&quot;SN&quot;</span><span class="p">:</span> <span class="s">&quot;Senegal&quot;</span><span class="p">,</span>
+                <span class="s">&quot;SC&quot;</span><span class="p">:</span> <span class="s">&quot;Seychelles&quot;</span><span class="p">,</span>
+                <span class="s">&quot;SL&quot;</span><span class="p">:</span> <span class="s">&quot;Sierra Leone&quot;</span><span class="p">,</span>
+                <span class="s">&quot;SO&quot;</span><span class="p">:</span> <span class="s">&quot;Somalia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;ZA&quot;</span><span class="p">:</span> <span class="s">&quot;South Africa&quot;</span><span class="p">,</span>
+                <span class="s">&quot;SD&quot;</span><span class="p">:</span> <span class="s">&quot;Sudan&quot;</span><span class="p">,</span>
+                <span class="s">&quot;SZ&quot;</span><span class="p">:</span> <span class="s">&quot;Swaziland&quot;</span><span class="p">,</span>
+                <span class="s">&quot;TZ&quot;</span><span class="p">:</span> <span class="s">&quot;Tanzania&quot;</span><span class="p">,</span>
+                <span class="s">&quot;TG&quot;</span><span class="p">:</span> <span class="s">&quot;Togo&quot;</span><span class="p">,</span>
+                <span class="s">&quot;TN&quot;</span><span class="p">:</span> <span class="s">&quot;Tunisia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;UG&quot;</span><span class="p">:</span> <span class="s">&quot;Uganda&quot;</span><span class="p">,</span>
+                <span class="s">&quot;EH&quot;</span><span class="p">:</span> <span class="s">&quot;Western Sahara&quot;</span><span class="p">,</span>
+                <span class="s">&quot;ZM&quot;</span><span class="p">:</span> <span class="s">&quot;Zambia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;ZW&quot;</span><span class="p">:</span> <span class="s">&quot;Zimbabwe&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s">&quot;antartica&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Antartica&quot;</span><span class="p">,</span>
+            <span class="s">&quot;sub_area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;AQ&quot;</span><span class="p">:</span> <span class="s">&quot;Antarctica&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BV&quot;</span><span class="p">:</span> <span class="s">&quot;Bouvet Island&quot;</span><span class="p">,</span>
+                <span class="s">&quot;TF&quot;</span><span class="p">:</span> <span class="s">&quot;French Southern Territories&quot;</span><span class="p">,</span>
+                <span class="s">&quot;HM&quot;</span><span class="p">:</span> <span class="s">&quot;Heard And Mc Donald Islands&quot;</span><span class="p">,</span>
+                <span class="s">&quot;GS&quot;</span><span class="p">:</span> <span class="s">&quot;South Georgia And The South Sandwich Islands&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s">&quot;asia&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Asia&quot;</span><span class="p">,</span>
+            <span class="s">&quot;sub_area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;AF&quot;</span><span class="p">:</span> <span class="s">&quot;Afghanistan&quot;</span><span class="p">,</span>
+                <span class="s">&quot;AM&quot;</span><span class="p">:</span> <span class="s">&quot;Armenia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;AZ&quot;</span><span class="p">:</span> <span class="s">&quot;Azerbaijan&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BH&quot;</span><span class="p">:</span> <span class="s">&quot;Bahrain&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BD&quot;</span><span class="p">:</span> <span class="s">&quot;Bangladesh&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BT&quot;</span><span class="p">:</span> <span class="s">&quot;Bhutan&quot;</span><span class="p">,</span>
+                <span class="s">&quot;IO&quot;</span><span class="p">:</span> <span class="s">&quot;British Indian Ocean Territory&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BN&quot;</span><span class="p">:</span> <span class="s">&quot;Brunei Darussalam&quot;</span><span class="p">,</span>
+                <span class="s">&quot;KH&quot;</span><span class="p">:</span> <span class="s">&quot;Cambodia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;CN&quot;</span><span class="p">:</span> <span class="s">&quot;China&quot;</span><span class="p">,</span>
+                <span class="s">&quot;CX&quot;</span><span class="p">:</span> <span class="s">&quot;Christmas Island&quot;</span><span class="p">,</span>
+                <span class="s">&quot;CC&quot;</span><span class="p">:</span> <span class="s">&quot;Cocos (Keeling) Islands&quot;</span><span class="p">,</span>
+                <span class="s">&quot;CY&quot;</span><span class="p">:</span> <span class="s">&quot;Cyprus&quot;</span><span class="p">,</span>
+                <span class="s">&quot;GE&quot;</span><span class="p">:</span> <span class="s">&quot;Georgia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;HK&quot;</span><span class="p">:</span> <span class="s">&quot;Hong Kong&quot;</span><span class="p">,</span>
+                <span class="s">&quot;IN&quot;</span><span class="p">:</span> <span class="s">&quot;India&quot;</span><span class="p">,</span>
+                <span class="s">&quot;ID&quot;</span><span class="p">:</span> <span class="s">&quot;Indonesia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;IR&quot;</span><span class="p">:</span> <span class="s">&quot;Iran, Islamic Republic Of&quot;</span><span class="p">,</span>
+                <span class="s">&quot;IQ&quot;</span><span class="p">:</span> <span class="s">&quot;Iraq&quot;</span><span class="p">,</span>
+                <span class="s">&quot;IL&quot;</span><span class="p">:</span> <span class="s">&quot;Israel&quot;</span><span class="p">,</span>
+                <span class="s">&quot;JP&quot;</span><span class="p">:</span> <span class="s">&quot;Japan&quot;</span><span class="p">,</span>
+                <span class="s">&quot;JO&quot;</span><span class="p">:</span> <span class="s">&quot;Jordan&quot;</span><span class="p">,</span>
+                <span class="s">&quot;KZ&quot;</span><span class="p">:</span> <span class="s">&quot;Kazakhstan&quot;</span><span class="p">,</span>
+                <span class="s">&quot;KP&quot;</span><span class="p">:</span> <span class="s">&quot;North Korea&quot;</span><span class="p">,</span>
+                <span class="s">&quot;KR&quot;</span><span class="p">:</span> <span class="s">&quot;Korea&quot;</span><span class="p">,</span>
+                <span class="s">&quot;KW&quot;</span><span class="p">:</span> <span class="s">&quot;Kuwait&quot;</span><span class="p">,</span>
+                <span class="s">&quot;KG&quot;</span><span class="p">:</span> <span class="s">&quot;Kyrgyzstan&quot;</span><span class="p">,</span>
+                <span class="s">&quot;LA&quot;</span><span class="p">:</span> <span class="s">&quot;Lao&quot;</span><span class="p">,</span>
+                <span class="s">&quot;LB&quot;</span><span class="p">:</span> <span class="s">&quot;Lebanon&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MO&quot;</span><span class="p">:</span> <span class="s">&quot;Macao&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MY&quot;</span><span class="p">:</span> <span class="s">&quot;Malaysia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MV&quot;</span><span class="p">:</span> <span class="s">&quot;Maldives&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MN&quot;</span><span class="p">:</span> <span class="s">&quot;Mongolia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MM&quot;</span><span class="p">:</span> <span class="s">&quot;Myanmar&quot;</span><span class="p">,</span>
+                <span class="s">&quot;NP&quot;</span><span class="p">:</span> <span class="s">&quot;Nepal&quot;</span><span class="p">,</span>
+                <span class="s">&quot;OM&quot;</span><span class="p">:</span> <span class="s">&quot;Oman&quot;</span><span class="p">,</span>
+                <span class="s">&quot;PK&quot;</span><span class="p">:</span> <span class="s">&quot;Pakistan&quot;</span><span class="p">,</span>
+                <span class="s">&quot;PS&quot;</span><span class="p">:</span> <span class="s">&quot;Palestinian Territory&quot;</span><span class="p">,</span>
+                <span class="s">&quot;PH&quot;</span><span class="p">:</span> <span class="s">&quot;Philippines&quot;</span><span class="p">,</span>
+                <span class="s">&quot;QA&quot;</span><span class="p">:</span> <span class="s">&quot;Qatar&quot;</span><span class="p">,</span>
+                <span class="s">&quot;SA&quot;</span><span class="p">:</span> <span class="s">&quot;Saudi Arabia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;SG&quot;</span><span class="p">:</span> <span class="s">&quot;Singapore&quot;</span><span class="p">,</span>
+                <span class="s">&quot;LK&quot;</span><span class="p">:</span> <span class="s">&quot;Sri Lanka&quot;</span><span class="p">,</span>
+                <span class="s">&quot;SY&quot;</span><span class="p">:</span> <span class="s">&quot;Syria&quot;</span><span class="p">,</span>
+                <span class="s">&quot;TW&quot;</span><span class="p">:</span> <span class="s">&quot;Taiwan&quot;</span><span class="p">,</span>
+                <span class="s">&quot;TJ&quot;</span><span class="p">:</span> <span class="s">&quot;Tajikistan&quot;</span><span class="p">,</span>
+                <span class="s">&quot;TH&quot;</span><span class="p">:</span> <span class="s">&quot;Thailand&quot;</span><span class="p">,</span>
+                <span class="s">&quot;TL&quot;</span><span class="p">:</span> <span class="s">&quot;Timor-Leste&quot;</span><span class="p">,</span>
+                <span class="s">&quot;TR&quot;</span><span class="p">:</span> <span class="s">&quot;Turkey&quot;</span><span class="p">,</span>
+                <span class="s">&quot;TM&quot;</span><span class="p">:</span> <span class="s">&quot;Turkmenistan&quot;</span><span class="p">,</span>
+                <span class="s">&quot;AE&quot;</span><span class="p">:</span> <span class="s">&quot;United Arab Emirates&quot;</span><span class="p">,</span>
+                <span class="s">&quot;UZ&quot;</span><span class="p">:</span> <span class="s">&quot;Uzbekistan&quot;</span><span class="p">,</span>
+                <span class="s">&quot;VN&quot;</span><span class="p">:</span> <span class="s">&quot;Viet Nam&quot;</span><span class="p">,</span>
+                <span class="s">&quot;YE&quot;</span><span class="p">:</span> <span class="s">&quot;Yemen&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s">&quot;europe&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Europe&quot;</span><span class="p">,</span>
+            <span class="s">&quot;sub_area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;AX&quot;</span><span class="p">:</span> <span class="s">&quot;Aland Islands&quot;</span><span class="p">,</span>
+                <span class="s">&quot;AL&quot;</span><span class="p">:</span> <span class="s">&quot;Albania&quot;</span><span class="p">,</span>
+                <span class="s">&quot;AD&quot;</span><span class="p">:</span> <span class="s">&quot;Andorra&quot;</span><span class="p">,</span>
+                <span class="s">&quot;AT&quot;</span><span class="p">:</span> <span class="s">&quot;Austria&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BY&quot;</span><span class="p">:</span> <span class="s">&quot;Belarus&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BE&quot;</span><span class="p">:</span> <span class="s">&quot;Belgium&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BA&quot;</span><span class="p">:</span> <span class="s">&quot;Bosnia And Herzegovina&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BG&quot;</span><span class="p">:</span> <span class="s">&quot;Bulgaria&quot;</span><span class="p">,</span>
+                <span class="s">&quot;HR&quot;</span><span class="p">:</span> <span class="s">&quot;Croatia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;CZ&quot;</span><span class="p">:</span> <span class="s">&quot;Czech&quot;</span><span class="p">,</span>
+                <span class="s">&quot;DK&quot;</span><span class="p">:</span> <span class="s">&quot;Denmark&quot;</span><span class="p">,</span>
+                <span class="s">&quot;EE&quot;</span><span class="p">:</span> <span class="s">&quot;Estonia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;EU&quot;</span><span class="p">:</span> <span class="s">&quot;European Union&quot;</span><span class="p">,</span>
+                <span class="s">&quot;FO&quot;</span><span class="p">:</span> <span class="s">&quot;Faroe Islands&quot;</span><span class="p">,</span>
+                <span class="s">&quot;FI&quot;</span><span class="p">:</span> <span class="s">&quot;Finland&quot;</span><span class="p">,</span>
+                <span class="s">&quot;FR&quot;</span><span class="p">:</span> <span class="s">&quot;France&quot;</span><span class="p">,</span>
+                <span class="s">&quot;DE&quot;</span><span class="p">:</span> <span class="s">&quot;Germany&quot;</span><span class="p">,</span>
+                <span class="s">&quot;GI&quot;</span><span class="p">:</span> <span class="s">&quot;Gibraltar&quot;</span><span class="p">,</span>
+                <span class="s">&quot;GR&quot;</span><span class="p">:</span> <span class="s">&quot;Greece&quot;</span><span class="p">,</span>
+                <span class="s">&quot;GG&quot;</span><span class="p">:</span> <span class="s">&quot;Guernsey&quot;</span><span class="p">,</span>
+                <span class="s">&quot;VA&quot;</span><span class="p">:</span> <span class="s">&quot;Holy See&quot;</span><span class="p">,</span>
+                <span class="s">&quot;HU&quot;</span><span class="p">:</span> <span class="s">&quot;Hungary&quot;</span><span class="p">,</span>
+                <span class="s">&quot;IS&quot;</span><span class="p">:</span> <span class="s">&quot;Iceland&quot;</span><span class="p">,</span>
+                <span class="s">&quot;IE&quot;</span><span class="p">:</span> <span class="s">&quot;Ireland&quot;</span><span class="p">,</span>
+                <span class="s">&quot;IM&quot;</span><span class="p">:</span> <span class="s">&quot;Isle Of Man&quot;</span><span class="p">,</span>
+                <span class="s">&quot;IT&quot;</span><span class="p">:</span> <span class="s">&quot;Italy&quot;</span><span class="p">,</span>
+                <span class="s">&quot;JE&quot;</span><span class="p">:</span> <span class="s">&quot;Jersey&quot;</span><span class="p">,</span>
+                <span class="s">&quot;CS&quot;</span><span class="p">:</span> <span class="s">&quot;Kosovo&quot;</span><span class="p">,</span>
+                <span class="s">&quot;LV&quot;</span><span class="p">:</span> <span class="s">&quot;Latvia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;LI&quot;</span><span class="p">:</span> <span class="s">&quot;Liechtenstein&quot;</span><span class="p">,</span>
+                <span class="s">&quot;LT&quot;</span><span class="p">:</span> <span class="s">&quot;Lithuania&quot;</span><span class="p">,</span>
+                <span class="s">&quot;LU&quot;</span><span class="p">:</span> <span class="s">&quot;Luxembourg&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MK&quot;</span><span class="p">:</span> <span class="s">&quot;Macedonia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MT&quot;</span><span class="p">:</span> <span class="s">&quot;Malta&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MD&quot;</span><span class="p">:</span> <span class="s">&quot;Moldova&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MC&quot;</span><span class="p">:</span> <span class="s">&quot;Monaco&quot;</span><span class="p">,</span>
+                <span class="s">&quot;ME&quot;</span><span class="p">:</span> <span class="s">&quot;Montenegro&quot;</span><span class="p">,</span>
+                <span class="s">&quot;NL&quot;</span><span class="p">:</span> <span class="s">&quot;Netherlands&quot;</span><span class="p">,</span>
+                <span class="s">&quot;NO&quot;</span><span class="p">:</span> <span class="s">&quot;Norway&quot;</span><span class="p">,</span>
+                <span class="s">&quot;PL&quot;</span><span class="p">:</span> <span class="s">&quot;Poland&quot;</span><span class="p">,</span>
+                <span class="s">&quot;PT&quot;</span><span class="p">:</span> <span class="s">&quot;Portugal&quot;</span><span class="p">,</span>
+                <span class="s">&quot;RO&quot;</span><span class="p">:</span> <span class="s">&quot;Romania&quot;</span><span class="p">,</span>
+                <span class="s">&quot;RU&quot;</span><span class="p">:</span> <span class="s">&quot;Russia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;SM&quot;</span><span class="p">:</span> <span class="s">&quot;San Marino&quot;</span><span class="p">,</span>
+                <span class="s">&quot;RS&quot;</span><span class="p">:</span> <span class="s">&quot;Serbia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;SK&quot;</span><span class="p">:</span> <span class="s">&quot;Slovakia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;SI&quot;</span><span class="p">:</span> <span class="s">&quot;Slovenia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;ES&quot;</span><span class="p">:</span> <span class="s">&quot;Spain&quot;</span><span class="p">,</span>
+                <span class="s">&quot;SJ&quot;</span><span class="p">:</span> <span class="s">&quot;Svalbard &amp; Jan Mayen Islands&quot;</span><span class="p">,</span>
+                <span class="s">&quot;SE&quot;</span><span class="p">:</span> <span class="s">&quot;Sweden&quot;</span><span class="p">,</span>
+                <span class="s">&quot;CH&quot;</span><span class="p">:</span> <span class="s">&quot;Switzerland&quot;</span><span class="p">,</span>
+                <span class="s">&quot;UA&quot;</span><span class="p">:</span> <span class="s">&quot;Ukraine&quot;</span><span class="p">,</span>
+                <span class="s">&quot;GB&quot;</span><span class="p">:</span> <span class="s">&quot;United Kingdom&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s">&quot;north_america&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;North America&quot;</span><span class="p">,</span>
+            <span class="s">&quot;sub_area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;AI&quot;</span><span class="p">:</span> <span class="s">&quot;Anguilla&quot;</span><span class="p">,</span>
+                <span class="s">&quot;AG&quot;</span><span class="p">:</span> <span class="s">&quot;Antigua And Barbuda&quot;</span><span class="p">,</span>
+                <span class="s">&quot;AW&quot;</span><span class="p">:</span> <span class="s">&quot;Aruba&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BS&quot;</span><span class="p">:</span> <span class="s">&quot;Bahamas&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BB&quot;</span><span class="p">:</span> <span class="s">&quot;Barbados&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BZ&quot;</span><span class="p">:</span> <span class="s">&quot;Belize&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BM&quot;</span><span class="p">:</span> <span class="s">&quot;Bermuda&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BQ&quot;</span><span class="p">:</span> <span class="s">&quot;Bonaire, Saint Eustatius And Saba&quot;</span><span class="p">,</span>
+                <span class="s">&quot;CA&quot;</span><span class="p">:</span> <span class="s">&quot;Canada&quot;</span><span class="p">,</span>
+                <span class="s">&quot;KY&quot;</span><span class="p">:</span> <span class="s">&quot;Cayman Islands&quot;</span><span class="p">,</span>
+                <span class="s">&quot;CR&quot;</span><span class="p">:</span> <span class="s">&quot;Costa Rica&quot;</span><span class="p">,</span>
+                <span class="s">&quot;CU&quot;</span><span class="p">:</span> <span class="s">&quot;Cuba&quot;</span><span class="p">,</span>
+                <span class="s">&quot;CW&quot;</span><span class="p">:</span> <span class="s">&quot;Curacao&quot;</span><span class="p">,</span>
+                <span class="s">&quot;DM&quot;</span><span class="p">:</span> <span class="s">&quot;Dominica&quot;</span><span class="p">,</span>
+                <span class="s">&quot;DO&quot;</span><span class="p">:</span> <span class="s">&quot;Dominican Republic&quot;</span><span class="p">,</span>
+                <span class="s">&quot;SV&quot;</span><span class="p">:</span> <span class="s">&quot;El Salvador&quot;</span><span class="p">,</span>
+                <span class="s">&quot;GL&quot;</span><span class="p">:</span> <span class="s">&quot;Greenland&quot;</span><span class="p">,</span>
+                <span class="s">&quot;GD&quot;</span><span class="p">:</span> <span class="s">&quot;Grenada&quot;</span><span class="p">,</span>
+                <span class="s">&quot;GP&quot;</span><span class="p">:</span> <span class="s">&quot;Guadeloupe&quot;</span><span class="p">,</span>
+                <span class="s">&quot;GT&quot;</span><span class="p">:</span> <span class="s">&quot;Guatemala&quot;</span><span class="p">,</span>
+                <span class="s">&quot;HT&quot;</span><span class="p">:</span> <span class="s">&quot;Haiti&quot;</span><span class="p">,</span>
+                <span class="s">&quot;HN&quot;</span><span class="p">:</span> <span class="s">&quot;Honduras&quot;</span><span class="p">,</span>
+                <span class="s">&quot;JM&quot;</span><span class="p">:</span> <span class="s">&quot;Jamaica&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MQ&quot;</span><span class="p">:</span> <span class="s">&quot;Martinique&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MX&quot;</span><span class="p">:</span> <span class="s">&quot;Mexico&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MS&quot;</span><span class="p">:</span> <span class="s">&quot;Montserrat&quot;</span><span class="p">,</span>
+                <span class="s">&quot;AN&quot;</span><span class="p">:</span> <span class="s">&quot;Netherlands Antilles&quot;</span><span class="p">,</span>
+                <span class="s">&quot;NI&quot;</span><span class="p">:</span> <span class="s">&quot;Nicaragua&quot;</span><span class="p">,</span>
+                <span class="s">&quot;PA&quot;</span><span class="p">:</span> <span class="s">&quot;Panama&quot;</span><span class="p">,</span>
+                <span class="s">&quot;PR&quot;</span><span class="p">:</span> <span class="s">&quot;Puerto Rico&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BL&quot;</span><span class="p">:</span> <span class="s">&quot;Saint Barthelemy&quot;</span><span class="p">,</span>
+                <span class="s">&quot;KN&quot;</span><span class="p">:</span> <span class="s">&quot;Saint Kitts And Nevis&quot;</span><span class="p">,</span>
+                <span class="s">&quot;LC&quot;</span><span class="p">:</span> <span class="s">&quot;Saint Lucia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MF&quot;</span><span class="p">:</span> <span class="s">&quot;Saint Martin&quot;</span><span class="p">,</span>
+                <span class="s">&quot;PM&quot;</span><span class="p">:</span> <span class="s">&quot;Saint Pierre And Miquelon&quot;</span><span class="p">,</span>
+                <span class="s">&quot;VC&quot;</span><span class="p">:</span> <span class="s">&quot;Saint Vincent And The Grenadines&quot;</span><span class="p">,</span>
+                <span class="s">&quot;SX&quot;</span><span class="p">:</span> <span class="s">&quot;Sint Maarten&quot;</span><span class="p">,</span>
+                <span class="s">&quot;TT&quot;</span><span class="p">:</span> <span class="s">&quot;Trinidad And Tobago&quot;</span><span class="p">,</span>
+                <span class="s">&quot;TC&quot;</span><span class="p">:</span> <span class="s">&quot;Turks And Caicos Islands&quot;</span><span class="p">,</span>
+                <span class="s">&quot;US&quot;</span><span class="p">:</span> <span class="s">&quot;United States&quot;</span><span class="p">,</span>
+                <span class="s">&quot;UM&quot;</span><span class="p">:</span> <span class="s">&quot;United States Minor Outlying Islands&quot;</span><span class="p">,</span>
+                <span class="s">&quot;VG&quot;</span><span class="p">:</span> <span class="s">&quot;Virgin Islands, British&quot;</span><span class="p">,</span>
+                <span class="s">&quot;VI&quot;</span><span class="p">:</span> <span class="s">&quot;Virgin Islands, U.S.&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s">&quot;oceania&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Oceania&quot;</span><span class="p">,</span>
+            <span class="s">&quot;sub_area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;AS&quot;</span><span class="p">:</span> <span class="s">&quot;American Samoa&quot;</span><span class="p">,</span>
+                <span class="s">&quot;AP&quot;</span><span class="p">:</span> <span class="s">&quot;Asia Pacific&quot;</span><span class="p">,</span>
+                <span class="s">&quot;AU&quot;</span><span class="p">:</span> <span class="s">&quot;Australia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;CK&quot;</span><span class="p">:</span> <span class="s">&quot;Cook Islands&quot;</span><span class="p">,</span>
+                <span class="s">&quot;FJ&quot;</span><span class="p">:</span> <span class="s">&quot;Fiji&quot;</span><span class="p">,</span>
+                <span class="s">&quot;PF&quot;</span><span class="p">:</span> <span class="s">&quot;French Polynesia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;GU&quot;</span><span class="p">:</span> <span class="s">&quot;Guam&quot;</span><span class="p">,</span>
+                <span class="s">&quot;KI&quot;</span><span class="p">:</span> <span class="s">&quot;Kiribati&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MH&quot;</span><span class="p">:</span> <span class="s">&quot;Marshall Islands&quot;</span><span class="p">,</span>
+                <span class="s">&quot;FM&quot;</span><span class="p">:</span> <span class="s">&quot;Micronesia, Federated States Of&quot;</span><span class="p">,</span>
+                <span class="s">&quot;NR&quot;</span><span class="p">:</span> <span class="s">&quot;Nauru&quot;</span><span class="p">,</span>
+                <span class="s">&quot;NC&quot;</span><span class="p">:</span> <span class="s">&quot;New Caledonia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;NZ&quot;</span><span class="p">:</span> <span class="s">&quot;New Zealand&quot;</span><span class="p">,</span>
+                <span class="s">&quot;NU&quot;</span><span class="p">:</span> <span class="s">&quot;Niue&quot;</span><span class="p">,</span>
+                <span class="s">&quot;NF&quot;</span><span class="p">:</span> <span class="s">&quot;Norfolk Island&quot;</span><span class="p">,</span>
+                <span class="s">&quot;MP&quot;</span><span class="p">:</span> <span class="s">&quot;Northern Mariana Islands&quot;</span><span class="p">,</span>
+                <span class="s">&quot;PW&quot;</span><span class="p">:</span> <span class="s">&quot;Palau&quot;</span><span class="p">,</span>
+                <span class="s">&quot;PG&quot;</span><span class="p">:</span> <span class="s">&quot;Papua New Guinea&quot;</span><span class="p">,</span>
+                <span class="s">&quot;PN&quot;</span><span class="p">:</span> <span class="s">&quot;Pitcairn&quot;</span><span class="p">,</span>
+                <span class="s">&quot;WS&quot;</span><span class="p">:</span> <span class="s">&quot;Samoa&quot;</span><span class="p">,</span>
+                <span class="s">&quot;SB&quot;</span><span class="p">:</span> <span class="s">&quot;Solomon Islands&quot;</span><span class="p">,</span>
+                <span class="s">&quot;TK&quot;</span><span class="p">:</span> <span class="s">&quot;Tokelau&quot;</span><span class="p">,</span>
+                <span class="s">&quot;TO&quot;</span><span class="p">:</span> <span class="s">&quot;Tonga&quot;</span><span class="p">,</span>
+                <span class="s">&quot;TV&quot;</span><span class="p">:</span> <span class="s">&quot;Tuvalu&quot;</span><span class="p">,</span>
+                <span class="s">&quot;VU&quot;</span><span class="p">:</span> <span class="s">&quot;Vanuatu&quot;</span><span class="p">,</span>
+                <span class="s">&quot;WF&quot;</span><span class="p">:</span> <span class="s">&quot;Wallis And Futuna Islands&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s">&quot;south_america&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;South American&quot;</span><span class="p">,</span>
+            <span class="s">&quot;sub_area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;AR&quot;</span><span class="p">:</span> <span class="s">&quot;Argentina&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BO&quot;</span><span class="p">:</span> <span class="s">&quot;Bolivia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;BR&quot;</span><span class="p">:</span> <span class="s">&quot;Brazil&quot;</span><span class="p">,</span>
+                <span class="s">&quot;CL&quot;</span><span class="p">:</span> <span class="s">&quot;Chile&quot;</span><span class="p">,</span>
+                <span class="s">&quot;CO&quot;</span><span class="p">:</span> <span class="s">&quot;Colombia&quot;</span><span class="p">,</span>
+                <span class="s">&quot;EC&quot;</span><span class="p">:</span> <span class="s">&quot;Ecuador&quot;</span><span class="p">,</span>
+                <span class="s">&quot;FK&quot;</span><span class="p">:</span> <span class="s">&quot;Falkland Islands (Malvinas)&quot;</span><span class="p">,</span>
+                <span class="s">&quot;GF&quot;</span><span class="p">:</span> <span class="s">&quot;French Guiana&quot;</span><span class="p">,</span>
+                <span class="s">&quot;GY&quot;</span><span class="p">:</span> <span class="s">&quot;Guyana&quot;</span><span class="p">,</span>
+                <span class="s">&quot;PY&quot;</span><span class="p">:</span> <span class="s">&quot;Paraguay&quot;</span><span class="p">,</span>
+                <span class="s">&quot;PE&quot;</span><span class="p">:</span> <span class="s">&quot;Peru&quot;</span><span class="p">,</span>
+                <span class="s">&quot;SR&quot;</span><span class="p">:</span> <span class="s">&quot;Suriname&quot;</span><span class="p">,</span>
+                <span class="s">&quot;UY&quot;</span><span class="p">:</span> <span class="s">&quot;Uruguay&quot;</span><span class="p">,</span>
+                <span class="s">&quot;VE&quot;</span><span class="p">:</span> <span class="s">&quot;Venezuela&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s">&quot;search_engine&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Search Engine&quot;</span><span class="p">,</span>
+            <span class="s">&quot;sub_area&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;search_engine&quot;</span><span class="p">:</span> <span class="s">&quot;Search Engine&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </li>
