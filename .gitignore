@@ -6,3 +6,5 @@
 *.swn
 *.swm
 *.class
+_build/
+build/
