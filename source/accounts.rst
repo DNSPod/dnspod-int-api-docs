@@ -6,7 +6,7 @@ Get Account Information
 -----------------------
 URL:
     * https://api.dnspod.com/User.Detail
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -52,7 +52,7 @@ Update Information
 ------------------
 URL:
     * https://api.dnspod.com/User.Modify
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global parameters
@@ -85,7 +85,7 @@ Change Password
 ---------------
 URL:
     * https://api.dnspod.com/Userpasswd.Modify
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -151,7 +151,7 @@ Get The Account's Operate Log
 -----------------------------
 URL:
     * https://api.dnspod.com/User.Log
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters

@@ -70,7 +70,7 @@ Get the user token
 ------------------
 Before you use the APIs, you need get a user-token first by this one.
 
-API Address:
+URL:
     * https://api.dnspod.com/Auth
 HTTP Request Type:
     * POST
@@ -121,7 +121,7 @@ If you are using D-Token,this error codes might be responded.
 
 Get the Version of API
 ----------------------
-API Address:
+URL:
     * https://api.dnspod.com/Info.Version
 HTTP Request Type:
     * POST

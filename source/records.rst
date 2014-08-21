@@ -5,7 +5,7 @@ Add a Record
 ------------
 URL:
     * https://api.dnspod.com/Record.Create
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global parameters
@@ -62,7 +62,7 @@ Get Record List
 ---------------
 URL:
     * https://api.dnspod.com/Record.List
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global parameters
@@ -190,7 +190,7 @@ Update a Record
 ---------------
 URL:
     *  https://api.dnspod.com/Record.Modify
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global parameters
@@ -251,7 +251,7 @@ Remove a Record
 ---------------
 URL:
     *  https://api.dnspod.com/Record.Remove
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global parameters
@@ -287,7 +287,7 @@ Update the Dynamic DNS Record
 -----------------------------
 URL:
     *  https://api.dnspod.com/Record.Ddns
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global parameters
@@ -336,7 +336,7 @@ Remark a Record
 ---------------
 URL:
     *  https://api.dnspod.com/Record.Remark
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global parameters
@@ -369,7 +369,7 @@ Get the Record Information
 -------------------------
 URL:
     *  https://api.dnspod.com/Record.Info
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global parameters
@@ -424,7 +424,7 @@ Set the Record Status
 ---------------------
 URL:
     *  https://api.dnspod.com/Record.Status
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global parameters

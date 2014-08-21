@@ -5,7 +5,7 @@ List All the Sub-domains Whose Type Is "A"
 ------------------------------------------
 URL:
     *  https://api.dnspod.com/Monitor.Listsubdomain
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global parameters
@@ -47,7 +47,7 @@ List All the "A" Records for a Sub-domain
 -----------------------------------------
 URL:
     *  https://api.dnspod.com/Monitor.Listsubvalue
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global parameters
@@ -103,7 +103,7 @@ Get the Monitor List
 --------------------
 URL:
     *  https://api.dnspod.com/Monitor.List
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global parameters
@@ -170,7 +170,7 @@ Add a Monitor
 -------------
 URL:
     *  https://api.dnspod.com/Monitor.Create
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global parameters
@@ -239,7 +239,7 @@ Modify a Monitor
 ----------------
 URL:
     *  https://api.dnspod.com/Monitor.Modify
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global parameters
@@ -300,7 +300,7 @@ Remove a Monitor
 ----------------
 URL:
     *  https://api.dnspod.com/Monitor.Remove
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global parameters
@@ -330,7 +330,7 @@ Get the Monitor Information
 ---------------------------
 URL:
     * https://api.dnspod.com/Monitor.Info
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global parameters
@@ -389,7 +389,7 @@ Set a Monitor's Status
 ----------------------
 URL:
     *  https://api.dnspod.com/Monitor.Setstatus
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global parameters
@@ -425,7 +425,7 @@ Get a Monitor's History
 -----------------------
 URL:
     *  https://api.dnspod.com/Monitor.Gethistory
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global parameters
@@ -566,7 +566,7 @@ Get a Monitor's Description
 ---------------------------
 URL:
     * https://api.dnspod.com/Monitor.Userdesc
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global parameters
@@ -603,7 +603,7 @@ Get a Monitor's Warnings
 ------------------------
 URL:
     *  https://api.dnspod.com/Monitor.Getdowns
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global parameters

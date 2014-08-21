@@ -5,7 +5,7 @@ Add New Domain
 --------------
 URL:
     * https://api.dnspod.com/Domain.Create
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -46,7 +46,7 @@ Get The Domain List
 -------------------
 URL:
     * https://api.dnspod.com/Domain.List
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -126,7 +126,7 @@ Delete Domain
 -------------
 URL:
     * https://api.dnspod.com/Domain.Remove
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -159,7 +159,7 @@ Set Domain Status
 -----------------
 URL:
     * https://api.dnspod.com/Domain.Status
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -194,7 +194,7 @@ Get The Domain Information
 --------------------------
 URL:
     * https://api.dnspod.com/Domain.Info
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -248,7 +248,7 @@ Get the Operate Logs of a Domain
 --------------------------------
 URL:
     * https://api.dnspod.com/Domain.Log
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -288,7 +288,7 @@ Push Domain to Search Engine
 ----------------------------
 URL:
     * https://api.dnspod.com/Domain.Searchenginepush
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -324,7 +324,7 @@ Share a Domain
 --------------
 URL:
     * https://api.dnspod.com/Domainshare.Create
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -364,7 +364,7 @@ Get Domain Share List
 ---------------------
 URL:
     * https://api.dnspod.com/Domainshare.List
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -404,7 +404,7 @@ Update the Domain Share
 -----------------------
 URL:
     * https://api.dnspod.com/Domainshare.Modify
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -461,7 +461,7 @@ Delete a Domain Share
 ---------------------
 URL:
     *  https://api.dnspod.com/Domainshare.Remove
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -497,7 +497,7 @@ Transfer a Domain to Another Account
 ------------------------------------
 URL:
     * https://api.dnspod.com/Domain.Transfer
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -535,7 +535,7 @@ Lock a Domain
 -------------
 URL:
     * https://api.dnspod.com/Domain.Lock
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -577,7 +577,7 @@ Lock Status
 -----------
 URL:
     * https://api.dnspod.com/Domain.Lockstatus
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -616,7 +616,7 @@ Domain Unlock
 -------------
 URL:
     * https://api.dnspod.com/Domain.Unlock
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -657,7 +657,7 @@ Get Domain Alias List
 ---------------------
 URL:
     * https://api.dnspod.com/Domainalias.List
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -696,7 +696,7 @@ Add a Domain Alias
 ------------------
 URL:
     * https://api.dnspod.com/Domainalias.Create
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -737,7 +737,7 @@ Remove a Domain Alias
 ---------------------
 URL:
     * https://api.dnspod.com/Domainalias.Remove
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -771,7 +771,7 @@ Get The Domain Group List
 -------------------------
 URL:
     * https://api.dnspod.com/Domaingroup.List
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -849,7 +849,7 @@ Add a New Domain Group
 ----------------------
 URL:
     https://api.dnspod.com/Domaingroup.Create
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -886,7 +886,7 @@ Update a Domain Group
 ---------------------
 URL:
     https://api.dnspod.com/Domaingroup.Modify
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -919,7 +919,7 @@ Remove a Domain Group
 ---------------------
 URL:
     * https://api.dnspod.com/Domaingroup.Remove
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -948,7 +948,7 @@ Change a Domain's Group
 -----------------------
 URL:
     * https://api.dnspod.com/Domain.Changegroup
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -983,7 +983,7 @@ Mark a Domain
 -------------
 URL:
     * https://api.dnspod.com/Domain.Ismark
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -1013,7 +1013,7 @@ Remark a Domain
 ---------------
 URL:
     * https://api.dnspod.com/Domain.Remark
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -1044,7 +1044,7 @@ Get the Email Address Needed to Get Domain Back
 -----------------------------------------------
 URL:
     * https://api.dnspod.com/Domain.Acquire
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -1086,7 +1086,7 @@ Send Verify Code for Getting Domain Back
 ----------------------------------------
 URL:
     *  https://api.dnspod.com/Domain.Acquiresend
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -1125,7 +1125,7 @@ Verify the Verify Code
 ----------------------
 URL:
     * https://api.dnspod.com/Domain.Acquirevalidate
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -1165,7 +1165,7 @@ Get All the Record Types for a Domain Grade
 -------------------------------------------
 URL:
     *  https://api.dnspod.com/Record.Type
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
@@ -1206,7 +1206,7 @@ Get All the Lines Allowed for a Domain Grade
 --------------------------------------------
 URL:
     *  https://api.dnspod.com/Record.Line
-Method:
+HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
