@@ -189,7 +189,7 @@ Request Parameters:
         #. auto Switch intelligent.
         #. IP addresses split by ",".
 
-    * **keep_ttl** TTL won't be changed if this is set up.Essential parameter.
+    * **keep_ttl** TTL won't be changed if this is set.Essential parameter.
     * **sms_notice** "me" for the owner,and "share" for the shared users.Split by "," if there are more than one like "me,share".Essential parameter.
     * **email_notice** Same as the sms_notice.
     * **less_notice** {yes|no} Whether to just send one notice within one hour.Essential parameter.
@@ -257,7 +257,7 @@ Request Parameters:
         #. IP addresses split by ",".
 
     * **host** The host from the http header like "www.dnspod.com".Essential parameter.
-    * **keep_ttl** TTL won't be changed if this is set up.Essential parameter.
+    * **keep_ttl** TTL won't be changed if this is set.Essential parameter.
     * **sms_notice** "me" for the owner,and "share" for the shared users.Split by "," if there are more than one like "me,share".Essential parameter.
     * **email_notice** Same as the sms_notice.
     * **less_notice** {yes|no} Whether to just send one notice within one hour.Essential parameter.
