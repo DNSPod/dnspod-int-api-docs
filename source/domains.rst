@@ -460,7 +460,7 @@ Response:
 Delete a Domain Share
 ---------------------
 URL:
-    *  https://api.dnspod.com/Domainshare.Remove
+    * https://api.dnspod.com/Domainshare.Remove
 HTTP Request Type:
     * POST
 Request Parameters:
@@ -848,7 +848,7 @@ Response:
 Add a New Domain Group
 ----------------------
 URL:
-    https://api.dnspod.com/Domaingroup.Create
+    * https://api.dnspod.com/Domaingroup.Create
 HTTP Request Type:
     * POST
 Request Parameters:
@@ -885,7 +885,7 @@ Attention:
 Update a Domain Group
 ---------------------
 URL:
-    https://api.dnspod.com/Domaingroup.Modify
+    * https://api.dnspod.com/Domaingroup.Modify
 HTTP Request Type:
     * POST
 Request Parameters:
@@ -1085,7 +1085,7 @@ Response:
 Send Verify Code for Getting Domain Back
 ----------------------------------------
 URL:
-    *  https://api.dnspod.com/Domain.Acquiresend
+    * https://api.dnspod.com/Domain.Acquiresend
 HTTP Request Type:
     * POST
 Request Parameters:
@@ -1164,7 +1164,7 @@ Response:
 Get All the Record Types for a Domain Grade
 -------------------------------------------
 URL:
-    *  https://api.dnspod.com/Record.Type
+    * https://api.dnspod.com/Record.Type
 HTTP Request Type:
     * POST
 Request Parameters:
@@ -1205,7 +1205,7 @@ Response:
 Get All the Lines Allowed for a Domain Grade
 --------------------------------------------
 URL:
-    *  https://api.dnspod.com/Record.Line
+    * https://api.dnspod.com/Record.Line
 HTTP Request Type:
     * POST
 Request Parameters:

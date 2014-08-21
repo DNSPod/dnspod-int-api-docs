@@ -4,7 +4,7 @@ D-Monitor
 List All the Sub-domains Whose Type Is "A"
 ------------------------------------------
 URL:
-    *  https://api.dnspod.com/Monitor.Listsubdomain
+    * https://api.dnspod.com/Monitor.Listsubdomain
 HTTP Request Type:
     * POST
 Request Parameters:
@@ -46,7 +46,7 @@ Response:
 List All the "A" Records for a Sub-domain
 -----------------------------------------
 URL:
-    *  https://api.dnspod.com/Monitor.Listsubvalue
+    * https://api.dnspod.com/Monitor.Listsubvalue
 HTTP Request Type:
     * POST
 Request Parameters:
@@ -102,7 +102,7 @@ Response:
 Get the Monitor List
 --------------------
 URL:
-    *  https://api.dnspod.com/Monitor.List
+    * https://api.dnspod.com/Monitor.List
 HTTP Request Type:
     * POST
 Request Parameters:
@@ -169,7 +169,7 @@ Response:
 Add a Monitor
 -------------
 URL:
-    *  https://api.dnspod.com/Monitor.Create
+    * https://api.dnspod.com/Monitor.Create
 HTTP Request Type:
     * POST
 Request Parameters:
@@ -238,7 +238,7 @@ Response:
 Modify a Monitor
 ----------------
 URL:
-    *  https://api.dnspod.com/Monitor.Modify
+    * https://api.dnspod.com/Monitor.Modify
 HTTP Request Type:
     * POST
 Request Parameters:
@@ -299,7 +299,7 @@ Response:
 Remove a Monitor
 ----------------
 URL:
-    *  https://api.dnspod.com/Monitor.Remove
+    * https://api.dnspod.com/Monitor.Remove
 HTTP Request Type:
     * POST
 Request Parameters:
@@ -388,7 +388,7 @@ Response:
 Set a Monitor's Status
 ----------------------
 URL:
-    *  https://api.dnspod.com/Monitor.Setstatus
+    * https://api.dnspod.com/Monitor.Setstatus
 HTTP Request Type:
     * POST
 Request Parameters:
@@ -424,7 +424,7 @@ Response:
 Get a Monitor's History
 -----------------------
 URL:
-    *  https://api.dnspod.com/Monitor.Gethistory
+    * https://api.dnspod.com/Monitor.Gethistory
 HTTP Request Type:
     * POST
 Request Parameters:
@@ -602,7 +602,7 @@ Response:
 Get a Monitor's Warnings
 ------------------------
 URL:
-    *  https://api.dnspod.com/Monitor.Getdowns
+    * https://api.dnspod.com/Monitor.Getdowns
 HTTP Request Type:
     * POST
 Request Parameters:

@@ -189,7 +189,7 @@ Response:
 Update a Record
 ---------------
 URL:
-    *  https://api.dnspod.com/Record.Modify
+    * https://api.dnspod.com/Record.Modify
 HTTP Request Type:
     * POST
 Request Parameters:
@@ -250,7 +250,7 @@ Response:
 Remove a Record
 ---------------
 URL:
-    *  https://api.dnspod.com/Record.Remove
+    * https://api.dnspod.com/Record.Remove
 HTTP Request Type:
     * POST
 Request Parameters:
@@ -286,7 +286,7 @@ Response:
 Update the Dynamic DNS Record
 -----------------------------
 URL:
-    *  https://api.dnspod.com/Record.Ddns
+    * https://api.dnspod.com/Record.Ddns
 HTTP Request Type:
     * POST
 Request Parameters:
@@ -335,7 +335,7 @@ Response:
 Remark a Record
 ---------------
 URL:
-    *  https://api.dnspod.com/Record.Remark
+    * https://api.dnspod.com/Record.Remark
 HTTP Request Type:
     * POST
 Request Parameters:
@@ -368,7 +368,7 @@ Response:
 Get the Record Information
 -------------------------
 URL:
-    *  https://api.dnspod.com/Record.Info
+    * https://api.dnspod.com/Record.Info
 HTTP Request Type:
     * POST
 Request Parameters:
@@ -423,7 +423,7 @@ Response:
 Set the Record Status
 ---------------------
 URL:
-    *  https://api.dnspod.com/Record.Status
+    * https://api.dnspod.com/Record.Status
 HTTP Request Type:
     * POST
 Request Parameters:
