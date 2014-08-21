@@ -1,7 +1,7 @@
 API Explanation
 ===============
 
-1. DNSPod Users' API,aim to help the users to manage their domains conveniently,are limited to persional users to use.
+1. DNSPod Users' API,aim to help the users to manage their domains conveniently,are limited to personal users to use.
 3. No third-party applications or users are allowed to use this API. If you have needs,please let us know: https://www.dnspod.com/About/Aboutus .
 
 
@@ -15,7 +15,7 @@ API Development Norm
         * Too many useless or repeated requests caused by wrong logic or endless loops.
         * Other requests that may give us a lot of pressure.
 
-    In order to ensure you and other developers' benifits,please use our APIs legitimately. DNSPod will punish the behaviors like API misuse by prohibit the accounts and reserve all the rights to arbitate.`
+    In order to ensure you and other developers' benefits,please use our APIs legitimately. DNSPod will punish the behaviors like API misuse by prohibit the accounts and reserve all the rights to arbitrate.`
 
 2. Login Disable：
     If there are more than 30 login failures within 5 minutes,the account will be disabled to login again for an hour. Please check the login status when you develop your own applications,and stop trying if fails.
@@ -29,7 +29,7 @@ API Development Norm
     * Please use UTF-8 encoding for data transfer. The responses are also UTF-8 encoded.
 
 5. UserAgent：
-    * The UserAgent must be seted. Prohibition may caused by wrong UserAgent or none.
+    * The UserAgent must be set. Prohibition may caused by wrong UserAgent or none.
     * UserAgent Format:Application Name/Version(email). For example:"MJJ DDNS Client/1.0.0 (shallwedance@dnspod.com)".
 
 6. Security：
@@ -51,14 +51,14 @@ All the APIs need this parameters.
 
 Common Response Code
 --------------------
-Those responses codes could be in any API beacuse they are the common responses.
+Those responses codes could be in any API because they are the common responses.
     * -1 Login fails.
     * -2 API used too frequently.
     * -3 Invalid agent.(only works for agent users)
     * -4 Not in this agent.(only works for agent users)
     * -7 No permission to use this API.
     * -8 Account got prohibited.
-    * 85 Account logined in another place and your request got rejected.
+    * 85 Account logged-on in another place and your request got rejected.
     * -99 This API is not ready to be used.No rush.
     * 1 Action completed successfully.
     * 2 POST method only.
@@ -78,7 +78,7 @@ Request Parameters：
     * Global parameters.
 Response Code：
     * Common response
-    * 10001 User have been spamed
+    * 10001 User have been spammed
     * 10003 Account email is invalid
     * 10004 Password's length is invalid, must between 6 and 32
     * 10005 Account is not exist
@@ -110,7 +110,7 @@ Users that already turned the D-Token on need this parameters in the request:
 Attention:
     Since the D-Token code changes every 30 seconds,it is highly recommended that you set the "login_remember" to "yes".If so,you will get an extra response with the format of "t + user_id" like "t123456",whose life last for a month.With this cookie,you don't need to submit the "login_code" and "login_remember".
 
-If you are using D-Token,this error codes might be responsed.
+If you are using D-Token,this error codes might be responded.
     * 50 You already turned the D-Token on,and we need you D-Token code.
     * 51 You hasn't turned the D-Token on.
     * 52 Invalid login code.

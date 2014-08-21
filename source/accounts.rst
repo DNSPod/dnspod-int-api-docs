@@ -116,7 +116,7 @@ Update Email Address
 --------------------
 URL：
     * https://api.dnspod.com/Useremail.Modify
-HTTP Resquest Type：
+HTTP Request Type：
     * POST
 Request Parameters：
     * Global Parameters

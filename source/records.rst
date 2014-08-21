@@ -14,18 +14,18 @@ Request Parameters：
     * **record_type** The record type.You can get the list of all allowed types from the API.Capital letters like "A" or "CNAME".Essential parameter.
     * **record_line** The record line.You can get the list from the API.The default value is "default", such as "default", "AD", "AE". Essential parameter.
     * **value** The record value.For example: IP:200.200.200.200, CNAME: cname.dnspod.com., MX: mail.dnspod.com.Essential parameter.
-    * **mx** {1-20} This only need to and must be seted when record_type is "MX".Range from 1 to 20.
+    * **mx** {1-20} This only need to and must be set when record_type is "MX".Range from 1 to 20.
     * **ttl** {1-604800}  TTL，range from 1 to 604800.Every grade has its own min value.Optional parameter.
 Response Code：
     * Common response code.
     * -15 Domain got prohibited.
     * -7 A upgrade for the company account is needed before this.
-    * -8 You need a upgrae for the domain you are acting for.
+    * -8 You need a upgrade for the domain you are acting for.
     * 6 Lack of parameters or something wrong with it.
     * 7 You don't have the permission.
     * 21 Domain got locked.
     * 22 Invalid sub_domain.
-    * 23 Sub domain level is up to limie.
+    * 23 Sub domain level is up to limit.
     * 24 Invalid sub domain for general analysis.
     * 25 The number of poll is up to limit.
     * 26 Invalid line.
@@ -69,7 +69,7 @@ Request Parameters：
     * **domain_id** The domain id.Essential parameter.
     * **offset** The offset of the response.The first one is numbered as 0.Optional parameter.
     * **length** The number of response result.Optional parameter.
-    * **sub_domain** If the subsidiary domain is set,only the information about it will be responsed.
+    * **sub_domain** If the subsidiary domain is set,only the information about it will be responded.
 Response Code：
     * Common response code.
     * -7 A domain of a company account need a upgrade first.
@@ -81,7 +81,7 @@ Response Code：
     * 10 Empty result.
 
 Attention：
-    * If there are more than 500 records,only the first 500 will be responsed.You may need to set "offset" and "length" to get all the records with requests.
+    * If there are more than 500 records,only the first 500 will be responded.You may need to set "offset" and "length" to get all the records with requests.
 
 Example::
 
@@ -200,7 +200,7 @@ Request Parameters：
     * **record_type** The record type.You can get the list from the API.All capital letters like "A".Essential parameter.
     * **record_line** The record line.You can get the list from the API.The default value is "default", such as "default", "AD", "AE". Essential parameter.
     * **value** The record value.For example: IP:200.200.200.200, CNAME: cname.dnspod.com., MX: mail.dnspod.com.Essential parameter.
-    * **mx** {1-20} This only need to and must be seted when record_type is "MX".Range from 1 to 20.
+    * **mx** {1-20} This only need to and must be set when record_type is "MX".Range from 1 to 20.
     * **ttl** {1-604800} TTL，range from 1 to 604800.Every grade has its own min value.Optional parameter.
 Response Code：
     * Common response code.
@@ -223,7 +223,7 @@ Response Code：
     * 32 The number of NS records is up to limit.
     * 33 The number of AAAA records is up to limit.
     * 34 Invalid record value.
-    * 35 The IP is not allowd.
+    * 35 The IP is not allowed.
     * 36 When the sub_domain is "@" and the record_type is "NS",the record_line can only be "default".
 
 Example::
@@ -365,7 +365,7 @@ Response：
         }
 
 
-Get the Record Informtion
+Get the Record Information
 -------------------------
 URL：
     *  https://api.dnspod.com/Record.Info

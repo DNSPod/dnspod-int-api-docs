@@ -189,12 +189,12 @@ Request Parameters：
         #. auto Switch intelligent.
         #. IP addresses split by ",".
 
-    * **keep_ttl** TTL won't be changed if this is seted up.Essential parameter.
+    * **keep_ttl** TTL won't be changed if this is set up.Essential parameter.
     * **sms_notice** "me" for the owner,and "share" for the shared users.Split by "," if there are more than one like "me,share".Essential parameter.
     * **email_notice** Same as the sms_notice.
-    * **less_notice** {yes|no} Whether to just send one notice withen one hour.Essential parameter.
+    * **less_notice** {yes|no} Whether to just send one notice within one hour.Essential parameter.
     * **callback_url** The callback URL.All the data will be sent to this URL when the IP is down.For more details,please see the directions.Optional parameter.
-    * **callback_key** The callback key.If "callback_url" is set up,you shoul set this up too for sucurety.
+    * **callback_key** The callback key.If "callback_url" is set up,you should set this up too for security.
 Response Code：
     * Common response code.
     * 6 Invalid domain id.
@@ -207,7 +207,7 @@ Response Code：
     * 13 Invalid monitor points.
     * 14 Too many points.
     * 15 Invalid backup IP.
-    * 16 Invalid bakcup url.
+    * 16 Invalid backup url.
     * 17 Invalid backup IP.
     * 18 Invalid sms notice.
     * 19 Invalid email notice.
@@ -244,7 +244,7 @@ Method：
 Request Parameters：
     * Global parameters
     * **monitor_id** Monitor id.Essential parameter.
-    * **port** The port number to minitor like 80.Essential parameter.
+    * **port** The port number to monitor like 80.Essential parameter.
     * **monitor_interval** {60|180|360|} The monitor interval.Essential parameter.
     * **monitor_type** {http|https} The monitor type.Essential parameter.
     * **monitor_path** The path in the http header like "/".Essential parameter.
@@ -253,16 +253,16 @@ Request Parameters：
         #. pass Just monitoring,no switching.
         #. pause The old type of pause.For more details,please visit: https://support.dnspod.cn/Kb/showarticle/tsid/179
         #. pause2 The intelligent pause who pause the record immediately when the IP is down.
-        #. auto Switch intellgently.
+        #. auto Switch intelligently.
         #. IP addresses split by ",".
 
     * **host** The host from the http header like "www.dnspod.com".Essential parameter.
-    * **keep_ttl** TTL won't be changed if this is seted up.Essential parameter.
+    * **keep_ttl** TTL won't be changed if this is set up.Essential parameter.
     * **sms_notice** "me" for the owner,and "share" for the shared users.Split by "," if there are more than one like "me,share".Essential parameter.
     * **email_notice** Same as the sms_notice.
-    * **less_notice** {yes|no} Whether to just send one notice withen one hour.Essential parameter.
+    * **less_notice** {yes|no} Whether to just send one notice within one hour.Essential parameter.
     * **callback_url**  The callback URL.All the data will be sent to this URL when the IP is down.For more details,please see the directions.Optional parameter.
-    * **callback_key** The callback key.If "callback_url" is set up,you shoul set this up too for sucurety.
+    * **callback_key** The callback key.If "callback_url" is set up,you should set this up too for security.
 Response Code：
     * Common response code.
     * 7 Invalid monitor id.
@@ -274,7 +274,7 @@ Response Code：
     * 13 Invalid monitor points.
     * 14 Too many points.
     * 15 Invalid backup IP.
-    * 16 Invalid bakcup url.
+    * 16 Invalid backup url.
     * 17 Invalid backup IP.
     * 18 Invalid sms notice.
     * 19 Invalid email notice.

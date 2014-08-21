@@ -50,20 +50,20 @@ Method：
     * POST
 Request Parameters：
     * Global Parameters
-    * **type** The domain type.Optional parameter.Default value:'all'.Here are all the choseable values :
+    * **type** The domain type.Optional parameter.Default value:'all'.Here are all the choosable values :
         * all：All the domains
         * mine：Only mine.
         * share：Domains that shared with me.
         * ismark：Marked domains.
         * pause：Paused domains.
         * vip：VIP domains.
-        * recent：Domains operated recentily.
+        * recent：Domains operated recently.
         * share_out：Domains that I shared out.
     * **offset** The offset of the response.Optional parameter.The first domain is numbered as 0.
     * **length** The number of domains you want to get on this request.Optional parameter.
-    * **group_id** The group ID.Only in this group can the domain be in the results if this parameter is seted.Optional parameter.
+    * **group_id** The group ID.Only in this group can the domain be in the results if this parameter is set.Optional parameter.
 Attention：
-    * If there are more than 500 domains in your account,only the first 500 domains will responsed for split page.You may need to set the parameter "offset" and "length" to get all your domains with multi requests.
+    * If there are more than 500 domains in your account,only the first 500 domains will responded for split page.You may need to set the parameter "offset" and "length" to get all your domains with multi requests.
 Response Code：
     * Common Response Code
     * 6 Invalid offset.
@@ -411,7 +411,7 @@ Request Parameters：
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **email** The original target email address.Don's change it.
     * **mode** {r,rw} Share mode."r" stands for "read only",and "rw" stands for "read and write".The default value is "r".
-    * **old_sub_domain** The old subsidiary domain that already shared.This parameter shouldn't be seted if you want to update the domain name.
+    * **old_sub_domain** The old subsidiary domain that already shared.This parameter shouldn't be set if you want to update the domain name.
     * **new_sub_domain** The new subsidiary domain.
 Response Code：
     * Common Response Code
@@ -511,9 +511,9 @@ Response Code：
     * 6 Invalid domain id.
     * 7 Invalid email address.
     * 8 Email address not exists.
-    * 9 You cannt transfer it to yourself.
-    * 10 You can't transfer a domain from a persional account to a company account.
-    * 11 You can't transfer a domain from a company account to a persional account.
+    * 9 You cannot transfer it to yourself.
+    * 10 You can't transfer a domain from a personal account to a company account.
+    * 11 You can't transfer a domain from a company account to a personal account.
 
 Example::
     
@@ -1054,12 +1054,12 @@ Response Code：
     * 6 Invalid domain
     * 7 No Chinese character allowed in the domain.
     * 8 Invalid domain.
-    * 9 Domains that end with ".tk" are not supported.No offence.
+    * 9 Domains that end with ".tk" are not supported.No offense.
     * 10 Domain not exists.
     * 11 Domain got prohibited.
     * 12 Domain got locked.
-    * 13 You can't get a domain back from a company account to a persional account.
-    * 14 You can't get a domain back from a persional account to a company account.
+    * 13 You can't get a domain back from a company account to a personal account.
+    * 14 You can't get a domain back from a personal account to a company account.
     * 15 Fail to get email address.Maybe there's something wrong with the network or the domain doesn't support.
 
 Example::
@@ -1097,12 +1097,12 @@ Response Code：
     * 6 Invalid domain.
     * 7 No Chinese characters supported in the domain.
     * 8 Invalid domain.
-    * 9 Domains end with ".tk" are not supported.No offence.
+    * 9 Domains end with ".tk" are not supported.No offense.
     * 10 Domain not exists.
     * 11 Domain got prohibited.
     * 12 Domain got locked.
-    * 13 You can't get a domain back from a company account to a persional account.
-    * 14 You can't get a domain back from a persional account to a company account.
+    * 13 You can't get a domain back from a company account to a personal account.
+    * 14 You can't get a domain back from a personal account to a company account.
     * 15 Fail to get email address.Maybe there's something wrong with the network or the domain doesn't support.
     * 16 Invalid email address.
 
@@ -1134,14 +1134,14 @@ Request Parameters：
 Response Code：
     * Common Response Code
     * 6 Invalid domain.
-    * 7 No Chinnese characters allowed.
+    * 7 No Chinese characters allowed.
     * 8 Invalid domain.
-    * 9 Domains end with ".tk" are not supported.No offence.
+    * 9 Domains end with ".tk" are not supported.No offense.
     * 10 Domain not exists.
     * 11 Domain got prohibited.
     * 12 Domain got locked.
-    * 13 You can't get a domain back from a company account to a persional account.
-    * 14 You can't get a domain back from a persional account to a company account.
+    * 13 You can't get a domain back from a company account to a personal account.
+    * 14 You can't get a domain back from a personal account to a company account.
     * 15 Wrong code.
     * 16 Invalid email address.
 
