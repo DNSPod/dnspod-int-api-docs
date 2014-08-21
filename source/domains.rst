@@ -3,16 +3,16 @@ Domains
 
 Add New Domain
 --------------
-URL：
+URL:
     * https://api.dnspod.com/Domain.Create
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain** The domain to add. No prefix.Example:dnspod.com
     * **group_id** The domain group ID. Optional parameter.
     * **is_mark** {yes|no} Whether to mark it or not. Optional parameter.
-Response Code：
+Response Code:
     * Common Response Code
     * 6 Invalid domain.
     * 7 Domain already exists.
@@ -24,7 +24,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Domain.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&domain=api2.com&format=json'
 
-Response：
+Response:
 
     * JSON::
         
@@ -44,27 +44,27 @@ Response：
 
 Get The Domain List
 -------------------
-URL：
+URL:
     * https://api.dnspod.com/Domain.List
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **type** The domain type.Optional parameter.Default value:'all'.Here are all the choosable values :
-        * all：All the domains
-        * mine：Only mine.
-        * share：Domains that shared with me.
-        * ismark：Marked domains.
-        * pause：Paused domains.
-        * vip：VIP domains.
-        * recent：Domains operated recently.
-        * share_out：Domains that I shared out.
+        * all:All the domains
+        * mine:Only mine.
+        * share:Domains that shared with me.
+        * ismark:Marked domains.
+        * pause:Paused domains.
+        * vip:VIP domains.
+        * recent:Domains operated recently.
+        * share_out:Domains that I shared out.
     * **offset** The offset of the response.Optional parameter.The first domain is numbered as 0.
     * **length** The number of domains you want to get on this request.Optional parameter.
     * **group_id** The group ID.Only in this group can the domain be in the results if this parameter is set.Optional parameter.
-Attention：
+Attention:
     * If there are more than 500 domains in your account,only the first 500 domains will responded for split page.You may need to set the parameter "offset" and "length" to get all your domains with multi requests.
-Response Code：
+Response Code:
     * Common Response Code
     * 6 Invalid offset.
     * 7 Invalid length.
@@ -74,7 +74,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json'
 
-Response：
+Response:
 
    * JSON::
 
@@ -124,14 +124,14 @@ Response：
 
 Delete Domain
 -------------
-URL：
+URL:
     * https://api.dnspod.com/Domain.Remove
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
-Response Code：
+Response Code:
     * Common Response Code
     * -15 Domain got prohibited.
     * 6 Invalid domain id.
@@ -143,7 +143,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Domain.Remove -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=1992403'
     
-Response：
+Response:
 
     * JSON::
         
@@ -157,15 +157,15 @@ Response：
 
 Set Domain Status
 -----------------
-URL：
+URL:
     * https://api.dnspod.com/Domain.Status
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **status** {enable, disable} The domain status.
-Response Code：
+Response Code:
     * Common Response Code
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
@@ -178,7 +178,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Domain.Status -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2058967&status=disable'
 
-Response：
+Response:
 
     * JSON::
             
@@ -192,14 +192,14 @@ Response：
 
 Get The Domain Information
 --------------------------
-URL：
+URL:
     * https://api.dnspod.com/Domain.Info
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
-Response Code：
+Response Code:
     * Common Response Code
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
@@ -210,7 +210,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Domain.Info  -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079'
 
-Response：
+Response:
 
     * JSON::
 
@@ -246,14 +246,14 @@ Response：
 
 Get the Operate Logs of a Domain
 --------------------------------
-URL：
+URL:
     * https://api.dnspod.com/Domain.Log
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
-Response Code：
+Response Code:
     * Common Response Code
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
@@ -264,7 +264,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.Log  -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079'
 
-Response：
+Response:
 
     * JSON::
 
@@ -286,15 +286,15 @@ Response：
 
 Push Domain to Search Engine
 ----------------------------
-URL：
+URL:
     * https://api.dnspod.com/Domain.Searchenginepush
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **status** {yes,no} Whether to push it.
-Response Code：
+Response Code:
     * Common Response Code
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
@@ -307,7 +307,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Domain.Searchenginepush -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&status=yes'
     
-Response：
+Response:
 
     * JSON::
         
@@ -322,18 +322,18 @@ Response：
 
 Share a Domain
 --------------
-URL：
+URL:
     * https://api.dnspod.com/Domainshare.Create
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **email** The email address with who you want to share.
     * **mode** {r,rw} The share mode."r" stands for "read only",and "rw" stands for "read and write".The default value is "r".
     * **sub_domain** The subsidiary domain you want to share,like "www" or "bbs".Don't set this parameter if you want to share the whole domain.
 
-Response Code：
+Response Code:
     * Common Response Code
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
@@ -348,7 +348,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Domainshare.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&email=otheruser@dnspod.com&mode=rw'
     
-Response：
+Response:
 
     * JSON::
         
@@ -362,14 +362,14 @@ Response：
     
 Get Domain Share List
 ---------------------
-URL：
+URL:
     * https://api.dnspod.com/Domainshare.List
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
-Response Code：
+Response Code:
     * Common Response Code
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
@@ -380,7 +380,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domainshare.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079'
 
-Response：
+Response:
 
     * JSON::
         
@@ -402,18 +402,18 @@ Response：
 
 Update the Domain Share
 -----------------------
-URL：
+URL:
     * https://api.dnspod.com/Domainshare.Modify
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **email** The original target email address.Don's change it.
     * **mode** {r,rw} Share mode."r" stands for "read only",and "rw" stands for "read and write".The default value is "r".
     * **old_sub_domain** The old subsidiary domain that already shared.This parameter shouldn't be set if you want to update the domain name.
     * **new_sub_domain** The new subsidiary domain.
-Response Code：
+Response Code:
     * Common Response Code
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
@@ -445,7 +445,7 @@ Example
 
     curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=rw&old_sub_domain=www&new_sub_domain=bbs'
     
-Response：
+Response:
 
    * JSON::
         
@@ -459,15 +459,15 @@ Response：
 
 Delete a Domain Share
 ---------------------
-URL：
+URL:
     *  https://api.dnspod.com/Domainshare.Remove
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **email** The original email address.
-Response Code：
+Response Code:
     * Common Response Code
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
@@ -481,7 +481,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domainshare.Remove -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&email=yizerowu@dnspod.com'
 
-Response：
+Response:
 
     * JSON::    
     
@@ -495,15 +495,15 @@ Response：
 
 Transfer a Domain to Another Account
 ------------------------------------
-URL：
+URL:
     * https://api.dnspod.com/Domain.Transfer
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **email** The original email address.
-Response Code：
+Response Code:
     * Common Response Code
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
@@ -519,7 +519,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domainshare.Transfer -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&email=yizerowu@dnspod.com'
     
-Response：
+Response:
 
     * JSON::    
     
@@ -533,15 +533,15 @@ Response：
 
 Lock a Domain
 -------------
-URL：
+URL:
     * https://api.dnspod.com/Domain.Lock
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_id** The domain ID
     * **days** For how many days.
-Response Code：
+Response Code:
     * Common Response Code
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
@@ -556,7 +556,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.Lock -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&days=3'
 
-Response：
+Response:
 
     * JSON::
         
@@ -575,14 +575,14 @@ Response：
 
 Lock Status
 -----------
-URL：
+URL:
     * https://api.dnspod.com/Domain.Lockstatus
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
-Response Code：
+Response Code:
     * Common Response Code
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
@@ -594,7 +594,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.Lockstatus -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079'
     
-Response：
+Response:
 
     * JSON::
         
@@ -614,15 +614,15 @@ Response：
 
 Domain Unlock
 -------------
-URL：
+URL:
     * https://api.dnspod.com/Domain.Unlock
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **lock_code** The code that you will get when you lock the domain.
-Response Code：
+Response Code:
     * Common Response Code
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
@@ -636,7 +636,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.Unlock -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&lock_code=fdd638'
 
-Response：
+Response:
 
     * JSON::
         
@@ -655,14 +655,14 @@ Response：
 
 Get Domain Alias List
 ---------------------
-URL：
+URL:
     * https://api.dnspod.com/Domainalias.List
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
-Response Code：
+Response Code:
     * Common Response Code
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
@@ -673,7 +673,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domainalias.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079'
 
-Response：
+Response:
 
    * JSON::
 
@@ -694,15 +694,15 @@ Response：
 
 Add a Domain Alias
 ------------------
-URL：
+URL:
     * https://api.dnspod.com/Domainalias.Create
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_id** The domain ID.
     * **domain** The domain to bind.Without "www".
-Response Code：
+Response Code:
     * Common Response Code
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
@@ -717,7 +717,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domainalias.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&domain=dnspodapi.com'
 
-Response：
+Response:
 
     * JSON::
         
@@ -735,15 +735,15 @@ Response：
 
 Remove a Domain Alias
 ---------------------
-URL：
+URL:
     * https://api.dnspod.com/Domainalias.Remove
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **alias_id** The alias id that you will get when you create it.
-Response Code：
+Response Code:
     * Common Response Code
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
@@ -755,7 +755,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domainalias.Remove -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&alias_id=18737'
 
-Response：
+Response:
 
     * JSON::
         
@@ -769,20 +769,20 @@ Response：
 
 Get The Domain Group List
 -------------------------
-URL：
+URL:
     * https://api.dnspod.com/Domaingroup.List
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
-Response Code：
+Response Code:
     * Common Response Code
 
 Example::
     
     curl -X POST https://api.dnspod.com/Domaingroup.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json'
     
-Response：
+Response:
 
     * JSON::
         
@@ -847,14 +847,14 @@ Response：
     
 Add a New Domain Group
 ----------------------
-URL：
+URL:
     https://api.dnspod.com/Domaingroup.Create
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **group_name** I think you know what this stands for.
-Response Code：
+Response Code:
     * Common Response Code
     * 7 Invalid group name.
     * 8 The group name already exists.
@@ -864,7 +864,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domaingroup.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&group_name=dnspod'
 
-Response：
+Response:
 
     * JSON::
         
@@ -879,20 +879,20 @@ Response：
             }
         }
 
-Attention：
+Attention:
     * This API only works for VIP accounts while free accounts will get an error.
 
 Update a Domain Group
 ---------------------
-URL：
+URL:
     https://api.dnspod.com/Domaingroup.Modify
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **group_id** 
     * **group_name** 
-Response Code：
+Response Code:
     * Common Response Code
     * 6 Invalid group id.
     * 7 Invalid group name.
@@ -903,7 +903,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domaingroup.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&group_id=1985&group_name=dnspodgroup'
 
-Response：
+Response:
 
     * JSON::
 
@@ -917,14 +917,14 @@ Response：
     
 Remove a Domain Group
 ---------------------
-URL：
+URL:
     * https://api.dnspod.com/Domaingroup.Remove
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **group_id**
-Response Code：
+Response Code:
     * Common Response Code
     * 6 Invalid group id.
 
@@ -932,7 +932,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domaingroup.Remove -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&group_id=1985'
 
-Response：
+Response:
 
     * JSON::
         
@@ -946,15 +946,15 @@ Response：
     
 Change a Domain's Group
 -----------------------
-URL：
+URL:
     * https://api.dnspod.com/Domain.Changegroup
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **group_id** 
-Response Code：
+Response Code:
     * Common Response Code
     * 6 Invalid domain id.
     * 7 Invalid group id.
@@ -963,7 +963,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.Changegroup -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&group_id=1985'
     
-Response：
+Response:
 
    * JSON::
     
@@ -975,21 +975,21 @@ Response：
             }
         } 
 
-Directions：
+Directions:
     * All the domains shared by others are always put into the group named "Shared With Me" because their group is unchangeable.
     * Only the owner of the domain has the permission to change the domain's group.
 
 Mark a Domain
 -------------
-URL：
+URL:
     * https://api.dnspod.com/Domain.Ismark
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **is_mark** {yes|no} Whether to mark this domain.
-Response Code：
+Response Code:
     * Common Response Code
     * 6 Invalid domain id.
 
@@ -997,7 +997,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.Ismark -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&is_mark=yes'
 
-Response：
+Response:
 
     * JSON::
         
@@ -1011,15 +1011,15 @@ Response：
 
 Remark a Domain
 ---------------
-URL：
+URL:
     * https://api.dnspod.com/Domain.Remark
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **remark** The remark information,or empty for deleting.
-Response Code：
+Response Code:
     * Common Response Code
     * 6 Invalid domain id.
 
@@ -1027,7 +1027,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.Remark -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&remark=这个域名需要备注一下'
     
-Response：
+Response:
 
     * JSON::
         
@@ -1042,14 +1042,14 @@ Response：
 
 Get the Email Address Needed to Get Domain Back
 -----------------------------------------------
-URL：
+URL:
     * https://api.dnspod.com/Domain.Acquire
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain** The domain you want to get back.
-Response Code：
+Response Code:
     * Common Response Code
     * 6 Invalid domain
     * 7 No Chinese character allowed in the domain.
@@ -1066,7 +1066,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.Acquire -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain=api4.com'
     
-Response：
+Response:
 
     * JSON::
         
@@ -1084,15 +1084,15 @@ Response：
 
 Send Verify Code for Getting Domain Back
 ----------------------------------------
-URL：
+URL:
     *  https://api.dnspod.com/Domain.Acquiresend
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain** The domain you want to get back.
     * **email** One email address in the get-domain-back email list.
-Response Code：
+Response Code:
     * Common Response Code
     * 6 Invalid domain.
     * 7 No Chinese characters supported in the domain.
@@ -1110,7 +1110,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.Acquiresend -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain=api4.com&email=support@namecheap.com'
     
-Response：
+Response:
     * JSON::
         
         {
@@ -1123,15 +1123,15 @@ Response：
 
 Verify the Verify Code
 ----------------------
-URL：
+URL:
     * https://api.dnspod.com/Domain.Acquirevalidate
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain** The domain you want to get back.
     * **code**  The code that you get from your email.
-Response Code：
+Response Code:
     * Common Response Code
     * 6 Invalid domain.
     * 7 No Chinese characters allowed.
@@ -1149,7 +1149,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.Acquirevalidate -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain=api4.com&code=111000'
     
-Response：
+Response:
 
     * JSON::
             
@@ -1163,14 +1163,14 @@ Response：
 
 Get All the Record Types for a Domain Grade
 -------------------------------------------
-URL：
+URL:
     *  https://api.dnspod.com/Record.Type
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_grade** The domain grade. only 'DP_Free' for now. 
-Response Code：
+Response Code:
     * Common Response Code
     * 6 Invalid domain grade.
 
@@ -1178,7 +1178,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Record.Type -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_grade=DP_Free'
 
-Response：
+Response:
 
     * JSON::
 
@@ -1204,15 +1204,15 @@ Response：
 
 Get All the Lines Allowed for a Domain Grade
 --------------------------------------------
-URL：
+URL:
     *  https://api.dnspod.com/Record.Line
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **domain_grade** The domain grade. only 'DP_Free' for now. 
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
-Response Code：
+Response Code:
     * Common Response Code
     * 6 Invalid domain grade.
 
@@ -1220,7 +1220,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Record.Line -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_grade=DP_Free&domain=dnspod.com'
 
-Response：
+Response:
 
     * JSON::
 

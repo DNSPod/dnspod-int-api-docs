@@ -4,20 +4,20 @@ Accounts
 
 Get Account Information
 -----------------------
-URL：
+URL:
     * https://api.dnspod.com/User.Detail
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
-Response Code：
+Response Code:
     * Common Response
 
 Example::
     
     curl -X POST https://api.dnspod.com/User.Detail -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json'
 
-Response Example：
+Response Example:
 
     * JSON::
 
@@ -50,17 +50,17 @@ Response Example：
 
 Update Information
 ------------------
-URL：
+URL:
     * https://api.dnspod.com/User.Modify
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global parameters
     * **real_name** Your real name for personal accounts,and company name for company accounts.
     * **nick** Your nickname that make it easier to contact to the users.
     * **telephone** The users' phone number.
     * **im** Your Instant Messaging account.
-Response Code：
+Response Code:
     * Common response
     * 8 Invalid phone number.
     * 9 Invalid im account.
@@ -69,7 +69,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/User.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&im=10000000'
 
-Response：
+Response:
 
     * JSON::
 
@@ -83,15 +83,15 @@ Response：
 
 Change Password
 ---------------
-URL：
+URL:
     * https://api.dnspod.com/Userpasswd.Modify
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **old_password** The old password.
     * **new_password** The new password.
-Response Code：
+Response Code:
     * Common Response Code
     * 8 Wrong old password.
     * 9 Invalid new password.
@@ -100,7 +100,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Userpassword.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&old_password=old_password&new_password=new_password'
 
-Response：
+Response:
 
     * JSON::
 
@@ -114,16 +114,16 @@ Response：
 
 Update Email Address
 --------------------
-URL：
+URL:
     * https://api.dnspod.com/Useremail.Modify
-HTTP Request Type：
+HTTP Request Type:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
     * **old_email** Old email address.
     * **new_email** New email address.
     * **password** Your current password for verifying.
-Response Code：
+Response Code:
     * Common Response Code.
     * 8 Old email address is not correct.
     * 9 New email address is invalid.
@@ -133,7 +133,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Useremail.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&old_email=api1@dnspod.com&new_email=api@dnspod.com&password=password'   
 
-Response：
+Response:
 
     * JSON::
         
@@ -149,20 +149,20 @@ Response：
 
 Get The Account's Operate Log
 -----------------------------
-URL：
+URL:
     * https://api.dnspod.com/User.Log
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global Parameters
-Response Code：
+Response Code:
     * Common response code.
 
 Example::
 
     curl -X POST https://api.dnspod.com/User.Log -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json'
 
-Response：
+Response:
 
     * JSON::
 

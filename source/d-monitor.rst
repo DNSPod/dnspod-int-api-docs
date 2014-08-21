@@ -3,14 +3,14 @@ D-Monitor
 
 List All the Sub-domains Whose Type Is "A"
 ------------------------------------------
-URL：
+URL:
     *  https://api.dnspod.com/Monitor.Listsubdomain
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global parameters
     * **domain** OR **domain_id** Stand for the domain name and the domain id.You only need to and must choose one of them.
-Response Code：
+Response Code:
     * Common response code.
     * 6 Domain not exists.
     * 7 Invalid domain id.
@@ -20,7 +20,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Monitor.Listsubdomain -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346'
     
-Response：
+Response:
 
     * JSON::
 
@@ -45,15 +45,15 @@ Response：
 
 List All the "A" Records for a Sub-domain
 -----------------------------------------
-URL：
+URL:
     *  https://api.dnspod.com/Monitor.Listsubvalue
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global parameters
     * **domain** OR **domain_id** Stand for the domain name and the domain id.You only need to and must choose one of them.
     * **subdomain** The sub-domain.Essential parameter.
-Response Code：
+Response Code:
     * Common response code.
     * 6 Domain not exists.
     * 7 Invalid domain id.
@@ -62,7 +62,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Monitor.Listsubvalue -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&subdomain=@'
     
-Response：
+Response:
 
     * JSON::
 
@@ -101,20 +101,20 @@ Response：
 
 Get the Monitor List
 --------------------
-URL：
+URL:
     *  https://api.dnspod.com/Monitor.List
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global parameters
-Response Code：
+Response Code:
     * Common response code.
 
 Example::
 
     curl -X POST https://api.dnspod.com/Monitor.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346'
     
-Response：
+Response:
 
     * JSON::
 
@@ -168,11 +168,11 @@ Response：
 
 Add a Monitor
 -------------
-URL：
+URL:
     *  https://api.dnspod.com/Monitor.Create
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global parameters
     * **domain_id** The domain id.Essential parameter.
     * **record_id** The record id.Essential parameter.
@@ -195,7 +195,7 @@ Request Parameters：
     * **less_notice** {yes|no} Whether to just send one notice within one hour.Essential parameter.
     * **callback_url** The callback URL.All the data will be sent to this URL when the IP is down.For more details,please see the directions.Optional parameter.
     * **callback_key** The callback key.If "callback_url" is set up,you should set this up too for security.
-Response Code：
+Response Code:
     * Common response code.
     * 6 Invalid domain id.
     * 7 Invalid record id.
@@ -219,7 +219,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Monitor.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16909160&port=80&monitor_type=http&monitor_path=/&monitor_interval=360&points=ctc,cuc,cmc&bak_ip=pass&host=testapi.com'
 
-Response：
+Response:
 
     * JSON::
 
@@ -237,11 +237,11 @@ Response：
 
 Modify a Monitor
 ----------------
-URL：
+URL:
     *  https://api.dnspod.com/Monitor.Modify
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global parameters
     * **monitor_id** Monitor id.Essential parameter.
     * **port** The port number to monitor like 80.Essential parameter.
@@ -263,7 +263,7 @@ Request Parameters：
     * **less_notice** {yes|no} Whether to just send one notice within one hour.Essential parameter.
     * **callback_url**  The callback URL.All the data will be sent to this URL when the IP is down.For more details,please see the directions.Optional parameter.
     * **callback_key** The callback key.If "callback_url" is set up,you should set this up too for security.
-Response Code：
+Response Code:
     * Common response code.
     * 7 Invalid monitor id.
     * 8 Invalid host.
@@ -284,7 +284,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Monitor.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&monitor_id=51fc9a20-363c-11e2-bab7-0819a6248970&port=80&monitor_type=http&monitor_path=/&monitor_interval=360&points=ctc,cuc,cmc&bak_ip=pass'
 
-Response：
+Response:
 
     * JSON::
 
@@ -298,14 +298,14 @@ Response：
 
 Remove a Monitor
 ----------------
-URL：
+URL:
     *  https://api.dnspod.com/Monitor.Remove
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global parameters
     * **monitor_id** I think we all know this is the monitor's id.
-Response Code：
+Response Code:
     * Common response code.
     * 6 Invalid monitor id.
 
@@ -313,7 +313,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Monitor.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&monitor_id=51fc9a20-363c-11e2-bab7-0819a6248970'
     
-Response：
+Response:
 
     * JSON::
 
@@ -328,14 +328,14 @@ Response：
 
 Get the Monitor Information
 ---------------------------
-URL：
+URL:
     * https://api.dnspod.com/Monitor.Info
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global parameters
     * **monitor_id** The monitor's id.
-Response Code：
+Response Code:
     * Common response code.
     * 7 Invalid monitor id.
 
@@ -343,7 +343,7 @@ Example::
         
     curl -X POST https://api.dnspod.com/Monitor.Info -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&monitor_id=e91997aa-3641-11e2-bab7-0819a6248970'
     
-Response：
+Response:
 
     * JSON::
 
@@ -387,21 +387,21 @@ Response：
 
 Set a Monitor's Status
 ----------------------
-URL：
+URL:
     *  https://api.dnspod.com/Monitor.Setstatus
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global parameters
     * **monitor_id** Monitor id.Essential parameter.
     * **status** {enabled|disabled} The new status.Essential status.
-Response Code：
+Response Code:
     * Common response code.
     * 6 Invalid monitor id.
     * 7 Invalid new status.
     * 8 Please turn the domain on first.
     * 9 Please turn the record on first.
-Response Code：
+Response Code:
     * Common response code.
     * 6 Invalid monitor id.
 
@@ -409,7 +409,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Monitor.Setstatus -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&monitor_id=03e3b268-3643-11e2-bab7-0819a6248970&status=disable'
     
-Response：
+Response:
 
     * JSON::
 
@@ -423,15 +423,15 @@ Response：
 
 Get a Monitor's History
 -----------------------
-URL：
+URL:
     *  https://api.dnspod.com/Monitor.Gethistory
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global parameters
     * **monitor_id** Monitor id.Essential parameter.
     * **hours** Within how many hours do you want to get the history.
-Response Code：
+Response Code:
     * Common response code.
     * 6 Invalid monitor id.
 
@@ -439,7 +439,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Monitor.Setstatus -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&monitor_id=03e3b268-3643-11e2-bab7-0819a6248970&hours=1'
     
-Response：
+Response:
 
     * JSON::
 
@@ -564,20 +564,20 @@ Response：
 
 Get a Monitor's Description
 ---------------------------
-URL：
+URL:
     * https://api.dnspod.com/Monitor.Userdesc
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global parameters
-Response Code：
+Response Code:
     * Common response code.
 
 Example::
 
     curl -X POST https://api.dnspod.com/Monitor.Userdesc -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json'
     
-Response：
+Response:
 
     * JSON::
 
@@ -601,22 +601,22 @@ Response：
 
 Get a Monitor's Warnings
 ------------------------
-URL：
+URL:
     *  https://api.dnspod.com/Monitor.Getdowns
-Method：
+Method:
     * POST
-Request Parameters：
+Request Parameters:
     * Global parameters
     * **offset** The offset of the response.The first is numbered 0.Optional parameter.
     * **length** The number of results you want get.Optional parameter.
-Response Code：
+Response Code:
     * Common response code.
 
 Example::
 
     curl -X POST https://api.dnspod.com/Monitor.Getdowns -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&offset=0&length=10'
     
-Response：
+Response:
 
     * JSON::
 

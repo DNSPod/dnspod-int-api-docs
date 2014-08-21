@@ -8,7 +8,7 @@ API Explanation
 API Development Norm
 --------------------    
 
-1. Misuse：
+1. Misuse:
     This will be looked as API misuse. Including but not limit to:
         * Do a lot of inserts,deletes,updates or refreshes within a short time.
         * Request a lot without changing anything. What are you thinking!
@@ -17,25 +17,25 @@ API Development Norm
 
     In order to ensure you and other developers' benefits,please use our APIs legitimately. DNSPod will punish the behaviors like API misuse by prohibit the accounts and reserve all the rights to arbitrate.`
 
-2. Login Disable：
+2. Login Disable:
     If there are more than 30 login failures within 5 minutes,the account will be disabled to login again for an hour. Please check the login status when you develop your own applications,and stop trying if fails.
 
-3. Prohibition：
+3. Prohibition:
     Even got prohibited,you can still use it on the official website. The prohibition will be relieved an hour later.Please be careful and never use it for large tests. 
 
-4. Requests：
+4. Requests:
     * The request url starts with "https://dnsapi.cn/",which based on SSL. You must use "https" instead of "http".
     * POST method accepted only.
     * Please use UTF-8 encoding for data transfer. The responses are also UTF-8 encoded.
 
-5. UserAgent：
+5. UserAgent:
     * The UserAgent must be set. Prohibition may caused by wrong UserAgent or none.
     * UserAgent Format:Application Name/Version(email). For example:"MJJ DDNS Client/1.0.0 (shallwedance@dnspod.com)".
 
-6. Security：
+6. Security:
     Almost every step needs the email address and the password. So if you have to storage the user's informations,please encrypt the password first. Never storage the password directly.
 
-7. Support：
+7. Support:
     * Support center: https://www.dnspod.com/Support
 
 
@@ -70,13 +70,13 @@ Get the user token
 ------------------
 Before you use the APIs, you need get a user-token first by this one.
 
-API Address：
+API Address:
     * https://api.dnspod.com/Auth
-HTTP Request Type：
+HTTP Request Type:
     * POST
-Request Parameters：
+Request Parameters:
     * Global parameters.
-Response Code：
+Response Code:
     * Common response
     * 10001 User have been spammed
     * 10003 Account email is invalid
@@ -87,7 +87,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Auth -d 'login_email=api@dnspod.com&login_password=password&format=json'
 
-Response：
+Response:
 
     * JSON::
 
@@ -121,20 +121,20 @@ If you are using D-Token,this error codes might be responded.
 
 Get the Version of API
 ----------------------
-API Address：
+API Address:
     * https://api.dnspod.com/Info.Version
-HTTP Request Type：
+HTTP Request Type:
     * POST
-Request Parameters：
+Request Parameters:
     * Global parameters.
-Response Code：
+Response Code:
     * Common response
 
 Example::
     
     curl -X POST https://api.dnspod.com/Info.Version -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json'
 
-Response：
+Response:
 
     * JSON::
 
