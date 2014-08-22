@@ -69,7 +69,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/User.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&im=10000000'
 
-Response:
+Response Example:
 
     * JSON::
 
@@ -100,7 +100,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Userpassword.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&old_password=old_password&new_password=new_password'
 
-Response:
+Response Example:
 
     * JSON::
 
@@ -133,7 +133,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Useremail.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&old_email=api1@dnspod.com&new_email=api@dnspod.com&password=password'   
 
-Response:
+Response Example:
 
     * JSON::
         
@@ -162,7 +162,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/User.Log -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json'
 
-Response:
+Response Example:
 
     * JSON::
 

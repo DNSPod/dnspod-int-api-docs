@@ -41,7 +41,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Record.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&sub_domain=@&record_type=A&record_line=default&value=1.1.1.1'
     
-Response:
+Response Example:
 
     * JSON::
 
@@ -87,7 +87,7 @@ Example::
 
      curl -X POST https://api.dnspod.com/Record.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346'
     
-Response:
+Response Example:
 
     * JSON::
 
@@ -230,7 +230,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Record.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439&sub_domain=www&value=3.2.2.2&record_type=A&record_line=default'
    
-Response:
+Response Example:
 
     * JSON::
 
@@ -271,7 +271,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Record.Remove -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439'
     
-Response:
+Response Example:
 
     * JSON::
 
@@ -315,7 +315,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Record.Ddns -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439&record_line=default&sub_domain=www'
     
-Response:
+Response Example:
 
     * JSON::
 
@@ -352,7 +352,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Record.Remark -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439&remark=test'
     
-Response:
+Response Example:
 
     * JSON::
 
@@ -388,7 +388,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Record.Info -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439'
     
-Response:
+Response Example:
 
     * JSON::
 
@@ -445,7 +445,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Record.Status -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439&status=disable'
     
-Response:
+Response Example:
 
     * JSON::
 

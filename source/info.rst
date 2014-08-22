@@ -89,7 +89,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Auth -d 'login_email=api@dnspod.com&login_password=password&format=json'
 
-Response:
+Response Example:
 
     * JSON::
 
@@ -136,7 +136,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Info.Version -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json'
 
-Response:
+Response Example:
 
     * JSON::
 

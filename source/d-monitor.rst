@@ -20,7 +20,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Monitor.Listsubdomain -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346'
     
-Response:
+Response Example:
 
     * JSON::
 
@@ -62,7 +62,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Monitor.Listsubvalue -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&subdomain=@'
     
-Response:
+Response Example:
 
     * JSON::
 
@@ -114,7 +114,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Monitor.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346'
     
-Response:
+Response Example:
 
     * JSON::
 
@@ -219,7 +219,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Monitor.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16909160&port=80&monitor_type=http&monitor_path=/&monitor_interval=360&points=ctc,cuc,cmc&bak_ip=pass&host=testapi.com'
 
-Response:
+Response Example:
 
     * JSON::
 
@@ -284,7 +284,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Monitor.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&monitor_id=51fc9a20-363c-11e2-bab7-0819a6248970&port=80&monitor_type=http&monitor_path=/&monitor_interval=360&points=ctc,cuc,cmc&bak_ip=pass'
 
-Response:
+Response Example:
 
     * JSON::
 
@@ -313,7 +313,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Monitor.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&monitor_id=51fc9a20-363c-11e2-bab7-0819a6248970'
     
-Response:
+Response Example:
 
     * JSON::
 
@@ -343,7 +343,7 @@ Example::
         
     curl -X POST https://api.dnspod.com/Monitor.Info -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&monitor_id=e91997aa-3641-11e2-bab7-0819a6248970'
     
-Response:
+Response Example:
 
     * JSON::
 
@@ -409,7 +409,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Monitor.Setstatus -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&monitor_id=03e3b268-3643-11e2-bab7-0819a6248970&status=disable'
     
-Response:
+Response Example:
 
     * JSON::
 
@@ -439,7 +439,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Monitor.Setstatus -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&monitor_id=03e3b268-3643-11e2-bab7-0819a6248970&hours=1'
     
-Response:
+Response Example:
 
     * JSON::
 
@@ -577,7 +577,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Monitor.Userdesc -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json'
     
-Response:
+Response Example:
 
     * JSON::
 
@@ -616,7 +616,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Monitor.Getdowns -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&offset=0&length=10'
     
-Response:
+Response Example:
 
     * JSON::
 

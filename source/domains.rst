@@ -24,7 +24,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Domain.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&domain=api2.com&format=json'
 
-Response:
+Response Example:
 
     * JSON::
         
@@ -74,7 +74,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json'
 
-Response:
+Response Example:
 
    * JSON::
 
@@ -143,7 +143,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Domain.Remove -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=1992403'
     
-Response:
+Response Example:
 
     * JSON::
         
@@ -178,7 +178,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Domain.Status -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2058967&status=disable'
 
-Response:
+Response Example:
 
     * JSON::
             
@@ -210,7 +210,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Domain.Info  -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079'
 
-Response:
+Response Example:
 
     * JSON::
 
@@ -264,7 +264,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.Log  -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079'
 
-Response:
+Response Example:
 
     * JSON::
 
@@ -307,7 +307,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Domain.Searchenginepush -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&status=yes'
     
-Response:
+Response Example:
 
     * JSON::
         
@@ -348,7 +348,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Domainshare.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&email=otheruser@dnspod.com&mode=rw'
     
-Response:
+Response Example:
 
     * JSON::
         
@@ -380,7 +380,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domainshare.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079'
 
-Response:
+Response Example:
 
     * JSON::
         
@@ -445,7 +445,7 @@ Example
 
     curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&email=yizerowu@dnspod.com&mode=rw&old_sub_domain=www&new_sub_domain=bbs'
     
-Response:
+Response Example:
 
    * JSON::
         
@@ -481,7 +481,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domainshare.Remove -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&email=yizerowu@dnspod.com'
 
-Response:
+Response Example:
 
     * JSON::    
     
@@ -519,7 +519,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domainshare.Transfer -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&email=yizerowu@dnspod.com'
     
-Response:
+Response Example:
 
     * JSON::    
     
@@ -556,7 +556,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.Lock -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&days=3'
 
-Response:
+Response Example:
 
     * JSON::
         
@@ -594,7 +594,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.Lockstatus -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079'
     
-Response:
+Response Example:
 
     * JSON::
         
@@ -636,7 +636,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.Unlock -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&lock_code=fdd638'
 
-Response:
+Response Example:
 
     * JSON::
         
@@ -673,7 +673,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domainalias.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079'
 
-Response:
+Response Example:
 
    * JSON::
 
@@ -717,7 +717,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domainalias.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&domain=dnspodapi.com'
 
-Response:
+Response Example:
 
     * JSON::
         
@@ -755,7 +755,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domainalias.Remove -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&alias_id=18737'
 
-Response:
+Response Example:
 
     * JSON::
         
@@ -782,7 +782,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domaingroup.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json'
     
-Response:
+Response Example:
 
     * JSON::
         
@@ -864,7 +864,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domaingroup.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&group_name=dnspod'
 
-Response:
+Response Example:
 
     * JSON::
         
@@ -903,7 +903,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domaingroup.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&group_id=1985&group_name=dnspodgroup'
 
-Response:
+Response Example:
 
     * JSON::
 
@@ -932,7 +932,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domaingroup.Remove -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&group_id=1985'
 
-Response:
+Response Example:
 
     * JSON::
         
@@ -963,7 +963,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.Changegroup -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&group_id=1985'
     
-Response:
+Response Example:
 
    * JSON::
     
@@ -997,7 +997,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.Ismark -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&is_mark=yes'
 
-Response:
+Response Example:
 
     * JSON::
         
@@ -1027,7 +1027,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.Remark -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2059079&remark=这个域名需要备注一下'
     
-Response:
+Response Example:
 
     * JSON::
         
@@ -1066,7 +1066,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.Acquire -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain=api4.com'
     
-Response:
+Response Example:
 
     * JSON::
         
@@ -1110,7 +1110,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.Acquiresend -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain=api4.com&email=support@namecheap.com'
     
-Response:
+Response Example:
     * JSON::
         
         {
@@ -1149,7 +1149,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Domain.Acquirevalidate -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain=api4.com&code=111000'
     
-Response:
+Response Example:
 
     * JSON::
             
@@ -1178,7 +1178,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Record.Type -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_grade=DP_Free'
 
-Response:
+Response Example:
 
     * JSON::
 
@@ -1220,7 +1220,7 @@ Example::
     
     curl -X POST https://api.dnspod.com/Record.Line -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_grade=DP_Free&domain=dnspod.com'
 
-Response:
+Response Example:
 
     * JSON::
 
