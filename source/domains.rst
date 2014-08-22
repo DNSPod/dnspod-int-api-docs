@@ -1199,7 +1199,7 @@ Response Example:
                 "SRV",
                 "URL",
                 "Framed URL"
-            ],
+            ]
         }
 
 
