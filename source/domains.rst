@@ -76,7 +76,7 @@ Example::
 
 Response Example:
 
-   * JSON::
+    * JSON::
 
         {
             "status": {
@@ -447,7 +447,7 @@ Example
     
 Response Example:
 
-   * JSON::
+    * JSON::
         
         {
             "status": {
@@ -675,7 +675,7 @@ Example::
 
 Response Example:
 
-   * JSON::
+    * JSON::
 
         {
             "status": {
@@ -965,7 +965,7 @@ Example::
     
 Response Example:
 
-   * JSON::
+    * JSON::
     
         {
             "status": {
@@ -1111,6 +1111,7 @@ Example::
     curl -X POST https://api.dnspod.com/Domain.Acquiresend -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain=api4.com&email=support@namecheap.com'
     
 Response Example:
+
     * JSON::
         
         {
