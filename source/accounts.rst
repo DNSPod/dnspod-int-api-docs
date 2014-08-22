@@ -11,7 +11,7 @@ HTTP Request Type:
 Request Parameters:
     * Global Parameters
 Response Code:
-    * Common Response
+    * Common Response Codes
 
 Example::
     
@@ -55,13 +55,13 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters
+    * Global Parameters
     * **real_name** Your real name for personal accounts,and company name for company accounts.
     * **nick** Your nickname that make it easier to contact to the users.
     * **telephone** The users' phone number.
     * **im** Your Instant Messaging account.
 Response Code:
-    * Common response
+    * Common Response Codes
     * 8 Invalid phone number.
     * 9 Invalid im account.
 
@@ -92,7 +92,7 @@ Request Parameters:
     * **old_password** The old password.
     * **new_password** The new password.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * 8 Wrong old password.
     * 9 Invalid new password.
 
@@ -124,7 +124,7 @@ Request Parameters:
     * **new_email** New email address.
     * **password** Your current password for verifying.
 Response Code:
-    * Common Response Code.
+    * Common Response Codes
     * 8 Old email address is not correct.
     * 9 New email address is invalid.
     * 10 Wrong password.
@@ -156,7 +156,7 @@ HTTP Request Type:
 Request Parameters:
     * Global Parameters
 Response Code:
-    * Common response code.
+    * Common Response Codes
 
 Example::
 

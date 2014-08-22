@@ -8,10 +8,10 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters
+    * Global Parameters
     * **domain** OR **domain_id** Stand for the domain name and the domain id.You only need to and must choose one of them.
 Response Code:
-    * Common response code.
+    * Common Response Codes
     * 6 Domain not exists.
     * 7 Invalid domain id.
     * 8 No records under this domain.
@@ -50,11 +50,11 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters
+    * Global Parameters
     * **domain** OR **domain_id** Stand for the domain name and the domain id.You only need to and must choose one of them.
     * **subdomain** The sub-domain.Essential parameter.
 Response Code:
-    * Common response code.
+    * Common Response Codes
     * 6 Domain not exists.
     * 7 Invalid domain id.
 
@@ -106,9 +106,9 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters
+    * Global Parameters
 Response Code:
-    * Common response code.
+    * Common Response Codes
 
 Example::
 
@@ -173,7 +173,7 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters
+    * Global Parameters
     * **domain_id** The domain id.Essential parameter.
     * **record_id** The record id.Essential parameter.
     * **port** The port number to monitor like 80.Essential parameter.
@@ -196,7 +196,7 @@ Request Parameters:
     * **callback_url** The callback URL.All the data will be sent to this URL when the IP is down.For more details,please see the directions.Optional parameter.
     * **callback_key** The callback key.If "callback_url" is set up,you should set this up too for security.
 Response Code:
-    * Common response code.
+    * Common Response Codes
     * 6 Invalid domain id.
     * 7 Invalid record id.
     * 8 Invalid host.
@@ -242,7 +242,7 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters
+    * Global Parameters
     * **monitor_id** Monitor id.Essential parameter.
     * **port** The port number to monitor like 80.Essential parameter.
     * **monitor_interval** {60|180|360|} The monitor interval.Essential parameter.
@@ -264,7 +264,7 @@ Request Parameters:
     * **callback_url**  The callback URL.All the data will be sent to this URL when the IP is down.For more details,please see the directions.Optional parameter.
     * **callback_key** The callback key.If "callback_url" is set up,you should set this up too for security.
 Response Code:
-    * Common response code.
+    * Common Response Codes
     * 7 Invalid monitor id.
     * 8 Invalid host.
     * 9 Invalid monitor port number that range from 1 to 65535.
@@ -303,10 +303,10 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters
+    * Global Parameters
     * **monitor_id** I think we all know this is the monitor's id.
 Response Code:
-    * Common response code.
+    * Common Response Codes
     * 6 Invalid monitor id.
 
 Example::
@@ -333,10 +333,10 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters
+    * Global Parameters
     * **monitor_id** The monitor's id.
 Response Code:
-    * Common response code.
+    * Common Response Codes
     * 7 Invalid monitor id.
 
 Example::
@@ -392,17 +392,17 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters
+    * Global Parameters
     * **monitor_id** Monitor id.Essential parameter.
     * **status** {enabled|disabled} The new status.Essential status.
 Response Code:
-    * Common response code.
+    * Common Response Codes
     * 6 Invalid monitor id.
     * 7 Invalid new status.
     * 8 Please turn the domain on first.
     * 9 Please turn the record on first.
 Response Code:
-    * Common response code.
+    * Common Response Codes
     * 6 Invalid monitor id.
 
 Example::
@@ -428,11 +428,11 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters
+    * Global Parameters
     * **monitor_id** Monitor id.Essential parameter.
     * **hours** Within how many hours do you want to get the history.
 Response Code:
-    * Common response code.
+    * Common Response Codes
     * 6 Invalid monitor id.
 
 Example::
@@ -569,9 +569,9 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters
+    * Global Parameters
 Response Code:
-    * Common response code.
+    * Common Response Codes
 
 Example::
 
@@ -606,11 +606,11 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters
+    * Global Parameters
     * **offset** The offset of the response.The first is numbered 0.Optional parameter.
     * **length** The number of results you want get.Optional parameter.
 Response Code:
-    * Common response code.
+    * Common Response Codes
 
 Example::
 

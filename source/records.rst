@@ -8,7 +8,7 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters
+    * Global Parameters
     * **domain_id** The domain id.Essential parameter.
     * **sub_domain** The record name like "www".The default value is "@".Optional parameter.
     * **record_type** The record type.You can get the list of all allowed types from the API.Capital letters like "A" or "CNAME".Essential parameter.
@@ -17,7 +17,7 @@ Request Parameters:
     * **mx** {1-20} This only need to and must be set when record_type is "MX".Range from 1 to 20.
     * **ttl** {1-604800}  TTL，range from 1 to 604800.Every grade has its own min value.Optional parameter.
 Response Code:
-    * Common response code.
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 A upgrade for the company account is needed before this.
     * -8 You need a upgrade for the domain you are acting for.
@@ -65,13 +65,13 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters
+    * Global Parameters
     * **domain_id** The domain id.Essential parameter.
     * **offset** The offset of the response.The first one is numbered as 0.Optional parameter.
     * **length** The number of response result.Optional parameter.
     * **sub_domain** If the subsidiary domain is set,only the information about it will be responded.
 Response Code:
-    * Common response code.
+    * Common Response Codes
     * -7 A domain of a company account need a upgrade first.
     * -8 You need a upgrade for the domain you are acting for.
     * 6 Invalid domain id.
@@ -193,7 +193,7 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters
+    * Global Parameters
     * **domain_id** The domain id.Essential parameter.
     * **record_id** The record id.Essential parameter.
     * **sub_domain** The record name like "www".The default value is "@".Optional parameter.
@@ -203,7 +203,7 @@ Request Parameters:
     * **mx** {1-20} This only need to and must be set when record_type is "MX".Range from 1 to 20.
     * **ttl** {1-604800} TTL，range from 1 to 604800.Every grade has its own min value.Optional parameter.
 Response Code:
-    * Common response code.
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 A domain of a company account need a upgrade first.
     * -8 You need a upgrade for the domain you are acting for.
@@ -254,11 +254,11 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters
+    * Global Parameters
     * **domain_id** The domain id.Essential parameter.
     * **record_id** The record id.Essential parameter.
 Response Code:
-    * Common response code.
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 A domain of a company account need a upgrade first.
     * -8 You need a upgrade for the domain you are acting for.
@@ -290,14 +290,14 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters
+    * Global Parameters
     * **domain_id** The domain id.Essential parameter.
     * **record_id** The record id.Essential parameter.
     * **sub_domain** The record name like "www".
     * **record_line** The record line.You can get the list from the API.The default value is "default", such as "default", "AD", "AE". Essential parameter.
     * **value** The IP address like "6.6.6.6".Optional parameter.
 Response Code:
-    * Common response code.
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 A domain of a company account need a upgrade first.
     * -8 You need a upgrade for the domain you are acting for.
@@ -339,12 +339,12 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters
+    * Global Parameters
     * **domain_id** The domain id.Essential parameter.
     * **record_id** The record id.Essential parameter.
     * **remark** The remark information.Set it a empty string if you want to remove it.Essential parameter.
 Response Code:
-    * Common response code.
+    * Common Response Codes
     * 6 Invalid domain id.
     * 8 Invalid record id.
 
@@ -372,11 +372,11 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters
+    * Global Parameters
     * **domain_id** The domain id.Essential parameter.
     * **record_id** The record id.Essential parameter.
 Response Code:
-    * Common response code.
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 A domain of a company account need a upgrade first.
     * -8 You need a upgrade for the domain you are acting for.
@@ -427,12 +427,12 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters
+    * Global Parameters
     * **domain_id** The domain id.Essential parameter.
     * **record_id** The record id.Essential parameter.
     * **status** {enable|disable} The new status.Essential parameter.
 Response Code:
-    * Common response code.
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 A domain of a company account need a upgrade first.
     * -8 You need a upgrade for the domain you are acting for.

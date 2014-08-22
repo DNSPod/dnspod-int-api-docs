@@ -13,7 +13,7 @@ Request Parameters:
     * **group_id** The domain group ID. Optional parameter.
     * **is_mark** {yes|no} Whether to mark it or not. Optional parameter.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * 6 Invalid domain.
     * 7 Domain already exists.
     * 11 Domain already exists as an alias of another domain.
@@ -65,7 +65,7 @@ Request Parameters:
 Attention:
     * If there are more than 500 domains in your account,only the first 500 domains will responded for split page.You may need to set the parameter "offset" and "length" to get all your domains with multi requests.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * 6 Invalid offset.
     * 7 Invalid length.
     * 9 Empty result.
@@ -132,7 +132,7 @@ Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * -15 Domain got prohibited.
     * 6 Invalid domain id.
     * 7 Domain got locked.
@@ -166,7 +166,7 @@ Request Parameters:
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **status** {enable, disable} The domain status.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
@@ -200,7 +200,7 @@ Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
     * 6 Invalid domain id.
@@ -254,7 +254,7 @@ Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
     * 6 Invalid domain id.
@@ -295,7 +295,7 @@ Request Parameters:
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **status** {yes,no} Whether to push it.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
@@ -334,7 +334,7 @@ Request Parameters:
     * **sub_domain** The subsidiary domain you want to share,like "www" or "bbs".Don't set this parameter if you want to share the whole domain.
 
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
@@ -370,7 +370,7 @@ Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
     * 6 Invalid domain id.
@@ -414,7 +414,7 @@ Request Parameters:
     * **old_sub_domain** The old subsidiary domain that already shared.This parameter shouldn't be set if you want to update the domain name.
     * **new_sub_domain** The new subsidiary domain.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
@@ -468,7 +468,7 @@ Request Parameters:
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **email** The original email address.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
@@ -504,7 +504,7 @@ Request Parameters:
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **email** The original email address.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
@@ -542,7 +542,7 @@ Request Parameters:
     * **domain_id** The domain ID
     * **days** For how many days.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
@@ -583,7 +583,7 @@ Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
@@ -623,7 +623,7 @@ Request Parameters:
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **lock_code** The code that you will get when you lock the domain.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
@@ -663,7 +663,7 @@ Request Parameters:
     * Global Parameters
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
     * 6 Invalid domain id.
@@ -703,7 +703,7 @@ Request Parameters:
     * **domain_id** The domain ID.
     * **domain** The domain to bind.Without "www".
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
@@ -744,7 +744,7 @@ Request Parameters:
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **alias_id** The alias id that you will get when you create it.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 The company account need a upgrade before doing this.
     * -8 You need a upgrade for the domains you are acting for.
@@ -776,7 +776,7 @@ HTTP Request Type:
 Request Parameters:
     * Global Parameters
 Response Code:
-    * Common Response Code
+    * Common Response Codes
 
 Example::
     
@@ -855,7 +855,7 @@ Request Parameters:
     * Global Parameters
     * **group_name** I think you know what this stands for.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * 7 Invalid group name.
     * 8 The group name already exists.
     * 9 The number of groups is up to limit.
@@ -893,7 +893,7 @@ Request Parameters:
     * **group_id** 
     * **group_name** 
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * 6 Invalid group id.
     * 7 Invalid group name.
     * 8 The group name already exists.
@@ -925,7 +925,7 @@ Request Parameters:
     * Global Parameters
     * **group_id**
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * 6 Invalid group id.
 
 Example::
@@ -955,7 +955,7 @@ Request Parameters:
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **group_id** 
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * 6 Invalid domain id.
     * 7 Invalid group id.
 
@@ -990,7 +990,7 @@ Request Parameters:
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **is_mark** {yes|no} Whether to mark this domain.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * 6 Invalid domain id.
 
 Example::
@@ -1020,7 +1020,7 @@ Request Parameters:
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
     * **remark** The remark information,or empty for deleting.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * 6 Invalid domain id.
 
 Example::
@@ -1050,7 +1050,7 @@ Request Parameters:
     * Global Parameters
     * **domain** The domain you want to get back.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * 6 Invalid domain
     * 7 No Chinese character allowed in the domain.
     * 8 Invalid domain.
@@ -1093,7 +1093,7 @@ Request Parameters:
     * **domain** The domain you want to get back.
     * **email** One email address in the get-domain-back email list.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * 6 Invalid domain.
     * 7 No Chinese characters supported in the domain.
     * 8 Invalid domain.
@@ -1132,7 +1132,7 @@ Request Parameters:
     * **domain** The domain you want to get back.
     * **code**  The code that you get from your email.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * 6 Invalid domain.
     * 7 No Chinese characters allowed.
     * 8 Invalid domain.
@@ -1171,7 +1171,7 @@ Request Parameters:
     * Global Parameters
     * **domain_grade** The domain grade. only 'DP_Free' for now. 
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * 6 Invalid domain grade.
 
 Example::
@@ -1213,7 +1213,7 @@ Request Parameters:
     * **domain_grade** The domain grade. only 'DP_Free' for now. 
     * **domain_id** OR **domain** Stand for the id and the name of the domain.You only need to and must set one of them.
 Response Code:
-    * Common Response Code
+    * Common Response Codes
     * 6 Invalid domain grade.
 
 Example::

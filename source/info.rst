@@ -47,8 +47,8 @@ All the APIs need this parameters.
     * **error_on_empty** {yes,no} Whether to response an error when there's no results.
     * **user_token** The user token obtained with the ``Auth`` command.
 
-Common Response Code
---------------------
+Common Response Codes
+---------------------
 Those responses codes could be in any API because they are the common responses.
     * -1 Login fails.
     * -2 API used too frequently.
@@ -79,7 +79,7 @@ Request Parameters:
     * **login_remember** {yes,no} Whether to remember the D-Token code.Default "yes".
     * **user_id** The user's ID. A must for agent users, and a waste for regular users.
 Response Code:
-    * Common response
+    * Common Response Codes
     * 10001 User have been spammed
     * 10003 Account email is invalid
     * 10004 Password's length is invalid, must between 6 and 32
@@ -128,9 +128,9 @@ URL:
 HTTP Request Type:
     * POST
 Request Parameters:
-    * Global parameters.
+    * Global Parameters
 Response Code:
-    * Common response
+    * Common Response Codes
 
 Example::
     
