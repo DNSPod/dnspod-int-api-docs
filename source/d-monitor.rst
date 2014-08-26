@@ -52,7 +52,7 @@ HTTP Request Type:
 Request Parameters:
     * Global Parameters
     * **domain** OR **domain_id** Stand for the domain name and the domain id.You only need to and must choose one of them.
-    * **subdomain** The sub-domain.Essential parameter.
+    * **subdomain** The sub-domain. Mandatory parameter.
 Response Code:
     * Common Response Codes
     * 6 Domain not exists.
@@ -174,14 +174,14 @@ HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
-    * **domain_id** The domain id.Essential parameter.
-    * **record_id** The record id.Essential parameter.
-    * **port** The port number to monitor like 80.Essential parameter.
-    * **monitor_interval** Monitoring spacing.Ranged {60|180|360|}.Essential parameter.
-    * **host** The host from the http header like "www.dnspod.com".Essential parameter.
-    * **monitor_type** {http|https} The monitor type.Essential parameter.
-    * **monitor_path** The request path from the http header like "/".Essential parameter.
-    * **points** The points to use.Split by ",".You can choose it from the list of your own grade.Essential parameter.
+    * **domain_id** The domain id. Mandatory parameter.
+    * **record_id** The record id. Mandatory parameter.
+    * **port** The port number to monitor like 80. Mandatory parameter.
+    * **monitor_interval** Monitoring spacing.Ranged {60|180|360|}. Mandatory parameter.
+    * **host** The host from the http header like "www.dnspod.com". Mandatory parameter.
+    * **monitor_type** {http|https} The monitor type. Mandatory parameter.
+    * **monitor_path** The request path from the http header like "/". Mandatory parameter.
+    * **points** The points to use.Split by ",".You can choose it from the list of your own grade. Mandatory parameter.
     * **bak_ip** Backup IP address.Choose one kind from the list blow:
         #. pass Just monitoring,no switching.
         #. pause The old type of pause.For more details,please visit: https://support.dnspod.cn/Kb/showarticle/tsid/179
@@ -189,10 +189,10 @@ Request Parameters:
         #. auto Switch intelligent.
         #. IP addresses split by ",".
 
-    * **keep_ttl** TTL won't be changed if this is set.Essential parameter.
-    * **sms_notice** "me" for the owner,and "share" for the shared users.Split by "," if there are more than one like "me,share".Essential parameter.
+    * **keep_ttl** TTL won't be changed if this is set. Mandatory parameter.
+    * **sms_notice** "me" for the owner,and "share" for the shared users.Split by "," if there are more than one like "me,share". Mandatory parameter.
     * **email_notice** Same as the sms_notice.
-    * **less_notice** {yes|no} Whether to just send one notice within one hour.Essential parameter.
+    * **less_notice** {yes|no} Whether to just send one notice within one hour. Mandatory parameter.
     * **callback_url** The callback URL.All the data will be sent to this URL when the IP is down.For more details,please see the directions.Optional parameter.
     * **callback_key** The callback key.If "callback_url" is set up,you should set this up too for security.
 Response Code:
@@ -243,12 +243,12 @@ HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
-    * **monitor_id** Monitor id.Essential parameter.
-    * **port** The port number to monitor like 80.Essential parameter.
-    * **monitor_interval** {60|180|360|} The monitor interval.Essential parameter.
-    * **monitor_type** {http|https} The monitor type.Essential parameter.
-    * **monitor_path** The path in the http header like "/".Essential parameter.
-    * **points** The points to use.Split by ",".You can choose it from the list of your own grade.Essential parameter.
+    * **monitor_id** Monitor id. Mandatory parameter.
+    * **port** The port number to monitor like 80. Mandatory parameter.
+    * **monitor_interval** {60|180|360|} The monitor interval. Mandatory parameter.
+    * **monitor_type** {http|https} The monitor type. Mandatory parameter.
+    * **monitor_path** The path in the http header like "/". Mandatory parameter.
+    * **points** The points to use.Split by ",".You can choose it from the list of your own grade. Mandatory parameter.
     * **bak_ip** Backup IP address.Choose one kind from the list blow:
         #. pass Just monitoring,no switching.
         #. pause The old type of pause.For more details,please visit: https://support.dnspod.cn/Kb/showarticle/tsid/179
@@ -256,11 +256,11 @@ Request Parameters:
         #. auto Switch intelligently.
         #. IP addresses split by ",".
 
-    * **host** The host from the http header like "www.dnspod.com".Essential parameter.
-    * **keep_ttl** TTL won't be changed if this is set.Essential parameter.
-    * **sms_notice** "me" for the owner,and "share" for the shared users.Split by "," if there are more than one like "me,share".Essential parameter.
+    * **host** The host from the http header like "www.dnspod.com". Mandatory parameter.
+    * **keep_ttl** TTL won't be changed if this is set. Mandatory parameter.
+    * **sms_notice** "me" for the owner,and "share" for the shared users.Split by "," if there are more than one like "me,share". Mandatory parameter.
     * **email_notice** Same as the sms_notice.
-    * **less_notice** {yes|no} Whether to just send one notice within one hour.Essential parameter.
+    * **less_notice** {yes|no} Whether to just send one notice within one hour. Mandatory parameter.
     * **callback_url**  The callback URL.All the data will be sent to this URL when the IP is down.For more details,please see the directions.Optional parameter.
     * **callback_key** The callback key.If "callback_url" is set up,you should set this up too for security.
 Response Code:
@@ -393,8 +393,8 @@ HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
-    * **monitor_id** Monitor id.Essential parameter.
-    * **status** {enabled|disabled} The new status.Essential status.
+    * **monitor_id** Monitor id. Mandatory parameter.
+    * **status** {enabled|disabled} The new status. Mandatory parameter.
 Response Code:
     * Common Response Codes
     * 6 Invalid monitor id.
@@ -429,7 +429,7 @@ HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
-    * **monitor_id** Monitor id.Essential parameter.
+    * **monitor_id** Monitor id. Mandatory parameter.
     * **hours** Within how many hours do you want to get the history.
 Response Code:
     * Common Response Codes

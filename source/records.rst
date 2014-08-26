@@ -9,11 +9,11 @@ HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
-    * **domain_id** The domain id.Essential parameter.
+    * **domain_id** The domain id. Mandatory parameter.
     * **sub_domain** The record name like "www".The default value is "@".Optional parameter.
-    * **record_type** The record type.You can get the list of all allowed types from the API.Capital letters like "A" or "CNAME".Essential parameter.
-    * **record_line** The record line.You can get the list from the API.The default value is "default", such as "default", "AD", "AE". Essential parameter.
-    * **value** The record value.For example: IP:200.200.200.200, CNAME: cname.dnspod.com., MX: mail.dnspod.com.Essential parameter.
+    * **record_type** The record type.You can get the list of all allowed types from the API.Capital letters like "A" or "CNAME". Mandatory parameter.
+    * **record_line** The record line.You can get the list from the API.The default value is "default", such as "default", "AD", "AE". Mandatory parameter.
+    * **value** The record value.For example: IP:200.200.200.200, CNAME: cname.dnspod.com., MX: mail.dnspod.com. Mandatory parameter.
     * **mx** {1-20} This only need to and must be set when record_type is "MX".Range from 1 to 20.
     * **ttl** {1-604800}  TTL，range from 1 to 604800.Every grade has its own min value.Optional parameter.
 Response Code:
@@ -66,7 +66,7 @@ HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
-    * **domain_id** The domain id.Essential parameter.
+    * **domain_id** The domain id. Mandatory parameter.
     * **offset** The offset of the response.The first one is numbered as 0.Optional parameter.
     * **length** The number of response result.Optional parameter.
     * **sub_domain** If the subsidiary domain is set,only the information about it will be responded.
@@ -194,12 +194,12 @@ HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
-    * **domain_id** The domain id.Essential parameter.
-    * **record_id** The record id.Essential parameter.
+    * **domain_id** The domain id. Mandatory parameter.
+    * **record_id** The record id. Mandatory parameter.
     * **sub_domain** The record name like "www".The default value is "@".Optional parameter.
-    * **record_type** The record type.You can get the list from the API.All capital letters like "A".Essential parameter.
-    * **record_line** The record line.You can get the list from the API.The default value is "default", such as "default", "AD", "AE". Essential parameter.
-    * **value** The record value.For example: IP:200.200.200.200, CNAME: cname.dnspod.com., MX: mail.dnspod.com.Essential parameter.
+    * **record_type** The record type.You can get the list from the API.All capital letters like "A". Mandatory parameter.
+    * **record_line** The record line.You can get the list from the API.The default value is "default", such as "default", "AD", "AE". Mandatory parameter.
+    * **value** The record value.For example: IP:200.200.200.200, CNAME: cname.dnspod.com., MX: mail.dnspod.com. Mandatory parameter.
     * **mx** {1-20} This only need to and must be set when record_type is "MX".Range from 1 to 20.
     * **ttl** {1-604800} TTL，range from 1 to 604800.Every grade has its own min value.Optional parameter.
 Response Code:
@@ -255,8 +255,8 @@ HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
-    * **domain_id** The domain id.Essential parameter.
-    * **record_id** The record id.Essential parameter.
+    * **domain_id** The domain id. Mandatory parameter.
+    * **record_id** The record id. Mandatory parameter.
 Response Code:
     * Common Response Codes
     * -15 Domain got prohibited.
@@ -291,10 +291,10 @@ HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
-    * **domain_id** The domain id.Essential parameter.
-    * **record_id** The record id.Essential parameter.
+    * **domain_id** The domain id. Mandatory parameter.
+    * **record_id** The record id. Mandatory parameter.
     * **sub_domain** The record name like "www".
-    * **record_line** The record line.You can get the list from the API.The default value is "default", such as "default", "AD", "AE". Essential parameter.
+    * **record_line** The record line.You can get the list from the API.The default value is "default", such as "default", "AD", "AE". Mandatory parameter.
     * **value** The IP address like "6.6.6.6".Optional parameter.
 Response Code:
     * Common Response Codes
@@ -340,9 +340,9 @@ HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
-    * **domain_id** The domain id.Essential parameter.
-    * **record_id** The record id.Essential parameter.
-    * **remark** The remark information.Set it a empty string if you want to remove it.Essential parameter.
+    * **domain_id** The domain id. Mandatory parameter.
+    * **record_id** The record id. Mandatory parameter.
+    * **remark** The remark information.Set it a empty string if you want to remove it. Mandatory parameter.
 Response Code:
     * Common Response Codes
     * 6 Invalid domain id.
@@ -373,8 +373,8 @@ HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
-    * **domain_id** The domain id.Essential parameter.
-    * **record_id** The record id.Essential parameter.
+    * **domain_id** The domain id. Mandatory parameter.
+    * **record_id** The record id. Mandatory parameter.
 Response Code:
     * Common Response Codes
     * -15 Domain got prohibited.
@@ -428,9 +428,9 @@ HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
-    * **domain_id** The domain id.Essential parameter.
-    * **record_id** The record id.Essential parameter.
-    * **status** {enable|disable} The new status.Essential parameter.
+    * **domain_id** The domain id. Mandatory parameter.
+    * **record_id** The record id. Mandatory parameter.
+    * **status** {enable|disable} The new status. Mandatory parameter.
 Response Code:
     * Common Response Codes
     * -15 Domain got prohibited.
