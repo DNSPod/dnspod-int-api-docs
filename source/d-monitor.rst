@@ -9,7 +9,7 @@ HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
-    * **domain** OR **domain_id** Stand for the domain name and the domain id.You only need to and must choose one of them.
+    * **domain** OR **domain_id** Stand for the domain name and the domain id. You only need to and must set one of them.
 Response Code:
     * Common Response Codes
     * 6 Domain not exists.
@@ -51,7 +51,7 @@ HTTP Request Type:
     * POST
 Request Parameters:
     * Global Parameters
-    * **domain** OR **domain_id** Stand for the domain name and the domain id.You only need to and must choose one of them.
+    * **domain** OR **domain_id** Stand for the domain name and the domain id. You only need to and must set one of them.
     * **subdomain** The sub-domain. Mandatory parameter.
 Response Code:
     * Common Response Codes

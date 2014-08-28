@@ -366,7 +366,7 @@ Response Example:
 
 
 Get the Record Information
--------------------------
+--------------------------
 URL:
     * https://api.dnspod.com/Record.Info
 HTTP Request Type:
