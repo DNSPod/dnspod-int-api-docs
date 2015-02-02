@@ -3,29 +3,29 @@ Records
 
 Add a Record
 ------------
-URL：
+URL:
     * https://api.dnspod.com/Record.Create
-Method：
+HTTP Request Type:
     * POST
-Request Parameters：
-    * Global parameters
-    * **domain_id** The domain id.Essential parameter.
+Request Parameters:
+    * Global Parameters
+    * **domain_id** The domain id. Mandatory parameter.
     * **sub_domain** The record name like "www".The default value is "@".Optional parameter.
-    * **record_type** The record type.You can get the list of all allowed types from the API.Capital letters like "A" or "CNAME".Essential parameter.
-    * **record_line** The record line.You can get the list from the API.The default value is "default", such as "default", "AD", "AE". Essential parameter.
-    * **value** The record value.For example: IP:200.200.200.200, CNAME: cname.dnspod.com., MX: mail.dnspod.com.Essential parameter.
-    * **mx** {1-20} This only need to and must be seted when record_type is "MX".Range from 1 to 20.
+    * **record_type** The record type.You can get the list of all allowed types from the API.Capital letters like "A" or "CNAME". Mandatory parameter.
+    * **record_line** The record line.You can get the list from the API.The default value is "default", such as "default", "AD", "AE". Mandatory parameter.
+    * **value** The record value.For example: IP:200.200.200.200, CNAME: cname.dnspod.com., MX: mail.dnspod.com. Mandatory parameter.
+    * **mx** {1-20} This only need to and must be set when record_type is "MX".Range from 1 to 20.
     * **ttl** {1-604800}  TTL，range from 1 to 604800.Every grade has its own min value.Optional parameter.
-Response Code：
-    * Common response code.
+Response Code:
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 A upgrade for the company account is needed before this.
-    * -8 You need a upgrae for the domain you are acting for.
+    * -8 You need a upgrade for the domain you are acting for.
     * 6 Lack of parameters or something wrong with it.
     * 7 You don't have the permission.
     * 21 Domain got locked.
     * 22 Invalid sub_domain.
-    * 23 Sub domain level is up to limie.
+    * 23 Sub domain level is up to limit.
     * 24 Invalid sub domain for general analysis.
     * 25 The number of poll is up to limit.
     * 26 Invalid line.
@@ -41,7 +41,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Record.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&sub_domain=@&record_type=A&record_line=default&value=1.1.1.1'
     
-Response：
+Response Example:
 
     * JSON::
 
@@ -60,18 +60,18 @@ Response：
 
 Get Record List
 ---------------
-URL：
+URL:
     * https://api.dnspod.com/Record.List
-Method：
+HTTP Request Type:
     * POST
-Request Parameters：
-    * Global parameters
-    * **domain_id** The domain id.Essential parameter.
+Request Parameters:
+    * Global Parameters
+    * **domain_id** The domain id. Mandatory parameter.
     * **offset** The offset of the response.The first one is numbered as 0.Optional parameter.
     * **length** The number of response result.Optional parameter.
-    * **sub_domain** If the subsidiary domain is set,only the information about it will be responsed.
-Response Code：
-    * Common response code.
+    * **sub_domain** If the subsidiary domain is set,only the information about it will be responded.
+Response Code:
+    * Common Response Codes
     * -7 A domain of a company account need a upgrade first.
     * -8 You need a upgrade for the domain you are acting for.
     * 6 Invalid domain id.
@@ -80,14 +80,14 @@ Response Code：
     * 9 You don't have the permission.
     * 10 Empty result.
 
-Attention：
-    * If there are more than 500 records,only the first 500 will be responsed.You may need to set "offset" and "length" to get all the records with requests.
+Attention:
+    * If there are more than 500 records,only the first 500 will be responded.You may need to set "offset" and "length" to get all the records with requests.
 
 Example::
 
      curl -X POST https://api.dnspod.com/Record.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346'
     
-Response：
+Response Example:
 
     * JSON::
 
@@ -188,22 +188,22 @@ Response：
 
 Update a Record
 ---------------
-URL：
-    *  https://api.dnspod.com/Record.Modify
-Method：
+URL:
+    * https://api.dnspod.com/Record.Modify
+HTTP Request Type:
     * POST
-Request Parameters：
-    * Global parameters
-    * **domain_id** The domain id.Essential parameter.
-    * **record_id** The record id.Essential parameter.
+Request Parameters:
+    * Global Parameters
+    * **domain_id** The domain id. Mandatory parameter.
+    * **record_id** The record id. Mandatory parameter.
     * **sub_domain** The record name like "www".The default value is "@".Optional parameter.
-    * **record_type** The record type.You can get the list from the API.All capital letters like "A".Essential parameter.
-    * **record_line** The record line.You can get the list from the API.The default value is "default", such as "default", "AD", "AE". Essential parameter.
-    * **value** The record value.For example: IP:200.200.200.200, CNAME: cname.dnspod.com., MX: mail.dnspod.com.Essential parameter.
-    * **mx** {1-20} This only need to and must be seted when record_type is "MX".Range from 1 to 20.
+    * **record_type** The record type.You can get the list from the API.All capital letters like "A". Mandatory parameter.
+    * **record_line** The record line.You can get the list from the API.The default value is "default", such as "default", "AD", "AE". Mandatory parameter.
+    * **value** The record value.For example: IP:200.200.200.200, CNAME: cname.dnspod.com., MX: mail.dnspod.com. Mandatory parameter.
+    * **mx** {1-20} This only need to and must be set when record_type is "MX".Range from 1 to 20.
     * **ttl** {1-604800} TTL，range from 1 to 604800.Every grade has its own min value.Optional parameter.
-Response Code：
-    * Common response code.
+Response Code:
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 A domain of a company account need a upgrade first.
     * -8 You need a upgrade for the domain you are acting for.
@@ -223,14 +223,14 @@ Response Code：
     * 32 The number of NS records is up to limit.
     * 33 The number of AAAA records is up to limit.
     * 34 Invalid record value.
-    * 35 The IP is not allowd.
+    * 35 The IP is not allowed.
     * 36 When the sub_domain is "@" and the record_type is "NS",the record_line can only be "default".
 
 Example::
 
     curl -X POST https://api.dnspod.com/Record.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439&sub_domain=www&value=3.2.2.2&record_type=A&record_line=default'
    
-Response：
+Response Example:
 
     * JSON::
 
@@ -249,16 +249,16 @@ Response：
 
 Remove a Record
 ---------------
-URL：
-    *  https://api.dnspod.com/Record.Remove
-Method：
+URL:
+    * https://api.dnspod.com/Record.Remove
+HTTP Request Type:
     * POST
-Request Parameters：
-    * Global parameters
-    * **domain_id** The domain id.Essential parameter.
-    * **record_id** The record id.Essential parameter.
-Response Code：
-    * Common response code.
+Request Parameters:
+    * Global Parameters
+    * **domain_id** The domain id. Mandatory parameter.
+    * **record_id** The record id. Mandatory parameter.
+Response Code:
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 A domain of a company account need a upgrade first.
     * -8 You need a upgrade for the domain you are acting for.
@@ -271,7 +271,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Record.Remove -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439'
     
-Response：
+Response Example:
 
     * JSON::
 
@@ -285,19 +285,19 @@ Response：
 
 Update the Dynamic DNS Record
 -----------------------------
-URL：
-    *  https://api.dnspod.com/Record.Ddns
-Method：
+URL:
+    * https://api.dnspod.com/Record.Ddns
+HTTP Request Type:
     * POST
-Request Parameters：
-    * Global parameters
-    * **domain_id** The domain id.Essential parameter.
-    * **record_id** The record id.Essential parameter.
+Request Parameters:
+    * Global Parameters
+    * **domain_id** The domain id. Mandatory parameter.
+    * **record_id** The record id. Mandatory parameter.
     * **sub_domain** The record name like "www".
-    * **record_line** The record line.You can get the list from the API.The default value is "default", such as "default", "AD", "AE". Essential parameter.
+    * **record_line** The record line.You can get the list from the API.The default value is "default", such as "default", "AD", "AE". Mandatory parameter.
     * **value** The IP address like "6.6.6.6".Optional parameter.
-Response Code：
-    * Common response code.
+Response Code:
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 A domain of a company account need a upgrade first.
     * -8 You need a upgrade for the domain you are acting for.
@@ -315,7 +315,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Record.Ddns -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439&record_line=default&sub_domain=www'
     
-Response：
+Response Example:
 
     * JSON::
 
@@ -334,17 +334,17 @@ Response：
 
 Remark a Record
 ---------------
-URL：
-    *  https://api.dnspod.com/Record.Remark
-Method：
+URL:
+    * https://api.dnspod.com/Record.Remark
+HTTP Request Type:
     * POST
-Request Parameters：
-    * Global parameters
-    * **domain_id** The domain id.Essential parameter.
-    * **record_id** The record id.Essential parameter.
-    * **remark** The remark information.Set it a empty string if you want to remove it.Essential parameter.
-Response Code：
-    * Common response code.
+Request Parameters:
+    * Global Parameters
+    * **domain_id** The domain id. Mandatory parameter.
+    * **record_id** The record id. Mandatory parameter.
+    * **remark** The remark information.Set it a empty string if you want to remove it. Mandatory parameter.
+Response Code:
+    * Common Response Codes
     * 6 Invalid domain id.
     * 8 Invalid record id.
 
@@ -352,7 +352,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Record.Remark -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439&remark=test'
     
-Response：
+Response Example:
 
     * JSON::
 
@@ -365,18 +365,18 @@ Response：
         }
 
 
-Get the Record Informtion
--------------------------
-URL：
-    *  https://api.dnspod.com/Record.Info
-Method：
+Get the Record Information
+--------------------------
+URL:
+    * https://api.dnspod.com/Record.Info
+HTTP Request Type:
     * POST
-Request Parameters：
-    * Global parameters
-    * **domain_id** The domain id.Essential parameter.
-    * **record_id** The record id.Essential parameter.
-Response Code：
-    * Common response code.
+Request Parameters:
+    * Global Parameters
+    * **domain_id** The domain id. Mandatory parameter.
+    * **record_id** The record id. Mandatory parameter.
+Response Code:
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 A domain of a company account need a upgrade first.
     * -8 You need a upgrade for the domain you are acting for.
@@ -388,7 +388,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Record.Info -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439'
     
-Response：
+Response Example:
 
     * JSON::
 
@@ -422,17 +422,17 @@ Response：
 
 Set the Record Status
 ---------------------
-URL：
-    *  https://api.dnspod.com/Record.Status
-Method：
+URL:
+    * https://api.dnspod.com/Record.Status
+HTTP Request Type:
     * POST
-Request Parameters：
-    * Global parameters
-    * **domain_id** The domain id.Essential parameter.
-    * **record_id** The record id.Essential parameter.
-    * **status** {enable|disable} The new status.Essential parameter.
-Response Code：
-    * Common response code.
+Request Parameters:
+    * Global Parameters
+    * **domain_id** The domain id. Mandatory parameter.
+    * **record_id** The record id. Mandatory parameter.
+    * **status** {enable|disable} The new status. Mandatory parameter.
+Response Code:
+    * Common Response Codes
     * -15 Domain got prohibited.
     * -7 A domain of a company account need a upgrade first.
     * -8 You need a upgrade for the domain you are acting for.
@@ -445,7 +445,7 @@ Example::
 
     curl -X POST https://api.dnspod.com/Record.Status -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&format=json&domain_id=2317346&record_id=16894439&status=disable'
     
-Response：
+Response Example:
 
     * JSON::
 
