@@ -37,13 +37,13 @@
             
   <div class="section" id="api-explanation">
 <h1>API Explanation<a class="headerlink" href="#api-explanation" title="Permalink to this headline">¶</a></h1>
-<p>1. DNSPod Users&#8217; API,aim to help the users to manage their domains conveniently,are limited to persional users to use.
+<p>1. DNSPod Users&#8217; API,aim to help the users to manage their domains conveniently,are limited to personal users to use.
 3. No third-party applications or users are allowed to use this API. If you have needs,please let us know: <a class="reference external" href="https://www.dnspod.com/About/Aboutus">https://www.dnspod.com/About/Aboutus</a> .</p>
 <div class="section" id="api-development-norm">
 <h2>API Development Norm<a class="headerlink" href="#api-development-norm" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><dl class="first docutils">
-<dt>Misuse：</dt>
+<dt>Misuse:</dt>
 <dd><dl class="first docutils">
 <dt>This will be looked as API misuse. Including but not limit to:</dt>
 <dd><ul class="first last simple">
@@ -54,24 +54,24 @@
 </ul>
 </dd>
 </dl>
-<p class="last">In order to ensure you and other developers&#8217; benifits,please use our APIs legitimately. DNSPod will punish the behaviors like API misuse by prohibit the accounts and reserve all the rights to arbitate.`</p>
+<p class="last">In order to ensure you and other developers&#8217; benefits,please use our APIs legitimately. DNSPod will punish the behaviors like API misuse by prohibit the accounts and reserve all the rights to arbitrate.`</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Login Disable：</dt>
+<dt>Login Disable:</dt>
 <dd><p class="first last">If there are more than 30 login failures within 5 minutes,the account will be disabled to login again for an hour. Please check the login status when you develop your own applications,and stop trying if fails.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Prohibition：</dt>
+<dt>Prohibition:</dt>
 <dd><p class="first last">Even got prohibited,you can still use it on the official website. The prohibition will be relieved an hour later.Please be careful and never use it for large tests.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Requests：</dt>
+<dt>Requests:</dt>
 <dd><ul class="first last simple">
 <li>The request url starts with &#8220;<a class="reference external" href="https://dnsapi.cn/">https://dnsapi.cn/</a>&#8221;,which based on SSL. You must use &#8220;https&#8221; instead of &#8220;http&#8221;.</li>
 <li>POST method accepted only.</li>
@@ -81,22 +81,22 @@
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>UserAgent：</dt>
+<dt>UserAgent:</dt>
 <dd><ul class="first last simple">
-<li>The UserAgent must be seted. Prohibition may caused by wrong UserAgent or none.</li>
+<li>The UserAgent must be set. Prohibition may caused by wrong UserAgent or none.</li>
 <li>UserAgent Format:Application Name/Version(email). For example:&#8221;MJJ DDNS Client/1.0.0 (shallwedance&#64;dnspod.com)&#8221;.</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Security：</dt>
+<dt>Security:</dt>
 <dd><p class="first last">Almost every step needs the email address and the password. So if you have to storage the user&#8217;s informations,please encrypt the password first. Never storage the password directly.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Support：</dt>
+<dt>Support:</dt>
 <dd><ul class="first last simple">
 <li>Support center: <a class="reference external" href="https://www.dnspod.com/Support">https://www.dnspod.com/Support</a></li>
 </ul>
@@ -110,19 +110,17 @@
 <dl class="docutils">
 <dt>All the APIs need this parameters.</dt>
 <dd><ul class="first last simple">
-<li>login_email The login email.Essential parameter.</li>
-<li>login_password The login password.Essential parameter.</li>
-<li>format {json,xml} The format of response.Default &#8220;xml&#8221;. &#8220;json&#8221; is highly recommended.Optional parameter.</li>
-<li>error_on_empty {yes,no} Whether to response an error when there&#8217;s no results.</li>
-<li>user_id The user&#8217;s ID. A must for agent users, and a waste for regular users.</li>
+<li><strong>format</strong> {json,xml} The format of response.Default &#8220;xml&#8221;. &#8220;json&#8221; is highly recommended.Optional parameter.</li>
+<li><strong>error_on_empty</strong> {yes,no} Whether to response an error when there&#8217;s no results.</li>
+<li><strong>user_token</strong> The user token obtained with the <tt class="docutils literal"><span class="pre">Auth</span></tt> command.</li>
 </ul>
 </dd>
 </dl>
 </div>
-<div class="section" id="common-response-code">
-<h2>Common Response Code<a class="headerlink" href="#common-response-code" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="common-response-codes">
+<h2>Common Response Codes<a class="headerlink" href="#common-response-codes" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Those responses codes could be in any API beacuse they are the common responses.</dt>
+<dt>Those responses codes could be in any API because they are the common responses.</dt>
 <dd><ul class="first last simple">
 <li>-1 Login fails.</li>
 <li>-2 API used too frequently.</li>
@@ -130,7 +128,7 @@
 <li>-4 Not in this agent.(only works for agent users)</li>
 <li>-7 No permission to use this API.</li>
 <li>-8 Account got prohibited.</li>
-<li>85 Account logined in another place and your request got rejected.</li>
+<li>85 Account logged-on in another place and your request got rejected.</li>
 <li>-99 This API is not ready to be used.No rush.</li>
 <li>1 Action completed successfully.</li>
 <li>2 POST method only.</li>
@@ -145,25 +143,31 @@
 <h2>Get the user token<a class="headerlink" href="#get-the-user-token" title="Permalink to this headline">¶</a></h2>
 <p>Before you use the APIs, you need get a user-token first by this one.</p>
 <dl class="docutils">
-<dt>API Address：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Auth">https://api.dnspod.com/Auth</a></li>
 </ul>
 </dd>
-<dt>HTTP Request Type：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
-<li>Global parameters.</li>
+<li><strong>format</strong> {json,xml} The format of response.Default &#8220;xml&#8221;. &#8220;json&#8221; is highly recommended.Optional parameter.</li>
+<li><strong>error_on_empty</strong> {yes,no} Whether to response an error when there&#8217;s no results.</li>
+<li><strong>login_email</strong> The login email. Mandatory parameter.</li>
+<li><strong>login_password</strong> The login password. Mandatory parameter.</li>
+<li><strong>login_code</strong> The code that generated by the D-Token. Mandatory parameter.</li>
+<li><strong>login_remember</strong> {yes,no} Whether to remember the D-Token code.Default &#8220;yes&#8221;.</li>
+<li><strong>user_id</strong> The user&#8217;s ID. A must for agent users, and a waste for regular users.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common response</li>
-<li>10001 User have been spamed</li>
+<li>Common Response Codes</li>
+<li>10001 User have been spammed</li>
 <li>10003 Account email is invalid</li>
 <li>10004 Password&#8217;s length is invalid, must between 6 and 32</li>
 <li>10005 Account is not exist</li>
@@ -171,10 +175,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Auth -d &#39;login_email=api@dnspod.com&amp;login_password=password&amp;format=json&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Auth -d 'login_email=api@dnspod.com&amp;login_password=password&amp;format=json'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -197,13 +200,13 @@
 <dl class="docutils">
 <dt>Users that already turned the D-Token on need this parameters in the request:</dt>
 <dd><ul class="first last simple">
-<li>login_code The code that generated by the D-Token.Essential parameter.</li>
-<li>login_remember {yes,no} Whether to remember the D-Token code.Default &#8220;yes&#8221;.</li>
+<li><strong>login_code</strong> The code that generated by the D-Token. Mandatory parameter.</li>
+<li><strong>login_remember</strong> {yes,no} Whether to remember the D-Token code.Default &#8220;yes&#8221;.</li>
 </ul>
 </dd>
 <dt>Attention:</dt>
 <dd>Since the D-Token code changes every 30 seconds,it is highly recommended that you set the &#8220;login_remember&#8221; to &#8220;yes&#8221;.If so,you will get an extra response with the format of &#8220;t + user_id&#8221; like &#8220;t123456&#8221;,whose life last for a month.With this cookie,you don&#8217;t need to submit the &#8220;login_code&#8221; and &#8220;login_remember&#8221;.</dd>
-<dt>If you are using D-Token,this error codes might be responsed.</dt>
+<dt>If you are using D-Token,this error codes might be responded.</dt>
 <dd><ul class="first last simple">
 <li>50 You already turned the D-Token on,and we need you D-Token code.</li>
 <li>51 You hasn&#8217;t turned the D-Token on.</li>
@@ -217,32 +220,31 @@
 <div class="section" id="get-the-version-of-api">
 <h2>Get the Version of API<a class="headerlink" href="#get-the-version-of-api" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>API Address：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Info.Version">https://api.dnspod.com/Info.Version</a></li>
 </ul>
 </dd>
-<dt>HTTP Request Type：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
-<li>Global parameters.</li>
+<li>Global Parameters</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common response</li>
+<li>Common Response Codes</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Info.Version -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Info.Version -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -275,7 +277,7 @@
 <li><a class="reference internal" href="#">API Explanation</a><ul>
 <li><a class="reference internal" href="#api-development-norm">API Development Norm</a></li>
 <li><a class="reference internal" href="#global-parameters">Global Parameters</a></li>
-<li><a class="reference internal" href="#common-response-code">Common Response Code</a></li>
+<li><a class="reference internal" href="#common-response-codes">Common Response Codes</a></li>
 <li><a class="reference internal" href="#get-the-user-token">Get the user token</a></li>
 <li><a class="reference internal" href="#d-token">D-Token</a></li>
 <li><a class="reference internal" href="#get-the-version-of-api">Get the Version of API</a></li>
@@ -313,7 +315,7 @@
     </div>
     <div class="footer">
         &copy; Copyright DNSPod Inc.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
     </div>
   </body>
 </html>

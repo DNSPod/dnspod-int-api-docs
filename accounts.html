@@ -40,32 +40,31 @@
 <div class="section" id="get-account-information">
 <h2>Get Account Information<a class="headerlink" href="#get-account-information" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/User.Detail">https://api.dnspod.com/User.Detail</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response</li>
+<li>Common Response Codes</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/User.Detail -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/User.Detail -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json'</pre>
 </div>
-<p>Response Example：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -103,38 +102,37 @@
 <div class="section" id="update-information">
 <h2>Update Information<a class="headerlink" href="#update-information" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/User.Modify">https://api.dnspod.com/User.Modify</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
-<li>Global parameters</li>
+<li>Global Parameters</li>
 <li><strong>real_name</strong> Your real name for personal accounts,and company name for company accounts.</li>
 <li><strong>nick</strong> Your nickname that make it easier to contact to the users.</li>
 <li><strong>telephone</strong> The users&#8217; phone number.</li>
 <li><strong>im</strong> Your Instant Messaging account.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common response</li>
+<li>Common Response Codes</li>
 <li>8 Invalid phone number.</li>
 <li>9 Invalid im account.</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/User.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;im=10000000&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/User.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;im=10000000'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -154,36 +152,35 @@
 <div class="section" id="change-password">
 <h2>Change Password<a class="headerlink" href="#change-password" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Userpasswd.Modify">https://api.dnspod.com/Userpasswd.Modify</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
 <li><strong>old_password</strong> The old password.</li>
 <li><strong>new_password</strong> The new password.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>8 Wrong old password.</li>
 <li>9 Invalid new password.</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Userpassword.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;old_password=old_password&amp;new_password=new_password&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Userpassword.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;old_password=old_password&amp;new_password=new_password'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -203,17 +200,17 @@
 <div class="section" id="update-email-address">
 <h2>Update Email Address<a class="headerlink" href="#update-email-address" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Useremail.Modify">https://api.dnspod.com/Useremail.Modify</a></li>
 </ul>
 </dd>
-<dt>HTTP Resquest Type：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
 <li><strong>old_email</strong> Old email address.</li>
@@ -221,9 +218,9 @@
 <li><strong>password</strong> Your current password for verifying.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code.</li>
+<li>Common Response Codes</li>
 <li>8 Old email address is not correct.</li>
 <li>9 New email address is invalid.</li>
 <li>10 Wrong password.</li>
@@ -231,10 +228,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Useremail.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;old_email=api1@dnspod.com&amp;new_email=api@dnspod.com&amp;password=password&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Useremail.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;old_email=api1@dnspod.com&amp;new_email=api@dnspod.com&amp;password=password'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -254,32 +250,31 @@
 <div class="section" id="get-the-account-s-operate-log">
 <h2>Get The Account&#8217;s Operate Log<a class="headerlink" href="#get-the-account-s-operate-log" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/User.Log">https://api.dnspod.com/User.Log</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common response code.</li>
+<li>Common Response Codes</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/User.Log -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/User.Log -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -352,7 +347,7 @@
     </div>
     <div class="footer">
         &copy; Copyright DNSPod Inc.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
     </div>
   </body>
 </html>

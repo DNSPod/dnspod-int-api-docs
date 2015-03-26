@@ -40,17 +40,17 @@
 <div class="section" id="add-new-domain">
 <h2>Add New Domain<a class="headerlink" href="#add-new-domain" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domain.Create">https://api.dnspod.com/Domain.Create</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
 <li><strong>domain</strong> The domain to add. No prefix.Example:dnspod.com</li>
@@ -58,9 +58,9 @@
 <li><strong>is_mark</strong> {yes|no} Whether to mark it or not. Optional parameter.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>6 Invalid domain.</li>
 <li>7 Domain already exists.</li>
 <li>11 Domain already exists as an alias of another domain.</li>
@@ -70,10 +70,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Create -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;domain=api2.com&amp;format=json&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domain.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;domain=api2.com&amp;format=json'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -98,31 +97,31 @@
 <div class="section" id="get-the-domain-list">
 <h2>Get The Domain List<a class="headerlink" href="#get-the-domain-list" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domain.List">https://api.dnspod.com/Domain.List</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last">
 <li><p class="first">Global Parameters</p>
 </li>
 <li><dl class="first docutils">
-<dt><strong>type</strong> The domain type.Optional parameter.Default value:&#8217;all&#8217;.Here are all the choseable values :</dt>
+<dt><strong>type</strong> The domain type.Optional parameter.Default value:&#8217;all&#8217;.Here are all the choosable values :</dt>
 <dd><ul class="first last simple">
-<li>all：All the domains</li>
-<li>mine：Only mine.</li>
-<li>share：Domains that shared with me.</li>
-<li>ismark：Marked domains.</li>
-<li>pause：Paused domains.</li>
-<li>vip：VIP domains.</li>
-<li>recent：Domains operated recentily.</li>
-<li>share_out：Domains that I shared out.</li>
+<li>all:All the domains</li>
+<li>mine:Only mine.</li>
+<li>share:Domains that shared with me.</li>
+<li>ismark:Marked domains.</li>
+<li>pause:Paused domains.</li>
+<li>vip:VIP domains.</li>
+<li>recent:Domains operated recently.</li>
+<li>share_out:Domains that I shared out.</li>
 </ul>
 </dd>
 </dl>
@@ -131,18 +130,18 @@
 </li>
 <li><p class="first"><strong>length</strong> The number of domains you want to get on this request.Optional parameter.</p>
 </li>
-<li><p class="first"><strong>group_id</strong> The group ID.Only in this group can the domain be in the results if this parameter is seted.Optional parameter.</p>
+<li><p class="first"><strong>group_id</strong> The group ID.Only in this group can the domain be in the results if this parameter is set.Optional parameter.</p>
 </li>
 </ul>
 </dd>
-<dt>Attention：</dt>
+<dt>Attention:</dt>
 <dd><ul class="first last simple">
-<li>If there are more than 500 domains in your account,only the first 500 domains will responsed for split page.You may need to set the parameter &#8220;offset&#8221; and &#8220;length&#8221; to get all your domains with multi requests.</li>
+<li>If there are more than 500 domains in your account,only the first 500 domains will responded for split page.You may need to set the parameter &#8220;offset&#8221; and &#8220;length&#8221; to get all your domains with multi requests.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>6 Invalid offset.</li>
 <li>7 Invalid length.</li>
 <li>9 Empty result.</li>
@@ -150,10 +149,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.List -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domain.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -208,25 +206,25 @@
 <div class="section" id="delete-domain">
 <h2>Delete Domain<a class="headerlink" href="#delete-domain" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domain.Remove">https://api.dnspod.com/Domain.Remove</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
-<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain. You only need to and must set one of them.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>-15 Domain got prohibited.</li>
 <li>6 Invalid domain id.</li>
 <li>7 Domain got locked.</li>
@@ -236,10 +234,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Remove -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=1992403&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domain.Remove -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=1992403'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -259,26 +256,26 @@
 <div class="section" id="set-domain-status">
 <h2>Set Domain Status<a class="headerlink" href="#set-domain-status" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domain.Status">https://api.dnspod.com/Domain.Status</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
-<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain. You only need to and must set one of them.</li>
 <li><strong>status</strong> {enable, disable} The domain status.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>-15 Domain got prohibited.</li>
 <li>-7 The company account need a upgrade before doing this.</li>
 <li>-8 You need a upgrade for the domains you are acting for.</li>
@@ -289,10 +286,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Status -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2058967&amp;status=disable&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domain.Status -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2058967&amp;status=disable'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -312,25 +308,25 @@
 <div class="section" id="get-the-domain-information">
 <h2>Get The Domain Information<a class="headerlink" href="#get-the-domain-information" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domain.Info">https://api.dnspod.com/Domain.Info</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
-<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain. You only need to and must set one of them.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>-7 The company account need a upgrade before doing this.</li>
 <li>-8 You need a upgrade for the domains you are acting for.</li>
 <li>6 Invalid domain id.</li>
@@ -339,10 +335,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Info  -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domain.Info  -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -383,25 +378,25 @@
 <div class="section" id="get-the-operate-logs-of-a-domain">
 <h2>Get the Operate Logs of a Domain<a class="headerlink" href="#get-the-operate-logs-of-a-domain" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domain.Log">https://api.dnspod.com/Domain.Log</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
-<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain. You only need to and must set one of them.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>-7 The company account need a upgrade before doing this.</li>
 <li>-8 You need a upgrade for the domains you are acting for.</li>
 <li>6 Invalid domain id.</li>
@@ -410,10 +405,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Log  -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domain.Log  -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -440,26 +434,26 @@
 <div class="section" id="push-domain-to-search-engine">
 <h2>Push Domain to Search Engine<a class="headerlink" href="#push-domain-to-search-engine" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domain.Searchenginepush">https://api.dnspod.com/Domain.Searchenginepush</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
-<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain. You only need to and must set one of them.</li>
 <li><strong>status</strong> {yes,no} Whether to push it.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>-15 Domain got prohibited.</li>
 <li>-7 The company account need a upgrade before doing this.</li>
 <li>-8 You need a upgrade for the domains you are acting for.</li>
@@ -470,10 +464,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Searchenginepush -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;status=yes&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domain.Searchenginepush -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;status=yes'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -493,28 +486,28 @@
 <div class="section" id="share-a-domain">
 <h2>Share a Domain<a class="headerlink" href="#share-a-domain" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domainshare.Create">https://api.dnspod.com/Domainshare.Create</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
-<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain. You only need to and must set one of them.</li>
 <li><strong>email</strong> The email address with who you want to share.</li>
 <li><strong>mode</strong> {r,rw} The share mode.&#8221;r&#8221; stands for &#8220;read only&#8221;,and &#8220;rw&#8221; stands for &#8220;read and write&#8221;.The default value is &#8220;r&#8221;.</li>
 <li><strong>sub_domain</strong> The subsidiary domain you want to share,like &#8220;www&#8221; or &#8220;bbs&#8221;.Don&#8217;t set this parameter if you want to share the whole domain.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>-15 Domain got prohibited.</li>
 <li>-7 The company account need a upgrade before doing this.</li>
 <li>-8 You need a upgrade for the domains you are acting for.</li>
@@ -527,10 +520,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainshare.Create -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=otheruser@dnspod.com&amp;mode=rw&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domainshare.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=otheruser@dnspod.com&amp;mode=rw'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -550,25 +542,25 @@
 <div class="section" id="get-domain-share-list">
 <h2>Get Domain Share List<a class="headerlink" href="#get-domain-share-list" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domainshare.List">https://api.dnspod.com/Domainshare.List</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
-<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain. You only need to and must set one of them.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>-7 The company account need a upgrade before doing this.</li>
 <li>-8 You need a upgrade for the domains you are acting for.</li>
 <li>6 Invalid domain id.</li>
@@ -577,10 +569,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainshare.List -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domainshare.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -608,29 +599,29 @@
 <div class="section" id="update-the-domain-share">
 <h2>Update the Domain Share<a class="headerlink" href="#update-the-domain-share" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domainshare.Modify">https://api.dnspod.com/Domainshare.Modify</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
-<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain. You only need to and must set one of them.</li>
 <li><strong>email</strong> The original target email address.Don&#8217;s change it.</li>
 <li><strong>mode</strong> {r,rw} Share mode.&#8221;r&#8221; stands for &#8220;read only&#8221;,and &#8220;rw&#8221; stands for &#8220;read and write&#8221;.The default value is &#8220;r&#8221;.</li>
-<li><strong>old_sub_domain</strong> The old subsidiary domain that already shared.This parameter shouldn&#8217;t be seted if you want to update the domain name.</li>
+<li><strong>old_sub_domain</strong> The old subsidiary domain that already shared.This parameter shouldn&#8217;t be set if you want to update the domain name.</li>
 <li><strong>new_sub_domain</strong> The new subsidiary domain.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>-15 Domain got prohibited.</li>
 <li>-7 The company account need a upgrade before doing this.</li>
 <li>-8 You need a upgrade for the domains you are acting for.</li>
@@ -644,32 +635,27 @@
 <p>Example</p>
 <ol class="arabic">
 <li><p class="first">Change a domain&#8217;s share mode from &#8220;rw&#8221; to &#8220;r&#8221;:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainshare.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com&amp;mode=r&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com&amp;mode=r'</pre>
 </div>
 </li>
 <li><p class="first">Change a domain&#8217;s share mode from &#8220;rw&#8221; to &#8220;r&#8221;:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainshare.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com&amp;mode=r&amp;old_sub_domain=www&amp;new_sub_domain=www&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com&amp;mode=r&amp;old_sub_domain=www&amp;new_sub_domain=www'</pre>
 </div>
 </li>
 <li><p class="first">Change a domain&#8217;s share type from the whole domain to subsidiary domain.:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainshare.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com&amp;mode=rw&amp;new_sub_domain=www&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com&amp;mode=rw&amp;new_sub_domain=www'</pre>
 </div>
 </li>
 <li><p class="first">Change a domain&#8217;s share type from subsidiary domain to the whole domain.:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainshare.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com&amp;mode=rw&amp;old_sub_domain=www&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com&amp;mode=rw&amp;old_sub_domain=www'</pre>
 </div>
 </li>
 <li><p class="first">Change the subsidiary domain from &#8220;www&#8221; to &#8220;bbs&#8221;:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainshare.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com&amp;mode=rw&amp;old_sub_domain=www&amp;new_sub_domain=bbs&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domainshare.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com&amp;mode=rw&amp;old_sub_domain=www&amp;new_sub_domain=bbs'</pre>
 </div>
 </li>
 </ol>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -689,26 +675,26 @@
 <div class="section" id="delete-a-domain-share">
 <h2>Delete a Domain Share<a class="headerlink" href="#delete-a-domain-share" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
-<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Domainshare.Remove">https://api.dnspod.com/Domainshare.Remove</a></li>
+<li><a class="reference external" href="https://api.dnspod.com/Domainshare.Remove">https://api.dnspod.com/Domainshare.Remove</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
-<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain. You only need to and must set one of them.</li>
 <li><strong>email</strong> The original email address.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>-15 Domain got prohibited.</li>
 <li>-7 The company account need a upgrade before doing this.</li>
 <li>-8 You need a upgrade for the domains you are acting for.</li>
@@ -720,10 +706,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainshare.Remove -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domainshare.Remove -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -743,43 +728,42 @@
 <div class="section" id="transfer-a-domain-to-another-account">
 <h2>Transfer a Domain to Another Account<a class="headerlink" href="#transfer-a-domain-to-another-account" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domain.Transfer">https://api.dnspod.com/Domain.Transfer</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
-<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain. You only need to and must set one of them.</li>
 <li><strong>email</strong> The original email address.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>-15 Domain got prohibited.</li>
 <li>-7 The company account need a upgrade before doing this.</li>
 <li>-8 You need a upgrade for the domains you are acting for.</li>
 <li>6 Invalid domain id.</li>
 <li>7 Invalid email address.</li>
 <li>8 Email address not exists.</li>
-<li>9 You cannt transfer it to yourself.</li>
-<li>10 You can&#8217;t transfer a domain from a persional account to a company account.</li>
-<li>11 You can&#8217;t transfer a domain from a company account to a persional account.</li>
+<li>9 You cannot transfer it to yourself.</li>
+<li>10 You can&#8217;t transfer a domain from a personal account to a company account.</li>
+<li>11 You can&#8217;t transfer a domain from a company account to a personal account.</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainshare.Transfer -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domainshare.Transfer -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;email=yizerowu@dnspod.com'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -799,26 +783,26 @@
 <div class="section" id="lock-a-domain">
 <h2>Lock a Domain<a class="headerlink" href="#lock-a-domain" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domain.Lock">https://api.dnspod.com/Domain.Lock</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
 <li><strong>domain_id</strong> The domain ID</li>
 <li><strong>days</strong> For how many days.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>-15 Domain got prohibited.</li>
 <li>-7 The company account need a upgrade before doing this.</li>
 <li>-8 You need a upgrade for the domains you are acting for.</li>
@@ -831,10 +815,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Lock -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;days=3&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domain.Lock -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;days=3'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -859,25 +842,25 @@
 <div class="section" id="lock-status">
 <h2>Lock Status<a class="headerlink" href="#lock-status" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domain.Lockstatus">https://api.dnspod.com/Domain.Lockstatus</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
-<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain. You only need to and must set one of them.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>-15 Domain got prohibited.</li>
 <li>-7 The company account need a upgrade before doing this.</li>
 <li>-8 You need a upgrade for the domains you are acting for.</li>
@@ -887,10 +870,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Lockstatus -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domain.Lockstatus -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -916,26 +898,26 @@
 <div class="section" id="domain-unlock">
 <h2>Domain Unlock<a class="headerlink" href="#domain-unlock" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domain.Unlock">https://api.dnspod.com/Domain.Unlock</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
-<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain. You only need to and must set one of them.</li>
 <li><strong>lock_code</strong> The code that you will get when you lock the domain.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>-15 Domain got prohibited.</li>
 <li>-7 The company account need a upgrade before doing this.</li>
 <li>-8 You need a upgrade for the domains you are acting for.</li>
@@ -947,10 +929,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Unlock -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;lock_code=fdd638&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domain.Unlock -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;lock_code=fdd638'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -975,25 +956,25 @@
 <div class="section" id="get-domain-alias-list">
 <h2>Get Domain Alias List<a class="headerlink" href="#get-domain-alias-list" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domainalias.List">https://api.dnspod.com/Domainalias.List</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
-<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain. You only need to and must set one of them.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>-7 The company account need a upgrade before doing this.</li>
 <li>-8 You need a upgrade for the domains you are acting for.</li>
 <li>6 Invalid domain id.</li>
@@ -1002,10 +983,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainalias.List -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domainalias.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -1031,26 +1011,26 @@
 <div class="section" id="add-a-domain-alias">
 <h2>Add a Domain Alias<a class="headerlink" href="#add-a-domain-alias" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domainalias.Create">https://api.dnspod.com/Domainalias.Create</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
 <li><strong>domain_id</strong> The domain ID.</li>
 <li><strong>domain</strong> The domain to bind.Without &#8220;www&#8221;.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>-15 Domain got prohibited.</li>
 <li>-7 The company account need a upgrade before doing this.</li>
 <li>-8 You need a upgrade for the domains you are acting for.</li>
@@ -1063,10 +1043,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainalias.Create -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;domain=dnspodapi.com&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domainalias.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;domain=dnspodapi.com'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -1090,26 +1069,26 @@
 <div class="section" id="remove-a-domain-alias">
 <h2>Remove a Domain Alias<a class="headerlink" href="#remove-a-domain-alias" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domainalias.Remove">https://api.dnspod.com/Domainalias.Remove</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
-<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain. You only need to and must set one of them.</li>
 <li><strong>alias_id</strong> The alias id that you will get when you create it.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>-15 Domain got prohibited.</li>
 <li>-7 The company account need a upgrade before doing this.</li>
 <li>-8 You need a upgrade for the domains you are acting for.</li>
@@ -1119,10 +1098,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domainalias.Remove -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;alias_id=18737&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domainalias.Remove -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;alias_id=18737'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -1142,32 +1120,31 @@
 <div class="section" id="get-the-domain-group-list">
 <h2>Get The Domain Group List<a class="headerlink" href="#get-the-domain-group-list" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domaingroup.List">https://api.dnspod.com/Domaingroup.List</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domaingroup.List -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domaingroup.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -1237,22 +1214,25 @@
 <div class="section" id="add-a-new-domain-group">
 <h2>Add a New Domain Group<a class="headerlink" href="#add-a-new-domain-group" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
-<dd><a class="reference external" href="https://api.dnspod.com/Domaingroup.Create">https://api.dnspod.com/Domaingroup.Create</a></dd>
-<dt>Method：</dt>
+<dt>URL:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domaingroup.Create">https://api.dnspod.com/Domaingroup.Create</a></li>
+</ul>
+</dd>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
 <li><strong>group_name</strong> I think you know what this stands for.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>7 Invalid group name.</li>
 <li>8 The group name already exists.</li>
 <li>9 The number of groups is up to limit.</li>
@@ -1260,10 +1240,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domaingroup.List -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;group_name=dnspod&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domaingroup.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;group_name=dnspod'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -1283,7 +1262,7 @@
 </ul>
 </div></blockquote>
 <dl class="docutils">
-<dt>Attention：</dt>
+<dt>Attention:</dt>
 <dd><ul class="first last simple">
 <li>This API only works for VIP accounts while free accounts will get an error.</li>
 </ul>
@@ -1293,23 +1272,26 @@
 <div class="section" id="update-a-domain-group">
 <h2>Update a Domain Group<a class="headerlink" href="#update-a-domain-group" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
-<dd><a class="reference external" href="https://api.dnspod.com/Domaingroup.Modify">https://api.dnspod.com/Domaingroup.Modify</a></dd>
-<dt>Method：</dt>
+<dt>URL:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://api.dnspod.com/Domaingroup.Modify">https://api.dnspod.com/Domaingroup.Modify</a></li>
+</ul>
+</dd>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
 <li><strong>group_id</strong></li>
 <li><strong>group_name</strong></li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>6 Invalid group id.</li>
 <li>7 Invalid group name.</li>
 <li>8 The group name already exists.</li>
@@ -1318,10 +1300,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domaingroup.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;group_id=1985&amp;group_name=dnspodgroup&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domaingroup.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;group_id=1985&amp;group_name=dnspodgroup'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -1341,34 +1322,33 @@
 <div class="section" id="remove-a-domain-group">
 <h2>Remove a Domain Group<a class="headerlink" href="#remove-a-domain-group" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domaingroup.Remove">https://api.dnspod.com/Domaingroup.Remove</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
 <li><strong>group_id</strong></li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>6 Invalid group id.</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domaingroup.Remove -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;group_id=1985&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domaingroup.Remove -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;group_id=1985'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -1388,36 +1368,35 @@
 <div class="section" id="change-a-domain-s-group">
 <h2>Change a Domain&#8217;s Group<a class="headerlink" href="#change-a-domain-s-group" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domain.Changegroup">https://api.dnspod.com/Domain.Changegroup</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
-<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain. You only need to and must set one of them.</li>
 <li><strong>group_id</strong></li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>6 Invalid domain id.</li>
 <li>7 Invalid group id.</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Changegroup -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;group_id=1985&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domain.Changegroup -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;group_id=1985'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -1434,7 +1413,7 @@
 </ul>
 </div></blockquote>
 <dl class="docutils">
-<dt>Directions：</dt>
+<dt>Directions:</dt>
 <dd><ul class="first last simple">
 <li>All the domains shared by others are always put into the group named &#8220;Shared With Me&#8221; because their group is unchangeable.</li>
 <li>Only the owner of the domain has the permission to change the domain&#8217;s group.</li>
@@ -1445,35 +1424,34 @@
 <div class="section" id="mark-a-domain">
 <h2>Mark a Domain<a class="headerlink" href="#mark-a-domain" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domain.Ismark">https://api.dnspod.com/Domain.Ismark</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
-<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain. You only need to and must set one of them.</li>
 <li><strong>is_mark</strong> {yes|no} Whether to mark this domain.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>6 Invalid domain id.</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Ismark -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;is_mark=yes&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domain.Ismark -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;is_mark=yes'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -1493,35 +1471,34 @@
 <div class="section" id="remark-a-domain">
 <h2>Remark a Domain<a class="headerlink" href="#remark-a-domain" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domain.Remark">https://api.dnspod.com/Domain.Remark</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
-<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain. You only need to and must set one of them.</li>
 <li><strong>remark</strong> The remark information,or empty for deleting.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>6 Invalid domain id.</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Remark -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;remark=这个域名需要备注一下&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domain.Remark -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2059079&amp;remark=这个域名需要备注一下'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -1541,43 +1518,42 @@
 <div class="section" id="get-the-email-address-needed-to-get-domain-back">
 <h2>Get the Email Address Needed to Get Domain Back<a class="headerlink" href="#get-the-email-address-needed-to-get-domain-back" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domain.Acquire">https://api.dnspod.com/Domain.Acquire</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
 <li><strong>domain</strong> The domain you want to get back.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>6 Invalid domain</li>
 <li>7 No Chinese character allowed in the domain.</li>
 <li>8 Invalid domain.</li>
-<li>9 Domains that end with &#8221;.tk&#8221; are not supported.No offence.</li>
+<li>9 Domains that end with &#8221;.tk&#8221; are not supported.No offense.</li>
 <li>10 Domain not exists.</li>
 <li>11 Domain got prohibited.</li>
 <li>12 Domain got locked.</li>
-<li>13 You can&#8217;t get a domain back from a company account to a persional account.</li>
-<li>14 You can&#8217;t get a domain back from a persional account to a company account.</li>
+<li>13 You can&#8217;t get a domain back from a company account to a personal account.</li>
+<li>14 You can&#8217;t get a domain back from a personal account to a company account.</li>
 <li>15 Fail to get email address.Maybe there&#8217;s something wrong with the network or the domain doesn&#8217;t support.</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Acquire -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain=api4.com&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domain.Acquire -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain=api4.com'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -1601,47 +1577,46 @@
 <div class="section" id="send-verify-code-for-getting-domain-back">
 <h2>Send Verify Code for Getting Domain Back<a class="headerlink" href="#send-verify-code-for-getting-domain-back" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
-<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Domain.Acquiresend">https://api.dnspod.com/Domain.Acquiresend</a></li>
+<li><a class="reference external" href="https://api.dnspod.com/Domain.Acquiresend">https://api.dnspod.com/Domain.Acquiresend</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
 <li><strong>domain</strong> The domain you want to get back.</li>
 <li><strong>email</strong> One email address in the get-domain-back email list.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>6 Invalid domain.</li>
 <li>7 No Chinese characters supported in the domain.</li>
 <li>8 Invalid domain.</li>
-<li>9 Domains end with &#8221;.tk&#8221; are not supported.No offence.</li>
+<li>9 Domains end with &#8221;.tk&#8221; are not supported.No offense.</li>
 <li>10 Domain not exists.</li>
 <li>11 Domain got prohibited.</li>
 <li>12 Domain got locked.</li>
-<li>13 You can&#8217;t get a domain back from a company account to a persional account.</li>
-<li>14 You can&#8217;t get a domain back from a persional account to a company account.</li>
+<li>13 You can&#8217;t get a domain back from a company account to a personal account.</li>
+<li>14 You can&#8217;t get a domain back from a personal account to a company account.</li>
 <li>15 Fail to get email address.Maybe there&#8217;s something wrong with the network or the domain doesn&#8217;t support.</li>
 <li>16 Invalid email address.</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Acquiresend -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain=api4.com&amp;email=support@namecheap.com&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domain.Acquiresend -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain=api4.com&amp;email=support@namecheap.com'</pre>
 </div>
-<dl class="docutils">
-<dt>Response：</dt>
-<dd><ul class="first last">
+<p>Response Example:</p>
+<blockquote>
+<div><ul>
 <li><p class="first">JSON:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
     <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1654,51 +1629,49 @@
 </div>
 </li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </div>
 <div class="section" id="verify-the-verify-code">
 <h2>Verify the Verify Code<a class="headerlink" href="#verify-the-verify-code" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Domain.Acquirevalidate">https://api.dnspod.com/Domain.Acquirevalidate</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
 <li><strong>domain</strong> The domain you want to get back.</li>
 <li><strong>code</strong>  The code that you get from your email.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>6 Invalid domain.</li>
-<li>7 No Chinnese characters allowed.</li>
+<li>7 No Chinese characters allowed.</li>
 <li>8 Invalid domain.</li>
-<li>9 Domains end with &#8221;.tk&#8221; are not supported.No offence.</li>
+<li>9 Domains end with &#8221;.tk&#8221; are not supported.No offense.</li>
 <li>10 Domain not exists.</li>
 <li>11 Domain got prohibited.</li>
 <li>12 Domain got locked.</li>
-<li>13 You can&#8217;t get a domain back from a company account to a persional account.</li>
-<li>14 You can&#8217;t get a domain back from a persional account to a company account.</li>
+<li>13 You can&#8217;t get a domain back from a company account to a personal account.</li>
+<li>14 You can&#8217;t get a domain back from a personal account to a company account.</li>
 <li>15 Wrong code.</li>
 <li>16 Invalid email address.</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Domain.Acquirevalidate -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain=api4.com&amp;code=111000&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Domain.Acquirevalidate -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain=api4.com&amp;code=111000'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -1718,34 +1691,33 @@
 <div class="section" id="get-all-the-record-types-for-a-domain-grade">
 <h2>Get All the Record Types for a Domain Grade<a class="headerlink" href="#get-all-the-record-types-for-a-domain-grade" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
-<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Record.Type">https://api.dnspod.com/Record.Type</a></li>
+<li><a class="reference external" href="https://api.dnspod.com/Record.Type">https://api.dnspod.com/Record.Type</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
 <li><strong>domain_grade</strong> The domain grade. only &#8216;DP_Free&#8217; for now.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>6 Invalid domain grade.</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Record.Type -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_grade=DP_Free&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Record.Type -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_grade=DP_Free'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -1765,7 +1737,7 @@
         <span class="s">&quot;SRV&quot;</span><span class="p">,</span>
         <span class="s">&quot;URL&quot;</span><span class="p">,</span>
         <span class="s">&quot;Framed URL&quot;</span>
-    <span class="p">],</span>
+    <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1776,35 +1748,34 @@
 <div class="section" id="get-all-the-lines-allowed-for-a-domain-grade">
 <h2>Get All the Lines Allowed for a Domain Grade<a class="headerlink" href="#get-all-the-lines-allowed-for-a-domain-grade" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
-<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Record.Line">https://api.dnspod.com/Record.Line</a></li>
+<li><a class="reference external" href="https://api.dnspod.com/Record.Line">https://api.dnspod.com/Record.Line</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
 <li>Global Parameters</li>
 <li><strong>domain_grade</strong> The domain grade. only &#8216;DP_Free&#8217; for now.</li>
-<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain.You only need to and must set one of them.</li>
+<li><strong>domain_id</strong> OR <strong>domain</strong> Stand for the id and the name of the domain. You only need to and must set one of them.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common Response Code</li>
+<li>Common Response Codes</li>
 <li>6 Invalid domain grade.</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Record.Line -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_grade=DP_Free&amp;domain=dnspod.com&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Record.Line -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_grade=DP_Free&amp;domain=dnspod.com'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -2200,7 +2171,7 @@
     </div>
     <div class="footer">
         &copy; Copyright DNSPod Inc.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
     </div>
   </body>
 </html>

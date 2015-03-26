@@ -39,25 +39,25 @@
 <div class="section" id="list-all-the-sub-domains-whose-type-is-a">
 <h2>List All the Sub-domains Whose Type Is &#8220;A&#8221;<a class="headerlink" href="#list-all-the-sub-domains-whose-type-is-a" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
-<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Monitor.Listsubdomain">https://api.dnspod.com/Monitor.Listsubdomain</a></li>
+<li><a class="reference external" href="https://api.dnspod.com/Monitor.Listsubdomain">https://api.dnspod.com/Monitor.Listsubdomain</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
-<li>Global parameters</li>
-<li><strong>domain</strong> OR <strong>domain_id</strong> Stand for the domain name and the domain id.You only need to and must choose one of them.</li>
+<li>Global Parameters</li>
+<li><strong>domain</strong> OR <strong>domain_id</strong> Stand for the domain name and the domain id. You only need to and must set one of them.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common response code.</li>
+<li>Common Response Codes</li>
 <li>6 Domain not exists.</li>
 <li>7 Invalid domain id.</li>
 <li>8 No records under this domain.</li>
@@ -65,10 +65,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.Listsubdomain -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Monitor.Listsubdomain -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -98,36 +97,35 @@
 <div class="section" id="list-all-the-a-records-for-a-sub-domain">
 <h2>List All the &#8220;A&#8221; Records for a Sub-domain<a class="headerlink" href="#list-all-the-a-records-for-a-sub-domain" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
-<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Monitor.Listsubvalue">https://api.dnspod.com/Monitor.Listsubvalue</a></li>
+<li><a class="reference external" href="https://api.dnspod.com/Monitor.Listsubvalue">https://api.dnspod.com/Monitor.Listsubvalue</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
-<li>Global parameters</li>
-<li><strong>domain</strong> OR <strong>domain_id</strong> Stand for the domain name and the domain id.You only need to and must choose one of them.</li>
-<li><strong>subdomain</strong> The sub-domain.Essential parameter.</li>
+<li>Global Parameters</li>
+<li><strong>domain</strong> OR <strong>domain_id</strong> Stand for the domain name and the domain id. You only need to and must set one of them.</li>
+<li><strong>subdomain</strong> The sub-domain. Mandatory parameter.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common response code.</li>
+<li>Common Response Codes</li>
 <li>6 Domain not exists.</li>
 <li>7 Invalid domain id.</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.Listsubvalue -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;subdomain=@&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Monitor.Listsubvalue -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;subdomain=@'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -171,32 +169,31 @@
 <div class="section" id="get-the-monitor-list">
 <h2>Get the Monitor List<a class="headerlink" href="#get-the-monitor-list" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
-<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Monitor.List">https://api.dnspod.com/Monitor.List</a></li>
+<li><a class="reference external" href="https://api.dnspod.com/Monitor.List">https://api.dnspod.com/Monitor.List</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
-<li>Global parameters</li>
+<li>Global Parameters</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common response code.</li>
+<li>Common Response Codes</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.List -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Monitor.List -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -255,35 +252,35 @@
 <div class="section" id="add-a-monitor">
 <h2>Add a Monitor<a class="headerlink" href="#add-a-monitor" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
-<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Monitor.Create">https://api.dnspod.com/Monitor.Create</a></li>
+<li><a class="reference external" href="https://api.dnspod.com/Monitor.Create">https://api.dnspod.com/Monitor.Create</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last">
-<li><p class="first">Global parameters</p>
+<li><p class="first">Global Parameters</p>
 </li>
-<li><p class="first"><strong>domain_id</strong> The domain id.Essential parameter.</p>
+<li><p class="first"><strong>domain_id</strong> The domain id. Mandatory parameter.</p>
 </li>
-<li><p class="first"><strong>record_id</strong> The record id.Essential parameter.</p>
+<li><p class="first"><strong>record_id</strong> The record id. Mandatory parameter.</p>
 </li>
-<li><p class="first"><strong>port</strong> The port number to monitor like 80.Essential parameter.</p>
+<li><p class="first"><strong>port</strong> The port number to monitor like 80. Mandatory parameter.</p>
 </li>
-<li><p class="first"><strong>monitor_interval</strong> Monitoring spacing.Ranged {60|180|360|}.Essential parameter.</p>
+<li><p class="first"><strong>monitor_interval</strong> Monitoring spacing.Ranged {60|180|360|}. Mandatory parameter.</p>
 </li>
-<li><p class="first"><strong>host</strong> The host from the http header like &#8220;www.dnspod.com&#8221;.Essential parameter.</p>
+<li><p class="first"><strong>host</strong> The host from the http header like &#8220;www.dnspod.com&#8221;. Mandatory parameter.</p>
 </li>
-<li><p class="first"><strong>monitor_type</strong> {http|https} The monitor type.Essential parameter.</p>
+<li><p class="first"><strong>monitor_type</strong> {http|https} The monitor type. Mandatory parameter.</p>
 </li>
-<li><p class="first"><strong>monitor_path</strong> The request path from the http header like &#8220;/&#8221;.Essential parameter.</p>
+<li><p class="first"><strong>monitor_path</strong> The request path from the http header like &#8220;/&#8221;. Mandatory parameter.</p>
 </li>
-<li><p class="first"><strong>points</strong> The points to use.Split by &#8221;,&#8221;.You can choose it from the list of your own grade.Essential parameter.</p>
+<li><p class="first"><strong>points</strong> The points to use.Split by &#8221;,&#8221;.You can choose it from the list of your own grade. Mandatory parameter.</p>
 </li>
 <li><dl class="first docutils">
 <dt><strong>bak_ip</strong> Backup IP address.Choose one kind from the list blow:</dt>
@@ -297,23 +294,23 @@
 </dd>
 </dl>
 </li>
-<li><p class="first"><strong>keep_ttl</strong> TTL won&#8217;t be changed if this is seted up.Essential parameter.</p>
+<li><p class="first"><strong>keep_ttl</strong> TTL won&#8217;t be changed if this is set. Mandatory parameter.</p>
 </li>
-<li><p class="first"><strong>sms_notice</strong> &#8220;me&#8221; for the owner,and &#8220;share&#8221; for the shared users.Split by &#8221;,&#8221; if there are more than one like &#8220;me,share&#8221;.Essential parameter.</p>
+<li><p class="first"><strong>sms_notice</strong> &#8220;me&#8221; for the owner,and &#8220;share&#8221; for the shared users.Split by &#8221;,&#8221; if there are more than one like &#8220;me,share&#8221;. Mandatory parameter.</p>
 </li>
 <li><p class="first"><strong>email_notice</strong> Same as the sms_notice.</p>
 </li>
-<li><p class="first"><strong>less_notice</strong> {yes|no} Whether to just send one notice withen one hour.Essential parameter.</p>
+<li><p class="first"><strong>less_notice</strong> {yes|no} Whether to just send one notice within one hour. Mandatory parameter.</p>
 </li>
 <li><p class="first"><strong>callback_url</strong> The callback URL.All the data will be sent to this URL when the IP is down.For more details,please see the directions.Optional parameter.</p>
 </li>
-<li><p class="first"><strong>callback_key</strong> The callback key.If &#8220;callback_url&#8221; is set up,you shoul set this up too for sucurety.</p>
+<li><p class="first"><strong>callback_key</strong> The callback key.If &#8220;callback_url&#8221; is set up,you should set this up too for security.</p>
 </li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common response code.</li>
+<li>Common Response Codes</li>
 <li>6 Invalid domain id.</li>
 <li>7 Invalid record id.</li>
 <li>8 Invalid host.</li>
@@ -324,7 +321,7 @@
 <li>13 Invalid monitor points.</li>
 <li>14 Too many points.</li>
 <li>15 Invalid backup IP.</li>
-<li>16 Invalid bakcup url.</li>
+<li>16 Invalid backup url.</li>
 <li>17 Invalid backup IP.</li>
 <li>18 Invalid sms notice.</li>
 <li>19 Invalid email notice.</li>
@@ -335,10 +332,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.Create -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;record_id=16909160&amp;port=80&amp;monitor_type=http&amp;monitor_path=/&amp;monitor_interval=360&amp;points=ctc,cuc,cmc&amp;bak_ip=pass&amp;host=testapi.com&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Monitor.Create -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;record_id=16909160&amp;port=80&amp;monitor_type=http&amp;monitor_path=/&amp;monitor_interval=360&amp;points=ctc,cuc,cmc&amp;bak_ip=pass&amp;host=testapi.com'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -362,31 +358,31 @@
 <div class="section" id="modify-a-monitor">
 <h2>Modify a Monitor<a class="headerlink" href="#modify-a-monitor" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
-<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Monitor.Modify">https://api.dnspod.com/Monitor.Modify</a></li>
+<li><a class="reference external" href="https://api.dnspod.com/Monitor.Modify">https://api.dnspod.com/Monitor.Modify</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last">
-<li><p class="first">Global parameters</p>
+<li><p class="first">Global Parameters</p>
 </li>
-<li><p class="first"><strong>monitor_id</strong> Monitor id.Essential parameter.</p>
+<li><p class="first"><strong>monitor_id</strong> Monitor id. Mandatory parameter.</p>
 </li>
-<li><p class="first"><strong>port</strong> The port number to minitor like 80.Essential parameter.</p>
+<li><p class="first"><strong>port</strong> The port number to monitor like 80. Mandatory parameter.</p>
 </li>
-<li><p class="first"><strong>monitor_interval</strong> {60|180|360|} The monitor interval.Essential parameter.</p>
+<li><p class="first"><strong>monitor_interval</strong> {60|180|360|} The monitor interval. Mandatory parameter.</p>
 </li>
-<li><p class="first"><strong>monitor_type</strong> {http|https} The monitor type.Essential parameter.</p>
+<li><p class="first"><strong>monitor_type</strong> {http|https} The monitor type. Mandatory parameter.</p>
 </li>
-<li><p class="first"><strong>monitor_path</strong> The path in the http header like &#8220;/&#8221;.Essential parameter.</p>
+<li><p class="first"><strong>monitor_path</strong> The path in the http header like &#8220;/&#8221;. Mandatory parameter.</p>
 </li>
-<li><p class="first"><strong>points</strong> The points to use.Split by &#8221;,&#8221;.You can choose it from the list of your own grade.Essential parameter.</p>
+<li><p class="first"><strong>points</strong> The points to use.Split by &#8221;,&#8221;.You can choose it from the list of your own grade. Mandatory parameter.</p>
 </li>
 <li><dl class="first docutils">
 <dt><strong>bak_ip</strong> Backup IP address.Choose one kind from the list blow:</dt>
@@ -394,31 +390,31 @@
 <li>pass Just monitoring,no switching.</li>
 <li>pause The old type of pause.For more details,please visit: <a class="reference external" href="https://support.dnspod.cn/Kb/showarticle/tsid/179">https://support.dnspod.cn/Kb/showarticle/tsid/179</a></li>
 <li>pause2 The intelligent pause who pause the record immediately when the IP is down.</li>
-<li>auto Switch intellgently.</li>
+<li>auto Switch intelligently.</li>
 <li>IP addresses split by &#8221;,&#8221;.</li>
 </ol>
 </dd>
 </dl>
 </li>
-<li><p class="first"><strong>host</strong> The host from the http header like &#8220;www.dnspod.com&#8221;.Essential parameter.</p>
+<li><p class="first"><strong>host</strong> The host from the http header like &#8220;www.dnspod.com&#8221;. Mandatory parameter.</p>
 </li>
-<li><p class="first"><strong>keep_ttl</strong> TTL won&#8217;t be changed if this is seted up.Essential parameter.</p>
+<li><p class="first"><strong>keep_ttl</strong> TTL won&#8217;t be changed if this is set. Mandatory parameter.</p>
 </li>
-<li><p class="first"><strong>sms_notice</strong> &#8220;me&#8221; for the owner,and &#8220;share&#8221; for the shared users.Split by &#8221;,&#8221; if there are more than one like &#8220;me,share&#8221;.Essential parameter.</p>
+<li><p class="first"><strong>sms_notice</strong> &#8220;me&#8221; for the owner,and &#8220;share&#8221; for the shared users.Split by &#8221;,&#8221; if there are more than one like &#8220;me,share&#8221;. Mandatory parameter.</p>
 </li>
 <li><p class="first"><strong>email_notice</strong> Same as the sms_notice.</p>
 </li>
-<li><p class="first"><strong>less_notice</strong> {yes|no} Whether to just send one notice withen one hour.Essential parameter.</p>
+<li><p class="first"><strong>less_notice</strong> {yes|no} Whether to just send one notice within one hour. Mandatory parameter.</p>
 </li>
 <li><p class="first"><strong>callback_url</strong>  The callback URL.All the data will be sent to this URL when the IP is down.For more details,please see the directions.Optional parameter.</p>
 </li>
-<li><p class="first"><strong>callback_key</strong> The callback key.If &#8220;callback_url&#8221; is set up,you shoul set this up too for sucurety.</p>
+<li><p class="first"><strong>callback_key</strong> The callback key.If &#8220;callback_url&#8221; is set up,you should set this up too for security.</p>
 </li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common response code.</li>
+<li>Common Response Codes</li>
 <li>7 Invalid monitor id.</li>
 <li>8 Invalid host.</li>
 <li>9 Invalid monitor port number that range from 1 to 65535.</li>
@@ -428,7 +424,7 @@
 <li>13 Invalid monitor points.</li>
 <li>14 Too many points.</li>
 <li>15 Invalid backup IP.</li>
-<li>16 Invalid bakcup url.</li>
+<li>16 Invalid backup url.</li>
 <li>17 Invalid backup IP.</li>
 <li>18 Invalid sms notice.</li>
 <li>19 Invalid email notice.</li>
@@ -437,10 +433,9 @@
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;monitor_id=51fc9a20-363c-11e2-bab7-0819a6248970&amp;port=80&amp;monitor_type=http&amp;monitor_path=/&amp;monitor_interval=360&amp;points=ctc,cuc,cmc&amp;bak_ip=pass&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Monitor.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;domain_id=2317346&amp;monitor_id=51fc9a20-363c-11e2-bab7-0819a6248970&amp;port=80&amp;monitor_type=http&amp;monitor_path=/&amp;monitor_interval=360&amp;points=ctc,cuc,cmc&amp;bak_ip=pass'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -460,34 +455,33 @@
 <div class="section" id="remove-a-monitor">
 <h2>Remove a Monitor<a class="headerlink" href="#remove-a-monitor" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
-<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Monitor.Remove">https://api.dnspod.com/Monitor.Remove</a></li>
+<li><a class="reference external" href="https://api.dnspod.com/Monitor.Remove">https://api.dnspod.com/Monitor.Remove</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
-<li>Global parameters</li>
+<li>Global Parameters</li>
 <li><strong>monitor_id</strong> I think we all know this is the monitor&#8217;s id.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common response code.</li>
+<li>Common Response Codes</li>
 <li>6 Invalid monitor id.</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.Modify -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;monitor_id=51fc9a20-363c-11e2-bab7-0819a6248970&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Monitor.Modify -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;monitor_id=51fc9a20-363c-11e2-bab7-0819a6248970'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -507,34 +501,33 @@
 <div class="section" id="get-the-monitor-information">
 <h2>Get the Monitor Information<a class="headerlink" href="#get-the-monitor-information" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Monitor.Info">https://api.dnspod.com/Monitor.Info</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
-<li>Global parameters</li>
+<li>Global Parameters</li>
 <li><strong>monitor_id</strong> The monitor&#8217;s id.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common response code.</li>
+<li>Common Response Codes</li>
 <li>7 Invalid monitor id.</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.Info -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;monitor_id=e91997aa-3641-11e2-bab7-0819a6248970&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Monitor.Info -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;monitor_id=e91997aa-3641-11e2-bab7-0819a6248970'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -583,44 +576,43 @@
 <div class="section" id="set-a-monitor-s-status">
 <h2>Set a Monitor&#8217;s Status<a class="headerlink" href="#set-a-monitor-s-status" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
-<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Monitor.Setstatus">https://api.dnspod.com/Monitor.Setstatus</a></li>
+<li><a class="reference external" href="https://api.dnspod.com/Monitor.Setstatus">https://api.dnspod.com/Monitor.Setstatus</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
-<li>Global parameters</li>
-<li><strong>monitor_id</strong> Monitor id.Essential parameter.</li>
-<li><strong>status</strong> {enabled|disabled} The new status.Essential status.</li>
+<li>Global Parameters</li>
+<li><strong>monitor_id</strong> Monitor id. Mandatory parameter.</li>
+<li><strong>status</strong> {enabled|disabled} The new status. Mandatory parameter.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common response code.</li>
+<li>Common Response Codes</li>
 <li>6 Invalid monitor id.</li>
 <li>7 Invalid new status.</li>
 <li>8 Please turn the domain on first.</li>
 <li>9 Please turn the record on first.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common response code.</li>
+<li>Common Response Codes</li>
 <li>6 Invalid monitor id.</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.Setstatus -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;monitor_id=03e3b268-3643-11e2-bab7-0819a6248970&amp;status=disable&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Monitor.Setstatus -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;monitor_id=03e3b268-3643-11e2-bab7-0819a6248970&amp;status=disable'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -640,35 +632,34 @@
 <div class="section" id="get-a-monitor-s-history">
 <h2>Get a Monitor&#8217;s History<a class="headerlink" href="#get-a-monitor-s-history" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
-<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Monitor.Gethistory">https://api.dnspod.com/Monitor.Gethistory</a></li>
+<li><a class="reference external" href="https://api.dnspod.com/Monitor.Gethistory">https://api.dnspod.com/Monitor.Gethistory</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
-<li>Global parameters</li>
-<li><strong>monitor_id</strong> Monitor id.Essential parameter.</li>
+<li>Global Parameters</li>
+<li><strong>monitor_id</strong> Monitor id. Mandatory parameter.</li>
 <li><strong>hours</strong> Within how many hours do you want to get the history.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common response code.</li>
+<li>Common Response Codes</li>
 <li>6 Invalid monitor id.</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.Setstatus -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;monitor_id=03e3b268-3643-11e2-bab7-0819a6248970&amp;hours=1&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Monitor.Setstatus -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;monitor_id=03e3b268-3643-11e2-bab7-0819a6248970&amp;hours=1'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -799,32 +790,31 @@
 <div class="section" id="get-a-monitor-s-description">
 <h2>Get a Monitor&#8217;s Description<a class="headerlink" href="#get-a-monitor-s-description" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="https://api.dnspod.com/Monitor.Userdesc">https://api.dnspod.com/Monitor.Userdesc</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
-<li>Global parameters</li>
+<li>Global Parameters</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common response code.</li>
+<li>Common Response Codes</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.Userdesc -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Monitor.Userdesc -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -853,34 +843,33 @@
 <div class="section" id="get-a-monitor-s-warnings">
 <h2>Get a Monitor&#8217;s Warnings<a class="headerlink" href="#get-a-monitor-s-warnings" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>URL：</dt>
+<dt>URL:</dt>
 <dd><ul class="first last simple">
-<li>&nbsp;<a class="reference external" href="https://api.dnspod.com/Monitor.Getdowns">https://api.dnspod.com/Monitor.Getdowns</a></li>
+<li><a class="reference external" href="https://api.dnspod.com/Monitor.Getdowns">https://api.dnspod.com/Monitor.Getdowns</a></li>
 </ul>
 </dd>
-<dt>Method：</dt>
+<dt>HTTP Request Type:</dt>
 <dd><ul class="first last simple">
 <li>POST</li>
 </ul>
 </dd>
-<dt>Request Parameters：</dt>
+<dt>Request Parameters:</dt>
 <dd><ul class="first last simple">
-<li>Global parameters</li>
+<li>Global Parameters</li>
 <li><strong>offset</strong> The offset of the response.The first is numbered 0.Optional parameter.</li>
 <li><strong>length</strong> The number of results you want get.Optional parameter.</li>
 </ul>
 </dd>
-<dt>Response Code：</dt>
+<dt>Response Code:</dt>
 <dd><ul class="first last simple">
-<li>Common response code.</li>
+<li>Common Response Codes</li>
 </ul>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -X POST https://api.dnspod.com/Monitor.Getdowns -d &#39;user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;offset=0&amp;length=10&#39;
-</pre></div>
+<div class="highlight-python"><pre>curl -X POST https://api.dnspod.com/Monitor.Getdowns -d 'user_token=730060,e1a8a$f14dc5dcbafd83680b3d2a553c4d553d&amp;format=json&amp;offset=0&amp;length=10'</pre>
 </div>
-<p>Response：</p>
+<p>Response Example:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">JSON:</p>
@@ -971,7 +960,7 @@
     </div>
     <div class="footer">
         &copy; Copyright DNSPod Inc.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
     </div>
   </body>
 </html>
